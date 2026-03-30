@@ -1,0 +1,43 @@
+@import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Anton", sans-serif;
+  --font-mono: "JetBrains Mono", ui-monospace, SFMono-Regular, monospace;
+  
+  --color-brand: #00FF00;
+  --color-dark: #000000;
+  --color-paper: #FFFFFF;
+}
+
+@layer base {
+  body {
+    @apply font-sans bg-paper text-dark;
+  }
+}
+
+@utility brutal-border {
+  border-width: 2px;
+  border-color: var(--color-dark);
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+
+@utility brutal-btn {
+  @apply brutal-border px-4 py-2 font-bold uppercase transition-all;
+  &:hover {
+    transform: translate(2px, 2px);
+    box-shadow: none;
+  }
+  &:active {
+    transform: translate(4px, 4px);
+  }
+}
+
+/* Prose overrides for brutalist look */
+.prose h1, .prose h2, .prose h3 {
+  @apply font-display uppercase leading-tight;
+}
+.prose strong {
+  @apply bg-brand px-1;
+}
