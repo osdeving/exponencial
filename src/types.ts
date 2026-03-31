@@ -138,6 +138,40 @@ export interface LessonAttempt {
   completedAt: string;
 }
 
+export interface CanonicalMasteryRecord {
+  canonicalId: string;
+  subsectionId: string;
+  bestScore: number;
+  latestScore: number;
+  attemptCount: number;
+  mastered: boolean;
+  lastLessonId: string;
+  updatedAt: string;
+}
+
+export interface CanonicalMasteryBucket {
+  subsectionId: string;
+  subsectionTitle: string;
+  branchTitle: string;
+  totalSkills: number;
+  masteredSkills: number;
+  attemptedSkills: number;
+  activeDebtSkills: number;
+  untouchedSkills: number;
+  masteryPercent: number;
+}
+
+export interface CanonicalMasteryOverview {
+  totalSkills: number;
+  masteredSkills: number;
+  attemptedSkills: number;
+  activeDebtSkills: number;
+  untouchedSkills: number;
+  masteryPercent: number;
+  buckets: CanonicalMasteryBucket[];
+  activeDebtBuckets: CanonicalMasteryBucket[];
+}
+
 export interface UserProgress {
   completedLessons: string[];
   lessonScores: Record<string, number>;
@@ -150,6 +184,7 @@ export interface UserProgress {
   streak: number;
   lastActiveDate: string | null;
   attempts: Record<string, LessonAttempt>;
+  canonicalMastery: Record<string, CanonicalMasteryRecord>;
 }
 
 export interface SearchResult {

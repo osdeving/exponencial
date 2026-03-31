@@ -1,5 +1,6 @@
 import { LESSONS, TOPICS } from '../content';
 import { BADGES, PATHS, getCanonicalPathId, getPathById } from '../config';
+import { buildCanonicalMasteryAfterLessonCompletion, normalizeCanonicalMastery } from './mastery';
 import {
   Badge,
   ContentStatus,
@@ -25,6 +26,7 @@ export const DEFAULT_PROGRESS: UserProgress = {
   streak: 0,
   lastActiveDate: null,
   attempts: {},
+  canonicalMastery: {},
 };
 
 export const DEFAULT_PROFILE: UserProfile = {
@@ -101,6 +103,7 @@ export function normalizeProgress(raw: unknown): UserProgress {
     streak: typeof value.streak === 'number' ? value.streak : 0,
     lastActiveDate: typeof value.lastActiveDate === 'string' ? value.lastActiveDate : null,
     attempts: normalizeAttempts(value.attempts),
+    canonicalMastery: normalizeCanonicalMastery(value.canonicalMastery),
   };
 }
 
@@ -484,6 +487,12 @@ export function buildProgressAfterLessonCompletion({
   const nextCompletedLessons = Array.from(new Set([...progress.completedLessons, lesson.id]));
   const nextScores = recomputeTopicScores(nextLessonScores);
   const nextPoints = progress.points + calculatePoints(score, total, isFirstCompletion);
+  const nextCanonicalMastery = buildCanonicalMasteryAfterLessonCompletion({
+    currentMastery: progress.canonicalMastery,
+    lesson,
+    percentage,
+    completedAt,
+  });
 
   const draftProgress: UserProgress = {
     ...progress,
@@ -502,6 +511,7 @@ export function buildProgressAfterLessonCompletion({
         completedAt,
       },
     },
+    canonicalMastery: nextCanonicalMastery,
   };
 
   const nextBadges = getEarnedBadges(draftProgress);

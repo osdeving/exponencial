@@ -1,9 +1,23 @@
-import React, { useRef } from 'react';
+import React, { useMemo, useRef } from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { BookOpen, Download, HardDrive, Medal, Star, Target, TrendingUp, Trophy, Upload, UserRound } from 'lucide-react';
+import {
+  AlertTriangle,
+  BookOpen,
+  Download,
+  HardDrive,
+  Medal,
+  ShieldCheck,
+  Star,
+  Target,
+  TrendingUp,
+  Trophy,
+  Upload,
+  UserRound,
+} from 'lucide-react';
 import { TOPICS } from '../content';
 import { BADGES, MOCK_RANKING } from '../config';
 import { resolveLucideIcon } from '../lib/icons';
+import { buildCanonicalMasteryOverview } from '../lib/mastery';
 import { UserProfile, UserProgress } from '../types';
 import { getTopicProgress } from '../lib/learning';
 
@@ -29,6 +43,9 @@ export const Dashboard: React.FC<DashboardProps> = ({
   onResetProgress,
 }) => {
   const importInputRef = useRef<HTMLInputElement>(null);
+  const masteryOverview = useMemo(() => buildCanonicalMasteryOverview(progress), [progress]);
+  const debtBuckets = masteryOverview.activeDebtBuckets.slice(0, 6);
+  const masteryCoverage = masteryOverview.totalSkills === 0 ? 0 : Math.round((masteryOverview.attemptedSkills / masteryOverview.totalSkills) * 100);
   const chartData = TOPICS.map((topic) => {
     const topicProgress = getTopicProgress(topic.id, progress);
 
@@ -47,7 +64,6 @@ export const Dashboard: React.FC<DashboardProps> = ({
             Object.values(progress.lessonScores).length,
         )
       : 0;
-  const masteredTopics = TOPICS.filter((topic) => getTopicProgress(topic.id, progress).averageScore === 100).length;
 
   const ranking = [...MOCK_RANKING, { name: profile?.name ?? 'Você', points: progress.points, avatar: '' }].sort(
     (left, right) => right.points - left.points,
@@ -104,7 +120,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-4 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6 mb-12">
         <div className="brutal-border p-6 bg-brand flex items-center gap-4">
           <div className="p-3 bg-white brutal-border">
             <BookOpen size={24} />
@@ -137,11 +153,24 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
         <div className="brutal-border p-6 bg-dark text-white flex items-center gap-4">
           <div className="p-3 bg-brand text-dark brutal-border">
-            <Trophy size={24} />
+            <ShieldCheck size={24} />
           </div>
           <div>
-            <p className="text-sm font-bold uppercase opacity-70">Tópicos dominados</p>
-            <p className="text-4xl font-display">{masteredTopics}</p>
+            <p className="text-sm font-bold uppercase opacity-70">Habilidades dominadas</p>
+            <p className="text-4xl font-display">
+              {masteryOverview.masteredSkills}
+              <span className="text-lg">/{masteryOverview.totalSkills}</span>
+            </p>
+          </div>
+        </div>
+
+        <div className="brutal-border p-6 bg-red-200 flex items-center gap-4">
+          <div className="p-3 bg-white brutal-border">
+            <AlertTriangle size={24} />
+          </div>
+          <div>
+            <p className="text-sm font-bold uppercase opacity-70">Dívida ativa</p>
+            <p className="text-4xl font-display">{masteryOverview.activeDebtSkills}</p>
           </div>
         </div>
       </div>
@@ -164,6 +193,80 @@ export const Dashboard: React.FC<DashboardProps> = ({
                 </BarChart>
               </ResponsiveContainer>
             </div>
+          </div>
+
+          <div className="brutal-border p-8 bg-white">
+            <div className="flex flex-col gap-3 md:flex-row md:items-end md:justify-between mb-8">
+              <div>
+                <h3 className="font-display text-2xl uppercase">Dívida Matemática</h3>
+                <p className="text-sm font-medium mt-2 max-w-2xl">
+                  O ledger canônico já rastreia {masteryOverview.attemptedSkills} de {masteryOverview.totalSkills}{' '}
+                  habilidades mapeadas. Hoje, {masteryOverview.activeDebtSkills} ainda precisam passar do corte de{' '}
+                  80%.
+                </p>
+              </div>
+              <div className="inline-flex items-center gap-2 bg-brand px-3 py-2 brutal-border text-[10px] font-bold uppercase tracking-[0.2em]">
+                <ShieldCheck size={14} />
+                <span>Cobertura {masteryCoverage}%</span>
+              </div>
+            </div>
+
+            {debtBuckets.length > 0 ? (
+              <div className="space-y-4">
+                {debtBuckets.map((bucket) => {
+                  const debtPercent =
+                    bucket.totalSkills === 0 ? 0 : Math.round((bucket.activeDebtSkills / bucket.totalSkills) * 100);
+
+                  return (
+                    <div key={bucket.subsectionId} className="brutal-border p-4 bg-stone-50">
+                      <div className="flex flex-col gap-2 md:flex-row md:items-start md:justify-between">
+                        <div>
+                          <p className="text-[10px] font-bold uppercase tracking-[0.24em] opacity-50">
+                            {bucket.branchTitle}
+                          </p>
+                          <h4 className="font-bold text-lg">{bucket.subsectionTitle}</h4>
+                        </div>
+                        <div className="text-right">
+                          <p className="text-[10px] font-bold uppercase tracking-[0.24em] opacity-50">Em dívida</p>
+                          <p className="font-display text-3xl">{bucket.activeDebtSkills}</p>
+                        </div>
+                      </div>
+
+                      <div className="grid grid-cols-2 md:grid-cols-4 gap-3 mt-4 text-xs font-bold uppercase">
+                        <div className="brutal-border bg-white px-3 py-2">
+                          <span className="opacity-50 block mb-1">Domínio</span>
+                          <span>{bucket.masteredSkills}/{bucket.totalSkills}</span>
+                        </div>
+                        <div className="brutal-border bg-white px-3 py-2">
+                          <span className="opacity-50 block mb-1">Tentadas</span>
+                          <span>{bucket.attemptedSkills}</span>
+                        </div>
+                        <div className="brutal-border bg-white px-3 py-2">
+                          <span className="opacity-50 block mb-1">Intocadas</span>
+                          <span>{bucket.untouchedSkills}</span>
+                        </div>
+                        <div className="brutal-border bg-white px-3 py-2">
+                          <span className="opacity-50 block mb-1">Cobertura</span>
+                          <span>{debtPercent}% em risco</span>
+                        </div>
+                      </div>
+
+                      <div className="mt-4 h-4 brutal-border bg-white overflow-hidden">
+                        <div className="h-full bg-brand border-r-2 border-dark" style={{ width: `${bucket.masteryPercent}%` }} />
+                      </div>
+                    </div>
+                  );
+                })}
+              </div>
+            ) : (
+              <div className="brutal-border p-5 bg-stone-50">
+                <p className="font-bold uppercase text-sm">Sem dívida ativa agora.</p>
+                <p className="text-sm font-medium mt-2">
+                  Continue praticando para o ledger identificar os blocos que já passaram no corte e os que ainda
+                  precisam de reforço.
+                </p>
+              </div>
+            )}
           </div>
 
           <div className="brutal-border p-8 bg-white">

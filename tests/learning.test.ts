@@ -41,6 +41,21 @@ test('normalizeProgress saneia payload persistido sem quebrar o contrato', () =>
         completedAt: '2026-03-30T10:00:00.000Z',
       },
     },
+    canonicalMastery: {
+      'NUM.06.01': {
+        subsectionId: 'NUM.06',
+        bestScore: 80,
+        latestScore: 80,
+        attemptCount: 1,
+        mastered: true,
+        lastLessonId: 'fractions-intro',
+        updatedAt: '2026-03-30T10:00:00.000Z',
+      },
+      broken: {
+        subsectionId: 'BROKEN',
+        bestScore: '80',
+      },
+    },
   });
 
   assert.deepEqual(normalized.completedLessons, ['fractions-intro']);
@@ -58,6 +73,18 @@ test('normalizeProgress saneia payload persistido sem quebrar o contrato', () =>
       score: 4,
       total: 5,
       completedAt: '2026-03-30T10:00:00.000Z',
+    },
+  });
+  assert.deepEqual(normalized.canonicalMastery, {
+    'NUM.06.01': {
+      canonicalId: 'NUM.06.01',
+      subsectionId: 'NUM.06',
+      bestScore: 80,
+      latestScore: 80,
+      attemptCount: 1,
+      mastered: true,
+      lastLessonId: 'fractions-intro',
+      updatedAt: '2026-03-30T10:00:00.000Z',
     },
   });
 });
@@ -158,6 +185,9 @@ test('buildProgressAfterLessonCompletion atualiza pontuação, tentativa e próx
     total: 5,
     completedAt: '2026-03-30T10:00:00.000Z',
   });
+  assert.equal(firstAttempt.canonicalMastery['NUM.06.01']?.bestScore, 80);
+  assert.equal(firstAttempt.canonicalMastery['NUM.06.01']?.mastered, true);
+  assert.equal(firstAttempt.canonicalMastery['NUM.06.08']?.attemptCount, 1);
   assert.equal(getRecommendedLesson(firstAttempt)?.id, 'fractions-operations');
 
   const secondAttempt = buildProgressAfterLessonCompletion({
@@ -177,4 +207,7 @@ test('buildProgressAfterLessonCompletion atualiza pontuação, tentativa e próx
     total: 5,
     completedAt: '2026-03-31T09:00:00.000Z',
   });
+  assert.equal(secondAttempt.canonicalMastery['NUM.06.01']?.bestScore, 80);
+  assert.equal(secondAttempt.canonicalMastery['NUM.06.01']?.latestScore, 60);
+  assert.equal(secondAttempt.canonicalMastery['NUM.06.01']?.attemptCount, 2);
 });
