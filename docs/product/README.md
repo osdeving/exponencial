@@ -7,8 +7,9 @@ Ordem de leitura recomendada:
 1. [vision-roadmap.md](vision-roadmap.md)
 2. [functional-spec.md](functional-spec.md)
 3. [non-functional-requirements.md](non-functional-requirements.md)
-4. [../delivery/trunk-based-delivery.md](../delivery/trunk-based-delivery.md)
-5. [../architecture.md](../architecture.md)
+4. [../automation/README.md](../automation/README.md) se a leitura tocar execução contínua, operação autônoma ou backlog automático
+5. [../delivery/trunk-based-delivery.md](../delivery/trunk-based-delivery.md)
+6. [../architecture.md](../architecture.md)
 
 ## O que estes arquivos respondem
 
@@ -18,6 +19,7 @@ Ordem de leitura recomendada:
 - quais histórias e capacidades entram em cada etapa
 - quais requisitos não funcionais precisam ser respeitados
 - como o time entrega isso em trunk-based no GitHub
+- como o loop autônomo escolhe a próxima fatia sem inventar produto
 
 ## Regra prática
 
