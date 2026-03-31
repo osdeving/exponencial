@@ -18,6 +18,10 @@ Hoje a base do produto já permite:
 - teoria, exercícios e gabaritos em fontes declarativas
 - renderer web estável para teoria e prática
 - progresso e perfil locais
+- contrato explícito de storage/session com backup local
+- trilhas default geradas a partir da taxonomia
+- ledger local de domínio por `canonicalId`
+- dashboard inicial de dívida matemática
 - gamificação inicial ainda simples
 
 Hoje ainda não existe:
@@ -27,7 +31,6 @@ Hoje ainda não existe:
 - trava de domínio real por habilidade canônica
 - recuperação obrigatória
 - repetição espaçada inteligente
-- trilhas dinâmicas geradas pelo mapa curricular
 
 ## Princípios de produto
 
@@ -100,26 +103,28 @@ Isso existe para validar:
 
 ### Release R0: Foundation Loop
 
+Status atual: `em andamento`
+
 Objetivo: validar o loop básico do produto em modo single-user, com governança de entrega e base local-first sólida.
 
 Escopo:
 
-- documentação de produto, arquitetura e entrega
-- trunk-based com CI, templates e releases
-- melhoria das trilhas default a partir da taxonomia
-- contrato explícito de storage e sessão, mantendo adapter local como implementação padrão
-- perfil local e progresso local mais consistentes
-- placeholders suficientes para validar os fluxos centrais
-- telemetria mínima de produto para estudar o loop principal
+- [x] documentação de produto, arquitetura e entrega
+- [x] trunk-based com CI, templates e releases
+- [x] melhoria das trilhas default a partir da taxonomia
+- [x] contrato explícito de storage e sessão, mantendo adapter local como implementação padrão
+- [x] perfil local e progresso local mais consistentes
+- [x] placeholders suficientes para validar os fluxos centrais
+- [ ] telemetria mínima de produto para estudar o loop principal
 
 Artefatos de entrega:
 
-- PRD e roadmap publicados
-- arquitetura-alvo documentada
-- contrato de storage/session documentado
-- CI obrigatória
-- templates de issue e PR
-- milestones de release
+- [x] PRD e roadmap publicados
+- [x] arquitetura-alvo documentada
+- [x] contrato de storage/session documentado
+- [x] CI obrigatória
+- [x] templates de issue e PR
+- [x] milestones de release
 
 Critério de sucesso:
 
@@ -127,28 +132,32 @@ Critério de sucesso:
 
 ### Release R1: Mastery Engine
 
+Status atual: `em andamento`
+
 Objetivo: transformar o app em uma plataforma com avanço por domínio.
 
 Escopo:
 
-- modelo de mastery por `canonicalId`
-- critérios mínimos de aprovação por lição e tópico
-- bloqueio de avanço quando o aluno não passa
-- dashboard de dívida matemática
-- novas trilhas default guiadas por objetivo
+- [x] modelo de mastery por `canonicalId`
+- [ ] critérios mínimos de aprovação por lição e tópico
+- [ ] bloqueio de avanço quando o aluno não passa
+- [x] dashboard de dívida matemática
+- [x] novas trilhas default guiadas por objetivo
 
 Artefatos de entrega:
 
-- contratos de domínio
-- regras de desbloqueio
-- métricas de aprovação
-- eventos analíticos principais
+- [x] contratos de domínio
+- [ ] regras de desbloqueio
+- [ ] métricas de aprovação
+- [ ] eventos analíticos principais
 
 Critério de sucesso:
 
 - o aluno não consegue avançar sem atingir o patamar definido para o bloco atual
 
 ### Release R2: Recovery Loop
+
+Status atual: `planejado`
 
 Objetivo: transformar erro em gatilho de recuperação obrigatória.
 
@@ -172,6 +181,8 @@ Critério de sucesso:
 
 ### Release R3: Retention Engine
 
+Status atual: `planejado`
+
 Objetivo: reduzir esquecimento por revisão inteligente.
 
 Escopo:
@@ -193,6 +204,8 @@ Critério de sucesso:
 - habilidades dominadas voltam para revisão no tempo certo e o aluno enxerga a fila de manutenção
 
 ### Release R4: Challenge Economy
+
+Status atual: `planejado`
 
 Objetivo: transformar domínio em compromisso mensurável, com persistência confiável e modelo comercial sólido.
 
@@ -220,11 +233,12 @@ Critério de sucesso:
 
 ## Onde estamos hoje
 
-Hoje o projeto está entre a pré-base e o início de R0:
+Hoje o projeto está entre o fechamento de R0 e o início de R1:
 
 - arquitetura de conteúdo já está pronta para escala
-- governança de produto e entrega está sendo formalizada
-- o próximo salto real é fortalecer o loop single-user com trilhas, domínio local e contrato de storage bem definido
+- governança de produto e entrega já está formalizada
+- trilhas e storage local-first já foram fortalecidos
+- o próximo salto real é transformar o ledger em trava de avanço, remediação e repetição espaçada
 
 ## O que não vamos fazer agora
 

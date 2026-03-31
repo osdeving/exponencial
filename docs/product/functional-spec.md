@@ -202,20 +202,26 @@ O app deve fornecer visibilidade clara de status, bloqueios, revisões pendentes
 
 ### Epic A: Plataforma Base
 
-- perfil local mais robusto
-- contrato de storage/session
-- trilhas default guiadas pela taxonomia
-- telemetria mínima
-- placeholders para validação do loop
+Status atual: `em andamento`
+
+- [x] perfil local mais robusto
+- [x] contrato de storage/session
+- [x] trilhas default guiadas pela taxonomia
+- [ ] telemetria mínima
+- [x] placeholders para validação do loop
 
 ### Epic B: Mastery
 
-- mastery ledger
-- travas de avanço
-- score por habilidade
-- dashboard de dívida matemática
+Status atual: `em andamento`
+
+- [x] mastery ledger
+- [ ] travas de avanço
+- [x] score por habilidade
+- [x] dashboard de dívida matemática
 
 ### Epic C: Recovery
+
+Status atual: `planejado`
 
 - erro para lacuna
 - revisão obrigatória
@@ -223,11 +229,15 @@ O app deve fornecer visibilidade clara de status, bloqueios, revisões pendentes
 
 ### Epic D: Retention
 
+Status atual: `planejado`
+
 - fila de revisão
 - spaced repetition
 - histórico de recall
 
 ### Epic E: Challenge
+
+Status atual: `planejado`
 
 - campanha de conclusão
 - ranking mais sério
@@ -235,6 +245,8 @@ O app deve fornecer visibilidade clara de status, bloqueios, revisões pendentes
 - políticas de elegibilidade comercial
 
 ### Epic F: Accounts & Cloud Sync
+
+Status atual: `planejado`
 
 - autenticação de aluno
 - sincronização entre dispositivos

@@ -23,7 +23,8 @@ Leituras complementares:
 - frontend estático em React 19 + Vite
 - deploy em GitHub Pages
 - conteúdo curricular empacotado a partir de Markdown gerado em `src/generated/*`
-- persistência local em `localStorage` para perfil, progresso e tutor
+- persistência local em `localStorage` para perfil, progresso, tutor e snapshots
+- ledger local de domínio por `canonicalId`, ainda sem trava de avanço
 
 Esse runtime é suficiente para validar:
 
@@ -32,6 +33,7 @@ Esse runtime é suficiente para validar:
 - fluxo de exercícios
 - contratos de conteúdo
 - partes da gamificação local
+- dívida matemática inicial por habilidade canônica
 
 Ele ainda não é o runtime final do produto.
 
@@ -107,6 +109,7 @@ A composição deixou de depender de um arquivo-bal­de único.
 ### 4. Domínio e regras
 
 - `src/lib/learning.ts`: busca, progresso, badges, recomendação, trilhas
+- `src/lib/mastery.ts`: ledger de domínio canônico e resumo de dívida matemática
 - `src/lib/questions.ts`: interpretação de questões
 - `src/lib/tutor.ts`: tutor local baseado em regras
 
@@ -147,6 +150,10 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
 - **A persistência do aluno ainda é local**.
   - O estado atual serve para prototipação.
   - O roadmap agora assume consolidar o loop local-first antes da migração para nuvem.
+- **O mastery engine ainda está incompleto**.
+  - O ledger local por `canonicalId` já existe.
+  - O dashboard de dívida matemática também.
+  - Ainda faltam trava de avanço, regras de desbloqueio e remediação.
 - **A solução passo a passo está preparada, mas não no estágio final de animação rica**.
   - O schema declarativo já existe.
   - O renderer já entende passos, rascunho e algoritmo.
@@ -255,6 +262,7 @@ Se você quer:
 - Soluções passo a passo também já entram por contrato declarativo.
 - O renderer existe e consome contratos gerados, com teoria e prática lazy por lição.
 - O principal débito agora está na evolução do renderer de solução, na configuração de produto e em manter `canonicalIds` explícitos no próprio conteúdo.
+- O mastery local já existe, mas ainda não é um gate de progressão.
 - O melhor lugar para mexer depende do tipo de mudança.
 - `src/components/QuestionSolutionView.tsx` e `src/config/*` são os principais pontos de atenção em escala.
-- O próximo salto arquitetural relevante é explicitar contratos de storage/session para fortalecer o modo local-first sem quebrar o modelo content-driven.
+- O próximo salto arquitetural relevante é transformar o ledger local em regras explícitas de bloqueio, recuperação e repetição espaçada sem quebrar o modelo content-driven.
