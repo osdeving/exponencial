@@ -1,5 +1,6 @@
 import React from 'react';
 import { useLessonContent } from '../content/useLessonContent';
+import { getContentStatusLabel } from '../lib/learning';
 import { Lesson, Topic } from '../types';
 import { ArrowLeft, BookOpen, Play, Clock3, Target, CheckCircle2 } from 'lucide-react';
 import { MarkdownContent } from './MarkdownContent';
@@ -68,7 +69,7 @@ export const LessonView: React.FC<LessonViewProps> = ({
                   {questionCount} exercícios
                 </span>
                 <span className="brutal-border bg-white px-3 py-1 text-[10px] font-bold uppercase">
-                  {lesson.status === 'ready' ? 'conteúdo pronto' : 'estrutura pronta'}
+                  {getContentStatusLabel(lesson.status)}
                 </span>
               </div>
             )}

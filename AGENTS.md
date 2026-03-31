@@ -14,7 +14,8 @@ Leia estes arquivos antes de editar:
 
 1. [docs/architecture.md](docs/architecture.md)
 2. [docs/content-authoring.md](docs/content-authoring.md)
-3. o skill mais adequado em `.codex/skills/`
+3. [docs/estrutura/00_README.md](docs/estrutura/00_README.md) se a tarefa for curricular ou de taxonomia
+4. o skill mais adequado em `.codex/skills/`
 
 ## Onde mexer
 
@@ -24,11 +25,14 @@ Leia estes arquivos antes de editar:
 - lições: `src/content/**/*.md`
 - exercícios/gabaritos: `src/content/**/*.questions.md`
 - scaffold base: `scripts/curriculum-seed.mjs`
+- taxonomia canônica: `docs/estrutura/*`
+- ponte canônica temporária: `scripts/canonical-topic-map.mjs`
 
 ### Geração
 
 - parser e manifesto: `scripts/content-utils.mjs`
 - parser de questões: `scripts/question-utils.mjs`
+- leitura da taxonomia: `scripts/canonical-taxonomy.mjs`
 - geração do manifesto: `scripts/generate-content-manifest.mjs`
 - scaffold automático: `scripts/scaffold-curriculum.mjs`
 
@@ -67,10 +71,12 @@ Então:
 
 - Nunca editar `src/generated/content-manifest.ts` manualmente.
 - Nunca editar `src/generated/lesson-content-index.ts` ou `src/generated/question-index.ts` manualmente.
+- Nunca editar `src/generated/canonical-taxonomy.ts` ou `src/generated/topic-taxonomy.ts` manualmente.
 - Nunca misturar conteúdo curricular em componentes React se a alteração puder viver em conteúdo/configuração.
 - Não commitar PDFs de origem nem artefatos de OCR.
 - `public/materials/` não faz parte do fluxo final e não deve voltar a ser dependência da app.
 - Mudanças em conteúdo devem validar:
+  - `npm run content:scaffold` se a grade base tiver mudado
   - `npm run content:generate`
   - `npm run lint`
   - `npm run build`
@@ -82,6 +88,7 @@ O projeto ainda não chegou no estado ideal. Ao mexer, trate estes pontos como d
 - `src/app/useAppController.ts` agora é uma composição mais fina, mas ainda junta hooks de navegação, catálogo, perfil e progresso.
 - `src/components/QuestionSolutionView.tsx` já suporta passos estruturados, mas ainda não anima escrita caractere a caractere nem desenhos matemáticos.
 - ranking e trilhas continuam estáticos em `src/config/*`; se crescerem muito, extraia contratos e fontes dedicadas.
+- a cobertura canônica ampla depende de `docs/estrutura/*` e de um mapeamento de compatibilidade em `scripts/canonical-topic-map.mjs`; prefira mover esse conhecimento para frontmatter quando tocar em tópicos reais.
 
 ## Regra de decisão
 
@@ -90,6 +97,7 @@ Se o pedido do usuário for:
 - **"adicionar/remover lição"**: mexa em `src/content/**`
 - **"mudar texto"**: mexa em Markdown
 - **"mudar exercício/gabarito"**: mexa em `src/content/**/*.questions.md`
+- **"expandir ou reorganizar a grade base"**: mexa em `docs/estrutura/*`, `scripts/canonical-topic-map.mjs` e rode `npm run content:scaffold`
 - **"mudar resolução passo a passo"**: mexa primeiro em `src/content/**/*.questions.md`; só depois ajuste `QuestionSolutionView` se o schema não cobrir o caso
 - **"mudar regra de progresso ou busca"**: mexa em `src/lib/learning.ts`
 - **"mudar visual/comportamento"**: mexa em `src/app/*` e `src/components/*`, extraindo lógica do controller em vez de reinflar o shell

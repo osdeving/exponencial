@@ -59,8 +59,11 @@ export default function App() {
           {state.view === 'home' && (
             <motion.div key="home" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
               <HomeView
+                availableBranchFilters={derived.availableBranchFilters}
+                branchFilter={state.branchFilter}
                 communitySectionRef={refs.communitySectionRef}
                 filteredTopics={derived.filteredTopics}
+                groupedTopics={derived.groupedTopics}
                 levelFilter={state.levelFilter}
                 nextRecommendedLesson={derived.nextRecommendedLesson}
                 nextRecommendedTopic={derived.nextRecommendedTopic}
@@ -69,8 +72,10 @@ export default function App() {
                 progress={state.progress}
                 searchQuery={state.searchQuery}
                 searchResults={derived.searchResults}
+                statusFilter={state.statusFilter}
                 suggestedPath={derived.suggestedPath}
                 topicsSectionRef={refs.topicsSectionRef}
+                onBranchFilterChange={actions.setBranchFilter}
                 onLevelFilterChange={actions.setLevelFilter}
                 onOpenDashboard={actions.openDashboard}
                 onOpenHomeSection={actions.openHomeSection}
@@ -79,6 +84,7 @@ export default function App() {
                 onSearchSelection={actions.selectSearchResult}
                 onStartPath={actions.startPath}
                 onStartRecommendedFlow={actions.startRecommendedFlow}
+                onStatusFilterChange={actions.setStatusFilter}
                 onTopicSelect={actions.selectTopic}
               />
             </motion.div>

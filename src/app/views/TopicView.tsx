@@ -1,4 +1,5 @@
 import { getQuestionCountByLessonId } from '../../content/queries';
+import { getContentStatusLabel } from '../../lib/learning';
 import { Lesson, Topic, UserProgress } from '../../types';
 
 interface TopicViewProps {
@@ -70,7 +71,7 @@ export function TopicView({
                   <span>{lesson.difficulty}</span>
                   <span>{lesson.estimatedMinutes} min</span>
                   <span>{getQuestionCountByLessonId(lesson.id)} exercícios</span>
-                  <span>{lesson.status === 'ready' ? 'conteúdo pronto' : 'estrutura pronta'}</span>
+                  <span>{getContentStatusLabel(lesson.status)}</span>
                   {typeof bestScore === 'number' && <span>Melhor nota {bestScore}%</span>}
                   {attempt && <span>Última tentativa {attempt.score}/{attempt.total}</span>}
                 </div>

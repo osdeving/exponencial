@@ -18,7 +18,8 @@ export const TOPICS: Topic[] = [
       "numeros",
       "operacoes",
       "divisibilidade"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "fractions",
@@ -32,7 +33,8 @@ export const TOPICS: Topic[] = [
     "tags": [
       "fracoes",
       "racionais"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "decimal-numbers",
@@ -47,7 +49,8 @@ export const TOPICS: Topic[] = [
       "decimais",
       "medidas",
       "dinheiro"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "geometry-basics",
@@ -62,7 +65,8 @@ export const TOPICS: Topic[] = [
       "geometria",
       "perimetro",
       "area"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "integers",
@@ -77,7 +81,8 @@ export const TOPICS: Topic[] = [
       "inteiros",
       "sinais",
       "reta numerica"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "ratio-proportion-percentage",
@@ -92,7 +97,8 @@ export const TOPICS: Topic[] = [
       "razao",
       "proporcao",
       "porcentagem"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "algebra-foundations",
@@ -107,7 +113,8 @@ export const TOPICS: Topic[] = [
       "algebra",
       "expressoes",
       "padroes"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "angles-polygons",
@@ -121,7 +128,8 @@ export const TOPICS: Topic[] = [
     "tags": [
       "angulos",
       "poligonos"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "linear-equations",
@@ -136,7 +144,8 @@ export const TOPICS: Topic[] = [
       "equacoes",
       "1-grau",
       "algebra"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "linear-systems",
@@ -150,7 +159,8 @@ export const TOPICS: Topic[] = [
     "tags": [
       "sistemas",
       "equacoes"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "powers-roots",
@@ -165,7 +175,8 @@ export const TOPICS: Topic[] = [
       "potencias",
       "raizes",
       "notacao-cientifica"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "statistics-probability",
@@ -180,7 +191,8 @@ export const TOPICS: Topic[] = [
       "estatistica",
       "probabilidade",
       "graficos"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "functions",
@@ -195,7 +207,8 @@ export const TOPICS: Topic[] = [
       "funcoes",
       "graficos",
       "plano-cartesiano"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "quadratic-equations",
@@ -210,7 +223,8 @@ export const TOPICS: Topic[] = [
       "equacoes",
       "2-grau",
       "bhaskara"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "geometry-similarity",
@@ -225,7 +239,8 @@ export const TOPICS: Topic[] = [
       "semelhanca",
       "pitagoras",
       "triangulos"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "spatial-geometry",
@@ -240,7 +255,8 @@ export const TOPICS: Topic[] = [
       "espacial",
       "volume",
       "solidos"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "function-affine",
@@ -255,7 +271,8 @@ export const TOPICS: Topic[] = [
       "funcao-afim",
       "reta",
       "taxa-de-variacao"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "function-quadratic",
@@ -269,7 +286,8 @@ export const TOPICS: Topic[] = [
     "tags": [
       "funcao-quadratica",
       "parabola"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "trigonometry",
@@ -283,7 +301,8 @@ export const TOPICS: Topic[] = [
     "tags": [
       "trigonometria",
       "triangulo-retangulo"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "combinatorics-probability",
@@ -297,7 +316,8 @@ export const TOPICS: Topic[] = [
     "tags": [
       "combinatoria",
       "probabilidade"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "exponential-logarithmic",
@@ -311,7 +331,8 @@ export const TOPICS: Topic[] = [
     "tags": [
       "exponencial",
       "logaritmo"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "progressions",
@@ -326,7 +347,8 @@ export const TOPICS: Topic[] = [
       "pa",
       "pg",
       "sequencias"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "analytic-geometry",
@@ -341,7 +363,8 @@ export const TOPICS: Topic[] = [
       "geometria-analitica",
       "reta",
       "plano-cartesiano"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "matrices-systems",
@@ -356,7 +379,8 @@ export const TOPICS: Topic[] = [
       "matrizes",
       "determinantes",
       "sistemas"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "polynomials",
@@ -370,7 +394,8 @@ export const TOPICS: Topic[] = [
     "tags": [
       "polinomios",
       "fatoracao"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "complex-numbers",
@@ -384,7 +409,8 @@ export const TOPICS: Topic[] = [
     "tags": [
       "complexos",
       "imaginaros"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "descriptive-statistics",
@@ -399,7 +425,8 @@ export const TOPICS: Topic[] = [
       "estatistica",
       "dados",
       "graficos"
-    ]
+    ],
+    "canonicalIds": []
   },
   {
     "id": "math-finance",
@@ -414,6 +441,353 @@ export const TOPICS: Topic[] = [
       "juros",
       "financeira",
       "porcentagem"
+    ],
+    "canonicalIds": []
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "Linguagem matemática e estruturas lógicas",
+    "description": "Estrutura canônica de linguagem matemática e estruturas lógicas, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "1ª série",
+    "category": "Lógica, linguagem matemática e conjuntos",
+    "icon": "Braces",
+    "order": 1000,
+    "tags": [
+      "set-01",
+      "opcional",
+      "avancado"
+    ],
+    "canonicalIds": [
+      "SET.01"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "Teoria elementar dos conjuntos",
+    "description": "Estrutura canônica de teoria elementar dos conjuntos, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "6º ano",
+    "category": "Lógica, linguagem matemática e conjuntos",
+    "icon": "Braces",
+    "order": 1001,
+    "tags": [
+      "set-02",
+      "opcional"
+    ],
+    "canonicalIds": [
+      "SET.02"
+    ]
+  },
+  {
+    "id": "set-03-relacoes-e-correspondencias",
+    "title": "Relações e correspondências",
+    "description": "Estrutura canônica de relações e correspondências, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "8º ano",
+    "category": "Lógica, linguagem matemática e conjuntos",
+    "icon": "Braces",
+    "order": 1002,
+    "tags": [
+      "set-03",
+      "ponte"
+    ],
+    "canonicalIds": [
+      "SET.03"
+    ]
+  },
+  {
+    "id": "num-05-numeros-racionais",
+    "title": "Números racionais",
+    "description": "Estrutura canônica de números racionais, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "6º ano ao 7º ano",
+    "category": "Números, operações, frações, razão e estruturas aritméticas",
+    "icon": "Calculator",
+    "order": 1007,
+    "tags": [
+      "num-05",
+      "intermediario"
+    ],
+    "canonicalIds": [
+      "NUM.05"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "Produtos notáveis e fatoração",
+    "description": "Estrutura canônica de produtos notáveis e fatoração, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "8º ano",
+    "category": "Álgebra, expressões, equações, polinômios e estruturas simbólicas",
+    "icon": "Variable",
+    "order": 1016,
+    "tags": [
+      "alg-02",
+      "opcional"
+    ],
+    "canonicalIds": [
+      "ALG.02"
+    ]
+  },
+  {
+    "id": "alg-03-fracoes-algebricas",
+    "title": "Frações algébricas",
+    "description": "Estrutura canônica de frações algébricas, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "9º ano",
+    "category": "Álgebra, expressões, equações, polinômios e estruturas simbólicas",
+    "icon": "Variable",
+    "order": 1017,
+    "tags": [
+      "alg-03"
+    ],
+    "canonicalIds": [
+      "ALG.03"
+    ]
+  },
+  {
+    "id": "fun-04-funcoes-modulo-racional-e-potencia",
+    "title": "Funções módulo, racional e potência",
+    "description": "Estrutura canônica de funções módulo, racional e potência, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "1ª série",
+    "category": "Funções e modelagem algébrica",
+    "icon": "ChartSpline",
+    "order": 1028,
+    "tags": [
+      "fun-04"
+    ],
+    "canonicalIds": [
+      "FUN.04"
+    ]
+  },
+  {
+    "id": "geo-01-nocoes-fundamentais-de-geometria",
+    "title": "Noções fundamentais de geometria",
+    "description": "Estrutura canônica de noções fundamentais de geometria, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "6º ano",
+    "category": "Geometria plana, espacial, medidas e construções",
+    "icon": "Ruler",
+    "order": 1030,
+    "tags": [
+      "geo-01",
+      "intermediario"
+    ],
+    "canonicalIds": [
+      "GEO.01"
+    ]
+  },
+  {
+    "id": "geo-05-quadrilateros-e-poligonos-notaveis",
+    "title": "Quadriláteros e polígonos notáveis",
+    "description": "Estrutura canônica de quadriláteros e polígonos notáveis, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "7º ano",
+    "category": "Geometria plana, espacial, medidas e construções",
+    "icon": "Ruler",
+    "order": 1034,
+    "tags": [
+      "geo-05"
+    ],
+    "canonicalIds": [
+      "GEO.05"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo",
+    "title": "Circunferência e círculo",
+    "description": "Estrutura canônica de circunferência e círculo, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "8º ano",
+    "category": "Geometria plana, espacial, medidas e construções",
+    "icon": "Ruler",
+    "order": 1035,
+    "tags": [
+      "geo-06"
+    ],
+    "canonicalIds": [
+      "GEO.06"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "Transformações geométricas e construções",
+    "description": "Estrutura canônica de transformações geométricas e construções, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "4º ano ao 8º ano",
+    "category": "Geometria plana, espacial, medidas e construções",
+    "icon": "Ruler",
+    "order": 1036,
+    "tags": [
+      "geo-07",
+      "intermediario",
+      "opcional",
+      "elementar",
+      "avancado"
+    ],
+    "canonicalIds": [
+      "GEO.07"
+    ]
+  },
+  {
+    "id": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas",
+    "title": "Ciclo trigonométrico e funções trigonométricas",
+    "description": "Estrutura canônica de ciclo trigonométrico e funções trigonométricas, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "2ª série",
+    "category": "Trigonometria",
+    "icon": "Triangle",
+    "order": 1041,
+    "tags": [
+      "tri-02",
+      "intermediario",
+      "avancado"
+    ],
+    "canonicalIds": [
+      "TRI.02"
+    ]
+  },
+  {
+    "id": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas",
+    "title": "Identidades, transformações e equações trigonométricas",
+    "description": "Estrutura canônica de identidades, transformações e equações trigonométricas, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "2ª série",
+    "category": "Trigonometria",
+    "icon": "Triangle",
+    "order": 1042,
+    "tags": [
+      "tri-03",
+      "avancado"
+    ],
+    "canonicalIds": [
+      "TRI.03"
+    ]
+  },
+  {
+    "id": "age-03-circunferencia",
+    "title": "Circunferência",
+    "description": "Estrutura canônica de circunferência, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Fundamental",
+    "stage": "9º ano ao 1ª série",
+    "category": "Geometria analítica e vetores",
+    "icon": "Map",
+    "order": 1045,
+    "tags": [
+      "age-03",
+      "intermediario",
+      "avancado"
+    ],
+    "canonicalIds": [
+      "AGE.03"
+    ]
+  },
+  {
+    "id": "age-04-conicas",
+    "title": "Cônicas",
+    "description": "Estrutura canônica de cônicas, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "2ª série",
+    "category": "Geometria analítica e vetores",
+    "icon": "Map",
+    "order": 1046,
+    "tags": [
+      "age-04",
+      "avancado"
+    ],
+    "canonicalIds": [
+      "AGE.04"
+    ]
+  },
+  {
+    "id": "age-05-vetores",
+    "title": "Vetores",
+    "description": "Estrutura canônica de vetores, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "3ª série",
+    "category": "Geometria analítica e vetores",
+    "icon": "Map",
+    "order": 1047,
+    "tags": [
+      "age-05",
+      "opcional",
+      "avancado"
+    ],
+    "canonicalIds": [
+      "AGE.05"
+    ]
+  },
+  {
+    "id": "cal-01-limites-e-continuidade",
+    "title": "Limites e continuidade",
+    "description": "Estrutura canônica de limites e continuidade, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "3ª série",
+    "category": "Pré-cálculo e introduções avançadas [opcional/avançado]",
+    "icon": "Infinity",
+    "order": 1052,
+    "tags": [
+      "cal-01",
+      "opcional",
+      "ponte"
+    ],
+    "canonicalIds": [
+      "CAL.01"
+    ]
+  },
+  {
+    "id": "cal-02-derivadas",
+    "title": "Derivadas",
+    "description": "Estrutura canônica de derivadas, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "3ª série",
+    "category": "Pré-cálculo e introduções avançadas [opcional/avançado]",
+    "icon": "Infinity",
+    "order": 1053,
+    "tags": [
+      "cal-02",
+      "opcional"
+    ],
+    "canonicalIds": [
+      "CAL.02"
+    ]
+  },
+  {
+    "id": "cal-03-integrais",
+    "title": "Integrais",
+    "description": "Estrutura canônica de integrais, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "3ª série",
+    "category": "Pré-cálculo e introduções avançadas [opcional/avançado]",
+    "icon": "Infinity",
+    "order": 1054,
+    "tags": [
+      "cal-03",
+      "opcional"
+    ],
+    "canonicalIds": [
+      "CAL.03"
+    ]
+  },
+  {
+    "id": "cal-04-outros-topicos-avancados",
+    "title": "Outros tópicos avançados",
+    "description": "Estrutura canônica de outros tópicos avançados, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "3ª série",
+    "category": "Pré-cálculo e introduções avançadas [opcional/avançado]",
+    "icon": "Infinity",
+    "order": 1055,
+    "tags": [
+      "cal-04",
+      "opcional",
+      "elementar",
+      "ponte"
+    ],
+    "canonicalIds": [
+      "CAL.04"
     ]
   }
 ];
@@ -435,7 +809,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "natural-numbers-operations",
@@ -453,7 +828,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "natural-numbers-divisibility",
@@ -471,7 +847,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "fractions-intro",
@@ -489,7 +866,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "fractions-operations",
@@ -509,7 +887,8 @@ export const LESSONS: Lesson[] = [
       "fractions-intro"
     ],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "fractions-equivalence",
@@ -529,7 +908,8 @@ export const LESSONS: Lesson[] = [
       "fractions-intro"
     ],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "fractions-review",
@@ -554,7 +934,8 @@ export const LESSONS: Lesson[] = [
       "revisão",
       "gabarito"
     ],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "decimal-reading",
@@ -572,7 +953,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "decimal-operations",
@@ -590,7 +972,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "decimal-fractions",
@@ -610,7 +993,8 @@ export const LESSONS: Lesson[] = [
       "fractions-intro"
     ],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "geometry-perimeter",
@@ -627,7 +1011,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "geometry-triangles",
@@ -644,7 +1029,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "geometry-units",
@@ -662,7 +1048,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "integers-meaning",
@@ -680,7 +1067,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "integers-operations",
@@ -698,7 +1086,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "integers-problems",
@@ -716,7 +1105,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "ratio-concept",
@@ -734,7 +1124,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "proportion-rule",
@@ -752,7 +1143,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "percentage-intro",
@@ -770,7 +1162,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "algebra-variables",
@@ -788,7 +1181,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "algebra-like-terms",
@@ -806,7 +1200,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "algebra-patterns",
@@ -824,7 +1219,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "angles-measure",
@@ -842,7 +1238,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "polygons-properties",
@@ -860,7 +1257,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "triangles-angles",
@@ -878,7 +1276,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "linear-intro",
@@ -895,7 +1294,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "linear-problems",
@@ -914,7 +1314,8 @@ export const LESSONS: Lesson[] = [
       "linear-intro"
     ],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "linear-equations-forms",
@@ -934,7 +1335,8 @@ export const LESSONS: Lesson[] = [
       "linear-problems"
     ],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "systems-intro",
@@ -952,7 +1354,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "systems-substitution",
@@ -970,7 +1373,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "systems-problems",
@@ -988,7 +1392,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "powers-exponents",
@@ -1013,7 +1418,8 @@ export const LESSONS: Lesson[] = [
       "propriedades",
       "expoentes"
     ],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "roots-square",
@@ -1031,7 +1437,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "scientific-notation",
@@ -1056,7 +1463,8 @@ export const LESSONS: Lesson[] = [
       "potencias-de-10",
       "ordem-de-grandeza"
     ],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "powers-chapter-review",
@@ -1081,7 +1489,8 @@ export const LESSONS: Lesson[] = [
       "gabarito",
       "lista-completa"
     ],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "roots-chapter-review",
@@ -1105,7 +1514,8 @@ export const LESSONS: Lesson[] = [
       "gabarito",
       "concursos"
     ],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "stats-tables",
@@ -1123,7 +1533,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "stats-average",
@@ -1141,7 +1552,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "probability-basics",
@@ -1159,7 +1571,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "functions-intro",
@@ -1176,7 +1589,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "functions-graphs",
@@ -1193,7 +1607,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "functions-cartesian",
@@ -1211,7 +1626,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "quadratic-intro",
@@ -1229,7 +1645,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "quadratic-factoring",
@@ -1247,7 +1664,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "quadratic-bhaskara",
@@ -1265,7 +1683,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "similarity-concept",
@@ -1283,7 +1702,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "pythagoras-theorem",
@@ -1301,7 +1721,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "metric-relations",
@@ -1319,7 +1740,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "spatial-solids",
@@ -1337,7 +1759,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "spatial-volume",
@@ -1355,7 +1778,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "spatial-area",
@@ -1373,7 +1797,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "affine-concept",
@@ -1391,7 +1816,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "affine-graph",
@@ -1409,7 +1835,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "affine-problems",
@@ -1427,7 +1854,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "quadratic-function-concept",
@@ -1445,7 +1873,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "quadratic-function-zeros",
@@ -1463,7 +1892,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "quadratic-function-vertex",
@@ -1481,7 +1911,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "trigonometry-intro",
@@ -1498,7 +1929,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "trigonometry-angles",
@@ -1515,7 +1947,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "ready"
+    "status": "ready",
+    "canonicalIds": []
   },
   {
     "id": "trigonometry-applications",
@@ -1533,7 +1966,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "counting-principle",
@@ -1551,7 +1985,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "combinatorics-arrangements",
@@ -1569,7 +2004,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "probability-combinatorics",
@@ -1587,7 +2023,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "exponential-function",
@@ -1605,7 +2042,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "logarithm-concept",
@@ -1623,7 +2061,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "exp-log-applications",
@@ -1641,7 +2080,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "progressions-patterns",
@@ -1659,7 +2099,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "arithmetic-progression",
@@ -1677,7 +2118,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "geometric-progression",
@@ -1695,7 +2137,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "analytic-points",
@@ -1713,7 +2156,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "analytic-line",
@@ -1731,7 +2175,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "analytic-parallelism",
@@ -1749,7 +2194,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "matrices-intro",
@@ -1767,7 +2213,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "determinants-intro",
@@ -1785,7 +2232,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "matrices-systems-solving",
@@ -1803,7 +2251,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "polynomials-operations",
@@ -1821,7 +2270,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "polynomials-factorization",
@@ -1839,7 +2289,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "polynomials-division",
@@ -1857,7 +2308,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "complex-unit",
@@ -1875,7 +2327,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "complex-operations",
@@ -1893,7 +2346,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "complex-equations",
@@ -1911,7 +2365,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "descriptive-graphics",
@@ -1929,7 +2384,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "descriptive-dispersion",
@@ -1947,7 +2403,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "descriptive-decision",
@@ -1965,7 +2422,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "finance-review",
@@ -1983,7 +2441,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "simple-interest",
@@ -2001,7 +2460,8 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
   },
   {
     "id": "compound-interest",
@@ -2019,6 +2479,3141 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "outline",
+    "canonicalIds": []
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-01",
+    "topicId": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "símbolos, notação e convenções",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico SET.01.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de símbolos, notação e convenções",
+      "Resolver exercícios básicos de símbolos, notação e convenções",
+      "Aplicar símbolos, notação e convenções em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-01-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.01.01"
+    ]
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-02",
+    "topicId": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "igualdade, desigualdade e equivalência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico SET.01.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de igualdade, desigualdade e equivalência",
+      "Resolver exercícios básicos de igualdade, desigualdade e equivalência",
+      "Aplicar igualdade, desigualdade e equivalência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-01-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.01.02"
+    ]
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-03",
+    "topicId": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "variáveis, constantes, parâmetros e incógnitas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico SET.01.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de variáveis, constantes, parâmetros e incógnitas",
+      "Resolver exercícios básicos de variáveis, constantes, parâmetros e incógnitas",
+      "Aplicar variáveis, constantes, parâmetros e incógnitas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-01-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.01.03"
+    ]
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-04",
+    "topicId": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "sentenças matemáticas abertas e fechadas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico SET.01.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de sentenças matemáticas abertas e fechadas",
+      "Resolver exercícios básicos de sentenças matemáticas abertas e fechadas",
+      "Aplicar sentenças matemáticas abertas e fechadas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-01-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.01.04"
+    ]
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-05",
+    "topicId": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "proposições e valor lógico",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico SET.01.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de proposições e valor lógico",
+      "Resolver exercícios básicos de proposições e valor lógico",
+      "Aplicar proposições e valor lógico em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-01-05",
+      "opcional",
+      "avancado"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.01.05"
+    ]
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-06",
+    "topicId": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "conectivos lógicos básicos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico SET.01.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de conectivos lógicos básicos",
+      "Resolver exercícios básicos de conectivos lógicos básicos",
+      "Aplicar conectivos lógicos básicos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-01-06",
+      "opcional",
+      "avancado"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.01.06"
+    ]
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-07",
+    "topicId": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "quantificadores básicos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico SET.01.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de quantificadores básicos",
+      "Resolver exercícios básicos de quantificadores básicos",
+      "Aplicar quantificadores básicos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-01-07",
+      "opcional",
+      "avancado"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.01.07"
+    ]
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-08",
+    "topicId": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "negação de enunciados",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 8,
+    "summary": "Estrutura inicial para o item canônico SET.01.08. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de negação de enunciados",
+      "Resolver exercícios básicos de negação de enunciados",
+      "Aplicar negação de enunciados em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-01-08",
+      "opcional",
+      "avancado"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.01.08"
+    ]
+  },
+  {
+    "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-09",
+    "topicId": "set-01-linguagem-matematica-e-estruturas-logicas",
+    "title": "contraexemplos e verificação de validade",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 9,
+    "summary": "Estrutura inicial para o item canônico SET.01.09. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de contraexemplos e verificação de validade",
+      "Resolver exercícios básicos de contraexemplos e verificação de validade",
+      "Aplicar contraexemplos e verificação de validade em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-01-09"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.01.09"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-01",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "noção de conjunto",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico SET.02.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de noção de conjunto",
+      "Resolver exercícios básicos de noção de conjunto",
+      "Aplicar noção de conjunto em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.01"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-02",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "representação de conjuntos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico SET.02.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de representação de conjuntos",
+      "Resolver exercícios básicos de representação de conjuntos",
+      "Aplicar representação de conjuntos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.02"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-03",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "elemento e pertinência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico SET.02.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de elemento e pertinência",
+      "Resolver exercícios básicos de elemento e pertinência",
+      "Aplicar elemento e pertinência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.03"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-04",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "subconjunto e inclusão",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico SET.02.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de subconjunto e inclusão",
+      "Resolver exercícios básicos de subconjunto e inclusão",
+      "Aplicar subconjunto e inclusão em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.04"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-05",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "igualdade de conjuntos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico SET.02.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de igualdade de conjuntos",
+      "Resolver exercícios básicos de igualdade de conjuntos",
+      "Aplicar igualdade de conjuntos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.05"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-06",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "conjunto vazio e conjunto universo",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico SET.02.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de conjunto vazio e conjunto universo",
+      "Resolver exercícios básicos de conjunto vazio e conjunto universo",
+      "Aplicar conjunto vazio e conjunto universo em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.06"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-07",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "união",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico SET.02.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de união",
+      "Resolver exercícios básicos de união",
+      "Aplicar união em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-07"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.07"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-08",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "interseção",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 8,
+    "summary": "Estrutura inicial para o item canônico SET.02.08. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de interseção",
+      "Resolver exercícios básicos de interseção",
+      "Aplicar interseção em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-08"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.08"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-09",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "diferença",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 9,
+    "summary": "Estrutura inicial para o item canônico SET.02.09. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de diferença",
+      "Resolver exercícios básicos de diferença",
+      "Aplicar diferença em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-09"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.09"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-10",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "complementar",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 10,
+    "summary": "Estrutura inicial para o item canônico SET.02.10. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de complementar",
+      "Resolver exercícios básicos de complementar",
+      "Aplicar complementar em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-10"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.10"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-11",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "diagramas de Venn",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 11,
+    "summary": "Estrutura inicial para o item canônico SET.02.11. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de diagramas de venn",
+      "Resolver exercícios básicos de diagramas de venn",
+      "Aplicar diagramas de venn em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-11"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.11"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-12",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "cardinalidade finita",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 12,
+    "summary": "Estrutura inicial para o item canônico SET.02.12. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de cardinalidade finita",
+      "Resolver exercícios básicos de cardinalidade finita",
+      "Aplicar cardinalidade finita em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-12"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.12"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-13",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "partição de conjuntos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 13,
+    "summary": "Estrutura inicial para o item canônico SET.02.13. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de partição de conjuntos",
+      "Resolver exercícios básicos de partição de conjuntos",
+      "Aplicar partição de conjuntos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-13",
+      "opcional"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.13"
+    ]
+  },
+  {
+    "id": "set-02-teoria-elementar-dos-conjuntos-set-02-14",
+    "topicId": "set-02-teoria-elementar-dos-conjuntos",
+    "title": "produto cartesiano",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 14,
+    "summary": "Estrutura inicial para o item canônico SET.02.14. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de produto cartesiano",
+      "Resolver exercícios básicos de produto cartesiano",
+      "Aplicar produto cartesiano em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-02-14"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.02.14"
+    ]
+  },
+  {
+    "id": "set-03-relacoes-e-correspondencias-set-03-01",
+    "topicId": "set-03-relacoes-e-correspondencias",
+    "title": "pares ordenados",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico SET.03.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de pares ordenados",
+      "Resolver exercícios básicos de pares ordenados",
+      "Aplicar pares ordenados em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-03-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.03.01"
+    ]
+  },
+  {
+    "id": "set-03-relacoes-e-correspondencias-set-03-02",
+    "topicId": "set-03-relacoes-e-correspondencias",
+    "title": "relação binária",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico SET.03.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de relação binária",
+      "Resolver exercícios básicos de relação binária",
+      "Aplicar relação binária em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-03-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.03.02"
+    ]
+  },
+  {
+    "id": "set-03-relacoes-e-correspondencias-set-03-03",
+    "topicId": "set-03-relacoes-e-correspondencias",
+    "title": "domínio, contradomínio e imagem",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico SET.03.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de domínio, contradomínio e imagem",
+      "Resolver exercícios básicos de domínio, contradomínio e imagem",
+      "Aplicar domínio, contradomínio e imagem em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-03-03",
+      "ponte"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.03.03"
+    ]
+  },
+  {
+    "id": "set-03-relacoes-e-correspondencias-set-03-04",
+    "topicId": "set-03-relacoes-e-correspondencias",
+    "title": "representações por conjunto, tabela, diagrama e gráfico",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico SET.03.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de representações por conjunto, tabela, diagrama e gráfico",
+      "Resolver exercícios básicos de representações por conjunto, tabela, diagrama e gráfico",
+      "Aplicar representações por conjunto, tabela, diagrama e gráfico em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "set-03-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "SET.03.04"
+    ]
+  },
+  {
+    "id": "num-05-numeros-racionais-num-05-01",
+    "topicId": "num-05-numeros-racionais",
+    "title": "fração como número racional",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico NUM.05.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de fração como número racional",
+      "Resolver exercícios básicos de fração como número racional",
+      "Aplicar fração como número racional em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "num-05-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "NUM.05.01"
+    ]
+  },
+  {
+    "id": "num-05-numeros-racionais-num-05-02",
+    "topicId": "num-05-numeros-racionais",
+    "title": "representação fracionária e decimal",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico NUM.05.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de representação fracionária e decimal",
+      "Resolver exercícios básicos de representação fracionária e decimal",
+      "Aplicar representação fracionária e decimal em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "num-05-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "NUM.05.02"
+    ]
+  },
+  {
+    "id": "num-05-numeros-racionais-num-05-03",
+    "topicId": "num-05-numeros-racionais",
+    "title": "dízima finita e dízima periódica",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico NUM.05.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de dízima finita e dízima periódica",
+      "Resolver exercícios básicos de dízima finita e dízima periódica",
+      "Aplicar dízima finita e dízima periódica em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "num-05-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "NUM.05.03"
+    ]
+  },
+  {
+    "id": "num-05-numeros-racionais-num-05-04",
+    "topicId": "num-05-numeros-racionais",
+    "title": "fração geratriz",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico NUM.05.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de fração geratriz",
+      "Resolver exercícios básicos de fração geratriz",
+      "Aplicar fração geratriz em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "num-05-04",
+      "intermediario"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "NUM.05.04"
+    ]
+  },
+  {
+    "id": "num-05-numeros-racionais-num-05-05",
+    "topicId": "num-05-numeros-racionais",
+    "title": "reta numérica dos racionais",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico NUM.05.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de reta numérica dos racionais",
+      "Resolver exercícios básicos de reta numérica dos racionais",
+      "Aplicar reta numérica dos racionais em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "num-05-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "NUM.05.05"
+    ]
+  },
+  {
+    "id": "num-05-numeros-racionais-num-05-06",
+    "topicId": "num-05-numeros-racionais",
+    "title": "comparação e ordem",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico NUM.05.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de comparação e ordem",
+      "Resolver exercícios básicos de comparação e ordem",
+      "Aplicar comparação e ordem em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "num-05-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "NUM.05.06"
+    ]
+  },
+  {
+    "id": "num-05-numeros-racionais-num-05-07",
+    "topicId": "num-05-numeros-racionais",
+    "title": "operações com racionais",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico NUM.05.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de operações com racionais",
+      "Resolver exercícios básicos de operações com racionais",
+      "Aplicar operações com racionais em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "num-05-07"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "NUM.05.07"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-01",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "quadrado da soma",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico ALG.02.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de quadrado da soma",
+      "Resolver exercícios básicos de quadrado da soma",
+      "Aplicar quadrado da soma em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.01"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-02",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "quadrado da diferença",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico ALG.02.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de quadrado da diferença",
+      "Resolver exercícios básicos de quadrado da diferença",
+      "Aplicar quadrado da diferença em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.02"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-03",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "produto da soma pela diferença",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico ALG.02.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de produto da soma pela diferença",
+      "Resolver exercícios básicos de produto da soma pela diferença",
+      "Aplicar produto da soma pela diferença em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.03"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-04",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "cubo da soma",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico ALG.02.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de cubo da soma",
+      "Resolver exercícios básicos de cubo da soma",
+      "Aplicar cubo da soma em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-04",
+      "opcional"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.04"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-05",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "cubo da diferença",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico ALG.02.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de cubo da diferença",
+      "Resolver exercícios básicos de cubo da diferença",
+      "Aplicar cubo da diferença em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-05",
+      "opcional"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.05"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-06",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "fator comum em evidência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico ALG.02.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de fator comum em evidência",
+      "Resolver exercícios básicos de fator comum em evidência",
+      "Aplicar fator comum em evidência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.06"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-07",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "agrupamento",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico ALG.02.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de agrupamento",
+      "Resolver exercícios básicos de agrupamento",
+      "Aplicar agrupamento em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-07"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.07"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-08",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "trinômio quadrado perfeito",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 8,
+    "summary": "Estrutura inicial para o item canônico ALG.02.08. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de trinômio quadrado perfeito",
+      "Resolver exercícios básicos de trinômio quadrado perfeito",
+      "Aplicar trinômio quadrado perfeito em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-08"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.08"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-09",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "diferença de quadrados",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 9,
+    "summary": "Estrutura inicial para o item canônico ALG.02.09. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de diferença de quadrados",
+      "Resolver exercícios básicos de diferença de quadrados",
+      "Aplicar diferença de quadrados em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-09"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.09"
+    ]
+  },
+  {
+    "id": "alg-02-produtos-notaveis-e-fatoracao-alg-02-10",
+    "topicId": "alg-02-produtos-notaveis-e-fatoracao",
+    "title": "fatoração de trinômio do 2º grau",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 10,
+    "summary": "Estrutura inicial para o item canônico ALG.02.10. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de fatoração de trinômio do 2º grau",
+      "Resolver exercícios básicos de fatoração de trinômio do 2º grau",
+      "Aplicar fatoração de trinômio do 2º grau em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-02-10"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.02.10"
+    ]
+  },
+  {
+    "id": "alg-03-fracoes-algebricas-alg-03-01",
+    "topicId": "alg-03-fracoes-algebricas",
+    "title": "domínio e restrições",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico ALG.03.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de domínio e restrições",
+      "Resolver exercícios básicos de domínio e restrições",
+      "Aplicar domínio e restrições em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-03-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.03.01"
+    ]
+  },
+  {
+    "id": "alg-03-fracoes-algebricas-alg-03-02",
+    "topicId": "alg-03-fracoes-algebricas",
+    "title": "simplificação por fatoração",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico ALG.03.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de simplificação por fatoração",
+      "Resolver exercícios básicos de simplificação por fatoração",
+      "Aplicar simplificação por fatoração em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-03-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.03.02"
+    ]
+  },
+  {
+    "id": "alg-03-fracoes-algebricas-alg-03-03",
+    "topicId": "alg-03-fracoes-algebricas",
+    "title": "adição e subtração",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico ALG.03.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de adição e subtração",
+      "Resolver exercícios básicos de adição e subtração",
+      "Aplicar adição e subtração em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-03-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.03.03"
+    ]
+  },
+  {
+    "id": "alg-03-fracoes-algebricas-alg-03-04",
+    "topicId": "alg-03-fracoes-algebricas",
+    "title": "multiplicação e divisão",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico ALG.03.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de multiplicação e divisão",
+      "Resolver exercícios básicos de multiplicação e divisão",
+      "Aplicar multiplicação e divisão em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-03-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.03.04"
+    ]
+  },
+  {
+    "id": "alg-03-fracoes-algebricas-alg-03-05",
+    "topicId": "alg-03-fracoes-algebricas",
+    "title": "expressões complexas com frações algébricas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico ALG.03.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de expressões complexas com frações algébricas",
+      "Resolver exercícios básicos de expressões complexas com frações algébricas",
+      "Aplicar expressões complexas com frações algébricas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-03-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.03.05"
+    ]
+  },
+  {
+    "id": "fun-04-funcoes-modulo-racional-e-potencia-fun-04-01",
+    "topicId": "fun-04-funcoes-modulo-racional-e-potencia",
+    "title": "módulo de número real",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico FUN.04.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de módulo de número real",
+      "Resolver exercícios básicos de módulo de número real",
+      "Aplicar módulo de número real em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "fun-04-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "FUN.04.01"
+    ]
+  },
+  {
+    "id": "fun-04-funcoes-modulo-racional-e-potencia-fun-04-02",
+    "topicId": "fun-04-funcoes-modulo-racional-e-potencia",
+    "title": "função modular",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico FUN.04.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de função modular",
+      "Resolver exercícios básicos de função modular",
+      "Aplicar função modular em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "fun-04-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "FUN.04.02"
+    ]
+  },
+  {
+    "id": "fun-04-funcoes-modulo-racional-e-potencia-fun-04-03",
+    "topicId": "fun-04-funcoes-modulo-racional-e-potencia",
+    "title": "equações e inequações modulares",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico FUN.04.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de equações e inequações modulares",
+      "Resolver exercícios básicos de equações e inequações modulares",
+      "Aplicar equações e inequações modulares em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "fun-04-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "FUN.04.03"
+    ]
+  },
+  {
+    "id": "fun-04-funcoes-modulo-racional-e-potencia-fun-04-04",
+    "topicId": "fun-04-funcoes-modulo-racional-e-potencia",
+    "title": "função inversamente proporcional y=k/x",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico FUN.04.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de função inversamente proporcional y=k/x",
+      "Resolver exercícios básicos de função inversamente proporcional y=k/x",
+      "Aplicar função inversamente proporcional y=k/x em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "fun-04-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "FUN.04.04"
+    ]
+  },
+  {
+    "id": "fun-04-funcoes-modulo-racional-e-potencia-fun-04-05",
+    "topicId": "fun-04-funcoes-modulo-racional-e-potencia",
+    "title": "funções potência básicas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico FUN.04.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de funções potência básicas",
+      "Resolver exercícios básicos de funções potência básicas",
+      "Aplicar funções potência básicas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "fun-04-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "FUN.04.05"
+    ]
+  },
+  {
+    "id": "fun-04-funcoes-modulo-racional-e-potencia-fun-04-06",
+    "topicId": "fun-04-funcoes-modulo-racional-e-potencia",
+    "title": "funções radicais básicas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico FUN.04.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de funções radicais básicas",
+      "Resolver exercícios básicos de funções radicais básicas",
+      "Aplicar funções radicais básicas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "fun-04-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "FUN.04.06"
+    ]
+  },
+  {
+    "id": "geo-01-nocoes-fundamentais-de-geometria-geo-01-01",
+    "topicId": "geo-01-nocoes-fundamentais-de-geometria",
+    "title": "ponto, reta, plano e espaço",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico GEO.01.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de ponto, reta, plano e espaço",
+      "Resolver exercícios básicos de ponto, reta, plano e espaço",
+      "Aplicar ponto, reta, plano e espaço em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-01-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.01.01"
+    ]
+  },
+  {
+    "id": "geo-01-nocoes-fundamentais-de-geometria-geo-01-02",
+    "topicId": "geo-01-nocoes-fundamentais-de-geometria",
+    "title": "semirreta e segmento",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico GEO.01.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de semirreta e segmento",
+      "Resolver exercícios básicos de semirreta e segmento",
+      "Aplicar semirreta e segmento em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-01-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.01.02"
+    ]
+  },
+  {
+    "id": "geo-01-nocoes-fundamentais-de-geometria-geo-01-03",
+    "topicId": "geo-01-nocoes-fundamentais-de-geometria",
+    "title": "posições relativas entre retas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico GEO.01.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de posições relativas entre retas",
+      "Resolver exercícios básicos de posições relativas entre retas",
+      "Aplicar posições relativas entre retas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-01-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.01.03"
+    ]
+  },
+  {
+    "id": "geo-01-nocoes-fundamentais-de-geometria-geo-01-04",
+    "topicId": "geo-01-nocoes-fundamentais-de-geometria",
+    "title": "posições relativas entre reta e plano",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico GEO.01.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de posições relativas entre reta e plano",
+      "Resolver exercícios básicos de posições relativas entre reta e plano",
+      "Aplicar posições relativas entre reta e plano em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-01-04",
+      "intermediario"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.01.04"
+    ]
+  },
+  {
+    "id": "geo-01-nocoes-fundamentais-de-geometria-geo-01-05",
+    "topicId": "geo-01-nocoes-fundamentais-de-geometria",
+    "title": "posições relativas entre planos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico GEO.01.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de posições relativas entre planos",
+      "Resolver exercícios básicos de posições relativas entre planos",
+      "Aplicar posições relativas entre planos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-01-05",
+      "intermediario"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.01.05"
+    ]
+  },
+  {
+    "id": "geo-05-quadrilateros-e-poligonos-notaveis-geo-05-01",
+    "topicId": "geo-05-quadrilateros-e-poligonos-notaveis",
+    "title": "paralelogramo",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico GEO.05.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de paralelogramo",
+      "Resolver exercícios básicos de paralelogramo",
+      "Aplicar paralelogramo em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-05-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.05.01"
+    ]
+  },
+  {
+    "id": "geo-05-quadrilateros-e-poligonos-notaveis-geo-05-02",
+    "topicId": "geo-05-quadrilateros-e-poligonos-notaveis",
+    "title": "retângulo",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico GEO.05.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de retângulo",
+      "Resolver exercícios básicos de retângulo",
+      "Aplicar retângulo em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-05-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.05.02"
+    ]
+  },
+  {
+    "id": "geo-05-quadrilateros-e-poligonos-notaveis-geo-05-03",
+    "topicId": "geo-05-quadrilateros-e-poligonos-notaveis",
+    "title": "losango",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico GEO.05.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de losango",
+      "Resolver exercícios básicos de losango",
+      "Aplicar losango em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-05-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.05.03"
+    ]
+  },
+  {
+    "id": "geo-05-quadrilateros-e-poligonos-notaveis-geo-05-04",
+    "topicId": "geo-05-quadrilateros-e-poligonos-notaveis",
+    "title": "quadrado",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico GEO.05.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de quadrado",
+      "Resolver exercícios básicos de quadrado",
+      "Aplicar quadrado em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-05-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.05.04"
+    ]
+  },
+  {
+    "id": "geo-05-quadrilateros-e-poligonos-notaveis-geo-05-05",
+    "topicId": "geo-05-quadrilateros-e-poligonos-notaveis",
+    "title": "trapézio",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico GEO.05.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de trapézio",
+      "Resolver exercícios básicos de trapézio",
+      "Aplicar trapézio em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-05-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.05.05"
+    ]
+  },
+  {
+    "id": "geo-05-quadrilateros-e-poligonos-notaveis-geo-05-06",
+    "topicId": "geo-05-quadrilateros-e-poligonos-notaveis",
+    "title": "propriedades de diagonais e ângulos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico GEO.05.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de propriedades de diagonais e ângulos",
+      "Resolver exercícios básicos de propriedades de diagonais e ângulos",
+      "Aplicar propriedades de diagonais e ângulos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-05-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.05.06"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-01",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "elementos da circunferência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico GEO.06.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de elementos da circunferência",
+      "Resolver exercícios básicos de elementos da circunferência",
+      "Aplicar elementos da circunferência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.01"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-02",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "arcos, cordas e setores",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico GEO.06.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de arcos, cordas e setores",
+      "Resolver exercícios básicos de arcos, cordas e setores",
+      "Aplicar arcos, cordas e setores em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.02"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-03",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "ângulo central e ângulo inscrito",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico GEO.06.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de ângulo central e ângulo inscrito",
+      "Resolver exercícios básicos de ângulo central e ângulo inscrito",
+      "Aplicar ângulo central e ângulo inscrito em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.03"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-04",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "ângulos na circunferência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico GEO.06.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de ângulos na circunferência",
+      "Resolver exercícios básicos de ângulos na circunferência",
+      "Aplicar ângulos na circunferência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.04"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-05",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "posições relativas entre reta e circunferência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico GEO.06.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de posições relativas entre reta e circunferência",
+      "Resolver exercícios básicos de posições relativas entre reta e circunferência",
+      "Aplicar posições relativas entre reta e circunferência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.05"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-06",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "tangência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico GEO.06.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de tangência",
+      "Resolver exercícios básicos de tangência",
+      "Aplicar tangência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.06"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-07",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "potência de ponto",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico GEO.06.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de potência de ponto",
+      "Resolver exercícios básicos de potência de ponto",
+      "Aplicar potência de ponto em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-07"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.07"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-08",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "comprimento da circunferência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 8,
+    "summary": "Estrutura inicial para o item canônico GEO.06.08. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de comprimento da circunferência",
+      "Resolver exercícios básicos de comprimento da circunferência",
+      "Aplicar comprimento da circunferência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-08"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.08"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-09",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "área do círculo",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 9,
+    "summary": "Estrutura inicial para o item canônico GEO.06.09. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de área do círculo",
+      "Resolver exercícios básicos de área do círculo",
+      "Aplicar área do círculo em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-09"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.09"
+    ]
+  },
+  {
+    "id": "geo-06-circunferencia-e-circulo-geo-06-10",
+    "topicId": "geo-06-circunferencia-e-circulo",
+    "title": "coroas e setores circulares",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 10,
+    "summary": "Estrutura inicial para o item canônico GEO.06.10. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de coroas e setores circulares",
+      "Resolver exercícios básicos de coroas e setores circulares",
+      "Aplicar coroas e setores circulares em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-06-10"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.06.10"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes-geo-07-01",
+    "topicId": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "translação",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico GEO.07.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de translação",
+      "Resolver exercícios básicos de translação",
+      "Aplicar translação em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-07-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.07.01"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes-geo-07-02",
+    "topicId": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "rotação",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico GEO.07.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de rotação",
+      "Resolver exercícios básicos de rotação",
+      "Aplicar rotação em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-07-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.07.02"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes-geo-07-03",
+    "topicId": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "reflexão",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico GEO.07.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de reflexão",
+      "Resolver exercícios básicos de reflexão",
+      "Aplicar reflexão em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-07-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.07.03"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes-geo-07-04",
+    "topicId": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "simetria axial",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico GEO.07.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de simetria axial",
+      "Resolver exercícios básicos de simetria axial",
+      "Aplicar simetria axial em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-07-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.07.04"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes-geo-07-05",
+    "topicId": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "simetria central",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico GEO.07.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de simetria central",
+      "Resolver exercícios básicos de simetria central",
+      "Aplicar simetria central em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-07-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.07.05"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes-geo-07-06",
+    "topicId": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "homotetia",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico GEO.07.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de homotetia",
+      "Resolver exercícios básicos de homotetia",
+      "Aplicar homotetia em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-07-06",
+      "intermediario"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.07.06"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes-geo-07-07",
+    "topicId": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "construções elementares com régua e compasso",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico GEO.07.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de construções elementares com régua e compasso",
+      "Resolver exercícios básicos de construções elementares com régua e compasso",
+      "Aplicar construções elementares com régua e compasso em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-07-07",
+      "opcional",
+      "elementar"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.07.07"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes-geo-07-08",
+    "topicId": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "projeção ortogonal",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 8,
+    "summary": "Estrutura inicial para o item canônico GEO.07.08. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de projeção ortogonal",
+      "Resolver exercícios básicos de projeção ortogonal",
+      "Aplicar projeção ortogonal em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-07-08",
+      "intermediario"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.07.08"
+    ]
+  },
+  {
+    "id": "geo-07-transformacoes-geometricas-e-construcoes-geo-07-09",
+    "topicId": "geo-07-transformacoes-geometricas-e-construcoes",
+    "title": "lugares geométricos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 9,
+    "summary": "Estrutura inicial para o item canônico GEO.07.09. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de lugares geométricos",
+      "Resolver exercícios básicos de lugares geométricos",
+      "Aplicar lugares geométricos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-07-09",
+      "intermediario",
+      "avancado"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.07.09"
+    ]
+  },
+  {
+    "id": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas-tri-02-01",
+    "topicId": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas",
+    "title": "grau e radiano",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico TRI.02.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de grau e radiano",
+      "Resolver exercícios básicos de grau e radiano",
+      "Aplicar grau e radiano em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-02-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.02.01"
+    ]
+  },
+  {
+    "id": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas-tri-02-02",
+    "topicId": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas",
+    "title": "arcos orientados",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico TRI.02.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de arcos orientados",
+      "Resolver exercícios básicos de arcos orientados",
+      "Aplicar arcos orientados em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-02-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.02.02"
+    ]
+  },
+  {
+    "id": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas-tri-02-03",
+    "topicId": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas",
+    "title": "círculo trigonométrico",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico TRI.02.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de círculo trigonométrico",
+      "Resolver exercícios básicos de círculo trigonométrico",
+      "Aplicar círculo trigonométrico em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-02-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.02.03"
+    ]
+  },
+  {
+    "id": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas-tri-02-04",
+    "topicId": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas",
+    "title": "redução ao primeiro quadrante",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico TRI.02.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de redução ao primeiro quadrante",
+      "Resolver exercícios básicos de redução ao primeiro quadrante",
+      "Aplicar redução ao primeiro quadrante em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-02-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.02.04"
+    ]
+  },
+  {
+    "id": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas-tri-02-05",
+    "topicId": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas",
+    "title": "funções seno, cosseno e tangente",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico TRI.02.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de funções seno, cosseno e tangente",
+      "Resolver exercícios básicos de funções seno, cosseno e tangente",
+      "Aplicar funções seno, cosseno e tangente em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-02-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.02.05"
+    ]
+  },
+  {
+    "id": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas-tri-02-06",
+    "topicId": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas",
+    "title": "domínio, imagem, período e paridade",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico TRI.02.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de domínio, imagem, período e paridade",
+      "Resolver exercícios básicos de domínio, imagem, período e paridade",
+      "Aplicar domínio, imagem, período e paridade em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-02-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.02.06"
+    ]
+  },
+  {
+    "id": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas-tri-02-07",
+    "topicId": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas",
+    "title": "gráficos trigonométricos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico TRI.02.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de gráficos trigonométricos",
+      "Resolver exercícios básicos de gráficos trigonométricos",
+      "Aplicar gráficos trigonométricos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-02-07"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.02.07"
+    ]
+  },
+  {
+    "id": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas-tri-02-08",
+    "topicId": "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas",
+    "title": "funções trigonométricas inversas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 8,
+    "summary": "Estrutura inicial para o item canônico TRI.02.08. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de funções trigonométricas inversas",
+      "Resolver exercícios básicos de funções trigonométricas inversas",
+      "Aplicar funções trigonométricas inversas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-02-08",
+      "intermediario",
+      "avancado"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.02.08"
+    ]
+  },
+  {
+    "id": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas-tri-03-01",
+    "topicId": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas",
+    "title": "identidades fundamentais",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico TRI.03.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de identidades fundamentais",
+      "Resolver exercícios básicos de identidades fundamentais",
+      "Aplicar identidades fundamentais em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-03-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.03.01"
+    ]
+  },
+  {
+    "id": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas-tri-03-02",
+    "topicId": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas",
+    "title": "fórmulas de adição e subtração de arcos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico TRI.03.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de fórmulas de adição e subtração de arcos",
+      "Resolver exercícios básicos de fórmulas de adição e subtração de arcos",
+      "Aplicar fórmulas de adição e subtração de arcos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-03-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.03.02"
+    ]
+  },
+  {
+    "id": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas-tri-03-03",
+    "topicId": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas",
+    "title": "arco duplo",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico TRI.03.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de arco duplo",
+      "Resolver exercícios básicos de arco duplo",
+      "Aplicar arco duplo em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-03-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.03.03"
+    ]
+  },
+  {
+    "id": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas-tri-03-04",
+    "topicId": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas",
+    "title": "arco metade",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico TRI.03.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de arco metade",
+      "Resolver exercícios básicos de arco metade",
+      "Aplicar arco metade em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-03-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.03.04"
+    ]
+  },
+  {
+    "id": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas-tri-03-05",
+    "topicId": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas",
+    "title": "transformação de soma em produto",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico TRI.03.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de transformação de soma em produto",
+      "Resolver exercícios básicos de transformação de soma em produto",
+      "Aplicar transformação de soma em produto em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-03-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.03.05"
+    ]
+  },
+  {
+    "id": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas-tri-03-06",
+    "topicId": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas",
+    "title": "equações trigonométricas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico TRI.03.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de equações trigonométricas",
+      "Resolver exercícios básicos de equações trigonométricas",
+      "Aplicar equações trigonométricas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-03-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.03.06"
+    ]
+  },
+  {
+    "id": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas-tri-03-07",
+    "topicId": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas",
+    "title": "inequações trigonométricas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico TRI.03.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de inequações trigonométricas",
+      "Resolver exercícios básicos de inequações trigonométricas",
+      "Aplicar inequações trigonométricas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-03-07"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.03.07"
+    ]
+  },
+  {
+    "id": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas-tri-03-08",
+    "topicId": "tri-03-identidades-transformacoes-e-equacoes-trigonometricas",
+    "title": "sistemas trigonométricos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 8,
+    "summary": "Estrutura inicial para o item canônico TRI.03.08. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de sistemas trigonométricos",
+      "Resolver exercícios básicos de sistemas trigonométricos",
+      "Aplicar sistemas trigonométricos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "tri-03-08",
+      "avancado"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "TRI.03.08"
+    ]
+  },
+  {
+    "id": "age-03-circunferencia-age-03-01",
+    "topicId": "age-03-circunferencia",
+    "title": "equação reduzida",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico AGE.03.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de equação reduzida",
+      "Resolver exercícios básicos de equação reduzida",
+      "Aplicar equação reduzida em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-03-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.03.01"
+    ]
+  },
+  {
+    "id": "age-03-circunferencia-age-03-02",
+    "topicId": "age-03-circunferencia",
+    "title": "equação geral",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico AGE.03.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de equação geral",
+      "Resolver exercícios básicos de equação geral",
+      "Aplicar equação geral em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-03-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.03.02"
+    ]
+  },
+  {
+    "id": "age-03-circunferencia-age-03-03",
+    "topicId": "age-03-circunferencia",
+    "title": "centro e raio",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico AGE.03.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de centro e raio",
+      "Resolver exercícios básicos de centro e raio",
+      "Aplicar centro e raio em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-03-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.03.03"
+    ]
+  },
+  {
+    "id": "age-03-circunferencia-age-03-04",
+    "topicId": "age-03-circunferencia",
+    "title": "posições relativas entre ponto e circunferência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico AGE.03.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de posições relativas entre ponto e circunferência",
+      "Resolver exercícios básicos de posições relativas entre ponto e circunferência",
+      "Aplicar posições relativas entre ponto e circunferência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-03-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.03.04"
+    ]
+  },
+  {
+    "id": "age-03-circunferencia-age-03-05",
+    "topicId": "age-03-circunferencia",
+    "title": "reta e circunferência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico AGE.03.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de reta e circunferência",
+      "Resolver exercícios básicos de reta e circunferência",
+      "Aplicar reta e circunferência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-03-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.03.05"
+    ]
+  },
+  {
+    "id": "age-03-circunferencia-age-03-06",
+    "topicId": "age-03-circunferencia",
+    "title": "duas circunferências",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico AGE.03.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de duas circunferências",
+      "Resolver exercícios básicos de duas circunferências",
+      "Aplicar duas circunferências em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-03-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.03.06"
+    ]
+  },
+  {
+    "id": "age-03-circunferencia-age-03-07",
+    "topicId": "age-03-circunferencia",
+    "title": "problemas de tangência",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico AGE.03.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de problemas de tangência",
+      "Resolver exercícios básicos de problemas de tangência",
+      "Aplicar problemas de tangência em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-03-07"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.03.07"
+    ]
+  },
+  {
+    "id": "age-03-circunferencia-age-03-08",
+    "topicId": "age-03-circunferencia",
+    "title": "inequações quadráticas com duas variáveis",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 8,
+    "summary": "Estrutura inicial para o item canônico AGE.03.08. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de inequações quadráticas com duas variáveis",
+      "Resolver exercícios básicos de inequações quadráticas com duas variáveis",
+      "Aplicar inequações quadráticas com duas variáveis em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-03-08",
+      "intermediario",
+      "avancado"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.03.08"
+    ]
+  },
+  {
+    "id": "age-04-conicas-age-04-01",
+    "topicId": "age-04-conicas",
+    "title": "parábola: definição e equação",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico AGE.04.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de parábola: definição e equação",
+      "Resolver exercícios básicos de parábola: definição e equação",
+      "Aplicar parábola: definição e equação em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-04-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.04.01"
+    ]
+  },
+  {
+    "id": "age-04-conicas-age-04-02",
+    "topicId": "age-04-conicas",
+    "title": "elipse: definição e equação",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico AGE.04.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de elipse: definição e equação",
+      "Resolver exercícios básicos de elipse: definição e equação",
+      "Aplicar elipse: definição e equação em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-04-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.04.02"
+    ]
+  },
+  {
+    "id": "age-04-conicas-age-04-03",
+    "topicId": "age-04-conicas",
+    "title": "hipérbole: definição e equação",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico AGE.04.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de hipérbole: definição e equação",
+      "Resolver exercícios básicos de hipérbole: definição e equação",
+      "Aplicar hipérbole: definição e equação em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-04-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.04.03"
+    ]
+  },
+  {
+    "id": "age-04-conicas-age-04-04",
+    "topicId": "age-04-conicas",
+    "title": "elementos das cônicas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico AGE.04.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de elementos das cônicas",
+      "Resolver exercícios básicos de elementos das cônicas",
+      "Aplicar elementos das cônicas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-04-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.04.04"
+    ]
+  },
+  {
+    "id": "age-04-conicas-age-04-05",
+    "topicId": "age-04-conicas",
+    "title": "posições relativas entre reta e cônica",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico AGE.04.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de posições relativas entre reta e cônica",
+      "Resolver exercícios básicos de posições relativas entre reta e cônica",
+      "Aplicar posições relativas entre reta e cônica em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-04-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.04.05"
+    ]
+  },
+  {
+    "id": "age-04-conicas-age-04-06",
+    "topicId": "age-04-conicas",
+    "title": "assíntotas da hipérbole",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico AGE.04.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de assíntotas da hipérbole",
+      "Resolver exercícios básicos de assíntotas da hipérbole",
+      "Aplicar assíntotas da hipérbole em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-04-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.04.06"
+    ]
+  },
+  {
+    "id": "age-04-conicas-age-04-07",
+    "topicId": "age-04-conicas",
+    "title": "reconhecimento de cônica pela equação",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico AGE.04.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de reconhecimento de cônica pela equação",
+      "Resolver exercícios básicos de reconhecimento de cônica pela equação",
+      "Aplicar reconhecimento de cônica pela equação em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-04-07"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.04.07"
+    ]
+  },
+  {
+    "id": "age-04-conicas-age-04-08",
+    "topicId": "age-04-conicas",
+    "title": "lugares geométricos e interpretação de equações de 2º grau",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 8,
+    "summary": "Estrutura inicial para o item canônico AGE.04.08. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de lugares geométricos e interpretação de equações de 2º grau",
+      "Resolver exercícios básicos de lugares geométricos e interpretação de equações de 2º grau",
+      "Aplicar lugares geométricos e interpretação de equações de 2º grau em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-04-08"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.04.08"
+    ]
+  },
+  {
+    "id": "age-05-vetores-age-05-01",
+    "topicId": "age-05-vetores",
+    "title": "segmento orientado",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico AGE.05.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de segmento orientado",
+      "Resolver exercícios básicos de segmento orientado",
+      "Aplicar segmento orientado em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-05-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.05.01"
+    ]
+  },
+  {
+    "id": "age-05-vetores-age-05-02",
+    "topicId": "age-05-vetores",
+    "title": "vetor livre e vetor fixo",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico AGE.05.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de vetor livre e vetor fixo",
+      "Resolver exercícios básicos de vetor livre e vetor fixo",
+      "Aplicar vetor livre e vetor fixo em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-05-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.05.02"
+    ]
+  },
+  {
+    "id": "age-05-vetores-age-05-03",
+    "topicId": "age-05-vetores",
+    "title": "módulo, direção e sentido",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico AGE.05.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de módulo, direção e sentido",
+      "Resolver exercícios básicos de módulo, direção e sentido",
+      "Aplicar módulo, direção e sentido em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-05-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.05.03"
+    ]
+  },
+  {
+    "id": "age-05-vetores-age-05-04",
+    "topicId": "age-05-vetores",
+    "title": "adição e subtração vetorial",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico AGE.05.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de adição e subtração vetorial",
+      "Resolver exercícios básicos de adição e subtração vetorial",
+      "Aplicar adição e subtração vetorial em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-05-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.05.04"
+    ]
+  },
+  {
+    "id": "age-05-vetores-age-05-05",
+    "topicId": "age-05-vetores",
+    "title": "multiplicação por escalar",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico AGE.05.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de multiplicação por escalar",
+      "Resolver exercícios básicos de multiplicação por escalar",
+      "Aplicar multiplicação por escalar em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-05-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.05.05"
+    ]
+  },
+  {
+    "id": "age-05-vetores-age-05-06",
+    "topicId": "age-05-vetores",
+    "title": "coordenadas de vetor",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico AGE.05.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de coordenadas de vetor",
+      "Resolver exercícios básicos de coordenadas de vetor",
+      "Aplicar coordenadas de vetor em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "age-05-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "AGE.05.06"
+    ]
+  },
+  {
+    "id": "cal-01-limites-e-continuidade-cal-01-01",
+    "topicId": "cal-01-limites-e-continuidade",
+    "title": "ideia intuitiva de limite",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico CAL.01.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de ideia intuitiva de limite",
+      "Resolver exercícios básicos de ideia intuitiva de limite",
+      "Aplicar ideia intuitiva de limite em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-01-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.01.01"
+    ]
+  },
+  {
+    "id": "cal-01-limites-e-continuidade-cal-01-02",
+    "topicId": "cal-01-limites-e-continuidade",
+    "title": "taxa média e taxa instantânea",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico CAL.01.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de taxa média e taxa instantânea",
+      "Resolver exercícios básicos de taxa média e taxa instantânea",
+      "Aplicar taxa média e taxa instantânea em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-01-02",
+      "ponte"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.01.02"
+    ]
+  },
+  {
+    "id": "cal-01-limites-e-continuidade-cal-01-03",
+    "topicId": "cal-01-limites-e-continuidade",
+    "title": "continuidade intuitiva",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico CAL.01.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de continuidade intuitiva",
+      "Resolver exercícios básicos de continuidade intuitiva",
+      "Aplicar continuidade intuitiva em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-01-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.01.03"
+    ]
+  },
+  {
+    "id": "cal-02-derivadas-cal-02-01",
+    "topicId": "cal-02-derivadas",
+    "title": "derivada como taxa de variação",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico CAL.02.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de derivada como taxa de variação",
+      "Resolver exercícios básicos de derivada como taxa de variação",
+      "Aplicar derivada como taxa de variação em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-02-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.02.01"
+    ]
+  },
+  {
+    "id": "cal-02-derivadas-cal-02-02",
+    "topicId": "cal-02-derivadas",
+    "title": "derivada como inclinação da tangente",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico CAL.02.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de derivada como inclinação da tangente",
+      "Resolver exercícios básicos de derivada como inclinação da tangente",
+      "Aplicar derivada como inclinação da tangente em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-02-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.02.02"
+    ]
+  },
+  {
+    "id": "cal-02-derivadas-cal-02-03",
+    "topicId": "cal-02-derivadas",
+    "title": "aplicações em crescimento e otimização",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico CAL.02.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de aplicações em crescimento e otimização",
+      "Resolver exercícios básicos de aplicações em crescimento e otimização",
+      "Aplicar aplicações em crescimento e otimização em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-02-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.02.03"
+    ]
+  },
+  {
+    "id": "cal-03-integrais-cal-03-01",
+    "topicId": "cal-03-integrais",
+    "title": "área sob curva como acumulação",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico CAL.03.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de área sob curva como acumulação",
+      "Resolver exercícios básicos de área sob curva como acumulação",
+      "Aplicar área sob curva como acumulação em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-03-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.03.01"
+    ]
+  },
+  {
+    "id": "cal-03-integrais-cal-03-02",
+    "topicId": "cal-03-integrais",
+    "title": "integral indefinida como antiderivada",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico CAL.03.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de integral indefinida como antiderivada",
+      "Resolver exercícios básicos de integral indefinida como antiderivada",
+      "Aplicar integral indefinida como antiderivada em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-03-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.03.02"
+    ]
+  },
+  {
+    "id": "cal-03-integrais-cal-03-03",
+    "topicId": "cal-03-integrais",
+    "title": "integral definida em contextos geométricos e físicos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico CAL.03.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de integral definida em contextos geométricos e físicos",
+      "Resolver exercícios básicos de integral definida em contextos geométricos e físicos",
+      "Aplicar integral definida em contextos geométricos e físicos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-03-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.03.03"
+    ]
+  },
+  {
+    "id": "cal-04-outros-topicos-avancados-cal-04-01",
+    "topicId": "cal-04-outros-topicos-avancados",
+    "title": "equações diferenciais elementares",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico CAL.04.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de equações diferenciais elementares",
+      "Resolver exercícios básicos de equações diferenciais elementares",
+      "Aplicar equações diferenciais elementares em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-04-01",
+      "elementar"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.04.01"
+    ]
+  },
+  {
+    "id": "cal-04-outros-topicos-avancados-cal-04-02",
+    "topicId": "cal-04-outros-topicos-avancados",
+    "title": "programação linear",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico CAL.04.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de programação linear",
+      "Resolver exercícios básicos de programação linear",
+      "Aplicar programação linear em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-04-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.04.02"
+    ]
+  },
+  {
+    "id": "cal-04-outros-topicos-avancados-cal-04-03",
+    "topicId": "cal-04-outros-topicos-avancados",
+    "title": "transformações matriciais",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico CAL.04.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de transformações matriciais",
+      "Resolver exercícios básicos de transformações matriciais",
+      "Aplicar transformações matriciais em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "cal-04-03",
+      "ponte"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "CAL.04.03"
+    ]
   }
 ];

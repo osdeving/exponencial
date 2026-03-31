@@ -2,6 +2,7 @@ import { LESSONS, TOPICS } from '../content';
 import { BADGES, PATHS, getPathById } from '../config';
 import {
   Badge,
+  ContentStatus,
   Lesson,
   LearningGoal,
   LearningPath,
@@ -36,6 +37,7 @@ export const DEFAULT_PROFILE: UserProfile = {
 };
 
 export const LEVEL_FILTERS: Array<'Todos' | Level> = ['Todos', 'Fundamental', 'Médio'];
+export const STATUS_FILTERS: Array<'Todos' | ContentStatus> = ['Todos', 'outline', 'in-progress', 'ready'];
 
 const SEARCH_LIMIT = 8;
 
@@ -211,12 +213,16 @@ export function getRecommendedLesson(progress: UserProgress): Lesson | undefined
 
   for (const pathId of progress.savedPaths) {
     const lesson = getNextLessonForPath(pathId, progress);
-    if (lesson) {
+    if (lesson && lesson.status !== 'outline') {
       return lesson;
     }
   }
 
-  return LESSONS.find((lesson) => !progress.completedLessons.includes(lesson.id)) ?? LESSONS[0];
+  return (
+    LESSONS.find((lesson) => lesson.status !== 'outline' && !progress.completedLessons.includes(lesson.id)) ??
+    LESSONS.find((lesson) => !progress.completedLessons.includes(lesson.id)) ??
+    LESSONS[0]
+  );
 }
 
 export function getSuggestedPath(profile: UserProfile | null): LearningPath {
@@ -235,6 +241,47 @@ export function getSuggestedPath(profile: UserProfile | null): LearningPath {
   return getPathById('exam-prep') ?? PATHS[0];
 }
 
+export function getContentStatusLabel(status: ContentStatus | 'Todos') {
+  if (status === 'ready') {
+    return 'Pronto';
+  }
+
+  if (status === 'in-progress') {
+    return 'Em progresso';
+  }
+
+  if (status === 'outline') {
+    return 'Estrutura pronta';
+  }
+
+  return 'Todos';
+}
+
+export function getTopicBranchLabel(topic: Topic) {
+  return topic.branchTitle ?? topic.category;
+}
+
+export function getBranchFilters(topics: Topic[] = TOPICS) {
+  return ['Todos os ramos', ...Array.from(new Set(topics.map((topic) => getTopicBranchLabel(topic)))).sort((left, right) => left.localeCompare(right, 'pt-BR'))];
+}
+
+export function groupTopicsByBranch(topics: Topic[]) {
+  const groups = topics.reduce<Record<string, Topic[]>>((accumulator, topic) => {
+    const branchLabel = getTopicBranchLabel(topic);
+    const currentTopics = accumulator[branchLabel] ?? [];
+    currentTopics.push(topic);
+    accumulator[branchLabel] = currentTopics;
+    return accumulator;
+  }, {});
+
+  return Object.entries(groups)
+    .sort(([left], [right]) => left.localeCompare(right, 'pt-BR'))
+    .map(([branchTitle, branchTopics]) => ({
+      branchTitle,
+      topics: branchTopics.sort((left, right) => left.order - right.order || left.title.localeCompare(right.title, 'pt-BR')),
+    }));
+}
+
 export function buildSearchResults(query: string): SearchResult[] {
   const normalized = query.trim().toLowerCase();
   if (!normalized) {
@@ -242,12 +289,14 @@ export function buildSearchResults(query: string): SearchResult[] {
   }
 
   const topicResults: SearchResult[] = TOPICS.filter((topic) =>
-    `${topic.title} ${topic.description} ${topic.category} ${topic.stage} ${topic.tags.join(' ')}`.toLowerCase().includes(normalized),
+    `${topic.title} ${topic.description} ${topic.category} ${topic.stage} ${topic.tags.join(' ')} ${(topic.canonicalIds ?? []).join(' ')} ${(topic.canonicalTitles ?? []).join(' ')} ${(topic.examProfiles ?? []).join(' ')} ${(topic.schoolYearBands ?? []).join(' ')} ${(topic.branchTitles ?? []).join(' ')}`
+      .toLowerCase()
+      .includes(normalized),
   ).map((topic) => ({
     type: 'topic',
     id: topic.id,
     title: topic.title,
-    subtitle: `${topic.level} · ${topic.stage} · ${topic.category}`,
+    subtitle: `${topic.level} · ${topic.stage} · ${getTopicBranchLabel(topic)}`,
     level: topic.level,
   }));
 
@@ -282,17 +331,32 @@ export function buildSearchResults(query: string): SearchResult[] {
 export function filterTopicsForCatalog({
   query,
   levelFilter,
+  branchFilter,
+  statusFilter,
   favoriteTopicIds,
 }: {
   query: string;
   levelFilter: 'Todos' | Level;
+  branchFilter: string;
+  statusFilter: 'Todos' | ContentStatus;
   favoriteTopicIds: string[];
 }) {
   const normalizedQuery = query.trim().toLowerCase();
 
   return TOPICS.filter((topic) => {
-    const passesLevel = levelFilter === 'Todos' || topic.level === levelFilter;
+    const passesLevel =
+      levelFilter === 'Todos' || topic.level === levelFilter || Boolean(topic.levelBands?.includes(levelFilter));
     if (!passesLevel) {
+      return false;
+    }
+
+    const passesBranch = branchFilter === 'Todos os ramos' || getTopicBranchLabel(topic) === branchFilter;
+    if (!passesBranch) {
+      return false;
+    }
+
+    const passesStatus = statusFilter === 'Todos' || topic.status === statusFilter;
+    if (!passesStatus) {
       return false;
     }
 
@@ -305,10 +369,16 @@ export function filterTopicsForCatalog({
       topic.description,
       topic.stage,
       topic.category,
+      getTopicBranchLabel(topic),
       ...topic.tags,
+      ...(topic.canonicalIds ?? []),
+      ...(topic.canonicalTitles ?? []),
+      ...(topic.schoolYearBands ?? []),
+      ...(topic.examProfiles ?? []),
+      ...(topic.flags ?? []),
       ...getLessonsByTopic(topic.id).map(
         (lesson) =>
-          `${lesson.title} ${lesson.summary} ${lesson.goals.join(' ')} ${lesson.prerequisites.join(' ')} ${lesson.status} ${lesson.tags.join(' ')}`,
+          `${lesson.title} ${lesson.summary} ${lesson.goals.join(' ')} ${lesson.prerequisites.join(' ')} ${lesson.status} ${(lesson.canonicalIds ?? []).join(' ')} ${lesson.tags.join(' ')}`,
       ),
     ]
       .join(' ')

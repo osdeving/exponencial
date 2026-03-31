@@ -1,0 +1,3990 @@
+[
+  {
+    "id": "SET",
+    "title": "Lógica, linguagem matemática e conjuntos",
+    "parent_id": null,
+    "kind": "section"
+  },
+  {
+    "id": "SET.01",
+    "title": "Linguagem matemática e estruturas lógicas",
+    "parent_id": "SET",
+    "kind": "subsection"
+  },
+  {
+    "id": "SET.01.01",
+    "title": "símbolos, notação e convenções",
+    "parent_id": "SET.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.01.02",
+    "title": "igualdade, desigualdade e equivalência",
+    "parent_id": "SET.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.01.03",
+    "title": "variáveis, constantes, parâmetros e incógnitas",
+    "parent_id": "SET.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.01.04",
+    "title": "sentenças matemáticas abertas e fechadas",
+    "parent_id": "SET.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.01.05",
+    "title": "proposições e valor lógico [opcional/avançado]",
+    "parent_id": "SET.01",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "avançado"
+    ]
+  },
+  {
+    "id": "SET.01.06",
+    "title": "conectivos lógicos básicos [opcional/avançado]",
+    "parent_id": "SET.01",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "avançado"
+    ]
+  },
+  {
+    "id": "SET.01.07",
+    "title": "quantificadores básicos [opcional/avançado]",
+    "parent_id": "SET.01",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "avançado"
+    ]
+  },
+  {
+    "id": "SET.01.08",
+    "title": "negação de enunciados [opcional/avançado]",
+    "parent_id": "SET.01",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "avançado"
+    ]
+  },
+  {
+    "id": "SET.01.09",
+    "title": "contraexemplos e verificação de validade",
+    "parent_id": "SET.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02",
+    "title": "Teoria elementar dos conjuntos",
+    "parent_id": "SET",
+    "kind": "subsection"
+  },
+  {
+    "id": "SET.02.01",
+    "title": "noção de conjunto",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.02",
+    "title": "representação de conjuntos",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.03",
+    "title": "elemento e pertinência",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.04",
+    "title": "subconjunto e inclusão",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.05",
+    "title": "igualdade de conjuntos",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.06",
+    "title": "conjunto vazio e conjunto universo",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.07",
+    "title": "união",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.08",
+    "title": "interseção",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.09",
+    "title": "diferença",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.10",
+    "title": "complementar",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.11",
+    "title": "diagramas de Venn",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.12",
+    "title": "cardinalidade finita",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.02.13",
+    "title": "partição de conjuntos [opcional]",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": [
+      "opcional"
+    ]
+  },
+  {
+    "id": "SET.02.14",
+    "title": "produto cartesiano",
+    "parent_id": "SET.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.03",
+    "title": "Relações e correspondências",
+    "parent_id": "SET",
+    "kind": "subsection"
+  },
+  {
+    "id": "SET.03.01",
+    "title": "pares ordenados",
+    "parent_id": "SET.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.03.02",
+    "title": "relação binária",
+    "parent_id": "SET.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "SET.03.03",
+    "title": "domínio, contradomínio e imagem [ponte para funções]",
+    "parent_id": "SET.03",
+    "kind": "topic",
+    "flags": [
+      "ponte"
+    ]
+  },
+  {
+    "id": "SET.03.04",
+    "title": "representações por conjunto, tabela, diagrama e gráfico",
+    "parent_id": "SET.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM",
+    "title": "Números, operações, frações, razão e estruturas aritméticas",
+    "parent_id": null,
+    "kind": "section"
+  },
+  {
+    "id": "NUM.01",
+    "title": "Sistema de numeração e valor posicional",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.01.01",
+    "title": "contagem e sequência numérica",
+    "parent_id": "NUM.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.01.02",
+    "title": "leitura e escrita de numerais",
+    "parent_id": "NUM.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.01.03",
+    "title": "ordem e comparação",
+    "parent_id": "NUM.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.01.04",
+    "title": "valor posicional",
+    "parent_id": "NUM.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.01.05",
+    "title": "composição e decomposição decimal",
+    "parent_id": "NUM.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.01.06",
+    "title": "arredondamento e estimativa",
+    "parent_id": "NUM.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.01.07",
+    "title": "ordens e classes",
+    "parent_id": "NUM.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.01.08",
+    "title": "sistema monetário decimal e troco [elementar]",
+    "parent_id": "NUM.01",
+    "kind": "topic",
+    "flags": [
+      "elementar"
+    ]
+  },
+  {
+    "id": "NUM.02",
+    "title": "Números naturais e operações",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.02.01",
+    "title": "adição",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.02.02",
+    "title": "subtração",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.02.03",
+    "title": "multiplicação",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.02.04",
+    "title": "divisão",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.02.05",
+    "title": "algoritmos usuais das quatro operações",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.02.06",
+    "title": "prioridade das operações",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.02.07",
+    "title": "propriedades das operações",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.02.08",
+    "title": "cálculo mental",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.02.09",
+    "title": "estimativa de resultados",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.02.10",
+    "title": "problemas aritméticos com uma e várias etapas",
+    "parent_id": "NUM.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.03",
+    "title": "Divisibilidade, fatores e primos",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.03.01",
+    "title": "múltiplos e divisores",
+    "parent_id": "NUM.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.03.02",
+    "title": "critérios de divisibilidade",
+    "parent_id": "NUM.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.03.03",
+    "title": "números primos e compostos",
+    "parent_id": "NUM.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.03.04",
+    "title": "decomposição em fatores primos",
+    "parent_id": "NUM.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.03.05",
+    "title": "máximo divisor comum",
+    "parent_id": "NUM.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.03.06",
+    "title": "mínimo múltiplo comum",
+    "parent_id": "NUM.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.03.07",
+    "title": "número de divisores [opcional/intermediário]",
+    "parent_id": "NUM.03",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "intermediário"
+    ]
+  },
+  {
+    "id": "NUM.04",
+    "title": "Números inteiros",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.04.01",
+    "title": "reta numérica dos inteiros",
+    "parent_id": "NUM.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.04.02",
+    "title": "oposto e valor absoluto",
+    "parent_id": "NUM.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.04.03",
+    "title": "comparação e ordem",
+    "parent_id": "NUM.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.04.04",
+    "title": "adição e subtração com inteiros",
+    "parent_id": "NUM.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.04.05",
+    "title": "multiplicação e divisão com inteiros",
+    "parent_id": "NUM.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.04.06",
+    "title": "potenciação com base inteira",
+    "parent_id": "NUM.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.04.07",
+    "title": "problemas com variação positiva e negativa",
+    "parent_id": "NUM.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.05",
+    "title": "Números racionais",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.05.01",
+    "title": "fração como número racional",
+    "parent_id": "NUM.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.05.02",
+    "title": "representação fracionária e decimal",
+    "parent_id": "NUM.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.05.03",
+    "title": "dízima finita e dízima periódica",
+    "parent_id": "NUM.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.05.04",
+    "title": "fração geratriz [intermediário]",
+    "parent_id": "NUM.05",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "NUM.05.05",
+    "title": "reta numérica dos racionais",
+    "parent_id": "NUM.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.05.06",
+    "title": "comparação e ordem",
+    "parent_id": "NUM.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.05.07",
+    "title": "operações com racionais",
+    "parent_id": "NUM.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06",
+    "title": "Frações",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.06.01",
+    "title": "fração como parte-todo",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.02",
+    "title": "fração como quociente",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.03",
+    "title": "fração como razão",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.04",
+    "title": "fração como operador",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.05",
+    "title": "leitura e nomenclatura",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.06",
+    "title": "frações próprias, impróprias e aparentes",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.07",
+    "title": "número misto",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.08",
+    "title": "transformação entre fração imprópria e número misto",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.09",
+    "title": "frações equivalentes",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.10",
+    "title": "simplificação e ampliação",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.11",
+    "title": "comparação e ordenação de frações",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.12",
+    "title": "denominadores comuns",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.13",
+    "title": "adição de frações",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.14",
+    "title": "subtração de frações",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.15",
+    "title": "multiplicação de frações",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.16",
+    "title": "divisão de frações",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.17",
+    "title": "potenciação de frações",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.18",
+    "title": "expressões numéricas com frações",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.19",
+    "title": "fração de uma quantidade",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.06.20",
+    "title": "problemas contextualizados com frações",
+    "parent_id": "NUM.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.07",
+    "title": "Decimais",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.07.01",
+    "title": "décimos, centésimos e milésimos",
+    "parent_id": "NUM.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.07.02",
+    "title": "valor posicional decimal",
+    "parent_id": "NUM.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.07.03",
+    "title": "leitura e escrita de decimais",
+    "parent_id": "NUM.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.07.04",
+    "title": "comparação e ordenação",
+    "parent_id": "NUM.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.07.05",
+    "title": "adição e subtração com decimais",
+    "parent_id": "NUM.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.07.06",
+    "title": "multiplicação e divisão com decimais",
+    "parent_id": "NUM.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.07.07",
+    "title": "relação entre frações e decimais",
+    "parent_id": "NUM.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.07.08",
+    "title": "arredondamento decimal",
+    "parent_id": "NUM.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.07.09",
+    "title": "dízimas periódicas e representação [intermediário]",
+    "parent_id": "NUM.07",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "NUM.08",
+    "title": "Razão, proporção e escalas",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.08.01",
+    "title": "conceito de razão",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.02",
+    "title": "razões equivalentes",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.03",
+    "title": "proporção",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.04",
+    "title": "propriedade fundamental das proporções",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.05",
+    "title": "grandezas diretamente proporcionais",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.06",
+    "title": "grandezas inversamente proporcionais",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.07",
+    "title": "regra de três simples",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.08",
+    "title": "regra de três composta",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.09",
+    "title": "divisão proporcional",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.10",
+    "title": "escala",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.08.11",
+    "title": "velocidade média, densidade e outras taxas",
+    "parent_id": "NUM.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.09",
+    "title": "Porcentagens e matemática financeira",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.09.01",
+    "title": "porcentagem como fração e decimal",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.09.02",
+    "title": "cálculo de porcentagem",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.09.03",
+    "title": "aumentos e descontos percentuais",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.09.04",
+    "title": "porcentagens sucessivas",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.09.05",
+    "title": "taxas e variação percentual",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.09.06",
+    "title": "juros simples",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.09.07",
+    "title": "juros compostos [intermediário/avançado]",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "NUM.09.08",
+    "title": "montante, capital, taxa e tempo",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.09.09",
+    "title": "desconto comercial simples [opcional]",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": [
+      "opcional"
+    ]
+  },
+  {
+    "id": "NUM.09.10",
+    "title": "equivalência de taxas [opcional/avançado]",
+    "parent_id": "NUM.09",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "avançado"
+    ]
+  },
+  {
+    "id": "NUM.10",
+    "title": "Potências, expoentes e notação científica",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.10.01",
+    "title": "potenciação como multiplicação repetida",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.02",
+    "title": "bases e expoentes",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.03",
+    "title": "propriedades das potências",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.04",
+    "title": "expoente zero",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.05",
+    "title": "expoente negativo",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.06",
+    "title": "potências de base negativa",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.07",
+    "title": "potências de frações",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.08",
+    "title": "potências de decimais",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.09",
+    "title": "potências de 10",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.10",
+    "title": "ordem de grandeza",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.11",
+    "title": "notação científica",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.10.12",
+    "title": "operações em notação científica",
+    "parent_id": "NUM.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.11",
+    "title": "Radicais e irracionais",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.11.01",
+    "title": "raiz quadrada e raiz cúbica",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.11.02",
+    "title": "radiciação como operação inversa da potenciação",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.11.03",
+    "title": "propriedades dos radicais",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.11.04",
+    "title": "simplificação de radicais",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.11.05",
+    "title": "operações com radicais",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.11.06",
+    "title": "racionalização de denominadores [intermediário/avançado]",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "NUM.11.07",
+    "title": "números irracionais",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.11.08",
+    "title": "conjunto dos números reais",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.11.09",
+    "title": "intervalos reais",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.11.10",
+    "title": "módulo de número real",
+    "parent_id": "NUM.11",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12",
+    "title": "Números complexos [avançado]",
+    "parent_id": "NUM",
+    "kind": "subsection"
+  },
+  {
+    "id": "NUM.12.01",
+    "title": "unidade imaginária",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12.02",
+    "title": "forma algébrica",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12.03",
+    "title": "operações na forma algébrica",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12.04",
+    "title": "módulo e conjugado",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12.05",
+    "title": "plano de Argand-Gauss",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12.06",
+    "title": "forma trigonométrica",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12.07",
+    "title": "potenciação e radiciação",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12.08",
+    "title": "fórmula de Moivre",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12.09",
+    "title": "raízes complexas",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "NUM.12.10",
+    "title": "equações binomiais e trinomiais",
+    "parent_id": "NUM.12",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG",
+    "title": "Álgebra, expressões, equações, polinômios e estruturas simbólicas",
+    "parent_id": null,
+    "kind": "section"
+  },
+  {
+    "id": "ALG.01",
+    "title": "Linguagem algébrica e expressões",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.01.01",
+    "title": "tradução entre linguagem verbal e algébrica",
+    "parent_id": "ALG.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.01.02",
+    "title": "monômios e termos algébricos",
+    "parent_id": "ALG.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.01.03",
+    "title": "coeficiente e parte literal",
+    "parent_id": "ALG.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.01.04",
+    "title": "expressões algébricas",
+    "parent_id": "ALG.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.01.05",
+    "title": "valor numérico",
+    "parent_id": "ALG.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.01.06",
+    "title": "simplificação e redução de termos semelhantes",
+    "parent_id": "ALG.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.01.07",
+    "title": "expressões numéricas versus expressões algébricas",
+    "parent_id": "ALG.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.01.08",
+    "title": "padrões numéricos e figurais; generalização [elementar/intermediário]",
+    "parent_id": "ALG.01",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "elementar"
+    ]
+  },
+  {
+    "id": "ALG.02",
+    "title": "Produtos notáveis e fatoração",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.02.01",
+    "title": "quadrado da soma",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.02.02",
+    "title": "quadrado da diferença",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.02.03",
+    "title": "produto da soma pela diferença",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.02.04",
+    "title": "cubo da soma [opcional]",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": [
+      "opcional"
+    ]
+  },
+  {
+    "id": "ALG.02.05",
+    "title": "cubo da diferença [opcional]",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": [
+      "opcional"
+    ]
+  },
+  {
+    "id": "ALG.02.06",
+    "title": "fator comum em evidência",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.02.07",
+    "title": "agrupamento",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.02.08",
+    "title": "trinômio quadrado perfeito",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.02.09",
+    "title": "diferença de quadrados",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.02.10",
+    "title": "fatoração de trinômio do 2º grau",
+    "parent_id": "ALG.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.03",
+    "title": "Frações algébricas",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.03.01",
+    "title": "domínio e restrições",
+    "parent_id": "ALG.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.03.02",
+    "title": "simplificação por fatoração",
+    "parent_id": "ALG.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.03.03",
+    "title": "adição e subtração",
+    "parent_id": "ALG.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.03.04",
+    "title": "multiplicação e divisão",
+    "parent_id": "ALG.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.03.05",
+    "title": "expressões complexas com frações algébricas",
+    "parent_id": "ALG.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.04",
+    "title": "Equações e inequações do 1º grau",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.04.01",
+    "title": "conceito de equação",
+    "parent_id": "ALG.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.04.02",
+    "title": "princípio aditivo e princípio multiplicativo",
+    "parent_id": "ALG.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.04.03",
+    "title": "equações lineares com uma incógnita",
+    "parent_id": "ALG.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.04.04",
+    "title": "problemas redutíveis a equações lineares",
+    "parent_id": "ALG.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.04.05",
+    "title": "inequações do 1º grau",
+    "parent_id": "ALG.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.04.06",
+    "title": "representação em reta e intervalos",
+    "parent_id": "ALG.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.04.07",
+    "title": "sistemas simples de inequações lineares",
+    "parent_id": "ALG.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.05",
+    "title": "Sistemas lineares",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.05.01",
+    "title": "sistemas 2x2",
+    "parent_id": "ALG.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.05.02",
+    "title": "método da substituição",
+    "parent_id": "ALG.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.05.03",
+    "title": "método da adição",
+    "parent_id": "ALG.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.05.04",
+    "title": "método da comparação",
+    "parent_id": "ALG.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.05.05",
+    "title": "interpretação geométrica de sistemas 2x2",
+    "parent_id": "ALG.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.05.06",
+    "title": "classificação de sistemas lineares",
+    "parent_id": "ALG.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.05.07",
+    "title": "problemas redutíveis a sistemas",
+    "parent_id": "ALG.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.06",
+    "title": "Equações e inequações do 2º grau",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.06.01",
+    "title": "forma geral da equação quadrática",
+    "parent_id": "ALG.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.06.02",
+    "title": "fatoração e produto nulo",
+    "parent_id": "ALG.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.06.03",
+    "title": "fórmula resolutiva",
+    "parent_id": "ALG.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.06.04",
+    "title": "discriminante",
+    "parent_id": "ALG.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.06.05",
+    "title": "raízes reais e natureza das raízes",
+    "parent_id": "ALG.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.06.06",
+    "title": "soma e produto das raízes",
+    "parent_id": "ALG.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.06.07",
+    "title": "problemas redutíveis a equações quadráticas",
+    "parent_id": "ALG.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.06.08",
+    "title": "inequações quadráticas",
+    "parent_id": "ALG.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.06.09",
+    "title": "inequação produto e inequação quociente",
+    "parent_id": "ALG.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07",
+    "title": "Polinômios",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.07.01",
+    "title": "conceito e grau",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.02",
+    "title": "polinômio identicamente nulo",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.03",
+    "title": "igualdade polinomial",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.04",
+    "title": "adição, subtração e multiplicação",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.05",
+    "title": "divisão de polinômios",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.06",
+    "title": "teorema do resto",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.07",
+    "title": "teorema de D'Alembert",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.08",
+    "title": "dispositivo de Briot-Ruffini",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.09",
+    "title": "raízes e multiplicidade",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.10",
+    "title": "fatoração de polinômios",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.07.11",
+    "title": "máximo divisor comum de polinômios [opcional/avançado]",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "avançado"
+    ]
+  },
+  {
+    "id": "ALG.07.12",
+    "title": "teorema fundamental da álgebra [avançado]",
+    "parent_id": "ALG.07",
+    "kind": "topic",
+    "flags": [
+      "avançado"
+    ]
+  },
+  {
+    "id": "ALG.08",
+    "title": "Equações algébricas e polinomiais [intermediário/avançado]",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.08.01",
+    "title": "equações biquadradas",
+    "parent_id": "ALG.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.08.02",
+    "title": "equações irracionais",
+    "parent_id": "ALG.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.08.03",
+    "title": "equações recíprocas",
+    "parent_id": "ALG.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.08.04",
+    "title": "transformações aditiva e multiplicativa",
+    "parent_id": "ALG.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.08.05",
+    "title": "raízes racionais",
+    "parent_id": "ALG.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.08.06",
+    "title": "relações de Girard",
+    "parent_id": "ALG.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.08.07",
+    "title": "teorema de Bolzano",
+    "parent_id": "ALG.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09",
+    "title": "Matrizes, determinantes e sistemas [avançado]",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.09.01",
+    "title": "notação matricial",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09.02",
+    "title": "tipos de matrizes",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09.03",
+    "title": "adição, subtração e multiplicação por escalar",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09.04",
+    "title": "produto de matrizes",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09.05",
+    "title": "matriz transposta",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09.06",
+    "title": "matriz inversa",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09.07",
+    "title": "determinante 2x2 e 3x3",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09.08",
+    "title": "propriedades dos determinantes",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09.09",
+    "title": "matriz associada a sistema linear",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.09.10",
+    "title": "resolução e discussão de sistemas lineares",
+    "parent_id": "ALG.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10",
+    "title": "Sequências, progressões e binômio [intermediário/avançado]",
+    "parent_id": "ALG",
+    "kind": "subsection"
+  },
+  {
+    "id": "ALG.10.01",
+    "title": "sequências numéricas",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.02",
+    "title": "lei de formação",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.03",
+    "title": "progressão aritmética",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.04",
+    "title": "termo geral da PA",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.05",
+    "title": "soma dos termos da PA",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.06",
+    "title": "progressão geométrica",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.07",
+    "title": "termo geral da PG",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.08",
+    "title": "soma dos termos da PG finita",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.09",
+    "title": "soma da PG infinita",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.10",
+    "title": "binômio de Newton",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.11",
+    "title": "coeficientes binomiais",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "ALG.10.12",
+    "title": "termo geral do desenvolvimento binomial",
+    "parent_id": "ALG.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN",
+    "title": "Funções e modelagem algébrica",
+    "parent_id": null,
+    "kind": "section"
+  },
+  {
+    "id": "FUN.01",
+    "title": "Conceito geral de função",
+    "parent_id": "FUN",
+    "kind": "subsection"
+  },
+  {
+    "id": "FUN.01.01",
+    "title": "relação e função",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.02",
+    "title": "domínio, contradomínio e imagem",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.03",
+    "title": "notação funcional",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.04",
+    "title": "gráficos, tabelas e diagramas",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.05",
+    "title": "zeros de função",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.06",
+    "title": "crescimento e decrescimento",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.07",
+    "title": "função constante",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.08",
+    "title": "função definida por mais de uma sentença",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.09",
+    "title": "função injetora",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.10",
+    "title": "função sobrejetora",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.11",
+    "title": "função bijetora",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.12",
+    "title": "função par, ímpar e periódica",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.13",
+    "title": "função composta",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.14",
+    "title": "função inversa",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.01.15",
+    "title": "translações, reflexões e deformações gráficas",
+    "parent_id": "FUN.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.02",
+    "title": "Função afim e linear",
+    "parent_id": "FUN",
+    "kind": "subsection"
+  },
+  {
+    "id": "FUN.02.01",
+    "title": "taxa de variação",
+    "parent_id": "FUN.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.02.02",
+    "title": "coeficiente angular e linear",
+    "parent_id": "FUN.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.02.03",
+    "title": "gráfico da reta",
+    "parent_id": "FUN.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.02.04",
+    "title": "raiz da função afim",
+    "parent_id": "FUN.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.02.05",
+    "title": "sinal da função afim",
+    "parent_id": "FUN.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.02.06",
+    "title": "função linear y=ax",
+    "parent_id": "FUN.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.02.07",
+    "title": "modelagem linear",
+    "parent_id": "FUN.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.03",
+    "title": "Função quadrática",
+    "parent_id": "FUN",
+    "kind": "subsection"
+  },
+  {
+    "id": "FUN.03.01",
+    "title": "forma geral",
+    "parent_id": "FUN.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.03.02",
+    "title": "gráfico da parábola",
+    "parent_id": "FUN.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.03.03",
+    "title": "concavidade",
+    "parent_id": "FUN.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.03.04",
+    "title": "eixo de simetria",
+    "parent_id": "FUN.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.03.05",
+    "title": "vértice",
+    "parent_id": "FUN.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.03.06",
+    "title": "máximo e mínimo",
+    "parent_id": "FUN.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.03.07",
+    "title": "raízes e interseções",
+    "parent_id": "FUN.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.03.08",
+    "title": "sinal da função quadrática",
+    "parent_id": "FUN.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.03.09",
+    "title": "modelagem quadrática",
+    "parent_id": "FUN.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.04",
+    "title": "Funções módulo, racional e potência",
+    "parent_id": "FUN",
+    "kind": "subsection"
+  },
+  {
+    "id": "FUN.04.01",
+    "title": "módulo de número real",
+    "parent_id": "FUN.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.04.02",
+    "title": "função modular",
+    "parent_id": "FUN.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.04.03",
+    "title": "equações e inequações modulares",
+    "parent_id": "FUN.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.04.04",
+    "title": "função inversamente proporcional y=k/x",
+    "parent_id": "FUN.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.04.05",
+    "title": "funções potência básicas",
+    "parent_id": "FUN.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.04.06",
+    "title": "funções radicais básicas",
+    "parent_id": "FUN.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05",
+    "title": "Funções exponencial e logarítmica",
+    "parent_id": "FUN",
+    "kind": "subsection"
+  },
+  {
+    "id": "FUN.05.01",
+    "title": "potências de base real positiva",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.02",
+    "title": "função exponencial",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.03",
+    "title": "gráfico, domínio e imagem da exponencial",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.04",
+    "title": "crescimento e decrescimento exponencial",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.05",
+    "title": "equações exponenciais",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.06",
+    "title": "inequações exponenciais",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.07",
+    "title": "definição de logaritmo",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.08",
+    "title": "propriedades operatórias dos logaritmos",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.09",
+    "title": "função logarítmica",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.10",
+    "title": "gráfico, domínio e imagem da logarítmica",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.11",
+    "title": "equações logarítmicas",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.12",
+    "title": "inequações logarítmicas",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "FUN.05.13",
+    "title": "mudança de base [intermediário/avançado]",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "FUN.05.14",
+    "title": "característica e mantissa [opcional/legado]",
+    "parent_id": "FUN.05",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "legado"
+    ]
+  },
+  {
+    "id": "GEO",
+    "title": "Geometria plana, espacial, medidas e construções",
+    "parent_id": null,
+    "kind": "section"
+  },
+  {
+    "id": "GEO.01",
+    "title": "Noções fundamentais de geometria",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.01.01",
+    "title": "ponto, reta, plano e espaço",
+    "parent_id": "GEO.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.01.02",
+    "title": "semirreta e segmento",
+    "parent_id": "GEO.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.01.03",
+    "title": "posições relativas entre retas",
+    "parent_id": "GEO.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.01.04",
+    "title": "posições relativas entre reta e plano [intermediário]",
+    "parent_id": "GEO.01",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "GEO.01.05",
+    "title": "posições relativas entre planos [intermediário]",
+    "parent_id": "GEO.01",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "GEO.02",
+    "title": "Ângulos e paralelismo",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.02.01",
+    "title": "ângulo e suas classificações",
+    "parent_id": "GEO.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.02.02",
+    "title": "ângulos complementares e suplementares",
+    "parent_id": "GEO.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.02.03",
+    "title": "bissetriz",
+    "parent_id": "GEO.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.02.04",
+    "title": "ângulos opostos pelo vértice",
+    "parent_id": "GEO.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.02.05",
+    "title": "retas paralelas e transversais",
+    "parent_id": "GEO.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.02.06",
+    "title": "ângulos correspondentes, alternos e colaterais",
+    "parent_id": "GEO.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.03",
+    "title": "Polígonos",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.03.01",
+    "title": "conceito e classificação",
+    "parent_id": "GEO.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.03.02",
+    "title": "convexidade e concavidade",
+    "parent_id": "GEO.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.03.03",
+    "title": "diagonais",
+    "parent_id": "GEO.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.03.04",
+    "title": "soma dos ângulos internos",
+    "parent_id": "GEO.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.03.05",
+    "title": "soma dos ângulos externos",
+    "parent_id": "GEO.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.03.06",
+    "title": "polígonos regulares",
+    "parent_id": "GEO.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.03.07",
+    "title": "apótema e elementos",
+    "parent_id": "GEO.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.03.08",
+    "title": "figuras planas elementares e classificação inicial",
+    "parent_id": "GEO.03",
+    "kind": "topic",
+    "flags": [
+      "elementar"
+    ]
+  },
+  {
+    "id": "GEO.04",
+    "title": "Triângulos",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.04.01",
+    "title": "classificação quanto aos lados",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.02",
+    "title": "classificação quanto aos ângulos",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.03",
+    "title": "condição de existência",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.04",
+    "title": "soma dos ângulos internos",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.05",
+    "title": "congruência de triângulos",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.06",
+    "title": "semelhança de triângulos",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.07",
+    "title": "medianas e baricentro",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.08",
+    "title": "bissetrizes e incentro",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.09",
+    "title": "alturas e ortocentro",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.10",
+    "title": "mediatrizes e circuncentro",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.11",
+    "title": "teorema de Tales",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.12",
+    "title": "teorema da bissetriz interna e externa [intermediário]",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "GEO.04.13",
+    "title": "relações métricas no triângulo retângulo",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.14",
+    "title": "teorema de Pitágoras",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.15",
+    "title": "relações métricas em triângulo qualquer",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.04.16",
+    "title": "relação de Stewart [avançado]",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": [
+      "avançado"
+    ]
+  },
+  {
+    "id": "GEO.04.17",
+    "title": "fórmula de Heron [intermediário/avançado]",
+    "parent_id": "GEO.04",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "GEO.05",
+    "title": "Quadriláteros e polígonos notáveis",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.05.01",
+    "title": "paralelogramo",
+    "parent_id": "GEO.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.05.02",
+    "title": "retângulo",
+    "parent_id": "GEO.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.05.03",
+    "title": "losango",
+    "parent_id": "GEO.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.05.04",
+    "title": "quadrado",
+    "parent_id": "GEO.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.05.05",
+    "title": "trapézio",
+    "parent_id": "GEO.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.05.06",
+    "title": "propriedades de diagonais e ângulos",
+    "parent_id": "GEO.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06",
+    "title": "Circunferência e círculo",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.06.01",
+    "title": "elementos da circunferência",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06.02",
+    "title": "arcos, cordas e setores",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06.03",
+    "title": "ângulo central e ângulo inscrito",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06.04",
+    "title": "ângulos na circunferência",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06.05",
+    "title": "posições relativas entre reta e circunferência",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06.06",
+    "title": "tangência",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06.07",
+    "title": "potência de ponto",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06.08",
+    "title": "comprimento da circunferência",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06.09",
+    "title": "área do círculo",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.06.10",
+    "title": "coroas e setores circulares",
+    "parent_id": "GEO.06",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.07",
+    "title": "Transformações geométricas e construções",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.07.01",
+    "title": "translação",
+    "parent_id": "GEO.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.07.02",
+    "title": "rotação",
+    "parent_id": "GEO.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.07.03",
+    "title": "reflexão",
+    "parent_id": "GEO.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.07.04",
+    "title": "simetria axial",
+    "parent_id": "GEO.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.07.05",
+    "title": "simetria central",
+    "parent_id": "GEO.07",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.07.06",
+    "title": "homotetia [intermediário]",
+    "parent_id": "GEO.07",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "GEO.07.07",
+    "title": "construções elementares com régua e compasso [opcional]",
+    "parent_id": "GEO.07",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "elementar"
+    ]
+  },
+  {
+    "id": "GEO.07.08",
+    "title": "projeção ortogonal [intermediário]",
+    "parent_id": "GEO.07",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "GEO.07.09",
+    "title": "lugares geométricos [intermediário/avançado]",
+    "parent_id": "GEO.07",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "GEO.08",
+    "title": "Perímetros, áreas e grandezas",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.08.01",
+    "title": "unidades de comprimento",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.02",
+    "title": "unidades de área",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.03",
+    "title": "unidades de volume",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.04",
+    "title": "conversão de unidades",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.05",
+    "title": "perímetro de figuras planas",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.06",
+    "title": "área de retângulo e quadrado",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.07",
+    "title": "área de paralelogramo",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.08",
+    "title": "área de triângulo",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.09",
+    "title": "área de trapézio",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.10",
+    "title": "área de losango",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.11",
+    "title": "área de polígonos regulares",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.12",
+    "title": "razão entre áreas",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.13",
+    "title": "comprimento de arco",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.14",
+    "title": "área de setor circular",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.15",
+    "title": "capacidade e volume",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.16",
+    "title": "unidades de massa",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.17",
+    "title": "unidades de capacidade",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.18",
+    "title": "unidades de tempo",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.08.19",
+    "title": "temperatura e escalas [intermediário]",
+    "parent_id": "GEO.08",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "GEO.09",
+    "title": "Geometria espacial de posição",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.09.01",
+    "title": "retas reversas",
+    "parent_id": "GEO.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.09.02",
+    "title": "paralelismo e perpendicularidade no espaço",
+    "parent_id": "GEO.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.09.03",
+    "title": "ângulo entre retas, retas e planos, planos",
+    "parent_id": "GEO.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.09.04",
+    "title": "projeções ortogonais",
+    "parent_id": "GEO.09",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10",
+    "title": "Geometria espacial métrica",
+    "parent_id": "GEO",
+    "kind": "subsection"
+  },
+  {
+    "id": "GEO.10.01",
+    "title": "poliedros convexos",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.02",
+    "title": "relação de Euler",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.03",
+    "title": "poliedros regulares e de Platão",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.04",
+    "title": "prismas",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.05",
+    "title": "pirâmides",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.06",
+    "title": "troncos de prismas e pirâmides",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.07",
+    "title": "cilindros",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.08",
+    "title": "cones",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.09",
+    "title": "troncos de cilindros e cones [opcional]",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": [
+      "opcional"
+    ]
+  },
+  {
+    "id": "GEO.10.10",
+    "title": "esfera",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.11",
+    "title": "áreas de sólidos",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.12",
+    "title": "volumes de sólidos",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "GEO.10.13",
+    "title": "sólidos de revolução [intermediário]",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "GEO.10.14",
+    "title": "inscrição e circunscrição de sólidos [avançado]",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": [
+      "avançado"
+    ]
+  },
+  {
+    "id": "GEO.10.15",
+    "title": "sólidos geométricos elementares e planificações",
+    "parent_id": "GEO.10",
+    "kind": "topic",
+    "flags": [
+      "elementar"
+    ]
+  },
+  {
+    "id": "TRI",
+    "title": "Trigonometria",
+    "parent_id": null,
+    "kind": "section"
+  },
+  {
+    "id": "TRI.01",
+    "title": "Trigonometria no triângulo",
+    "parent_id": "TRI",
+    "kind": "subsection"
+  },
+  {
+    "id": "TRI.01.01",
+    "title": "seno, cosseno e tangente no triângulo retângulo",
+    "parent_id": "TRI.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.01.02",
+    "title": "razões trigonométricas recíprocas [opcional/intermediário]",
+    "parent_id": "TRI.01",
+    "kind": "topic",
+    "flags": [
+      "opcional",
+      "intermediário"
+    ]
+  },
+  {
+    "id": "TRI.01.03",
+    "title": "ângulos notáveis",
+    "parent_id": "TRI.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.01.04",
+    "title": "resolução de problemas métricos",
+    "parent_id": "TRI.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.01.05",
+    "title": "lei dos senos",
+    "parent_id": "TRI.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.01.06",
+    "title": "lei dos cossenos",
+    "parent_id": "TRI.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.01.07",
+    "title": "resolução de triângulos quaisquer",
+    "parent_id": "TRI.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.02",
+    "title": "Ciclo trigonométrico e funções trigonométricas",
+    "parent_id": "TRI",
+    "kind": "subsection"
+  },
+  {
+    "id": "TRI.02.01",
+    "title": "grau e radiano",
+    "parent_id": "TRI.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.02.02",
+    "title": "arcos orientados",
+    "parent_id": "TRI.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.02.03",
+    "title": "círculo trigonométrico",
+    "parent_id": "TRI.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.02.04",
+    "title": "redução ao primeiro quadrante",
+    "parent_id": "TRI.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.02.05",
+    "title": "funções seno, cosseno e tangente",
+    "parent_id": "TRI.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.02.06",
+    "title": "domínio, imagem, período e paridade",
+    "parent_id": "TRI.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.02.07",
+    "title": "gráficos trigonométricos",
+    "parent_id": "TRI.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.02.08",
+    "title": "funções trigonométricas inversas [intermediário/avançado]",
+    "parent_id": "TRI.02",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "TRI.03",
+    "title": "Identidades, transformações e equações trigonométricas",
+    "parent_id": "TRI",
+    "kind": "subsection"
+  },
+  {
+    "id": "TRI.03.01",
+    "title": "identidades fundamentais",
+    "parent_id": "TRI.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.03.02",
+    "title": "fórmulas de adição e subtração de arcos",
+    "parent_id": "TRI.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.03.03",
+    "title": "arco duplo",
+    "parent_id": "TRI.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.03.04",
+    "title": "arco metade",
+    "parent_id": "TRI.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.03.05",
+    "title": "transformação de soma em produto",
+    "parent_id": "TRI.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.03.06",
+    "title": "equações trigonométricas",
+    "parent_id": "TRI.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.03.07",
+    "title": "inequações trigonométricas",
+    "parent_id": "TRI.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "TRI.03.08",
+    "title": "sistemas trigonométricos [avançado]",
+    "parent_id": "TRI.03",
+    "kind": "topic",
+    "flags": [
+      "avançado"
+    ]
+  },
+  {
+    "id": "AGE",
+    "title": "Geometria analítica e vetores",
+    "parent_id": null,
+    "kind": "section"
+  },
+  {
+    "id": "AGE.01",
+    "title": "Plano cartesiano e elementos básicos",
+    "parent_id": "AGE",
+    "kind": "subsection"
+  },
+  {
+    "id": "AGE.01.01",
+    "title": "coordenadas cartesianas",
+    "parent_id": "AGE.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.01.02",
+    "title": "distância entre pontos",
+    "parent_id": "AGE.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.01.03",
+    "title": "ponto médio",
+    "parent_id": "AGE.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.01.04",
+    "title": "condição de alinhamento",
+    "parent_id": "AGE.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.01.05",
+    "title": "área de triângulo por coordenadas",
+    "parent_id": "AGE.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.02",
+    "title": "Reta no plano",
+    "parent_id": "AGE",
+    "kind": "subsection"
+  },
+  {
+    "id": "AGE.02.01",
+    "title": "equações da reta",
+    "parent_id": "AGE.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.02.02",
+    "title": "coeficiente angular",
+    "parent_id": "AGE.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.02.03",
+    "title": "interseção entre retas",
+    "parent_id": "AGE.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.02.04",
+    "title": "paralelismo e perpendicularidade",
+    "parent_id": "AGE.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.02.05",
+    "title": "ângulo entre retas",
+    "parent_id": "AGE.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.02.06",
+    "title": "distância de ponto a reta",
+    "parent_id": "AGE.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.02.07",
+    "title": "distância entre retas",
+    "parent_id": "AGE.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.02.08",
+    "title": "bissetrizes do ângulo entre duas retas [avançado]",
+    "parent_id": "AGE.02",
+    "kind": "topic",
+    "flags": [
+      "avançado"
+    ]
+  },
+  {
+    "id": "AGE.02.09",
+    "title": "inequações lineares com duas variáveis",
+    "parent_id": "AGE.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.03",
+    "title": "Circunferência",
+    "parent_id": "AGE",
+    "kind": "subsection"
+  },
+  {
+    "id": "AGE.03.01",
+    "title": "equação reduzida",
+    "parent_id": "AGE.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.03.02",
+    "title": "equação geral",
+    "parent_id": "AGE.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.03.03",
+    "title": "centro e raio",
+    "parent_id": "AGE.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.03.04",
+    "title": "posições relativas entre ponto e circunferência",
+    "parent_id": "AGE.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.03.05",
+    "title": "reta e circunferência",
+    "parent_id": "AGE.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.03.06",
+    "title": "duas circunferências",
+    "parent_id": "AGE.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.03.07",
+    "title": "problemas de tangência",
+    "parent_id": "AGE.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.03.08",
+    "title": "inequações quadráticas com duas variáveis [intermediário/avançado]",
+    "parent_id": "AGE.03",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "AGE.04",
+    "title": "Cônicas [avançado]",
+    "parent_id": "AGE",
+    "kind": "subsection"
+  },
+  {
+    "id": "AGE.04.01",
+    "title": "parábola: definição e equação",
+    "parent_id": "AGE.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.04.02",
+    "title": "elipse: definição e equação",
+    "parent_id": "AGE.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.04.03",
+    "title": "hipérbole: definição e equação",
+    "parent_id": "AGE.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.04.04",
+    "title": "elementos das cônicas",
+    "parent_id": "AGE.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.04.05",
+    "title": "posições relativas entre reta e cônica",
+    "parent_id": "AGE.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.04.06",
+    "title": "assíntotas da hipérbole",
+    "parent_id": "AGE.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.04.07",
+    "title": "reconhecimento de cônica pela equação",
+    "parent_id": "AGE.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.04.08",
+    "title": "lugares geométricos e interpretação de equações de 2º grau",
+    "parent_id": "AGE.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.05",
+    "title": "Vetores [opcional/avançado]",
+    "parent_id": "AGE",
+    "kind": "subsection"
+  },
+  {
+    "id": "AGE.05.01",
+    "title": "segmento orientado",
+    "parent_id": "AGE.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.05.02",
+    "title": "vetor livre e vetor fixo",
+    "parent_id": "AGE.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.05.03",
+    "title": "módulo, direção e sentido",
+    "parent_id": "AGE.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.05.04",
+    "title": "adição e subtração vetorial",
+    "parent_id": "AGE.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.05.05",
+    "title": "multiplicação por escalar",
+    "parent_id": "AGE.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "AGE.05.06",
+    "title": "coordenadas de vetor",
+    "parent_id": "AGE.05",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT",
+    "title": "Dados, estatística, contagem e probabilidade",
+    "parent_id": null,
+    "kind": "section"
+  },
+  {
+    "id": "DAT.01",
+    "title": "Tabelas, gráficos e leitura de dados",
+    "parent_id": "DAT",
+    "kind": "subsection"
+  },
+  {
+    "id": "DAT.01.01",
+    "title": "organização de dados",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.01.02",
+    "title": "tabelas simples e de dupla entrada",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.01.03",
+    "title": "gráfico de barras",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.01.04",
+    "title": "gráfico de colunas",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.01.05",
+    "title": "gráfico de setores",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.01.06",
+    "title": "gráfico de linhas",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.01.07",
+    "title": "pictogramas",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.01.08",
+    "title": "histograma [intermediário]",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "DAT.01.09",
+    "title": "interpretação crítica de gráficos e tabelas",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.01.10",
+    "title": "interpolação e extrapolação [intermediário/ENEM]",
+    "parent_id": "DAT.01",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "ENEM"
+    ]
+  },
+  {
+    "id": "DAT.02",
+    "title": "Estatística descritiva",
+    "parent_id": "DAT",
+    "kind": "subsection"
+  },
+  {
+    "id": "DAT.02.01",
+    "title": "população e amostra",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.02.02",
+    "title": "frequência absoluta e relativa",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.02.03",
+    "title": "média aritmética simples",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.02.04",
+    "title": "média ponderada",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.02.05",
+    "title": "mediana",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.02.06",
+    "title": "moda",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.02.07",
+    "title": "amplitude",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.02.08",
+    "title": "variância [intermediário/avançado]",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "DAT.02.09",
+    "title": "desvio padrão [intermediário/avançado]",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "DAT.02.10",
+    "title": "medidas de dispersão em leitura de dados",
+    "parent_id": "DAT.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.03",
+    "title": "Contagem e análise combinatória",
+    "parent_id": "DAT",
+    "kind": "subsection"
+  },
+  {
+    "id": "DAT.03.01",
+    "title": "princípio aditivo",
+    "parent_id": "DAT.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.03.02",
+    "title": "princípio multiplicativo",
+    "parent_id": "DAT.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.03.03",
+    "title": "fatorial",
+    "parent_id": "DAT.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.03.04",
+    "title": "arranjos simples",
+    "parent_id": "DAT.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.03.05",
+    "title": "permutações simples",
+    "parent_id": "DAT.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.03.06",
+    "title": "permutações com repetição [intermediário]",
+    "parent_id": "DAT.03",
+    "kind": "topic",
+    "flags": [
+      "intermediário"
+    ]
+  },
+  {
+    "id": "DAT.03.07",
+    "title": "combinações simples",
+    "parent_id": "DAT.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.03.08",
+    "title": "contagem com restrições [intermediário/avançado]",
+    "parent_id": "DAT.03",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "DAT.03.09",
+    "title": "experimentos binomiais [intermediário/avançado]",
+    "parent_id": "DAT.03",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "DAT.04",
+    "title": "Probabilidade",
+    "parent_id": "DAT",
+    "kind": "subsection"
+  },
+  {
+    "id": "DAT.04.01",
+    "title": "experimento aleatório",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.04.02",
+    "title": "espaço amostral",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.04.03",
+    "title": "evento",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.04.04",
+    "title": "probabilidade em espaços equiprováveis",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.04.05",
+    "title": "união e interseção de eventos",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.04.06",
+    "title": "eventos complementares",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.04.07",
+    "title": "probabilidade condicional [intermediário/avançado]",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "DAT.04.08",
+    "title": "eventos independentes [intermediário/avançado]",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
+  {
+    "id": "DAT.04.09",
+    "title": "probabilidade de eventos sucessivos",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "DAT.04.10",
+    "title": "noções de distribuição estatística [opcional]",
+    "parent_id": "DAT.04",
+    "kind": "topic",
+    "flags": [
+      "opcional"
+    ]
+  },
+  {
+    "id": "CAL",
+    "title": "Pré-cálculo e introduções avançadas [opcional/avançado]",
+    "parent_id": null,
+    "kind": "section"
+  },
+  {
+    "id": "CAL.01",
+    "title": "Limites e continuidade [opcional]",
+    "parent_id": "CAL",
+    "kind": "subsection"
+  },
+  {
+    "id": "CAL.01.01",
+    "title": "ideia intuitiva de limite",
+    "parent_id": "CAL.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "CAL.01.02",
+    "title": "taxa média e taxa instantânea [ponte]",
+    "parent_id": "CAL.01",
+    "kind": "topic",
+    "flags": [
+      "ponte"
+    ]
+  },
+  {
+    "id": "CAL.01.03",
+    "title": "continuidade intuitiva",
+    "parent_id": "CAL.01",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "CAL.02",
+    "title": "Derivadas [opcional]",
+    "parent_id": "CAL",
+    "kind": "subsection"
+  },
+  {
+    "id": "CAL.02.01",
+    "title": "derivada como taxa de variação",
+    "parent_id": "CAL.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "CAL.02.02",
+    "title": "derivada como inclinação da tangente",
+    "parent_id": "CAL.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "CAL.02.03",
+    "title": "aplicações em crescimento e otimização",
+    "parent_id": "CAL.02",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "CAL.03",
+    "title": "Integrais [opcional]",
+    "parent_id": "CAL",
+    "kind": "subsection"
+  },
+  {
+    "id": "CAL.03.01",
+    "title": "área sob curva como acumulação",
+    "parent_id": "CAL.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "CAL.03.02",
+    "title": "integral indefinida como antiderivada",
+    "parent_id": "CAL.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "CAL.03.03",
+    "title": "integral definida em contextos geométricos e físicos",
+    "parent_id": "CAL.03",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "CAL.04",
+    "title": "Outros tópicos avançados [opcional]",
+    "parent_id": "CAL",
+    "kind": "subsection"
+  },
+  {
+    "id": "CAL.04.01",
+    "title": "equações diferenciais elementares",
+    "parent_id": "CAL.04",
+    "kind": "topic",
+    "flags": [
+      "elementar"
+    ]
+  },
+  {
+    "id": "CAL.04.02",
+    "title": "programação linear",
+    "parent_id": "CAL.04",
+    "kind": "topic",
+    "flags": []
+  },
+  {
+    "id": "CAL.04.03",
+    "title": "transformações matriciais [ponte]",
+    "parent_id": "CAL.04",
+    "kind": "topic",
+    "flags": [
+      "ponte"
+    ]
+  }
+]

@@ -2,6 +2,8 @@
 
 Hoje o projeto usa **Markdown como fonte principal** para tópico, teoria, exercícios e gabaritos.
 
+Além disso, o setup inicial do app parte de uma **taxonomia canônica** em `docs/estrutura/*`. O scaffold usa essa taxonomia para garantir que a grade já exista no sistema, mesmo quando parte do conteúdo ainda estiver só como placeholder.
+
 ## Estrutura
 
 Os arquivos vivem em `src/content/`:
@@ -36,8 +38,19 @@ npm run lint
 ```
 
 - `content:scaffold`: cria a base do currículo sem sobrescrever arquivos já existentes.
+- `content:scaffold`: combina a semente editorial com `docs/estrutura/*` e cria placeholders para tudo o que ainda não existir em `src/content/`.
 - `content:generate`: lê os `.md`, valida o frontmatter e gera os manifestos TypeScript e os módulos lazy por lição.
 - `dev`, `build` e `lint` já executam `content:generate` antes.
+
+## Status de conteúdo
+
+Use estes valores em lições:
+
+- `outline`: a estrutura existe, mas o conteúdo ainda é placeholder
+- `in-progress`: a lição está sendo construída e já pode ter texto parcial
+- `ready`: a lição está pronta
+
+O tópico herda o status a partir das lições.
 
 ## Frontmatter do tópico
 
@@ -56,6 +69,8 @@ order: 20
 tags:
   - fracoes
   - racionais
+canonicalIds:
+  - NUM.06
 ---
 # Frações
 
@@ -72,6 +87,10 @@ Campos obrigatórios:
 - `category`
 - `icon`
 - `order`
+
+Campo opcional recomendado:
+
+- `canonicalIds`
 
 ## Frontmatter da lição
 
@@ -92,6 +111,8 @@ goals:
   - Ler frações no cotidiano
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.06.01
 ---
 # O que é uma Fração?
 
@@ -114,6 +135,27 @@ Campos opcionais:
 - `goals`
 - `prerequisites`
 - `tags`
+- `canonicalIds`
+
+## Taxonomia canônica
+
+O elo entre o conteúdo do app e a grade curricular ampla é feito com `canonicalIds`.
+
+- em `_topic.md`, `canonicalIds` aponta para subseções como `NUM.06`, `SET.02`, `CAL.01`
+- em lições, `canonicalIds` aponta para itens folha como `NUM.06.01`
+
+Quando um tópico real ainda não existir, `npm run content:scaffold` cria o diretório e os arquivos `.md` iniciais automaticamente com base em `docs/estrutura/*`.
+
+Exemplo de placeholder scaffoldado:
+
+```text
+src/content/fundamental/6-ano/set-02-teoria-elementar-dos-conjuntos/
+  _topic.md
+  01-set-02-01-nocao-de-conjunto.md
+  02-set-02-02-pertinencia.md
+```
+
+Esse é o comportamento desejado do projeto: a grade já vem montada, e o trabalho editorial passa a ser preencher ou refinar os Markdown existentes.
 
 ## KaTeX
 
@@ -292,19 +334,21 @@ Layouts de `algorithm` aceitos:
 
 ## Fluxo recomendado
 
-1. Escolha o tópico em `src/content/.../<topic-id>/`.
-2. Edite ou crie a lição em Markdown.
-3. Se houver prática, edite ou crie o `*.questions.md` da mesma lição.
-4. Rode `npm run content:generate`.
-5. Rode `npm run dev`.
-6. Commit normalmente.
+1. Se a mudança for estrutural, rode `npm run content:scaffold`.
+2. Escolha o tópico em `src/content/.../<topic-id>/`.
+3. Edite ou crie a lição em Markdown.
+4. Se houver prática, edite ou crie o `*.questions.md` da mesma lição.
+5. Rode `npm run content:generate`.
+6. Rode `npm run dev`.
+7. Commit normalmente.
 
 ## Observações
 
 - Para adicionar um novo tópico, crie uma pasta nova com `_topic.md`.
+- Para ampliar a cobertura curricular base, prefira primeiro revisar a taxonomia em `docs/estrutura/*` e então rodar `npm run content:scaffold`.
 - Para adicionar uma nova lição, crie um novo `.md` no mesmo diretório do tópico.
 - Para adicionar questões, crie o `*.questions.md` apontando para o `lessonId` da lição.
 - Para adicionar resolução animável no futuro, prefira `### Solução` estruturada em vez de empilhar tudo em `### Explicação`.
 - O app lê as lições pelo `topicId` e as questões pelo `lessonId`, então não é necessário editar o código para novo conteúdo se o frontmatter estiver correto.
-- Não edite `src/generated/content-manifest.ts`, `src/generated/lesson-content-index.ts` nem `src/generated/question-index.ts` manualmente.
+- Não edite `src/generated/content-manifest.ts`, `src/generated/lesson-content-index.ts`, `src/generated/question-index.ts`, `src/generated/canonical-taxonomy.ts` nem `src/generated/topic-taxonomy.ts` manualmente.
 - Não use PDFs como dependência do runtime final.

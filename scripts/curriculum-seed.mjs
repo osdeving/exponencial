@@ -933,6 +933,7 @@ export function getTopicMarkdown(topicEntry) {
     icon: topicEntry.icon,
     order: topicEntry.order,
     tags: topicEntry.tags,
+    ...(topicEntry.canonicalIds?.length ? { canonicalIds: topicEntry.canonicalIds } : {}),
   };
 
   return { frontmatter, body: `# ${topicEntry.title}\n\n${topicEntry.overview}\n` };
@@ -951,6 +952,7 @@ export function getLessonMarkdown(topicEntry, lessonEntry) {
     goals: lessonEntry.goals,
     prerequisites: lessonEntry.prerequisites,
     tags: lessonEntry.tags,
+    ...(lessonEntry.canonicalIds?.length ? { canonicalIds: lessonEntry.canonicalIds } : {}),
   };
 
   return {

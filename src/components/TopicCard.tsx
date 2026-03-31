@@ -3,6 +3,7 @@ import { motion } from 'motion/react';
 import { Topic } from '../types';
 import * as Icons from 'lucide-react';
 import { resolveLucideIcon } from '../lib/icons';
+import { getContentStatusLabel, getTopicBranchLabel } from '../lib/learning';
 
 interface TopicCardProps {
   topic: Topic;
@@ -39,6 +40,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({
           <span className="block text-[10px] font-bold uppercase tracking-widest opacity-50">
             {topic.stage}
           </span>
+          <span className="block text-[10px] font-bold uppercase tracking-widest">{getContentStatusLabel(topic.status ?? 'outline')}</span>
           {isFavorite && <span className="block text-[10px] font-bold uppercase tracking-widest">Favorito</span>}
         </div>
       </div>
@@ -63,7 +65,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({
       </div>
 
       <div className="mt-auto pt-4 border-t border-dark/10 flex justify-between items-center">
-        <span className="text-[10px] font-bold uppercase">{topic.category}</span>
+        <span className="text-[10px] font-bold uppercase">{getTopicBranchLabel(topic)}</span>
         <Icons.ArrowRight size={16} />
       </div>
     </motion.div>

@@ -1,7 +1,7 @@
 export type Level = 'Fundamental' | 'Médio' | 'Superior';
 export type Difficulty = 'Fácil' | 'Médio' | 'Difícil';
 export type LearningGoal = 'Revisar base' | 'Melhorar notas' | 'Vestibular' | 'Preparar faculdade';
-export type ContentStatus = 'outline' | 'ready';
+export type ContentStatus = 'outline' | 'in-progress' | 'ready';
 
 export interface Topic {
   id: string;
@@ -13,6 +13,18 @@ export interface Topic {
   icon: string;
   order: number;
   tags: string[];
+  status?: ContentStatus;
+  canonicalIds?: string[];
+  canonicalPrimaryId?: string;
+  canonicalTitles?: string[];
+  branchIds?: string[];
+  branchTitle?: string;
+  branchTitles?: string[];
+  schoolYearBands?: string[];
+  levelBands?: Level[];
+  taxonomyLevelBands?: string[];
+  examProfiles?: string[];
+  flags?: string[];
 }
 
 export interface Lesson {
@@ -28,6 +40,7 @@ export interface Lesson {
   prerequisites: string[];
   tags: string[];
   status: ContentStatus;
+  canonicalIds?: string[];
 }
 
 export interface Question {

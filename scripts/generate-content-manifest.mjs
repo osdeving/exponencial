@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { buildTopicTaxonomyEntry, loadCanonicalTaxonomy } from './canonical-taxonomy.mjs';
 import {
   contentRoot,
   ensureDirectory,
@@ -11,11 +12,13 @@ import {
 } from './content-utils.mjs';
 import { parseQuestionFile } from './question-utils.mjs';
 
+const validLessonStatuses = new Set(['outline', 'in-progress', 'ready']);
 const topicFiles = [];
 const lessonFiles = [];
 const questionFiles = [];
 const generatedLessonsRoot = path.join(generatedRoot, 'lessons');
 const generatedQuestionsRoot = path.join(generatedRoot, 'questions');
+const canonicalTaxonomy = await loadCanonicalTaxonomy();
 
 try {
   await fs.access(contentRoot);
@@ -56,7 +59,16 @@ for (const filePath of topicFiles) {
     icon: String(data.icon),
     order: Number(data.order),
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
+    canonicalIds: Array.isArray(data.canonicalIds) ? data.canonicalIds.map(String) : [],
   });
+}
+
+for (const topic of topics) {
+  for (const canonicalId of topic.canonicalIds ?? []) {
+    if (!canonicalTaxonomy.subsectionById.has(canonicalId)) {
+      throw new Error(`canonicalId inválido em tópico (${topic.id}): ${canonicalId}`);
+    }
+  }
 }
 
 const topicById = new Map(topics.map((topic) => [topic.id, topic]));
@@ -108,7 +120,31 @@ for (const filePath of lessonFiles) {
     prerequisites: Array.isArray(data.prerequisites) ? data.prerequisites.map(String) : [],
     tags: Array.isArray(data.tags) ? data.tags.map(String) : [],
     status: String(data.status),
+    canonicalIds: Array.isArray(data.canonicalIds) ? data.canonicalIds.map(String) : [],
   });
+
+  if (!validLessonStatuses.has(String(data.status))) {
+    throw new Error(
+      `Status inválido em lição (${filePath}): ${String(data.status)}. Use outline, in-progress ou ready.`,
+    );
+  }
+}
+
+for (const lesson of lessons) {
+  for (const canonicalId of lesson.canonicalIds ?? []) {
+    const canonicalTopicId = canonicalId.split('.').slice(0, 2).join('.');
+    const lessonCanonicalTopicIds = new Set(topicById.get(lesson.topicId)?.canonicalIds ?? []);
+
+    if (canonicalId.split('.').length < 3) {
+      throw new Error(`canonicalId inválido em lição (${lesson.id}): ${canonicalId}`);
+    }
+
+    if (lessonCanonicalTopicIds.size > 0 && !lessonCanonicalTopicIds.has(canonicalTopicId)) {
+      throw new Error(
+        `canonicalId da lição ${lesson.id} não pertence aos canonicalIds do tópico ${lesson.topicId}: ${canonicalId}`,
+      );
+    }
+  }
 }
 
 topics.sort((left, right) => left.order - right.order || left.title.localeCompare(right.title, 'pt-BR'));
@@ -157,6 +193,13 @@ const lessonMetadata = lessons.map((lesson) => ({
   content: '',
 }));
 
+const topicTaxonomyByTopicId = Object.fromEntries(
+  topics.map((topic) => [
+    topic.id,
+    buildTopicTaxonomyEntry(topic.id, topic.canonicalIds ?? [], canonicalTaxonomy.subsectionById),
+  ]),
+);
+
 const questionsByLessonId = questions.reduce((accumulator, question) => {
   const currentQuestions = accumulator.get(question.lessonId) ?? [];
   currentQuestions.push(question);
@@ -204,6 +247,20 @@ ${Array.from(questionsByLessonId.keys())
 } as const;
 `;
 
+const canonicalTaxonomyOutput = `/* eslint-disable */
+// Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
+// Fonte: docs/estrutura/*
+
+export const CANONICAL_SUBSECTIONS = ${JSON.stringify(canonicalTaxonomy.subsections, null, 2)};
+`;
+
+const topicTaxonomyOutput = `/* eslint-disable */
+// Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
+// Fonte: docs/estrutura/* + mapeamento de tópicos do app
+
+export const TOPIC_TAXONOMY_BY_TOPIC_ID = ${JSON.stringify(topicTaxonomyByTopicId, null, 2)};
+`;
+
 await ensureDirectory(generatedRoot);
 await fs.rm(generatedLessonsRoot, { recursive: true, force: true });
 await fs.rm(generatedQuestionsRoot, { recursive: true, force: true });
@@ -238,7 +295,9 @@ export const QUESTIONS: Question[] = ${JSON.stringify(questionsByLessonId.get(le
 
 await fs.writeFile(path.join(generatedRoot, 'content-manifest.ts'), output, 'utf8');
 await fs.writeFile(path.join(generatedRoot, 'lesson-content-index.ts'), lessonContentIndexOutput, 'utf8');
+await fs.writeFile(path.join(generatedRoot, 'canonical-taxonomy.ts'), canonicalTaxonomyOutput, 'utf8');
 await fs.writeFile(path.join(generatedRoot, 'question-index.ts'), questionIndexOutput, 'utf8');
+await fs.writeFile(path.join(generatedRoot, 'topic-taxonomy.ts'), topicTaxonomyOutput, 'utf8');
 await fs.rm(path.join(generatedRoot, 'question-manifest.ts'), { force: true });
 
 console.log(`Manifestos gerados: ${topics.length} tópicos, ${lessons.length} lições e ${questions.length} questões.`);

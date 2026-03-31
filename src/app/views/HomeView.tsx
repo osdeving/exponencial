@@ -3,14 +3,17 @@ import { ArrowRight, Layout, Search, Sparkles, Trophy } from 'lucide-react';
 import { MOCK_RANKING, PATHS } from '../../config';
 import { PathCard } from '../../components/PathCard';
 import { TopicCard } from '../../components/TopicCard';
-import { LEVEL_FILTERS, getPathProgress, getTopicProgress } from '../../lib/learning';
+import { LEVEL_FILTERS, STATUS_FILTERS, getContentStatusLabel, getPathProgress, getTopicProgress } from '../../lib/learning';
 import { cn } from '../../lib/utils';
 import { HomeSection } from '../types';
 import { LearningPath, Lesson, SearchResult, Topic, UserProfile, UserProgress } from '../../types';
 
 interface HomeViewProps {
+  availableBranchFilters: string[];
+  branchFilter: string;
   communitySectionRef: React.RefObject<HTMLDivElement | null>;
   filteredTopics: Topic[];
+  groupedTopics: Array<{ branchTitle: string; topics: Topic[] }>;
   levelFilter: (typeof LEVEL_FILTERS)[number];
   nextRecommendedLesson?: Lesson;
   nextRecommendedTopic?: Topic;
@@ -19,8 +22,10 @@ interface HomeViewProps {
   progress: UserProgress;
   searchQuery: string;
   searchResults: SearchResult[];
+  statusFilter: (typeof STATUS_FILTERS)[number];
   suggestedPath: LearningPath;
   topicsSectionRef: React.RefObject<HTMLDivElement | null>;
+  onBranchFilterChange: (value: string) => void;
   onLevelFilterChange: (filter: (typeof LEVEL_FILTERS)[number]) => void;
   onOpenDashboard: () => void;
   onOpenHomeSection: (section: HomeSection) => void;
@@ -29,12 +34,16 @@ interface HomeViewProps {
   onSearchSelection: (result: SearchResult) => void;
   onStartPath: (path: LearningPath) => void;
   onStartRecommendedFlow: () => void;
+  onStatusFilterChange: (filter: (typeof STATUS_FILTERS)[number]) => void;
   onTopicSelect: (topic: Topic) => void;
 }
 
 export function HomeView({
+  availableBranchFilters,
+  branchFilter,
   communitySectionRef,
   filteredTopics,
+  groupedTopics,
   levelFilter,
   nextRecommendedLesson,
   nextRecommendedTopic,
@@ -43,8 +52,10 @@ export function HomeView({
   progress,
   searchQuery,
   searchResults,
+  statusFilter,
   suggestedPath,
   topicsSectionRef,
+  onBranchFilterChange,
   onLevelFilterChange,
   onOpenDashboard,
   onOpenHomeSection,
@@ -53,6 +64,7 @@ export function HomeView({
   onSearchSelection,
   onStartPath,
   onStartRecommendedFlow,
+  onStatusFilterChange,
   onTopicSelect,
 }: HomeViewProps) {
   return (
@@ -198,6 +210,36 @@ export function HomeView({
             ))}
           </div>
 
+          <div className="flex flex-wrap gap-2">
+            {STATUS_FILTERS.map((filter) => (
+              <button
+                key={filter}
+                onClick={() => onStatusFilterChange(filter)}
+                className={cn(
+                  'px-4 py-2 text-xs font-bold uppercase brutal-border',
+                  statusFilter === filter ? 'bg-brand text-dark' : 'bg-white',
+                )}
+              >
+                {getContentStatusLabel(filter)}
+              </button>
+            ))}
+          </div>
+
+          <div className="w-full lg:w-[420px]">
+            <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Ramo canônico</label>
+            <select
+              value={branchFilter}
+              onChange={(event) => onBranchFilterChange(event.target.value)}
+              className="w-full bg-white px-4 py-3 brutal-border focus:bg-brand/10 focus:outline-none"
+            >
+              {availableBranchFilters.map((filter) => (
+                <option key={filter} value={filter}>
+                  {filter}
+                </option>
+              ))}
+            </select>
+          </div>
+
           {searchResults.length > 0 && searchQuery.trim() && (
             <div className="grid gap-3">
               {searchResults.map((result) => (
@@ -219,21 +261,33 @@ export function HomeView({
           )}
         </div>
 
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-          {filteredTopics.map((topic) => {
-            const topicProgress = getTopicProgress(topic.id, progress);
+        <div className="space-y-10">
+          {groupedTopics.map((group) => (
+            <section key={group.branchTitle}>
+              <div className="mb-4 flex items-center justify-between gap-4">
+                <div>
+                  <h3 className="font-display text-3xl uppercase">{group.branchTitle}</h3>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">{group.topics.length} tópicos</p>
+                </div>
+              </div>
+              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
+                {group.topics.map((topic) => {
+                  const topicProgress = getTopicProgress(topic.id, progress);
 
-            return (
-              <TopicCard
-                key={topic.id}
-                topic={topic}
-                lessonCount={topicProgress.totalLessons}
-                progressPercent={topicProgress.completionPercent}
-                isFavorite={Boolean(profile?.favoriteTopics.includes(topic.id))}
-                onClick={() => onTopicSelect(topic)}
-              />
-            );
-          })}
+                  return (
+                    <TopicCard
+                      key={topic.id}
+                      topic={topic}
+                      lessonCount={topicProgress.totalLessons}
+                      progressPercent={topicProgress.completionPercent}
+                      isFavorite={Boolean(profile?.favoriteTopics.includes(topic.id))}
+                      onClick={() => onTopicSelect(topic)}
+                    />
+                  );
+                })}
+              </div>
+            </section>
+          ))}
         </div>
 
         {filteredTopics.length === 0 && (
