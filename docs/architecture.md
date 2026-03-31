@@ -24,7 +24,7 @@ Leituras complementares:
 - deploy em GitHub Pages
 - conteúdo curricular empacotado a partir de Markdown gerado em `src/generated/*`
 - persistência local em `localStorage` para perfil, progresso, tutor e snapshots
-- ledger local de domínio por `canonicalId`, ainda sem trava de avanço
+- ledger local de domínio por `canonicalId`, com corte mínimo por lição e bloqueio sequencial local
 
 Esse runtime é suficiente para validar:
 
@@ -153,7 +153,8 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
 - **O mastery engine ainda está incompleto**.
   - O ledger local por `canonicalId` já existe.
   - O dashboard de dívida matemática também.
-  - Ainda faltam trava de avanço, regras de desbloqueio e remediação.
+  - O corte mínimo local e a trava sequencial por tópico já entraram.
+  - Ainda faltam remediação, bloqueios por lacuna e repetição espaçada.
 - **A solução passo a passo está preparada, mas não no estágio final de animação rica**.
   - O schema declarativo já existe.
   - O renderer já entende passos, rascunho e algoritmo.
@@ -262,7 +263,7 @@ Se você quer:
 - Soluções passo a passo também já entram por contrato declarativo.
 - O renderer existe e consome contratos gerados, com teoria e prática lazy por lição.
 - O principal débito agora está na evolução do renderer de solução, na configuração de produto e em manter `canonicalIds` explícitos no próprio conteúdo.
-- O mastery local já existe, mas ainda não é um gate de progressão.
+- O mastery local já existe e já atua como gate sequencial básico dentro de cada tópico.
 - O melhor lugar para mexer depende do tipo de mudança.
 - `src/components/QuestionSolutionView.tsx` e `src/config/*` são os principais pontos de atenção em escala.
-- O próximo salto arquitetural relevante é transformar o ledger local em regras explícitas de bloqueio, recuperação e repetição espaçada sem quebrar o modelo content-driven.
+- O próximo salto arquitetural relevante é transformar a trava local em motor explícito de recuperação e repetição espaçada sem quebrar o modelo content-driven.

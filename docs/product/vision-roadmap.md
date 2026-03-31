@@ -22,13 +22,13 @@ Hoje a base do produto já permite:
 - trilhas default geradas a partir da taxonomia
 - ledger local de domínio por `canonicalId`
 - dashboard inicial de dívida matemática
+- corte mínimo local por lição e bloqueio sequencial dentro do tópico
 - gamificação inicial ainda simples
 
 Hoje ainda não existe:
 
 - autenticação real de alunos
 - persistência remota de progresso
-- trava de domínio real por habilidade canônica
 - recuperação obrigatória
 - repetição espaçada inteligente
 
@@ -139,15 +139,15 @@ Objetivo: transformar o app em uma plataforma com avanço por domínio.
 Escopo:
 
 - [x] modelo de mastery por `canonicalId`
-- [ ] critérios mínimos de aprovação por lição e tópico
-- [ ] bloqueio de avanço quando o aluno não passa
+- [x] critérios mínimos de aprovação por lição e tópico
+- [x] bloqueio de avanço quando o aluno não passa
 - [x] dashboard de dívida matemática
 - [x] novas trilhas default guiadas por objetivo
 
 Artefatos de entrega:
 
 - [x] contratos de domínio
-- [ ] regras de desbloqueio
+- [x] regras de desbloqueio
 - [ ] métricas de aprovação
 - [ ] eventos analíticos principais
 
@@ -238,7 +238,7 @@ Hoje o projeto está entre o fechamento de R0 e o início de R1:
 - arquitetura de conteúdo já está pronta para escala
 - governança de produto e entrega já está formalizada
 - trilhas e storage local-first já foram fortalecidos
-- o próximo salto real é transformar o ledger em trava de avanço, remediação e repetição espaçada
+- o próximo salto real é transformar a trava local em recuperação obrigatória, remediação e repetição espaçada
 
 ## O que não vamos fazer agora
 

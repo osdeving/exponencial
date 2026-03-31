@@ -215,7 +215,7 @@ Status atual: `em andamento`
 Status atual: `em andamento`
 
 - [x] mastery ledger
-- [ ] travas de avanço
+- [x] travas de avanço
 - [x] score por habilidade
 - [x] dashboard de dívida matemática
 
