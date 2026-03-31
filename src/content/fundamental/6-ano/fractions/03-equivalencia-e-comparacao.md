@@ -14,6 +14,11 @@ goals:
 prerequisites:
   - fractions-intro
 tags:
+canonicalIds:
+  - NUM.06.09
+  - NUM.06.10
+  - NUM.06.11
+  - NUM.06.12
 ---
 # Equivalência e Comparação de Frações
 

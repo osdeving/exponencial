@@ -13,6 +13,12 @@ goals:
   - Comparar cenários
 prerequisites:
 tags:
+canonicalIds:
+  - DAT.02.03
+  - DAT.02.04
+  - DAT.02.05
+  - DAT.02.06
+  - DAT.02.10
 ---
 # Estatística para Tomada de Decisão
 

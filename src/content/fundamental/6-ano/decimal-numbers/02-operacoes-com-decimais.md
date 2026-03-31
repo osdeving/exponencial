@@ -13,6 +13,10 @@ goals:
   - Conferir resultados
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.07.05
+  - NUM.07.06
+  - NUM.07.08
 ---
 # Operações com Números Decimais
 

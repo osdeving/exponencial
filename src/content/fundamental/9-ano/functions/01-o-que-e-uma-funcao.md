@@ -12,6 +12,10 @@ goals:
   - Entender domínio e imagem
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.01.01
+  - FUN.01.02
+  - FUN.01.03
 ---
 # Funções Matemáticas
 

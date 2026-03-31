@@ -13,6 +13,8 @@ goals:
   - Resolver problemas geométricos
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.04.14
 ---
 # Teorema de Pitágoras
 

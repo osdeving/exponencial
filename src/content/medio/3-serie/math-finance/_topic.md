@@ -11,6 +11,8 @@ tags:
   - juros
   - financeira
   - porcentagem
+canonicalIds:
+  - NUM.09
 ---
 # Matemática Financeira
 

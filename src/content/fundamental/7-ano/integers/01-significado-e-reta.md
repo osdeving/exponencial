@@ -13,6 +13,10 @@ goals:
   - Comparar inteiros
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.04.01
+  - NUM.04.02
+  - NUM.04.03
 ---
 # Reta Numérica e Significado dos Sinais
 

@@ -13,6 +13,12 @@ goals:
   - Extrair raízes e estimar erros
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.11.01
+  - NUM.11.02
+  - NUM.11.03
+  - NUM.11.04
+  - NUM.11.05
 ---
 # Radiciação, Propriedades e Extração
 

@@ -23,7 +23,6 @@ O site deve ser tratado como renderer. Se a mudança puder ser resolvida na font
 - exercícios e gabaritos: `src/content/**/*.questions.md`
 - scaffold curricular: `scripts/curriculum-seed.mjs`
 - taxonomia canônica: `docs/estrutura/*`
-- ponte canônica temporária: `scripts/canonical-topic-map.mjs`
 - parser de questões: `scripts/question-utils.mjs`
 
 Se a questão precisar de resolução passo a passo:

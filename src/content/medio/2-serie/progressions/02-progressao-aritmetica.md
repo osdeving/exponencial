@@ -13,6 +13,10 @@ goals:
   - Somar termos
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.10.03
+  - ALG.10.04
+  - ALG.10.05
 ---
 # Progressão Aritmética
 

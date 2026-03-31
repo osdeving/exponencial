@@ -13,6 +13,16 @@ goals:
   - Comparar categorias
 prerequisites:
 tags:
+canonicalIds:
+  - DAT.01.01
+  - DAT.01.02
+  - DAT.01.03
+  - DAT.01.04
+  - DAT.01.05
+  - DAT.01.06
+  - DAT.01.07
+  - DAT.01.08
+  - DAT.01.09
 ---
 # Tabelas e Gráficos
 

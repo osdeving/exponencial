@@ -13,6 +13,10 @@ goals:
   - Interpretar crescimento
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.02.03
+  - FUN.02.04
+  - FUN.02.05
 ---
 # Gráfico da Função Afim
 

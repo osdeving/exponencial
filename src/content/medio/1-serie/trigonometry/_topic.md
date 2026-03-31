@@ -10,6 +10,8 @@ order: 190
 tags:
   - trigonometria
   - triangulo-retangulo
+canonicalIds:
+  - TRI.01
 ---
 # Trigonometria
 

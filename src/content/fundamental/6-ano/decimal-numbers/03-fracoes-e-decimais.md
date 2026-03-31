@@ -14,6 +14,9 @@ goals:
 prerequisites:
   - fractions-intro
 tags:
+canonicalIds:
+  - NUM.07.07
+  - NUM.07.09
 ---
 # Relação entre Frações e Decimais
 

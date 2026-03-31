@@ -14,6 +14,14 @@ goals:
 prerequisites:
   - fractions-intro
 tags:
+canonicalIds:
+  - NUM.06.12
+  - NUM.06.13
+  - NUM.06.14
+  - NUM.06.15
+  - NUM.06.16
+  - NUM.06.17
+  - NUM.06.18
 ---
 # Operações com Frações
 

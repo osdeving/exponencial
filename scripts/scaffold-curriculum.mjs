@@ -1,6 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { buildCanonicalPlaceholderCurriculum, resolveTopicCanonicalIds } from './canonical-taxonomy.mjs';
+import { buildCanonicalPlaceholderCurriculum } from './canonical-taxonomy.mjs';
 import { curriculum, getLessonMarkdown, getTopicMarkdown } from './curriculum-seed.mjs';
 import {
   contentRoot,
@@ -27,7 +27,11 @@ for (const filePath of await getMarkdownFiles(contentRoot)) {
   const { data } = parseFrontmatter(source, filePath);
   const explicitCanonicalIds = Array.isArray(data.canonicalIds) ? data.canonicalIds.map(String) : [];
 
-  resolveTopicCanonicalIds(String(data.id), explicitCanonicalIds).forEach((canonicalId) => {
+  if (explicitCanonicalIds.length === 0) {
+    throw new Error(`Tópico sem canonicalIds em ${filePath}. O padrão canônico agora é obrigatório.`);
+  }
+
+  explicitCanonicalIds.forEach((canonicalId) => {
     coveredCanonicalIds.add(canonicalId);
   });
 }

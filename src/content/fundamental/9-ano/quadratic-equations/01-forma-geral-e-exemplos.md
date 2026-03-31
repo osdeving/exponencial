@@ -13,6 +13,10 @@ goals:
   - Comparar com 1º grau
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.06.01
+  - ALG.06.04
+  - ALG.06.05
 ---
 # Forma Geral e Exemplos
 

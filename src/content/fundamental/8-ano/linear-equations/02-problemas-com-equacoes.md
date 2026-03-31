@@ -13,6 +13,8 @@ goals:
 prerequisites:
   - linear-intro
 tags:
+canonicalIds:
+  - ALG.04.04
 ---
 # Modelando Situações
 

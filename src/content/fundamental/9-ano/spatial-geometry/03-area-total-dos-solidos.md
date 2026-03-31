@@ -13,6 +13,8 @@ goals:
   - Escolher fórmula adequada
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.10.11
 ---
 # Área Total dos Sólidos
 

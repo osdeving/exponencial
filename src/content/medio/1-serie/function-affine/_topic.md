@@ -11,6 +11,8 @@ tags:
   - funcao-afim
   - reta
   - taxa-de-variacao
+canonicalIds:
+  - FUN.02
 ---
 # Função Afim
 

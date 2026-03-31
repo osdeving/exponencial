@@ -11,6 +11,9 @@ tags:
   - razao
   - proporcao
   - porcentagem
+canonicalIds:
+  - NUM.08
+  - NUM.09
 ---
 # Razão, Proporção e Porcentagem
 

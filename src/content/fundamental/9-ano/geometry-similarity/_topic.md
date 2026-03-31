@@ -11,6 +11,8 @@ tags:
   - semelhanca
   - pitagoras
   - triangulos
+canonicalIds:
+  - GEO.04
 ---
 # Semelhança e Relações Métricas
 

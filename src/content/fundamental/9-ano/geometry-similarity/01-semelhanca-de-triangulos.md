@@ -13,6 +13,9 @@ goals:
   - Comparar escalas
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.04.06
+  - GEO.04.11
 ---
 # Semelhança de Triângulos
 

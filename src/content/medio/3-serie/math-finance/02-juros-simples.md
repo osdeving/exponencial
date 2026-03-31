@@ -13,6 +13,10 @@ goals:
   - Resolver problemas básicos
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.09.06
+  - NUM.09.08
+  - NUM.09.09
 ---
 # Juros Simples
 

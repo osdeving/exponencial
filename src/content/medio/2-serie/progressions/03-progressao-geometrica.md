@@ -13,6 +13,11 @@ goals:
   - Comparar PA e PG
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.10.06
+  - ALG.10.07
+  - ALG.10.08
+  - ALG.10.09
 ---
 # Progressão Geométrica
 

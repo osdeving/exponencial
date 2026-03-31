@@ -10,6 +10,8 @@ order: 20
 tags:
   - fracoes
   - racionais
+canonicalIds:
+  - NUM.06
 ---
 # Frações
 

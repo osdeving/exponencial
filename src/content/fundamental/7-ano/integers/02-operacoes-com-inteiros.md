@@ -13,6 +13,10 @@ goals:
   - Resolver expressões
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.04.04
+  - NUM.04.05
+  - NUM.04.06
 ---
 # Operações com Números Inteiros
 

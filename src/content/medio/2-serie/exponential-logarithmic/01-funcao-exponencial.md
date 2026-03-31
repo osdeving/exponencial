@@ -13,6 +13,13 @@ goals:
   - Interpretar gráficos exponenciais
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.05.01
+  - FUN.05.02
+  - FUN.05.03
+  - FUN.05.04
+  - FUN.05.05
+  - FUN.05.06
 ---
 # Função Exponencial
 

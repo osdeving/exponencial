@@ -13,6 +13,11 @@ goals:
   - Relacionar linguagem e símbolos
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.01.01
+  - ALG.01.04
+  - ALG.01.05
+  - ALG.01.07
 ---
 # Variáveis e Expressões
 

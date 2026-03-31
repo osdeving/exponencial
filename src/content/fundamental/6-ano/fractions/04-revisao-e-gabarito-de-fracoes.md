@@ -18,6 +18,9 @@ prerequisites:
 tags:
   - revisão
   - gabarito
+canonicalIds:
+  - NUM.06.19
+  - NUM.06.20
 ---
 # Revisão e Gabarito de Frações
 

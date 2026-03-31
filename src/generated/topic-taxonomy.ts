@@ -196,11 +196,13 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
   },
   "ratio-proportion-percentage": {
     "canonicalIds": [
-      "NUM.08"
+      "NUM.08",
+      "NUM.09"
     ],
     "canonicalPrimaryId": "NUM.08",
     "canonicalTitles": [
-      "Razão, proporção e escalas"
+      "Razão, proporção e escalas",
+      "Porcentagens e matemática financeira"
     ],
     "branchIds": [
       "NUM"
@@ -217,7 +219,8 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
       "Fundamental"
     ],
     "taxonomyLevelBands": [
-      "Nível B — aritmética estruturada e frações/decimais"
+      "Nível B — aritmética estruturada e frações/decimais",
+      "Nível C — pré-álgebra e raciocínio proporcional"
     ],
     "examProfiles": [
       "Escolar básico / BNCC núcleo",
@@ -225,7 +228,11 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
       "Militar base (CPCAR/EPCAR-style)",
       "Militar médio/avançado (EsPCEx-style)"
     ],
-    "flags": []
+    "flags": [
+      "intermediário",
+      "avançado",
+      "opcional"
+    ]
   },
   "algebra-foundations": {
     "canonicalIds": [
@@ -565,12 +572,10 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
   },
   "spatial-geometry": {
     "canonicalIds": [
-      "GEO.09",
       "GEO.10"
     ],
-    "canonicalPrimaryId": "GEO.09",
+    "canonicalPrimaryId": "GEO.10",
     "canonicalTitles": [
-      "Geometria espacial de posição",
       "Geometria espacial métrica"
     ],
     "branchIds": [
@@ -587,13 +592,12 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
       "Médio"
     ],
     "taxonomyLevelBands": [
-      "Nível F — aprofundamento militar / vestibulares fortes",
       "Nível E — ensino médio base / ENEM"
     ],
     "examProfiles": [
+      "ENEM",
       "Militar médio/avançado (EsPCEx-style)",
-      "ITA-like",
-      "ENEM"
+      "ITA-like"
     ],
     "flags": [
       "opcional",
@@ -888,13 +892,11 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
   },
   "polynomials": {
     "canonicalIds": [
-      "ALG.07",
-      "ALG.08"
+      "ALG.07"
     ],
     "canonicalPrimaryId": "ALG.07",
     "canonicalTitles": [
-      "Polinômios",
-      "Equações algébricas e polinomiais"
+      "Polinômios"
     ],
     "branchIds": [
       "ALG"
@@ -904,15 +906,13 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
       "Álgebra, expressões, equações, polinômios e estruturas simbólicas"
     ],
     "schoolYearBands": [
-      "1ª série do EM",
-      "2ª série do EM"
+      "1ª série do EM"
     ],
     "levelBands": [
       "Médio"
     ],
     "taxonomyLevelBands": [
-      "Nível E — ensino médio base / ENEM",
-      "Nível F — aprofundamento militar / vestibulares fortes"
+      "Nível E — ensino médio base / ENEM"
     ],
     "examProfiles": [
       "Militar base (CPCAR/EPCAR-style)",
@@ -921,8 +921,7 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
     ],
     "flags": [
       "opcional",
-      "avançado",
-      "intermediário"
+      "avançado"
     ]
   },
   "complex-numbers": {
@@ -959,10 +958,12 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
   },
   "descriptive-statistics": {
     "canonicalIds": [
+      "DAT.01",
       "DAT.02"
     ],
-    "canonicalPrimaryId": "DAT.02",
+    "canonicalPrimaryId": "DAT.01",
     "canonicalTitles": [
+      "Tabelas, gráficos e leitura de dados",
       "Estatística descritiva"
     ],
     "branchIds": [
@@ -973,6 +974,11 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
       "Dados, estatística, contagem e probabilidade"
     ],
     "schoolYearBands": [
+      "Pré / Educação infantil / Kindergarten",
+      "1º ano do EF",
+      "2º ano do EF",
+      "3º ano do EF",
+      "4º ano do EF",
       "5º ano do EF",
       "6º ano do EF"
     ],
@@ -980,6 +986,7 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
       "Fundamental"
     ],
     "taxonomyLevelBands": [
+      "Nível A — alfabetização matemática e núcleo elementar",
       "Nível B — aritmética estruturada e frações/decimais"
     ],
     "examProfiles": [
@@ -989,6 +996,7 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
     ],
     "flags": [
       "intermediário",
+      "ENEM",
       "avançado"
     ]
   },
@@ -1219,6 +1227,39 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
     ],
     "flags": []
   },
+  "alg-08-equacoes-algebricas-e-polinomiais": {
+    "canonicalIds": [
+      "ALG.08"
+    ],
+    "canonicalPrimaryId": "ALG.08",
+    "canonicalTitles": [
+      "Equações algébricas e polinomiais"
+    ],
+    "branchIds": [
+      "ALG"
+    ],
+    "branchTitle": "Álgebra, expressões, equações, polinômios e estruturas simbólicas",
+    "branchTitles": [
+      "Álgebra, expressões, equações, polinômios e estruturas simbólicas"
+    ],
+    "schoolYearBands": [
+      "2ª série do EM"
+    ],
+    "levelBands": [
+      "Médio"
+    ],
+    "taxonomyLevelBands": [
+      "Nível F — aprofundamento militar / vestibulares fortes"
+    ],
+    "examProfiles": [
+      "Militar médio/avançado (EsPCEx-style)",
+      "ITA-like"
+    ],
+    "flags": [
+      "intermediário",
+      "avançado"
+    ]
+  },
   "fun-04-funcoes-modulo-racional-e-potencia": {
     "canonicalIds": [
       "FUN.04"
@@ -1383,6 +1424,36 @@ export const TOPIC_TAXONOMY_BY_TOPIC_ID = {
       "elementar",
       "avançado"
     ]
+  },
+  "geo-09-geometria-espacial-de-posicao": {
+    "canonicalIds": [
+      "GEO.09"
+    ],
+    "canonicalPrimaryId": "GEO.09",
+    "canonicalTitles": [
+      "Geometria espacial de posição"
+    ],
+    "branchIds": [
+      "GEO"
+    ],
+    "branchTitle": "Geometria plana, espacial, medidas e construções",
+    "branchTitles": [
+      "Geometria plana, espacial, medidas e construções"
+    ],
+    "schoolYearBands": [
+      "2ª série do EM"
+    ],
+    "levelBands": [
+      "Médio"
+    ],
+    "taxonomyLevelBands": [
+      "Nível F — aprofundamento militar / vestibulares fortes"
+    ],
+    "examProfiles": [
+      "Militar médio/avançado (EsPCEx-style)",
+      "ITA-like"
+    ],
+    "flags": []
   },
   "tri-02-ciclo-trigonometrico-e-funcoes-trigonometricas": {
     "canonicalIds": [

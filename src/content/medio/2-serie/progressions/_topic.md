@@ -11,6 +11,8 @@ tags:
   - pa
   - pg
   - sequencias
+canonicalIds:
+  - ALG.10
 ---
 # Progressões
 

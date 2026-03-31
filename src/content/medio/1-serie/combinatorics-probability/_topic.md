@@ -10,6 +10,9 @@ order: 200
 tags:
   - combinatoria
   - probabilidade
+canonicalIds:
+  - DAT.03
+  - DAT.04
 ---
 # Análise Combinatória e Probabilidade
 

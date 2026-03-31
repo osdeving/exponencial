@@ -13,6 +13,9 @@ goals:
   - Resolver questões mais elaboradas
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.04.13
+  - GEO.04.15
 ---
 # Relações Métricas no Triângulo Retângulo
 

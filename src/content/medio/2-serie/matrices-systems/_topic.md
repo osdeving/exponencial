@@ -11,6 +11,8 @@ tags:
   - matrizes
   - determinantes
   - sistemas
+canonicalIds:
+  - ALG.09
 ---
 # Matrizes, Determinantes e Sistemas
 

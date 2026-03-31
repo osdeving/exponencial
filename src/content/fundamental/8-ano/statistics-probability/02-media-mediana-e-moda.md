@@ -13,6 +13,15 @@ goals:
   - Reconhecer moda
 prerequisites:
 tags:
+canonicalIds:
+  - DAT.02.01
+  - DAT.02.02
+  - DAT.02.03
+  - DAT.02.04
+  - DAT.02.05
+  - DAT.02.06
+  - DAT.02.07
+  - DAT.02.10
 ---
 # Média, Mediana e Moda
 

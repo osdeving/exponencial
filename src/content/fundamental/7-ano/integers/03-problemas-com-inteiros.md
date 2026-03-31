@@ -13,6 +13,8 @@ goals:
   - Interpretar resultados
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.04.07
 ---
 # Problemas com Inteiros
 

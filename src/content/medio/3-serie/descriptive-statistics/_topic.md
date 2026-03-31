@@ -11,6 +11,9 @@ tags:
   - estatistica
   - dados
   - graficos
+canonicalIds:
+  - DAT.01
+  - DAT.02
 ---
 # Estatística Descritiva
 

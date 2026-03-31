@@ -13,6 +13,12 @@ goals:
   - Interpretar coordenadas
 prerequisites:
 tags:
+canonicalIds:
+  - AGE.01.01
+  - AGE.01.02
+  - AGE.01.03
+  - AGE.01.04
+  - AGE.01.05
 ---
 # Distância entre Pontos e Ponto Médio
 

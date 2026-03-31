@@ -12,6 +12,9 @@ goals:
   - Ler triângulos retângulos
 prerequisites:
 tags:
+canonicalIds:
+  - TRI.01.01
+  - TRI.01.02
 ---
 # Razões Trigonométricas
 

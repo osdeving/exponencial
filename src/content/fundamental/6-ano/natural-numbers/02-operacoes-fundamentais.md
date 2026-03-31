@@ -13,6 +13,17 @@ goals:
   - Justificar etapas
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.02.01
+  - NUM.02.02
+  - NUM.02.03
+  - NUM.02.04
+  - NUM.02.05
+  - NUM.02.06
+  - NUM.02.07
+  - NUM.02.08
+  - NUM.02.09
+  - NUM.02.10
 ---
 # Operações Fundamentais e Expressões
 

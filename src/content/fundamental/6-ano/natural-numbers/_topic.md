@@ -11,6 +11,10 @@ tags:
   - numeros
   - operacoes
   - divisibilidade
+canonicalIds:
+  - NUM.01
+  - NUM.02
+  - NUM.03
 ---
 # Números Naturais e Expressões
 

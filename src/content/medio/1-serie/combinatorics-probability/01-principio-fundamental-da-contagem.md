@@ -13,6 +13,10 @@ goals:
   - Evitar dupla contagem
 prerequisites:
 tags:
+canonicalIds:
+  - DAT.03.01
+  - DAT.03.02
+  - DAT.03.03
 ---
 # Princípio Fundamental da Contagem
 

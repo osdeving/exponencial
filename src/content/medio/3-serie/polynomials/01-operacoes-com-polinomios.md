@@ -13,6 +13,11 @@ goals:
   - Reduzir expressão final
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.07.01
+  - ALG.07.02
+  - ALG.07.03
+  - ALG.07.04
 ---
 # Operações com Polinômios
 

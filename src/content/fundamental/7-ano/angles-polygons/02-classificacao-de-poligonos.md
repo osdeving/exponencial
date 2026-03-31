@@ -13,6 +13,12 @@ goals:
   - Classificar figuras
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.03.01
+  - GEO.03.02
+  - GEO.03.03
+  - GEO.03.06
+  - GEO.03.08
 ---
 # Classificação de Polígonos
 

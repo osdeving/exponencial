@@ -10,6 +10,8 @@ order: 260
 tags:
   - complexos
   - imaginaros
+canonicalIds:
+  - NUM.12
 ---
 # Números Complexos
 

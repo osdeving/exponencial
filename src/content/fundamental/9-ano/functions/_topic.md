@@ -11,6 +11,8 @@ tags:
   - funcoes
   - graficos
   - plano-cartesiano
+canonicalIds:
+  - FUN.01
 ---
 # Funções
 

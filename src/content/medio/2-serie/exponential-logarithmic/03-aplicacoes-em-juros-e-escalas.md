@@ -13,6 +13,12 @@ goals:
   - Ler problemas contextualizados
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.05.02
+  - FUN.05.03
+  - FUN.05.04
+  - FUN.05.09
+  - FUN.05.10
 ---
 # Aplicações em Juros e Escalas
 

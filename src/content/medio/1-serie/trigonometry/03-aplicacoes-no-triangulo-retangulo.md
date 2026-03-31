@@ -13,6 +13,11 @@ goals:
   - Interpretar contexto geométrico
 prerequisites:
 tags:
+canonicalIds:
+  - TRI.01.04
+  - TRI.01.05
+  - TRI.01.06
+  - TRI.01.07
 ---
 # Aplicações no Triângulo Retângulo
 

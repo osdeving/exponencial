@@ -17,6 +17,14 @@ tags:
   - revisão
   - gabarito
   - concursos
+canonicalIds:
+  - NUM.11.01
+  - NUM.11.02
+  - NUM.11.03
+  - NUM.11.04
+  - NUM.11.05
+  - NUM.11.07
+  - NUM.11.08
 ---
 # Revisão e Gabarito de Radiciação
 

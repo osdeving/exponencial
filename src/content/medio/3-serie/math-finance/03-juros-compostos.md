@@ -13,6 +13,10 @@ goals:
   - Interpretar custo total
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.09.07
+  - NUM.09.08
+  - NUM.09.10
 ---
 # Juros Compostos e Parcelamentos
 

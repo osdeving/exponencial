@@ -12,6 +12,11 @@ goals:
   - Distinguir área de perímetro
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.03.01
+  - GEO.03.03
+  - GEO.03.08
+  - GEO.08.05
 ---
 # O que é Perímetro?
 

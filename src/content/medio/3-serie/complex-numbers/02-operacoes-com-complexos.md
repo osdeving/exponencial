@@ -13,6 +13,9 @@ goals:
   - Simplificar resultados
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.12.03
+  - NUM.12.04
 ---
 # Operações com Complexos
 

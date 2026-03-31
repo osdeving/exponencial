@@ -10,6 +10,8 @@ order: 250
 tags:
   - polinomios
   - fatoracao
+canonicalIds:
+  - ALG.07
 ---
 # Polinômios
 

@@ -13,6 +13,12 @@ goals:
   - Conectar com polinômios
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.12.06
+  - NUM.12.07
+  - NUM.12.08
+  - NUM.12.09
+  - NUM.12.10
 ---
 # Equações e Aplicações com Complexos
 

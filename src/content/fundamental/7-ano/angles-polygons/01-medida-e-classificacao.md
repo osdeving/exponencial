@@ -13,6 +13,11 @@ goals:
   - Ler abertura angular
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.02.01
+  - GEO.02.02
+  - GEO.02.03
+  - GEO.02.04
 ---
 # Medida e Classificação de Ângulos
 

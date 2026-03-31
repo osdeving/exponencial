@@ -13,6 +13,8 @@ goals:
   - Resolver problemas
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.02.07
 ---
 # Modelagem com Função Afim
 

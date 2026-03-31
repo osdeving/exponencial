@@ -13,6 +13,14 @@ goals:
   - Conferir unidades
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.08.03
+  - NUM.08.04
+  - NUM.08.05
+  - NUM.08.06
+  - NUM.08.07
+  - NUM.08.08
+  - NUM.08.09
 ---
 # Proporção e Regra de Três
 

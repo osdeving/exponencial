@@ -13,6 +13,10 @@ goals:
   - Ler problemas com duas incógnitas
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.05.01
+  - ALG.05.05
+  - ALG.05.06
 ---
 # Duas Equações e Duas Incógnitas
 

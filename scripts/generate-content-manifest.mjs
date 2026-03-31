@@ -1,5 +1,6 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
+import { setTimeout as sleep } from 'node:timers/promises';
 import { buildTopicTaxonomyEntry, loadCanonicalTaxonomy } from './canonical-taxonomy.mjs';
 import {
   contentRoot,
@@ -20,11 +21,53 @@ const generatedLessonsRoot = path.join(generatedRoot, 'lessons');
 const generatedQuestionsRoot = path.join(generatedRoot, 'questions');
 const canonicalTaxonomy = await loadCanonicalTaxonomy();
 
+async function acquireGenerationLock() {
+  await ensureDirectory(generatedRoot);
+  const lockPath = path.join(generatedRoot, '.content-generate.lock');
+
+  for (let attempt = 0; attempt < 300; attempt += 1) {
+    try {
+      const handle = await fs.open(lockPath, 'wx');
+      await handle.writeFile(
+        JSON.stringify({
+          pid: process.pid,
+          acquiredAt: new Date().toISOString(),
+        }),
+      );
+
+      return async () => {
+        await handle.close();
+        await fs.rm(lockPath, { force: true });
+      };
+    } catch (error) {
+      if (error && typeof error === 'object' && 'code' in error && error.code !== 'EEXIST') {
+        throw error;
+      }
+
+      try {
+        const stats = await fs.stat(lockPath);
+        if (Date.now() - stats.mtimeMs > 60_000) {
+          await fs.rm(lockPath, { force: true });
+          continue;
+        }
+      } catch {}
+
+      await sleep(100);
+    }
+  }
+
+  throw new Error('Não foi possível adquirir o lock de geração em src/generated/.content-generate.lock.');
+}
+
 try {
   await fs.access(contentRoot);
 } catch {
   throw new Error('src/content não existe. Rode `npm run content:scaffold` primeiro.');
 }
+
+const releaseGenerationLock = await acquireGenerationLock();
+
+try {
 
 for (const filePath of await getMarkdownFiles(contentRoot)) {
   if (isQuestionMarkdownFile(filePath)) {
@@ -64,6 +107,10 @@ for (const filePath of topicFiles) {
 }
 
 for (const topic of topics) {
+  if ((topic.canonicalIds ?? []).length === 0) {
+    throw new Error(`Tópico sem canonicalIds: ${topic.id}`);
+  }
+
   for (const canonicalId of topic.canonicalIds ?? []) {
     if (!canonicalTaxonomy.subsectionById.has(canonicalId)) {
       throw new Error(`canonicalId inválido em tópico (${topic.id}): ${canonicalId}`);
@@ -131,12 +178,20 @@ for (const filePath of lessonFiles) {
 }
 
 for (const lesson of lessons) {
+  if ((lesson.canonicalIds ?? []).length === 0) {
+    throw new Error(`Lição sem canonicalIds: ${lesson.id}`);
+  }
+
   for (const canonicalId of lesson.canonicalIds ?? []) {
     const canonicalTopicId = canonicalId.split('.').slice(0, 2).join('.');
     const lessonCanonicalTopicIds = new Set(topicById.get(lesson.topicId)?.canonicalIds ?? []);
 
     if (canonicalId.split('.').length < 3) {
       throw new Error(`canonicalId inválido em lição (${lesson.id}): ${canonicalId}`);
+    }
+
+    if (!canonicalTaxonomy.leafTopicIds.has(canonicalId)) {
+      throw new Error(`canonicalId de lição inexistente (${lesson.id}): ${canonicalId}`);
     }
 
     if (lessonCanonicalTopicIds.size > 0 && !lessonCanonicalTopicIds.has(canonicalTopicId)) {
@@ -196,7 +251,7 @@ const lessonMetadata = lessons.map((lesson) => ({
 const topicTaxonomyByTopicId = Object.fromEntries(
   topics.map((topic) => [
     topic.id,
-    buildTopicTaxonomyEntry(topic.id, topic.canonicalIds ?? [], canonicalTaxonomy.subsectionById),
+    buildTopicTaxonomyEntry(topic.canonicalIds ?? [], canonicalTaxonomy.subsectionById),
   ]),
 );
 
@@ -301,3 +356,6 @@ await fs.writeFile(path.join(generatedRoot, 'topic-taxonomy.ts'), topicTaxonomyO
 await fs.rm(path.join(generatedRoot, 'question-manifest.ts'), { force: true });
 
 console.log(`Manifestos gerados: ${topics.length} tópicos, ${lessons.length} lições e ${questions.length} questões.`);
+} finally {
+  await releaseGenerationLock();
+}

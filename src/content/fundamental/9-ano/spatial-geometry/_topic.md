@@ -11,6 +11,8 @@ tags:
   - espacial
   - volume
   - solidos
+canonicalIds:
+  - GEO.10
 ---
 # Geometria Espacial
 

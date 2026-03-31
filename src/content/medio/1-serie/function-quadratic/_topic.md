@@ -10,6 +10,8 @@ order: 180
 tags:
   - funcao-quadratica
   - parabola
+canonicalIds:
+  - FUN.03
 ---
 # Função Quadrática
 

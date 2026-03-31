@@ -13,6 +13,11 @@ goals:
   - Resolver problemas geométricos
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.02.05
+  - GEO.02.06
+  - GEO.03.04
+  - GEO.03.05
 ---
 # Soma dos Ângulos e Triângulos
 

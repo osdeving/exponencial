@@ -10,6 +10,9 @@ order: 80
 tags:
   - angulos
   - poligonos
+canonicalIds:
+  - GEO.02
+  - GEO.03
 ---
 # Ângulos e Polígonos
 

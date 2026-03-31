@@ -13,6 +13,11 @@ goals:
   - Relacionar com raízes
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.07.05
+  - ALG.07.06
+  - ALG.07.07
+  - ALG.07.08
 ---
 # Divisão de Polinômios e Teorema do Resto
 

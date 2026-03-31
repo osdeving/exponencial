@@ -12,6 +12,8 @@ goals:
   - Resolver problemas rápidos
 prerequisites:
 tags:
+canonicalIds:
+  - TRI.01.03
 ---
 # Ângulos de 30°, 45° e 60°
 

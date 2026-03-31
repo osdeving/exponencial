@@ -10,6 +10,8 @@ order: 100
 tags:
   - sistemas
   - equacoes
+canonicalIds:
+  - ALG.05
 ---
 # Sistemas Lineares
 

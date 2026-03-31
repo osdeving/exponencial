@@ -13,6 +13,9 @@ goals:
   - Escolher estratégia algébrica
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.07.09
+  - ALG.07.10
 ---
 # Fatoração e Produtos Notáveis
 

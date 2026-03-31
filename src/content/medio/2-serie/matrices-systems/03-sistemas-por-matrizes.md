@@ -13,6 +13,9 @@ goals:
   - Revisar sistemas lineares
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.09.09
+  - ALG.09.10
 ---
 # Sistemas por Matrizes
 

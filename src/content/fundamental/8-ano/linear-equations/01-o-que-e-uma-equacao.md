@@ -12,6 +12,10 @@ goals:
   - Isolar o valor de x
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.04.01
+  - ALG.04.02
+  - ALG.04.03
 ---
 # Equações do 1º Grau
 

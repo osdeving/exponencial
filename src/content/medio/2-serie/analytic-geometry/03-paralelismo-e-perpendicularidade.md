@@ -13,6 +13,11 @@ goals:
   - Resolver problemas analíticos
 prerequisites:
 tags:
+canonicalIds:
+  - AGE.02.04
+  - AGE.02.05
+  - AGE.02.06
+  - AGE.02.07
 ---
 # Paralelismo e Perpendicularidade
 

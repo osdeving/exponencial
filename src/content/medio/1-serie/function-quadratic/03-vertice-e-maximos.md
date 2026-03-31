@@ -13,6 +13,11 @@ goals:
   - Resolver problemas de otimização simples
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.03.04
+  - FUN.03.05
+  - FUN.03.06
+  - FUN.03.09
 ---
 # Vértice, Máximos e Mínimos
 

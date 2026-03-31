@@ -13,6 +13,14 @@ goals:
   - Usar valor posicional
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.01.01
+  - NUM.01.02
+  - NUM.01.03
+  - NUM.01.04
+  - NUM.01.05
+  - NUM.01.06
+  - NUM.01.07
 ---
 # Leitura, Ordem e Valor Posicional
 

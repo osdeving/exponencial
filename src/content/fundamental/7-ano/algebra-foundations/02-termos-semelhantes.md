@@ -13,6 +13,10 @@ goals:
   - Evitar erros de sinal
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.01.02
+  - ALG.01.03
+  - ALG.01.06
 ---
 # Termos Semelhantes e Simplificação
 

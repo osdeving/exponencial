@@ -18,6 +18,19 @@ tags:
   - revisao
   - gabarito
   - lista-completa
+canonicalIds:
+  - NUM.10.01
+  - NUM.10.02
+  - NUM.10.03
+  - NUM.10.04
+  - NUM.10.05
+  - NUM.10.06
+  - NUM.10.07
+  - NUM.10.08
+  - NUM.10.09
+  - NUM.10.10
+  - NUM.10.11
+  - NUM.10.12
 ---
 # Revisão e Gabarito de Potenciação
 

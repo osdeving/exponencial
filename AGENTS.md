@@ -26,7 +26,6 @@ Leia estes arquivos antes de editar:
 - exercícios/gabaritos: `src/content/**/*.questions.md`
 - scaffold base: `scripts/curriculum-seed.mjs`
 - taxonomia canônica: `docs/estrutura/*`
-- ponte canônica temporária: `scripts/canonical-topic-map.mjs`
 
 ### Geração
 
@@ -88,7 +87,7 @@ O projeto ainda não chegou no estado ideal. Ao mexer, trate estes pontos como d
 - `src/app/useAppController.ts` agora é uma composição mais fina, mas ainda junta hooks de navegação, catálogo, perfil e progresso.
 - `src/components/QuestionSolutionView.tsx` já suporta passos estruturados, mas ainda não anima escrita caractere a caractere nem desenhos matemáticos.
 - ranking e trilhas continuam estáticos em `src/config/*`; se crescerem muito, extraia contratos e fontes dedicadas.
-- a cobertura canônica ampla depende de `docs/estrutura/*` e de um mapeamento de compatibilidade em `scripts/canonical-topic-map.mjs`; prefira mover esse conhecimento para frontmatter quando tocar em tópicos reais.
+- a cobertura canônica ampla depende de `docs/estrutura/*` e de `canonicalIds` explícitos no frontmatter de tópicos e lições; não reintroduza ponte implícita em script.
 
 ## Regra de decisão
 
@@ -97,7 +96,7 @@ Se o pedido do usuário for:
 - **"adicionar/remover lição"**: mexa em `src/content/**`
 - **"mudar texto"**: mexa em Markdown
 - **"mudar exercício/gabarito"**: mexa em `src/content/**/*.questions.md`
-- **"expandir ou reorganizar a grade base"**: mexa em `docs/estrutura/*`, `scripts/canonical-topic-map.mjs` e rode `npm run content:scaffold`
+- **"expandir ou reorganizar a grade base"**: mexa em `docs/estrutura/*`, atualize os `canonicalIds` necessários em `src/content/**` e rode `npm run content:scaffold`
 - **"mudar resolução passo a passo"**: mexa primeiro em `src/content/**/*.questions.md`; só depois ajuste `QuestionSolutionView` se o schema não cobrir o caso
 - **"mudar regra de progresso ou busca"**: mexa em `src/lib/learning.ts`
 - **"mudar visual/comportamento"**: mexa em `src/app/*` e `src/components/*`, extraindo lógica do controller em vez de reinflar o shell

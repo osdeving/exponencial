@@ -13,6 +13,9 @@ goals:
   - Comparar resultados
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.09.07
+  - ALG.09.08
 ---
 # Determinantes de Ordem 2 e 3
 

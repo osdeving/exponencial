@@ -37,7 +37,6 @@ npm run build
 npm run lint
 ```
 
-- `content:scaffold`: cria a base do currículo sem sobrescrever arquivos já existentes.
 - `content:scaffold`: combina a semente editorial com `docs/estrutura/*` e cria placeholders para tudo o que ainda não existir em `src/content/`.
 - `content:generate`: lê os `.md`, valida o frontmatter e gera os manifestos TypeScript e os módulos lazy por lição.
 - `dev`, `build` e `lint` já executam `content:generate` antes.
@@ -88,7 +87,7 @@ Campos obrigatórios:
 - `icon`
 - `order`
 
-Campo opcional recomendado:
+Campo obrigatório no padrão canônico:
 
 - `canonicalIds`
 
@@ -129,13 +128,13 @@ Campos obrigatórios:
 - `order`
 - `summary`
 - `status`
+- `canonicalIds`
 
 Campos opcionais:
 
 - `goals`
 - `prerequisites`
 - `tags`
-- `canonicalIds`
 
 ## Taxonomia canônica
 

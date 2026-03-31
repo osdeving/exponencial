@@ -28,7 +28,6 @@ O setup inicial agora é guiado por duas camadas:
 
 - `scripts/content-utils.mjs`: utilitários de frontmatter e filesystem
 - `scripts/question-utils.mjs`: parser de exercícios e gabaritos declarativos
-- `scripts/canonical-topic-map.mjs`: ponte entre tópicos atuais do app e IDs canônicos
 - `scripts/canonical-taxonomy.mjs`: leitura da taxonomia canônica e montagem do scaffold complementar
 - `scripts/generate-content-manifest.mjs`: lê Markdown e gera:
   - `src/generated/content-manifest.ts`
@@ -98,9 +97,6 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
 - **Parte da configuração de produto ainda é estática**.
   - Trilhas, badges e ranking mockado vivem em `src/config/*`.
   - Se isso crescer muito, convém separar contratos, fontes e validação.
-- **Ainda existe um mapeamento-ponte entre tópicos antigos e taxonomia canônica**.
-  - `scripts/canonical-topic-map.mjs` resolve isso por enquanto.
-  - Com o tempo, a tendência é migrar mais `canonicalIds` direto para o frontmatter e reduzir essa tabela de compatibilidade.
 - **A solução passo a passo está preparada, mas não no estágio final de animação rica**.
   - O schema declarativo já existe.
   - O renderer já entende passos, rascunho e algoritmo.
@@ -170,7 +166,7 @@ Se você quer:
 - **adicionar ou remover tópico**: edite `src/content/.../_topic.md`
 - **adicionar ou remover lição teórica**: edite `src/content/**/*.md`
 - **adicionar ou remover exercício/gabarito**: edite `src/content/**/*.questions.md`
-- **expandir a grade canônica inicial**: revise `docs/estrutura/*`, `scripts/canonical-topic-map.mjs` e rode `npm run content:scaffold`
+- **expandir a grade canônica inicial**: revise `docs/estrutura/*` e rode `npm run content:scaffold`
 - **alterar scaffold base**: edite `scripts/curriculum-seed.mjs`
 - **alterar parser/manifesto**: edite `scripts/generate-content-manifest.mjs`
 - **alterar parser de exercícios**: edite `scripts/question-utils.mjs`
@@ -197,6 +193,6 @@ Se você quer:
 - A taxonomia canônica também participa do setup inicial do app.
 - Soluções passo a passo também já entram por contrato declarativo.
 - O renderer existe e consome contratos gerados, com teoria e prática lazy por lição.
-- O principal débito agora está na evolução do renderer de solução, na configuração de produto e em continuar reduzindo a tabela de mapeamento canônico de compatibilidade.
+- O principal débito agora está na evolução do renderer de solução, na configuração de produto e em manter `canonicalIds` explícitos no próprio conteúdo.
 - O melhor lugar para mexer depende do tipo de mudança.
 - `src/components/QuestionSolutionView.tsx` e `src/config/*` são os principais pontos de atenção em escala.

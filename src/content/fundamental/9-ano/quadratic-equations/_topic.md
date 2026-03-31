@@ -11,6 +11,8 @@ tags:
   - equacoes
   - 2-grau
   - bhaskara
+canonicalIds:
+  - ALG.06
 ---
 # Equações do 2º Grau
 

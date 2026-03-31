@@ -13,6 +13,13 @@ goals:
   - Multiplicar por escalar
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.09.01
+  - ALG.09.02
+  - ALG.09.03
+  - ALG.09.04
+  - ALG.09.05
+  - ALG.09.06
 ---
 # Matrizes e Operações Básicas
 

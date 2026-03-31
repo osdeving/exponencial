@@ -13,6 +13,8 @@ goals:
   - Verificar solução
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.05.02
 ---
 # Método da Substituição
 

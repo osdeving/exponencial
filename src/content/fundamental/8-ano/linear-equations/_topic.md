@@ -11,6 +11,8 @@ tags:
   - equacoes
   - 1-grau
   - algebra
+canonicalIds:
+  - ALG.04
 ---
 # Equações do 1º Grau
 

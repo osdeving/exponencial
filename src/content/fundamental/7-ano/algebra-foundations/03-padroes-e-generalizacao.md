@@ -13,6 +13,8 @@ goals:
   - Preparar funções futuras
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.01.08
 ---
 # Padrões, Sequências e Generalização
 

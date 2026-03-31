@@ -13,6 +13,14 @@ goals:
   - Interpretar base
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.05.07
+  - FUN.05.08
+  - FUN.05.09
+  - FUN.05.10
+  - FUN.05.11
+  - FUN.05.12
+  - FUN.05.13
 ---
 # Conceito de Logaritmo
 

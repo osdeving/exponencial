@@ -10,6 +10,8 @@ order: 210
 tags:
   - exponencial
   - logaritmo
+canonicalIds:
+  - FUN.05
 ---
 # Função Exponencial e Logarítmica
 

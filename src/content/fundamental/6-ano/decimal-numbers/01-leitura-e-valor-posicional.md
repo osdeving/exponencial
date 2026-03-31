@@ -13,6 +13,11 @@ goals:
   - Comparar valores
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.07.01
+  - NUM.07.02
+  - NUM.07.03
+  - NUM.07.04
 ---
 # Leitura e Valor Posicional em Decimais
 

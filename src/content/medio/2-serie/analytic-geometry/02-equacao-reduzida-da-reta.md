@@ -13,6 +13,10 @@ goals:
   - Relacionar gráfico e equação
 prerequisites:
 tags:
+canonicalIds:
+  - AGE.02.01
+  - AGE.02.02
+  - AGE.02.03
 ---
 # Equação Reduzida da Reta
 

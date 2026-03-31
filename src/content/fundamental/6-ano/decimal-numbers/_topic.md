@@ -11,6 +11,8 @@ tags:
   - decimais
   - medidas
   - dinheiro
+canonicalIds:
+  - NUM.07
 ---
 # Números Decimais
 

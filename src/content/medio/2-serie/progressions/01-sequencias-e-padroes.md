@@ -13,6 +13,9 @@ goals:
   - Construir próximos termos
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.10.01
+  - ALG.10.02
 ---
 # Sequências e Padrões
 

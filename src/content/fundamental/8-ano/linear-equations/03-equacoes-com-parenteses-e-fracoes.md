@@ -14,6 +14,9 @@ goals:
 prerequisites:
   - linear-problems
 tags:
+canonicalIds:
+  - ALG.04.02
+  - ALG.04.03
 ---
 # Equações com Parênteses e Frações
 

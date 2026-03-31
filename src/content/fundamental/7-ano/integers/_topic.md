@@ -11,6 +11,8 @@ tags:
   - inteiros
   - sinais
   - reta numerica
+canonicalIds:
+  - NUM.04
 ---
 # Números Inteiros
 

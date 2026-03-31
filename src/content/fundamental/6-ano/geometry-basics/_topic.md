@@ -11,6 +11,10 @@ tags:
   - geometria
   - perimetro
   - area
+canonicalIds:
+  - GEO.03
+  - GEO.04
+  - GEO.08
 ---
 # Geometria Básica
 

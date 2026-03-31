@@ -13,6 +13,10 @@ goals:
   - Relacionar regra e gráfico
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.02.01
+  - FUN.02.02
+  - FUN.02.06
 ---
 # Coeficientes e Forma $ax+b$
 

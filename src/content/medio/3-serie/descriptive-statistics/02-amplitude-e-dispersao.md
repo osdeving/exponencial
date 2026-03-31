@@ -13,6 +13,13 @@ goals:
   - Comparar conjuntos
 prerequisites:
 tags:
+canonicalIds:
+  - DAT.02.01
+  - DAT.02.02
+  - DAT.02.07
+  - DAT.02.08
+  - DAT.02.09
+  - DAT.02.10
 ---
 # Amplitude e Dispersão
 

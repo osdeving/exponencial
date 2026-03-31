@@ -13,6 +13,12 @@ goals:
   - Interpretar variações
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.09.01
+  - NUM.09.02
+  - NUM.09.03
+  - NUM.09.04
+  - NUM.09.05
 ---
 # Porcentagem no Cotidiano
 

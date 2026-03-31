@@ -77,6 +77,6 @@ Se a mudança for apenas curricular, a preferência é:
 
 Se a mudança for estrutural no currículo:
 
-1. revisar `docs/estrutura/*` e, se preciso, `scripts/canonical-topic-map.mjs`
+1. revisar `docs/estrutura/*` e os `canonicalIds` em `src/content/**`
 2. rodar `npm run content:scaffold`
 3. preencher ou refinar os Markdown em `src/content/**`

@@ -13,6 +13,14 @@ goals:
   - Interpretar resultados
 prerequisites:
 tags:
+canonicalIds:
+  - DAT.04.01
+  - DAT.04.02
+  - DAT.04.03
+  - DAT.04.04
+  - DAT.04.05
+  - DAT.04.06
+  - DAT.04.09
 ---
 # Experimentos Aleatórios e Probabilidade Básica
 

@@ -13,6 +13,15 @@ goals:
   - Reconhecer os tipos mais cobrados
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.06.01
+  - NUM.06.02
+  - NUM.06.03
+  - NUM.06.04
+  - NUM.06.05
+  - NUM.06.06
+  - NUM.06.07
+  - NUM.06.08
 ---
 # O que é uma Fração?
 

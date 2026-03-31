@@ -13,6 +13,10 @@ goals:
   - Interpretar número de raízes
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.06.03
+  - ALG.06.06
+  - ALG.06.07
 ---
 # Fórmula de Bhaskara
 

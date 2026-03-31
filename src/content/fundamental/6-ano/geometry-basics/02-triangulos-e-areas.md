@@ -12,6 +12,12 @@ goals:
   - Interpretar base e altura
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.04.01
+  - GEO.04.02
+  - GEO.04.03
+  - GEO.04.04
+  - GEO.08.08
 ---
 # Área de Triângulos
 

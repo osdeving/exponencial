@@ -11,6 +11,9 @@ tags:
   - geometria-analitica
   - reta
   - plano-cartesiano
+canonicalIds:
+  - AGE.01
+  - AGE.02
 ---
 # Geometria Analítica
 

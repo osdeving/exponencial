@@ -11,6 +11,9 @@ tags:
   - potencias
   - raizes
   - notacao-cientifica
+canonicalIds:
+  - NUM.10
+  - NUM.11
 ---
 # Potenciação e Radiciação
 

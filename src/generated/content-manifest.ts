@@ -19,7 +19,11 @@ export const TOPICS: Topic[] = [
       "operacoes",
       "divisibilidade"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.01",
+      "NUM.02",
+      "NUM.03"
+    ]
   },
   {
     "id": "fractions",
@@ -34,7 +38,9 @@ export const TOPICS: Topic[] = [
       "fracoes",
       "racionais"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.06"
+    ]
   },
   {
     "id": "decimal-numbers",
@@ -50,7 +56,9 @@ export const TOPICS: Topic[] = [
       "medidas",
       "dinheiro"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.07"
+    ]
   },
   {
     "id": "geometry-basics",
@@ -66,7 +74,11 @@ export const TOPICS: Topic[] = [
       "perimetro",
       "area"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.03",
+      "GEO.04",
+      "GEO.08"
+    ]
   },
   {
     "id": "integers",
@@ -82,7 +94,9 @@ export const TOPICS: Topic[] = [
       "sinais",
       "reta numerica"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.04"
+    ]
   },
   {
     "id": "ratio-proportion-percentage",
@@ -98,7 +112,10 @@ export const TOPICS: Topic[] = [
       "proporcao",
       "porcentagem"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.08",
+      "NUM.09"
+    ]
   },
   {
     "id": "algebra-foundations",
@@ -114,7 +131,9 @@ export const TOPICS: Topic[] = [
       "expressoes",
       "padroes"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.01"
+    ]
   },
   {
     "id": "angles-polygons",
@@ -129,7 +148,10 @@ export const TOPICS: Topic[] = [
       "angulos",
       "poligonos"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.02",
+      "GEO.03"
+    ]
   },
   {
     "id": "linear-equations",
@@ -145,7 +167,9 @@ export const TOPICS: Topic[] = [
       "1-grau",
       "algebra"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.04"
+    ]
   },
   {
     "id": "linear-systems",
@@ -160,7 +184,9 @@ export const TOPICS: Topic[] = [
       "sistemas",
       "equacoes"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.05"
+    ]
   },
   {
     "id": "powers-roots",
@@ -176,7 +202,10 @@ export const TOPICS: Topic[] = [
       "raizes",
       "notacao-cientifica"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.10",
+      "NUM.11"
+    ]
   },
   {
     "id": "statistics-probability",
@@ -192,7 +221,11 @@ export const TOPICS: Topic[] = [
       "probabilidade",
       "graficos"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.01",
+      "DAT.02",
+      "DAT.04"
+    ]
   },
   {
     "id": "functions",
@@ -208,7 +241,9 @@ export const TOPICS: Topic[] = [
       "graficos",
       "plano-cartesiano"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.01"
+    ]
   },
   {
     "id": "quadratic-equations",
@@ -224,7 +259,9 @@ export const TOPICS: Topic[] = [
       "2-grau",
       "bhaskara"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.06"
+    ]
   },
   {
     "id": "geometry-similarity",
@@ -240,7 +277,9 @@ export const TOPICS: Topic[] = [
       "pitagoras",
       "triangulos"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.04"
+    ]
   },
   {
     "id": "spatial-geometry",
@@ -256,7 +295,9 @@ export const TOPICS: Topic[] = [
       "volume",
       "solidos"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.10"
+    ]
   },
   {
     "id": "function-affine",
@@ -272,7 +313,9 @@ export const TOPICS: Topic[] = [
       "reta",
       "taxa-de-variacao"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.02"
+    ]
   },
   {
     "id": "function-quadratic",
@@ -287,7 +330,9 @@ export const TOPICS: Topic[] = [
       "funcao-quadratica",
       "parabola"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.03"
+    ]
   },
   {
     "id": "trigonometry",
@@ -302,7 +347,9 @@ export const TOPICS: Topic[] = [
       "trigonometria",
       "triangulo-retangulo"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "TRI.01"
+    ]
   },
   {
     "id": "combinatorics-probability",
@@ -317,7 +364,10 @@ export const TOPICS: Topic[] = [
       "combinatoria",
       "probabilidade"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.03",
+      "DAT.04"
+    ]
   },
   {
     "id": "exponential-logarithmic",
@@ -332,7 +382,9 @@ export const TOPICS: Topic[] = [
       "exponencial",
       "logaritmo"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.05"
+    ]
   },
   {
     "id": "progressions",
@@ -348,7 +400,9 @@ export const TOPICS: Topic[] = [
       "pg",
       "sequencias"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.10"
+    ]
   },
   {
     "id": "analytic-geometry",
@@ -364,7 +418,10 @@ export const TOPICS: Topic[] = [
       "reta",
       "plano-cartesiano"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "AGE.01",
+      "AGE.02"
+    ]
   },
   {
     "id": "matrices-systems",
@@ -380,7 +437,9 @@ export const TOPICS: Topic[] = [
       "determinantes",
       "sistemas"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.09"
+    ]
   },
   {
     "id": "polynomials",
@@ -395,7 +454,9 @@ export const TOPICS: Topic[] = [
       "polinomios",
       "fatoracao"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.07"
+    ]
   },
   {
     "id": "complex-numbers",
@@ -410,7 +471,9 @@ export const TOPICS: Topic[] = [
       "complexos",
       "imaginaros"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.12"
+    ]
   },
   {
     "id": "descriptive-statistics",
@@ -426,7 +489,10 @@ export const TOPICS: Topic[] = [
       "dados",
       "graficos"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.01",
+      "DAT.02"
+    ]
   },
   {
     "id": "math-finance",
@@ -442,7 +508,9 @@ export const TOPICS: Topic[] = [
       "financeira",
       "porcentagem"
     ],
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.09"
+    ]
   },
   {
     "id": "set-01-linguagem-matematica-e-estruturas-logicas",
@@ -547,6 +615,24 @@ export const TOPICS: Topic[] = [
     ]
   },
   {
+    "id": "alg-08-equacoes-algebricas-e-polinomiais",
+    "title": "Equações algébricas e polinomiais",
+    "description": "Estrutura canônica de equações algébricas e polinomiais, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "2ª série",
+    "category": "Álgebra, expressões, equações, polinômios e estruturas simbólicas",
+    "icon": "Variable",
+    "order": 1022,
+    "tags": [
+      "alg-08",
+      "intermediario",
+      "avancado"
+    ],
+    "canonicalIds": [
+      "ALG.08"
+    ]
+  },
+  {
     "id": "fun-04-funcoes-modulo-racional-e-potencia",
     "title": "Funções módulo, racional e potência",
     "description": "Estrutura canônica de funções módulo, racional e potência, pronta para receber teoria, exercícios e gabaritos em Markdown.",
@@ -629,6 +715,22 @@ export const TOPICS: Topic[] = [
     ],
     "canonicalIds": [
       "GEO.07"
+    ]
+  },
+  {
+    "id": "geo-09-geometria-espacial-de-posicao",
+    "title": "Geometria espacial de posição",
+    "description": "Estrutura canônica de geometria espacial de posição, pronta para receber teoria, exercícios e gabaritos em Markdown.",
+    "level": "Médio",
+    "stage": "2ª série",
+    "category": "Geometria plana, espacial, medidas e construções",
+    "icon": "Ruler",
+    "order": 1038,
+    "tags": [
+      "geo-09"
+    ],
+    "canonicalIds": [
+      "GEO.09"
     ]
   },
   {
@@ -810,7 +912,15 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.01.01",
+      "NUM.01.02",
+      "NUM.01.03",
+      "NUM.01.04",
+      "NUM.01.05",
+      "NUM.01.06",
+      "NUM.01.07"
+    ]
   },
   {
     "id": "natural-numbers-operations",
@@ -829,7 +939,18 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.02.01",
+      "NUM.02.02",
+      "NUM.02.03",
+      "NUM.02.04",
+      "NUM.02.05",
+      "NUM.02.06",
+      "NUM.02.07",
+      "NUM.02.08",
+      "NUM.02.09",
+      "NUM.02.10"
+    ]
   },
   {
     "id": "natural-numbers-divisibility",
@@ -848,7 +969,14 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.03.01",
+      "NUM.03.02",
+      "NUM.03.03",
+      "NUM.03.04",
+      "NUM.03.05",
+      "NUM.03.06"
+    ]
   },
   {
     "id": "fractions-intro",
@@ -867,7 +995,16 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.06.01",
+      "NUM.06.02",
+      "NUM.06.03",
+      "NUM.06.04",
+      "NUM.06.05",
+      "NUM.06.06",
+      "NUM.06.07",
+      "NUM.06.08"
+    ]
   },
   {
     "id": "fractions-operations",
@@ -888,7 +1025,15 @@ export const LESSONS: Lesson[] = [
     ],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.06.12",
+      "NUM.06.13",
+      "NUM.06.14",
+      "NUM.06.15",
+      "NUM.06.16",
+      "NUM.06.17",
+      "NUM.06.18"
+    ]
   },
   {
     "id": "fractions-equivalence",
@@ -909,7 +1054,12 @@ export const LESSONS: Lesson[] = [
     ],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.06.09",
+      "NUM.06.10",
+      "NUM.06.11",
+      "NUM.06.12"
+    ]
   },
   {
     "id": "fractions-review",
@@ -935,7 +1085,10 @@ export const LESSONS: Lesson[] = [
       "gabarito"
     ],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.06.19",
+      "NUM.06.20"
+    ]
   },
   {
     "id": "decimal-reading",
@@ -954,7 +1107,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.07.01",
+      "NUM.07.02",
+      "NUM.07.03",
+      "NUM.07.04"
+    ]
   },
   {
     "id": "decimal-operations",
@@ -973,7 +1131,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.07.05",
+      "NUM.07.06",
+      "NUM.07.08"
+    ]
   },
   {
     "id": "decimal-fractions",
@@ -994,7 +1156,10 @@ export const LESSONS: Lesson[] = [
     ],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.07.07",
+      "NUM.07.09"
+    ]
   },
   {
     "id": "geometry-perimeter",
@@ -1012,7 +1177,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.03.01",
+      "GEO.03.03",
+      "GEO.03.08",
+      "GEO.08.05"
+    ]
   },
   {
     "id": "geometry-triangles",
@@ -1030,7 +1200,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.04.01",
+      "GEO.04.02",
+      "GEO.04.03",
+      "GEO.04.04",
+      "GEO.08.08"
+    ]
   },
   {
     "id": "geometry-units",
@@ -1049,7 +1225,16 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.08.01",
+      "GEO.08.02",
+      "GEO.08.03",
+      "GEO.08.04",
+      "GEO.08.15",
+      "GEO.08.16",
+      "GEO.08.17",
+      "GEO.08.18"
+    ]
   },
   {
     "id": "integers-meaning",
@@ -1068,7 +1253,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.04.01",
+      "NUM.04.02",
+      "NUM.04.03"
+    ]
   },
   {
     "id": "integers-operations",
@@ -1087,7 +1276,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.04.04",
+      "NUM.04.05",
+      "NUM.04.06"
+    ]
   },
   {
     "id": "integers-problems",
@@ -1106,7 +1299,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.04.07"
+    ]
   },
   {
     "id": "ratio-concept",
@@ -1125,7 +1320,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.08.01",
+      "NUM.08.02",
+      "NUM.08.10",
+      "NUM.08.11"
+    ]
   },
   {
     "id": "proportion-rule",
@@ -1144,7 +1344,15 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.08.03",
+      "NUM.08.04",
+      "NUM.08.05",
+      "NUM.08.06",
+      "NUM.08.07",
+      "NUM.08.08",
+      "NUM.08.09"
+    ]
   },
   {
     "id": "percentage-intro",
@@ -1163,7 +1371,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.09.01",
+      "NUM.09.02",
+      "NUM.09.03",
+      "NUM.09.04",
+      "NUM.09.05"
+    ]
   },
   {
     "id": "algebra-variables",
@@ -1182,7 +1396,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.01.01",
+      "ALG.01.04",
+      "ALG.01.05",
+      "ALG.01.07"
+    ]
   },
   {
     "id": "algebra-like-terms",
@@ -1201,7 +1420,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.01.02",
+      "ALG.01.03",
+      "ALG.01.06"
+    ]
   },
   {
     "id": "algebra-patterns",
@@ -1220,7 +1443,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.01.08"
+    ]
   },
   {
     "id": "angles-measure",
@@ -1239,7 +1464,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.02.01",
+      "GEO.02.02",
+      "GEO.02.03",
+      "GEO.02.04"
+    ]
   },
   {
     "id": "polygons-properties",
@@ -1258,7 +1488,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.03.01",
+      "GEO.03.02",
+      "GEO.03.03",
+      "GEO.03.06",
+      "GEO.03.08"
+    ]
   },
   {
     "id": "triangles-angles",
@@ -1277,7 +1513,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.02.05",
+      "GEO.02.06",
+      "GEO.03.04",
+      "GEO.03.05"
+    ]
   },
   {
     "id": "linear-intro",
@@ -1295,7 +1536,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.04.01",
+      "ALG.04.02",
+      "ALG.04.03"
+    ]
   },
   {
     "id": "linear-problems",
@@ -1315,7 +1560,9 @@ export const LESSONS: Lesson[] = [
     ],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.04.04"
+    ]
   },
   {
     "id": "linear-equations-forms",
@@ -1336,7 +1583,10 @@ export const LESSONS: Lesson[] = [
     ],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.04.02",
+      "ALG.04.03"
+    ]
   },
   {
     "id": "systems-intro",
@@ -1355,7 +1605,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.05.01",
+      "ALG.05.05",
+      "ALG.05.06"
+    ]
   },
   {
     "id": "systems-substitution",
@@ -1374,7 +1628,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.05.02"
+    ]
   },
   {
     "id": "systems-problems",
@@ -1393,7 +1649,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.05.07"
+    ]
   },
   {
     "id": "powers-exponents",
@@ -1419,7 +1677,17 @@ export const LESSONS: Lesson[] = [
       "expoentes"
     ],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.10.01",
+      "NUM.10.02",
+      "NUM.10.03",
+      "NUM.10.04",
+      "NUM.10.05",
+      "NUM.10.06",
+      "NUM.10.07",
+      "NUM.10.08",
+      "NUM.10.09"
+    ]
   },
   {
     "id": "roots-square",
@@ -1438,7 +1706,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.11.01",
+      "NUM.11.02",
+      "NUM.11.03",
+      "NUM.11.04",
+      "NUM.11.05"
+    ]
   },
   {
     "id": "scientific-notation",
@@ -1464,7 +1738,12 @@ export const LESSONS: Lesson[] = [
       "ordem-de-grandeza"
     ],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.10.09",
+      "NUM.10.10",
+      "NUM.10.11",
+      "NUM.10.12"
+    ]
   },
   {
     "id": "powers-chapter-review",
@@ -1490,7 +1769,20 @@ export const LESSONS: Lesson[] = [
       "lista-completa"
     ],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.10.01",
+      "NUM.10.02",
+      "NUM.10.03",
+      "NUM.10.04",
+      "NUM.10.05",
+      "NUM.10.06",
+      "NUM.10.07",
+      "NUM.10.08",
+      "NUM.10.09",
+      "NUM.10.10",
+      "NUM.10.11",
+      "NUM.10.12"
+    ]
   },
   {
     "id": "roots-chapter-review",
@@ -1515,7 +1807,15 @@ export const LESSONS: Lesson[] = [
       "concursos"
     ],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.11.01",
+      "NUM.11.02",
+      "NUM.11.03",
+      "NUM.11.04",
+      "NUM.11.05",
+      "NUM.11.07",
+      "NUM.11.08"
+    ]
   },
   {
     "id": "stats-tables",
@@ -1534,7 +1834,17 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.01.01",
+      "DAT.01.02",
+      "DAT.01.03",
+      "DAT.01.04",
+      "DAT.01.05",
+      "DAT.01.06",
+      "DAT.01.07",
+      "DAT.01.08",
+      "DAT.01.09"
+    ]
   },
   {
     "id": "stats-average",
@@ -1553,7 +1863,16 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.02.01",
+      "DAT.02.02",
+      "DAT.02.03",
+      "DAT.02.04",
+      "DAT.02.05",
+      "DAT.02.06",
+      "DAT.02.07",
+      "DAT.02.10"
+    ]
   },
   {
     "id": "probability-basics",
@@ -1572,7 +1891,15 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.04.01",
+      "DAT.04.02",
+      "DAT.04.03",
+      "DAT.04.04",
+      "DAT.04.05",
+      "DAT.04.06",
+      "DAT.04.09"
+    ]
   },
   {
     "id": "functions-intro",
@@ -1590,7 +1917,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.01.01",
+      "FUN.01.02",
+      "FUN.01.03"
+    ]
   },
   {
     "id": "functions-graphs",
@@ -1608,7 +1939,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.01.04",
+      "FUN.01.05",
+      "FUN.01.06",
+      "FUN.01.07",
+      "FUN.01.08"
+    ]
   },
   {
     "id": "functions-cartesian",
@@ -1627,7 +1964,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.01.04"
+    ]
   },
   {
     "id": "quadratic-intro",
@@ -1646,7 +1985,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.06.01",
+      "ALG.06.04",
+      "ALG.06.05"
+    ]
   },
   {
     "id": "quadratic-factoring",
@@ -1665,7 +2008,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.06.02"
+    ]
   },
   {
     "id": "quadratic-bhaskara",
@@ -1684,7 +2029,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.06.03",
+      "ALG.06.06",
+      "ALG.06.07"
+    ]
   },
   {
     "id": "similarity-concept",
@@ -1703,7 +2052,10 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.04.06",
+      "GEO.04.11"
+    ]
   },
   {
     "id": "pythagoras-theorem",
@@ -1722,7 +2074,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.04.14"
+    ]
   },
   {
     "id": "metric-relations",
@@ -1741,7 +2095,10 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.04.13",
+      "GEO.04.15"
+    ]
   },
   {
     "id": "spatial-solids",
@@ -1760,7 +2117,16 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.10.01",
+      "GEO.10.03",
+      "GEO.10.04",
+      "GEO.10.05",
+      "GEO.10.07",
+      "GEO.10.08",
+      "GEO.10.10",
+      "GEO.10.15"
+    ]
   },
   {
     "id": "spatial-volume",
@@ -1779,7 +2145,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.10.12"
+    ]
   },
   {
     "id": "spatial-area",
@@ -1798,7 +2166,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "GEO.10.11"
+    ]
   },
   {
     "id": "affine-concept",
@@ -1817,7 +2187,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.02.01",
+      "FUN.02.02",
+      "FUN.02.06"
+    ]
   },
   {
     "id": "affine-graph",
@@ -1836,7 +2210,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.02.03",
+      "FUN.02.04",
+      "FUN.02.05"
+    ]
   },
   {
     "id": "affine-problems",
@@ -1855,7 +2233,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.02.07"
+    ]
   },
   {
     "id": "quadratic-function-concept",
@@ -1874,7 +2254,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.03.01",
+      "FUN.03.02",
+      "FUN.03.03"
+    ]
   },
   {
     "id": "quadratic-function-zeros",
@@ -1893,7 +2277,10 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.03.07",
+      "FUN.03.08"
+    ]
   },
   {
     "id": "quadratic-function-vertex",
@@ -1912,7 +2299,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.03.04",
+      "FUN.03.05",
+      "FUN.03.06",
+      "FUN.03.09"
+    ]
   },
   {
     "id": "trigonometry-intro",
@@ -1930,7 +2322,10 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "TRI.01.01",
+      "TRI.01.02"
+    ]
   },
   {
     "id": "trigonometry-angles",
@@ -1948,7 +2343,9 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "ready",
-    "canonicalIds": []
+    "canonicalIds": [
+      "TRI.01.03"
+    ]
   },
   {
     "id": "trigonometry-applications",
@@ -1967,7 +2364,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "TRI.01.04",
+      "TRI.01.05",
+      "TRI.01.06",
+      "TRI.01.07"
+    ]
   },
   {
     "id": "counting-principle",
@@ -1986,7 +2388,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.03.01",
+      "DAT.03.02",
+      "DAT.03.03"
+    ]
   },
   {
     "id": "combinatorics-arrangements",
@@ -2005,7 +2411,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.03.04",
+      "DAT.03.05",
+      "DAT.03.06",
+      "DAT.03.07"
+    ]
   },
   {
     "id": "probability-combinatorics",
@@ -2024,7 +2435,15 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.04.01",
+      "DAT.04.02",
+      "DAT.04.03",
+      "DAT.04.04",
+      "DAT.04.05",
+      "DAT.04.06",
+      "DAT.04.09"
+    ]
   },
   {
     "id": "exponential-function",
@@ -2043,7 +2462,14 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.05.01",
+      "FUN.05.02",
+      "FUN.05.03",
+      "FUN.05.04",
+      "FUN.05.05",
+      "FUN.05.06"
+    ]
   },
   {
     "id": "logarithm-concept",
@@ -2062,7 +2488,15 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.05.07",
+      "FUN.05.08",
+      "FUN.05.09",
+      "FUN.05.10",
+      "FUN.05.11",
+      "FUN.05.12",
+      "FUN.05.13"
+    ]
   },
   {
     "id": "exp-log-applications",
@@ -2081,7 +2515,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "FUN.05.02",
+      "FUN.05.03",
+      "FUN.05.04",
+      "FUN.05.09",
+      "FUN.05.10"
+    ]
   },
   {
     "id": "progressions-patterns",
@@ -2100,7 +2540,10 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.10.01",
+      "ALG.10.02"
+    ]
   },
   {
     "id": "arithmetic-progression",
@@ -2119,7 +2562,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.10.03",
+      "ALG.10.04",
+      "ALG.10.05"
+    ]
   },
   {
     "id": "geometric-progression",
@@ -2138,7 +2585,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.10.06",
+      "ALG.10.07",
+      "ALG.10.08",
+      "ALG.10.09"
+    ]
   },
   {
     "id": "analytic-points",
@@ -2157,7 +2609,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "AGE.01.01",
+      "AGE.01.02",
+      "AGE.01.03",
+      "AGE.01.04",
+      "AGE.01.05"
+    ]
   },
   {
     "id": "analytic-line",
@@ -2176,7 +2634,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "AGE.02.01",
+      "AGE.02.02",
+      "AGE.02.03"
+    ]
   },
   {
     "id": "analytic-parallelism",
@@ -2195,7 +2657,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "AGE.02.04",
+      "AGE.02.05",
+      "AGE.02.06",
+      "AGE.02.07"
+    ]
   },
   {
     "id": "matrices-intro",
@@ -2214,7 +2681,14 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.09.01",
+      "ALG.09.02",
+      "ALG.09.03",
+      "ALG.09.04",
+      "ALG.09.05",
+      "ALG.09.06"
+    ]
   },
   {
     "id": "determinants-intro",
@@ -2233,7 +2707,10 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.09.07",
+      "ALG.09.08"
+    ]
   },
   {
     "id": "matrices-systems-solving",
@@ -2252,7 +2729,10 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.09.09",
+      "ALG.09.10"
+    ]
   },
   {
     "id": "polynomials-operations",
@@ -2271,7 +2751,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.07.01",
+      "ALG.07.02",
+      "ALG.07.03",
+      "ALG.07.04"
+    ]
   },
   {
     "id": "polynomials-factorization",
@@ -2290,7 +2775,10 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.07.09",
+      "ALG.07.10"
+    ]
   },
   {
     "id": "polynomials-division",
@@ -2309,7 +2797,12 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "ALG.07.05",
+      "ALG.07.06",
+      "ALG.07.07",
+      "ALG.07.08"
+    ]
   },
   {
     "id": "complex-unit",
@@ -2328,7 +2821,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.12.01",
+      "NUM.12.02",
+      "NUM.12.05"
+    ]
   },
   {
     "id": "complex-operations",
@@ -2347,7 +2844,10 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.12.03",
+      "NUM.12.04"
+    ]
   },
   {
     "id": "complex-equations",
@@ -2366,7 +2866,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.12.06",
+      "NUM.12.07",
+      "NUM.12.08",
+      "NUM.12.09",
+      "NUM.12.10"
+    ]
   },
   {
     "id": "descriptive-graphics",
@@ -2385,7 +2891,18 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.01.01",
+      "DAT.01.02",
+      "DAT.01.03",
+      "DAT.01.04",
+      "DAT.01.05",
+      "DAT.01.06",
+      "DAT.01.07",
+      "DAT.01.08",
+      "DAT.01.09",
+      "DAT.01.10"
+    ]
   },
   {
     "id": "descriptive-dispersion",
@@ -2404,7 +2921,14 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.02.01",
+      "DAT.02.02",
+      "DAT.02.07",
+      "DAT.02.08",
+      "DAT.02.09",
+      "DAT.02.10"
+    ]
   },
   {
     "id": "descriptive-decision",
@@ -2423,7 +2947,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "DAT.02.03",
+      "DAT.02.04",
+      "DAT.02.05",
+      "DAT.02.06",
+      "DAT.02.10"
+    ]
   },
   {
     "id": "finance-review",
@@ -2442,7 +2972,13 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.09.01",
+      "NUM.09.02",
+      "NUM.09.03",
+      "NUM.09.04",
+      "NUM.09.05"
+    ]
   },
   {
     "id": "simple-interest",
@@ -2461,7 +2997,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.09.06",
+      "NUM.09.08",
+      "NUM.09.09"
+    ]
   },
   {
     "id": "compound-interest",
@@ -2480,7 +3020,11 @@ export const LESSONS: Lesson[] = [
     "prerequisites": [],
     "tags": [],
     "status": "outline",
-    "canonicalIds": []
+    "canonicalIds": [
+      "NUM.09.07",
+      "NUM.09.08",
+      "NUM.09.10"
+    ]
   },
   {
     "id": "set-01-linguagem-matematica-e-estruturas-logicas-set-01-01",
@@ -3623,6 +4167,167 @@ export const LESSONS: Lesson[] = [
     ]
   },
   {
+    "id": "alg-08-equacoes-algebricas-e-polinomiais-alg-08-01",
+    "topicId": "alg-08-equacoes-algebricas-e-polinomiais",
+    "title": "equações biquadradas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico ALG.08.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de equações biquadradas",
+      "Resolver exercícios básicos de equações biquadradas",
+      "Aplicar equações biquadradas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-08-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.08.01"
+    ]
+  },
+  {
+    "id": "alg-08-equacoes-algebricas-e-polinomiais-alg-08-02",
+    "topicId": "alg-08-equacoes-algebricas-e-polinomiais",
+    "title": "equações irracionais",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico ALG.08.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de equações irracionais",
+      "Resolver exercícios básicos de equações irracionais",
+      "Aplicar equações irracionais em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-08-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.08.02"
+    ]
+  },
+  {
+    "id": "alg-08-equacoes-algebricas-e-polinomiais-alg-08-03",
+    "topicId": "alg-08-equacoes-algebricas-e-polinomiais",
+    "title": "equações recíprocas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico ALG.08.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de equações recíprocas",
+      "Resolver exercícios básicos de equações recíprocas",
+      "Aplicar equações recíprocas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-08-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.08.03"
+    ]
+  },
+  {
+    "id": "alg-08-equacoes-algebricas-e-polinomiais-alg-08-04",
+    "topicId": "alg-08-equacoes-algebricas-e-polinomiais",
+    "title": "transformações aditiva e multiplicativa",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico ALG.08.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de transformações aditiva e multiplicativa",
+      "Resolver exercícios básicos de transformações aditiva e multiplicativa",
+      "Aplicar transformações aditiva e multiplicativa em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-08-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.08.04"
+    ]
+  },
+  {
+    "id": "alg-08-equacoes-algebricas-e-polinomiais-alg-08-05",
+    "topicId": "alg-08-equacoes-algebricas-e-polinomiais",
+    "title": "raízes racionais",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 5,
+    "summary": "Estrutura inicial para o item canônico ALG.08.05. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de raízes racionais",
+      "Resolver exercícios básicos de raízes racionais",
+      "Aplicar raízes racionais em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-08-05"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.08.05"
+    ]
+  },
+  {
+    "id": "alg-08-equacoes-algebricas-e-polinomiais-alg-08-06",
+    "topicId": "alg-08-equacoes-algebricas-e-polinomiais",
+    "title": "relações de Girard",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 6,
+    "summary": "Estrutura inicial para o item canônico ALG.08.06. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de relações de girard",
+      "Resolver exercícios básicos de relações de girard",
+      "Aplicar relações de girard em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-08-06"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.08.06"
+    ]
+  },
+  {
+    "id": "alg-08-equacoes-algebricas-e-polinomiais-alg-08-07",
+    "topicId": "alg-08-equacoes-algebricas-e-polinomiais",
+    "title": "teorema de Bolzano",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 7,
+    "summary": "Estrutura inicial para o item canônico ALG.08.07. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de teorema de bolzano",
+      "Resolver exercícios básicos de teorema de bolzano",
+      "Aplicar teorema de bolzano em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "alg-08-07"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "ALG.08.07"
+    ]
+  },
+  {
     "id": "fun-04-funcoes-modulo-racional-e-potencia-fun-04-01",
     "topicId": "fun-04-funcoes-modulo-racional-e-potencia",
     "title": "módulo de número real",
@@ -4456,6 +5161,98 @@ export const LESSONS: Lesson[] = [
     "status": "outline",
     "canonicalIds": [
       "GEO.07.09"
+    ]
+  },
+  {
+    "id": "geo-09-geometria-espacial-de-posicao-geo-09-01",
+    "topicId": "geo-09-geometria-espacial-de-posicao",
+    "title": "retas reversas",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 1,
+    "summary": "Estrutura inicial para o item canônico GEO.09.01. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de retas reversas",
+      "Resolver exercícios básicos de retas reversas",
+      "Aplicar retas reversas em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-09-01"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.09.01"
+    ]
+  },
+  {
+    "id": "geo-09-geometria-espacial-de-posicao-geo-09-02",
+    "topicId": "geo-09-geometria-espacial-de-posicao",
+    "title": "paralelismo e perpendicularidade no espaço",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 2,
+    "summary": "Estrutura inicial para o item canônico GEO.09.02. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de paralelismo e perpendicularidade no espaço",
+      "Resolver exercícios básicos de paralelismo e perpendicularidade no espaço",
+      "Aplicar paralelismo e perpendicularidade no espaço em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-09-02"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.09.02"
+    ]
+  },
+  {
+    "id": "geo-09-geometria-espacial-de-posicao-geo-09-03",
+    "topicId": "geo-09-geometria-espacial-de-posicao",
+    "title": "ângulo entre retas, retas e planos, planos",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 3,
+    "summary": "Estrutura inicial para o item canônico GEO.09.03. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de ângulo entre retas, retas e planos, planos",
+      "Resolver exercícios básicos de ângulo entre retas, retas e planos, planos",
+      "Aplicar ângulo entre retas, retas e planos, planos em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-09-03"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.09.03"
+    ]
+  },
+  {
+    "id": "geo-09-geometria-espacial-de-posicao-geo-09-04",
+    "topicId": "geo-09-geometria-espacial-de-posicao",
+    "title": "projeções ortogonais",
+    "content": "",
+    "difficulty": "Médio",
+    "estimatedMinutes": 12,
+    "order": 4,
+    "summary": "Estrutura inicial para o item canônico GEO.09.04. Substitua este placeholder pela teoria definitiva em Markdown.",
+    "goals": [
+      "Entender o conceito central de projeções ortogonais",
+      "Resolver exercícios básicos de projeções ortogonais",
+      "Aplicar projeções ortogonais em problemas guiados"
+    ],
+    "prerequisites": [],
+    "tags": [
+      "geo-09-04"
+    ],
+    "status": "outline",
+    "canonicalIds": [
+      "GEO.09.04"
     ]
   },
   {

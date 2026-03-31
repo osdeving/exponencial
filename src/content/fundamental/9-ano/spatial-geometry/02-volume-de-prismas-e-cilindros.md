@@ -13,6 +13,8 @@ goals:
   - Resolver problemas práticos
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.10.12
 ---
 # Volume de Prismas e Cilindros
 

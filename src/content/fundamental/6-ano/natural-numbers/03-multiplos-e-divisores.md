@@ -13,6 +13,13 @@ goals:
   - Aplicar critérios de divisibilidade
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.03.01
+  - NUM.03.02
+  - NUM.03.03
+  - NUM.03.04
+  - NUM.03.05
+  - NUM.03.06
 ---
 # Múltiplos, Divisores e Critérios
 

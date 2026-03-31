@@ -13,6 +13,10 @@ goals:
   - Comparar gráficos
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.03.01
+  - FUN.03.02
+  - FUN.03.03
 ---
 # Forma $ax^2+bx+c$
 

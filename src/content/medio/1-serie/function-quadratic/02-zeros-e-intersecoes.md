@@ -13,6 +13,9 @@ goals:
   - Analisar discriminante
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.03.07
+  - FUN.03.08
 ---
 # Zeros da Função e Interseções
 

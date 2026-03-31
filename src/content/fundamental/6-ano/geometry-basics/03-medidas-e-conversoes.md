@@ -13,6 +13,15 @@ goals:
   - Resolver problemas com medidas
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.08.01
+  - GEO.08.02
+  - GEO.08.03
+  - GEO.08.04
+  - GEO.08.15
+  - GEO.08.16
+  - GEO.08.17
+  - GEO.08.18
 ---
 # Medidas, Unidades e Conversões
 

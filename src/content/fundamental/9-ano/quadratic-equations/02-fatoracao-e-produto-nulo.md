@@ -13,6 +13,8 @@ goals:
   - Checar soluções
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.06.02
 ---
 # Fatoração e Produto Nulo
 

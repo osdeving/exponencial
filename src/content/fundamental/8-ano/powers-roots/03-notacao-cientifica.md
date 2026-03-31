@@ -18,6 +18,11 @@ tags:
   - notacao-cientifica
   - potencias-de-10
   - ordem-de-grandeza
+canonicalIds:
+  - NUM.10.09
+  - NUM.10.10
+  - NUM.10.11
+  - NUM.10.12
 ---
 # Notação Científica
 

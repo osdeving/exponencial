@@ -13,6 +13,8 @@ goals:
   - Relacionar tabela e gráfico
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.01.04
 ---
 # Plano Cartesiano e Pares Ordenados
 

@@ -11,6 +11,8 @@ tags:
   - algebra
   - expressoes
   - padroes
+canonicalIds:
+  - ALG.01
 ---
 # Álgebra Inicial
 

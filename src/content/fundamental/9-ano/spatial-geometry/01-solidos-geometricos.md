@@ -13,6 +13,15 @@ goals:
   - Interpretar planificações
 prerequisites:
 tags:
+canonicalIds:
+  - GEO.10.01
+  - GEO.10.03
+  - GEO.10.04
+  - GEO.10.05
+  - GEO.10.07
+  - GEO.10.08
+  - GEO.10.10
+  - GEO.10.15
 ---
 # Sólidos Geométricos e Planificações
 

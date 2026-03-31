@@ -13,6 +13,11 @@ goals:
   - Interpretar ordem
 prerequisites:
 tags:
+canonicalIds:
+  - DAT.03.04
+  - DAT.03.05
+  - DAT.03.06
+  - DAT.03.07
 ---
 # Arranjos, Permutações e Combinações
 

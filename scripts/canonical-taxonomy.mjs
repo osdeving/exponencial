@@ -1,6 +1,5 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { existingTopicCanonicalIds, sectionIcons } from './canonical-topic-map.mjs';
 import { projectRoot, slugify } from './content-utils.mjs';
 
 const structureRoot = path.join(projectRoot, 'docs', 'estrutura');
@@ -11,6 +10,17 @@ const examViewPath = path.join(structureRoot, '05_visao_por_perfil_de_prova.md')
 
 const subsectionPattern = /^-\s+\*\*([A-Z]{3}\.\d{2})\s+—\s+(.+?)\*\*$/;
 const headingPattern = /^##\s+(.+?)\s*$/;
+const sectionIcons = {
+  SET: 'Braces',
+  NUM: 'Calculator',
+  ALG: 'Variable',
+  FUN: 'ChartSpline',
+  GEO: 'Ruler',
+  TRI: 'Triangle',
+  AGE: 'Map',
+  DAT: 'BarChart3',
+  CAL: 'Infinity',
+};
 
 function stripFlags(value) {
   return value.replace(/\s*\[[^\]]+\]\s*/g, ' ').replace(/\s+/g, ' ').trim();
@@ -193,16 +203,13 @@ export async function loadCanonicalTaxonomy() {
   return {
     sections,
     subsections: subsectionRecords,
+    leafTopicIds: new Set(leafTopics.map((topic) => topic.id)),
     subsectionById: new Map(subsectionRecords.map((record) => [record.id, record])),
   };
 }
 
-export function resolveTopicCanonicalIds(topicId, explicitCanonicalIds = []) {
-  return Array.from(new Set([...(existingTopicCanonicalIds[topicId] ?? []), ...explicitCanonicalIds])).filter(Boolean);
-}
-
-export function buildTopicTaxonomyEntry(topicId, canonicalIds, canonicalSubsectionById) {
-  const resolvedCanonicalIds = resolveTopicCanonicalIds(topicId, canonicalIds);
+export function buildTopicTaxonomyEntry(canonicalIds, canonicalSubsectionById) {
+  const resolvedCanonicalIds = Array.from(new Set(canonicalIds)).filter(Boolean);
   const canonicalRecords = resolvedCanonicalIds
     .map((canonicalId) => canonicalSubsectionById.get(canonicalId))
     .filter(Boolean);

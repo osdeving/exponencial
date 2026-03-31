@@ -13,6 +13,10 @@ goals:
   - Comparar parte real e imaginária
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.12.01
+  - NUM.12.02
+  - NUM.12.05
 ---
 # Unidade Imaginária e Forma Algébrica
 

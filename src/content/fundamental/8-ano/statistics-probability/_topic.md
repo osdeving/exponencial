@@ -11,6 +11,10 @@ tags:
   - estatistica
   - probabilidade
   - graficos
+canonicalIds:
+  - DAT.01
+  - DAT.02
+  - DAT.04
 ---
 # Estatística e Probabilidade
 

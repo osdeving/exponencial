@@ -12,6 +12,12 @@ goals:
   - Identificar crescimento e decrescimento
 prerequisites:
 tags:
+canonicalIds:
+  - FUN.01.04
+  - FUN.01.05
+  - FUN.01.06
+  - FUN.01.07
+  - FUN.01.08
 ---
 # Lendo Gráficos
 

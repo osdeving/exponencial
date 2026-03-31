@@ -13,6 +13,8 @@ goals:
   - Comparar métodos
 prerequisites:
 tags:
+canonicalIds:
+  - ALG.05.07
 ---
 # Problemas com Sistemas
 

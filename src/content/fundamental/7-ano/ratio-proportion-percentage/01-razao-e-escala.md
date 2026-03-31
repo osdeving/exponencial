@@ -13,6 +13,11 @@ goals:
   - Comparar grandezas
 prerequisites:
 tags:
+canonicalIds:
+  - NUM.08.01
+  - NUM.08.02
+  - NUM.08.10
+  - NUM.08.11
 ---
 # Razão e Escala
 
