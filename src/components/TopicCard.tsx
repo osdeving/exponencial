@@ -6,10 +6,19 @@ import * as Icons from 'lucide-react';
 
 interface TopicCardProps {
   topic: Topic;
+  lessonCount: number;
+  progressPercent: number;
+  isFavorite?: boolean;
   onClick: () => void;
 }
 
-export const TopicCard: React.FC<TopicCardProps> = ({ topic, onClick }) => {
+export const TopicCard: React.FC<TopicCardProps> = ({
+  topic,
+  lessonCount,
+  progressPercent,
+  isFavorite = false,
+  onClick,
+}) => {
   const Icon = (Icons as any)[topic.icon] || Icons.BookOpen;
 
   return (
@@ -23,9 +32,12 @@ export const TopicCard: React.FC<TopicCardProps> = ({ topic, onClick }) => {
         <div className="p-3 bg-brand brutal-border">
           <Icon size={24} />
         </div>
-        <span className="text-[10px] font-bold uppercase tracking-widest opacity-50">
-          {topic.level}
-        </span>
+        <div className="text-right">
+          <span className="block text-[10px] font-bold uppercase tracking-widest opacity-50">
+            {topic.level}
+          </span>
+          {isFavorite && <span className="block text-[10px] font-bold uppercase tracking-widest">Favorito</span>}
+        </div>
       </div>
       
       <div>
@@ -35,6 +47,16 @@ export const TopicCard: React.FC<TopicCardProps> = ({ topic, onClick }) => {
         <p className="text-sm text-dark/70 font-medium">
           {topic.description}
         </p>
+      </div>
+
+      <div className="space-y-2">
+        <div className="flex items-center justify-between text-[10px] font-bold uppercase">
+          <span>{lessonCount} lições</span>
+          <span>{progressPercent}% concluído</span>
+        </div>
+        <div className="h-2 brutal-border overflow-hidden bg-dark/10">
+          <div className="h-full bg-brand" style={{ width: `${progressPercent}%` }} />
+        </div>
       </div>
 
       <div className="mt-auto pt-4 border-t border-dark/10 flex justify-between items-center">

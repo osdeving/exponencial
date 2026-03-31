@@ -1,4 +1,6 @@
 export type Level = 'Fundamental' | 'Médio' | 'Superior';
+export type Difficulty = 'Fácil' | 'Médio' | 'Difícil';
+export type LearningGoal = 'Revisar base' | 'Melhorar notas' | 'Vestibular' | 'Preparar faculdade';
 
 export interface Topic {
   id: string;
@@ -14,7 +16,10 @@ export interface Lesson {
   topicId: string;
   title: string;
   content: string; // Markdown
-  difficulty: 'Fácil' | 'Médio' | 'Difícil';
+  difficulty: Difficulty;
+  estimatedMinutes: number;
+  order: number;
+  goals: string[];
 }
 
 export interface Question {
@@ -24,6 +29,7 @@ export interface Question {
   options: string[];
   correctAnswer: number;
   explanation: string;
+  hint?: string;
 }
 
 export interface Badge {
@@ -40,6 +46,9 @@ export interface LearningPath {
   description: string;
   topicIds: string[];
   color: string;
+  estimatedWeeks: number;
+  focus: string;
+  featuredLessonId: string;
 }
 
 export interface RankingEntry {
@@ -48,9 +57,39 @@ export interface RankingEntry {
   avatar: string;
 }
 
+export interface UserProfile {
+  name: string;
+  level: Level;
+  goal: LearningGoal;
+  weeklyGoal: number;
+  favoriteTopics: string[];
+  joinedAt: string;
+}
+
+export interface LessonAttempt {
+  score: number;
+  total: number;
+  completedAt: string;
+}
+
 export interface UserProgress {
   completedLessons: string[];
+  lessonScores: Record<string, number>;
   scores: Record<string, number>;
   points: number;
   badges: string[];
+  savedPaths: string[];
+  completedPaths: string[];
+  lastLessonId: string | null;
+  streak: number;
+  lastActiveDate: string | null;
+  attempts: Record<string, LessonAttempt>;
+}
+
+export interface SearchResult {
+  type: 'topic' | 'lesson' | 'path';
+  id: string;
+  title: string;
+  subtitle: string;
+  level?: Level;
 }
