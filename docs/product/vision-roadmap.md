@@ -115,7 +115,7 @@ Escopo:
 - [x] contrato explícito de storage e sessão, mantendo adapter local como implementação padrão
 - [x] perfil local e progresso local mais consistentes
 - [x] placeholders suficientes para validar os fluxos centrais
-- [ ] telemetria mínima de produto para estudar o loop principal
+- [x] telemetria mínima de produto para estudar o loop principal
 
 Artefatos de entrega:
 
@@ -148,8 +148,8 @@ Artefatos de entrega:
 
 - [x] contratos de domínio
 - [x] regras de desbloqueio
-- [ ] métricas de aprovação
-- [ ] eventos analíticos principais
+- [x] métricas de aprovação
+- [x] eventos analíticos principais
 
 Critério de sucesso:
 

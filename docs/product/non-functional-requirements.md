@@ -69,6 +69,14 @@ Eventos mínimos previstos:
 - revisão disparada
 - revisão concluída
 
+Implementado hoje em modo local-first:
+
+- perfil configurado
+- início de lição
+- envio de exercício
+- aprovação
+- bloqueio
+
 ## NFR-07: Testabilidade
 
 - toda mudança de parser, contratos e regras de domínio deve ter testes automatizados

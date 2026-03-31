@@ -109,6 +109,7 @@ A composição deixou de depender de um arquivo-bal­de único.
 ### 4. Domínio e regras
 
 - `src/lib/learning.ts`: busca, progresso, badges, recomendação, trilhas
+- `src/lib/analytics.ts`: contrato de eventos locais e resumo operacional
 - `src/lib/mastery.ts`: ledger de domínio canônico e resumo de dívida matemática
 - `src/lib/questions.ts`: interpretação de questões
 - `src/lib/tutor.ts`: tutor local baseado em regras
@@ -125,6 +126,7 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
 - `src/app/progress/*`: fluxos de progresso e continuidade
 - `src/app/usePersistentState.ts`: base única de persistência local
 - `src/app/usePersistentProfile.ts`, `src/app/usePersistentProgress.ts` e `src/app/usePersistentTutorMessages.ts`: persistência normalizada
+- `src/app/usePersistentAnalyticsEvents.ts`: buffer local de eventos de produto
 - `src/app/views/*`: telas grandes do app
 - `src/components/*`: telas e blocos de interface
 - `src/components/exercise/*`: sessão, modal de gabarito e fluxo de prática

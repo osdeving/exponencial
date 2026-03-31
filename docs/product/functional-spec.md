@@ -207,7 +207,7 @@ Status atual: `em andamento`
 - [x] perfil local mais robusto
 - [x] contrato de storage/session
 - [x] trilhas default guiadas pela taxonomia
-- [ ] telemetria mínima
+- [x] telemetria mínima
 - [x] placeholders para validação do loop
 
 ### Epic B: Mastery
