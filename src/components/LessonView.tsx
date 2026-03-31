@@ -35,6 +35,7 @@ export const LessonView: React.FC<LessonViewProps> = ({
   onNextLesson,
 }) => {
   const { content, isLoading } = useLessonContent(lesson.id);
+  const isRecoveryRetryStep = Boolean(recoverySummary && recoveryTargetTitle === lesson.title);
 
   return (
     <div className="max-w-4xl mx-auto p-6">
@@ -102,14 +103,14 @@ export const LessonView: React.FC<LessonViewProps> = ({
               <h3 className="font-display text-2xl uppercase mb-2">Pronto para praticar?</h3>
               <p className="font-medium mb-6">
                 {recoverySummary
-                  ? `${recoverySummary}${recoveryTargetTitle ? ` Primeiro passo: ${recoveryTargetTitle}.` : ''}`
+                  ? `${recoverySummary}${recoveryTargetTitle && !isRecoveryRetryStep ? ` Primeiro passo: ${recoveryTargetTitle}.` : ''}`
                   : 'Teste seus conhecimentos com exercícios interativos.'}
               </p>
               <button 
                 onClick={onStartExercises}
                 className="brutal-btn bg-dark text-white w-full flex items-center justify-center gap-2"
               >
-                {recoverySummary ? 'Iniciar recuperação' : 'Começar Exercícios'}
+                {isRecoveryRetryStep ? 'Refazer para destravar' : recoverySummary ? 'Iniciar recuperação' : 'Começar Exercícios'}
                 <Play size={18} />
               </button>
             </div>

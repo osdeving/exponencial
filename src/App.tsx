@@ -143,7 +143,7 @@ export default function App() {
                   latestScore={getLatestLessonPercentage(state.selectedLesson.id, state.progress) ?? undefined}
                   isCompleted={state.progress.completedLessons.includes(state.selectedLesson.id)}
                   passThreshold={LESSON_PASS_THRESHOLD}
-                  recoverySummary={derived.selectedLessonRecoveryAssignment?.summary}
+                  recoverySummary={derived.selectedLessonRecoveryReason}
                   recoveryTargetTitle={derived.selectedLessonRecoveryTarget?.title}
                   onBack={actions.goBackToTopic}
                   onStartExercises={actions.startSelectedLessonExercises}

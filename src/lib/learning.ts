@@ -1,7 +1,13 @@
 import { LESSONS, TOPICS } from '../content';
 import { BADGES, PATHS, getCanonicalPathId, getPathById } from '../config';
 import { MASTERY_THRESHOLD, buildCanonicalMasteryAfterLessonCompletion, normalizeCanonicalMastery } from './mastery';
-import { getActiveRecoveryAssignment, getNextRecoveryLessonId, normalizeRecoveryAssignments } from './recovery';
+import {
+  getActiveRecoveryAssignment,
+  getNextRecoveryAction,
+  getNextRecoveryLessonId,
+  getRecoveryAssignmentReason,
+  normalizeRecoveryAssignments,
+} from './recovery';
 import {
   Badge,
   ContentStatus,
@@ -222,7 +228,6 @@ export function getLessonGate(lesson: Lesson, progress: UserProgress): LessonGat
   const recoveryAssignment = getActiveRecoveryAssignment(lesson.id, progress);
   if (recoveryAssignment) {
     const nextRecoveryLessonId = getNextRecoveryLessonId(recoveryAssignment);
-    const nextRecoveryLesson = nextRecoveryLessonId ? getLessonById(nextRecoveryLessonId) : undefined;
 
     return {
       lessonId: lesson.id,
@@ -233,9 +238,7 @@ export function getLessonGate(lesson: Lesson, progress: UserProgress): LessonGat
       isPassed: false,
       isLocked: false,
       blockingLessonId: nextRecoveryLessonId ?? null,
-      reason: nextRecoveryLesson
-        ? `${recoveryAssignment.summary} Proxima revisao: ${nextRecoveryLesson.title}.`
-        : recoveryAssignment.summary,
+      reason: getRecoveryAssignmentReason(recoveryAssignment),
     };
   }
 
@@ -348,18 +351,17 @@ export function getNextLessonForPath(pathId: string, progress: UserProgress): Le
 }
 
 export function getRecommendedLesson(progress: UserProgress): Lesson | undefined {
+  const nextRecoveryAction = getNextRecoveryAction(progress);
+  if (nextRecoveryAction) {
+    const recoveryLesson = getLessonById(nextRecoveryAction.lessonId);
+    if (recoveryLesson) {
+      return recoveryLesson;
+    }
+  }
+
   if (progress.lastLessonId) {
     const lastLesson = getLessonById(progress.lastLessonId);
     if (lastLesson) {
-      const activeRecovery = getActiveRecoveryAssignment(lastLesson.id, progress);
-      if (activeRecovery) {
-        const recoveryLessonId = getNextRecoveryLessonId(activeRecovery);
-        const recoveryLesson = recoveryLessonId ? getLessonById(recoveryLessonId) : undefined;
-        if (recoveryLesson) {
-          return recoveryLesson;
-        }
-      }
-
       if (!hasPassedLesson(lastLesson.id, progress)) {
         return lastLesson;
       }

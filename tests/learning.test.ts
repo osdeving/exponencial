@@ -60,6 +60,19 @@ test('normalizeProgress saneia payload persistido sem quebrar o contrato', () =>
         bestScore: '80',
       },
     },
+    recoveryAssignments: {
+      'fractions-operations': {
+        createdAt: '2026-03-31T10:00:00.000Z',
+        status: 'awaiting-retry',
+        targetLessonIds: ['fractions-intro'],
+        revisitedLessonIds: ['fractions-intro'],
+        sourceQuestionIds: ['fractions-operations-question-20'],
+        misconceptionTags: ['soma de frações com denominadores diferentes'],
+        prerequisiteCanonicalIds: ['NUM.06.12'],
+        summary: 'Revise a base.',
+        readyForRetryAt: '2026-03-31T10:10:00.000Z',
+      },
+    },
   });
 
   assert.deepEqual(normalized.completedLessons, ['fractions-intro']);
@@ -89,6 +102,21 @@ test('normalizeProgress saneia payload persistido sem quebrar o contrato', () =>
       mastered: true,
       lastLessonId: 'fractions-intro',
       updatedAt: '2026-03-30T10:00:00.000Z',
+    },
+  });
+  assert.deepEqual(normalized.recoveryAssignments, {
+    'fractions-operations': {
+      lessonId: 'fractions-operations',
+      createdAt: '2026-03-31T10:00:00.000Z',
+      status: 'awaiting-retry',
+      targetLessonIds: ['fractions-intro'],
+      revisitedLessonIds: ['fractions-intro'],
+      sourceQuestionIds: ['fractions-operations-question-20'],
+      misconceptionTags: ['soma de frações com denominadores diferentes'],
+      prerequisiteCanonicalIds: ['NUM.06.12'],
+      summary: 'Revise a base.',
+      readyForRetryAt: '2026-03-31T10:10:00.000Z',
+      completedAt: undefined,
     },
   });
 });
@@ -245,6 +273,29 @@ test('buildProgressAfterLessonCompletion so conclui a licao quando atinge o cort
   assert.equal(passedAttempt.lessonScores['fractions-intro'], LESSON_PASS_THRESHOLD);
   assert.equal(getLessonGate(lesson, passedAttempt).status, 'passed');
   assert.equal(getNextUnlockedLessonInTopic(lesson.topicId, lesson.id, passedAttempt)?.id, 'fractions-operations');
+});
+
+test('getRecommendedLesson prioriza o retorno ao teste original quando a recuperacao ja foi revisada', () => {
+  const recommendedLesson = getRecommendedLesson({
+    ...DEFAULT_PROGRESS,
+    lastLessonId: 'fractions-intro',
+    recoveryAssignments: {
+      'fractions-operations': {
+        lessonId: 'fractions-operations',
+        createdAt: '2026-03-31T10:00:00.000Z',
+        status: 'awaiting-retry',
+        targetLessonIds: ['fractions-intro'],
+        revisitedLessonIds: ['fractions-intro'],
+        sourceQuestionIds: ['fractions-operations-question-20'],
+        misconceptionTags: ['soma de frações com denominadores diferentes'],
+        prerequisiteCanonicalIds: ['NUM.06.12'],
+        summary: 'Revise a base.',
+        readyForRetryAt: '2026-03-31T10:10:00.000Z',
+      },
+    },
+  });
+
+  assert.equal(recommendedLesson?.id, 'fractions-operations');
 });
 
 test('getLessonGate bloqueia a proxima etapa enquanto a anterior nao passa', () => {

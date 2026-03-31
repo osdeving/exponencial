@@ -14,7 +14,13 @@ import {
   getSuggestedPath,
   getTopicById,
 } from '../../lib/learning';
-import { assignRecoveryForLesson, getActiveRecoveryAssignment, getNextRecoveryLessonId, resolveRecoveryForLesson } from '../../lib/recovery';
+import {
+  assignRecoveryForLesson,
+  getActiveRecoveryAssignment,
+  getNextRecoveryLessonId,
+  getRecoveryAssignmentReason,
+  resolveRecoveryForLesson,
+} from '../../lib/recovery';
 import { HomeSection } from '../types';
 import { Lesson, LearningPath, ProductAnalyticsEvent, UserProfile, UserProgress } from '../../types';
 
@@ -54,6 +60,10 @@ export function useLearningFlow({
     const nextRecoveryLessonId = getNextRecoveryLessonId(selectedLessonRecoveryAssignment);
     return nextRecoveryLessonId ? getLessonById(nextRecoveryLessonId) : undefined;
   }, [selectedLessonRecoveryAssignment]);
+  const selectedLessonRecoveryReason = useMemo(
+    () => (selectedLessonRecoveryAssignment ? getRecoveryAssignmentReason(selectedLessonRecoveryAssignment) : undefined),
+    [selectedLessonRecoveryAssignment],
+  );
   const nextRecommendedLesson = useMemo(() => getRecommendedLesson(progress), [progress]);
   const nextRecommendedTopic = useMemo(
     () => (nextRecommendedLesson ? getTopicById(nextRecommendedLesson.topicId) : undefined),
@@ -238,6 +248,7 @@ export function useLearningFlow({
       nextRecommendedTopic,
       selectedLessonQuestionCount,
       selectedLessonRecoveryAssignment,
+      selectedLessonRecoveryReason,
       selectedLessonRecoveryTarget,
       selectedLessonQuestions: selectedLessonQuestions.questions,
       selectedLessonQuestionsLoading: selectedLessonQuestions.isLoading,

@@ -7,6 +7,7 @@ import {
   Download,
   HardDrive,
   Medal,
+  RefreshCcw,
   ShieldCheck,
   Star,
   Target,
@@ -19,6 +20,7 @@ import { TOPICS } from '../content';
 import { BADGES, MOCK_RANKING } from '../config';
 import { resolveLucideIcon } from '../lib/icons';
 import { buildCanonicalMasteryOverview } from '../lib/mastery';
+import { buildRecoveryOverview } from '../lib/recovery';
 import { ProductAnalyticsSummary, UserProfile, UserProgress } from '../types';
 import { getTopicProgress } from '../lib/learning';
 
@@ -47,6 +49,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
 }) => {
   const importInputRef = useRef<HTMLInputElement>(null);
   const masteryOverview = useMemo(() => buildCanonicalMasteryOverview(progress), [progress]);
+  const recoveryOverview = useMemo(() => buildRecoveryOverview(progress), [progress]);
   const debtBuckets = masteryOverview.activeDebtBuckets.slice(0, 6);
   const masteryCoverage = masteryOverview.totalSkills === 0 ? 0 : Math.round((masteryOverview.attemptedSkills / masteryOverview.totalSkills) * 100);
   const chartData = TOPICS.map((topic) => {
@@ -123,7 +126,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-5 gap-6 mb-12">
+      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-6 mb-12">
         <div className="brutal-border p-6 bg-brand flex items-center gap-4">
           <div className="p-3 bg-white brutal-border">
             <BookOpen size={24} />
@@ -174,6 +177,16 @@ export const Dashboard: React.FC<DashboardProps> = ({
           <div>
             <p className="text-sm font-bold uppercase opacity-70">Dívida ativa</p>
             <p className="text-4xl font-display">{masteryOverview.activeDebtSkills}</p>
+          </div>
+        </div>
+
+        <div className="brutal-border p-6 bg-sky-200 flex items-center gap-4">
+          <div className="p-3 bg-white brutal-border">
+            <RefreshCcw size={24} />
+          </div>
+          <div>
+            <p className="text-sm font-bold uppercase opacity-70">Recuperações</p>
+            <p className="text-4xl font-display">{recoveryOverview.pendingAssignments}</p>
           </div>
         </div>
       </div>
@@ -303,6 +316,40 @@ export const Dashboard: React.FC<DashboardProps> = ({
 
         <div className="lg:col-span-1">
           <div className="sticky top-24 space-y-8">
+            <div className="brutal-border p-8 bg-white">
+              <h3 className="font-display text-2xl uppercase mb-8 flex items-center gap-2">
+                <RefreshCcw size={24} />
+                Recuperação
+              </h3>
+
+              <div className="grid grid-cols-2 gap-3 text-xs font-bold uppercase">
+                <div className="brutal-border bg-brand/10 px-3 py-3">
+                  <span className="block opacity-50 mb-1">Pendentes</span>
+                  <span>{recoveryOverview.pendingAssignments}</span>
+                </div>
+                <div className="brutal-border bg-white px-3 py-3">
+                  <span className="block opacity-50 mb-1">Em revisão</span>
+                  <span>{recoveryOverview.reviewAssignments}</span>
+                </div>
+                <div className="brutal-border bg-white px-3 py-3 col-span-2">
+                  <span className="block opacity-50 mb-1">Aguardando reteste</span>
+                  <span>{recoveryOverview.retryAssignments}</span>
+                </div>
+              </div>
+
+              <div className="mt-6 pt-6 border-t-2 border-dark border-dashed">
+                <p className="text-[10px] font-bold uppercase opacity-50 mb-4">Próxima ação</p>
+                {recoveryOverview.nextActionLessonTitle ? (
+                  <div className="brutal-border bg-stone-50 px-4 py-4">
+                    <p className="text-xs font-bold uppercase">{recoveryOverview.nextActionLessonTitle}</p>
+                    <p className="mt-2 text-sm font-medium">{recoveryOverview.nextActionSummary}</p>
+                  </div>
+                ) : (
+                  <p className="text-sm font-medium">Nenhuma recuperação ativa no momento.</p>
+                )}
+              </div>
+            </div>
+
             <div className="brutal-border p-8 bg-white">
               <h3 className="font-display text-2xl uppercase mb-8 flex items-center gap-2">
                 <Activity size={24} />

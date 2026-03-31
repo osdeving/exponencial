@@ -1,5 +1,5 @@
 import { LESSONS } from '../content';
-import { Lesson, Question, RecoveryAssignment, UserProgress } from '../types';
+import { Lesson, Question, RecoveryAssignment, RecoveryOverview, UserProgress } from '../types';
 
 const MAX_RECOVERY_TARGETS = 3;
 
@@ -55,13 +55,19 @@ export function normalizeRecoveryAssignments(value: unknown): UserProgress['reco
           {
             lessonId,
             createdAt: record.createdAt,
-            status: record.status === 'completed' ? 'completed' : 'active',
+            status:
+              record.status === 'completed'
+                ? 'completed'
+                : record.status === 'awaiting-retry'
+                  ? 'awaiting-retry'
+                  : 'active',
             targetLessonIds: normalizeStringArray(record.targetLessonIds),
             revisitedLessonIds: normalizeStringArray(record.revisitedLessonIds),
             sourceQuestionIds: normalizeStringArray(record.sourceQuestionIds),
             misconceptionTags: normalizeStringArray(record.misconceptionTags),
             prerequisiteCanonicalIds: normalizeStringArray(record.prerequisiteCanonicalIds),
             summary: record.summary,
+            readyForRetryAt: typeof record.readyForRetryAt === 'string' ? record.readyForRetryAt : undefined,
             completedAt: typeof record.completedAt === 'string' ? record.completedAt : undefined,
           } satisfies RecoveryAssignment,
         ],
@@ -142,7 +148,7 @@ export function buildRecoveryAssignment({
 
 export function getActiveRecoveryAssignment(lessonId: string, progress: UserProgress) {
   const assignment = progress.recoveryAssignments[lessonId];
-  if (!assignment || assignment.status !== 'active') {
+  if (!assignment || assignment.status === 'completed') {
     return undefined;
   }
 
@@ -154,7 +160,65 @@ export function getNextRecoveryLessonId(assignment?: RecoveryAssignment) {
     return undefined;
   }
 
-  return assignment.targetLessonIds.find((lessonId) => !assignment.revisitedLessonIds.includes(lessonId));
+  if (assignment.status === 'awaiting-retry') {
+    return assignment.lessonId;
+  }
+
+  return assignment.targetLessonIds.find((lessonId) => !assignment.revisitedLessonIds.includes(lessonId)) ?? assignment.lessonId;
+}
+
+function getLessonTitle(lessonId: string) {
+  return LESSONS.find((lesson) => lesson.id === lessonId)?.title;
+}
+
+export function getRecoveryAssignmentReason(assignment: RecoveryAssignment) {
+  if (assignment.status === 'awaiting-retry') {
+    return `${assignment.summary} Revisao concluida. Refaça os exercicios desta licao para destravar o avanço.`;
+  }
+
+  const nextLessonId = getNextRecoveryLessonId(assignment);
+  if (nextLessonId && nextLessonId !== assignment.lessonId) {
+    const nextLessonTitle = getLessonTitle(nextLessonId);
+    return nextLessonTitle ? `${assignment.summary} Proxima revisao: ${nextLessonTitle}.` : assignment.summary;
+  }
+
+  return `${assignment.summary} Refaça os exercicios desta licao para destravar o avanço.`;
+}
+
+export function getPendingRecoveryAssignments(progress: UserProgress) {
+  return Object.values(progress.recoveryAssignments)
+    .filter((assignment) => assignment.status !== 'completed')
+    .sort((left, right) => right.createdAt.localeCompare(left.createdAt));
+}
+
+export function getNextRecoveryAction(progress: UserProgress) {
+  const assignment = getPendingRecoveryAssignments(progress)[0];
+  if (!assignment) {
+    return undefined;
+  }
+
+  const lessonId = getNextRecoveryLessonId(assignment);
+  return lessonId
+    ? {
+        assignment,
+        lessonId,
+      }
+    : undefined;
+}
+
+export function buildRecoveryOverview(progress: UserProgress): RecoveryOverview {
+  const pendingAssignments = getPendingRecoveryAssignments(progress);
+  const nextAction = getNextRecoveryAction(progress);
+  const nextActionTitle = nextAction ? getLessonTitle(nextAction.lessonId) ?? null : null;
+
+  return {
+    pendingAssignments: pendingAssignments.length,
+    reviewAssignments: pendingAssignments.filter((assignment) => assignment.status === 'active').length,
+    retryAssignments: pendingAssignments.filter((assignment) => assignment.status === 'awaiting-retry').length,
+    nextActionLessonId: nextAction?.lessonId ?? null,
+    nextActionLessonTitle: nextActionTitle,
+    nextActionSummary: nextAction ? getRecoveryAssignmentReason(nextAction.assignment) : null,
+  };
 }
 
 export function assignRecoveryForLesson({
@@ -203,6 +267,7 @@ export function resolveRecoveryForLesson(progress: UserProgress, lessonId: strin
       [lessonId]: {
         ...assignment,
         status: 'completed',
+        readyForRetryAt: assignment.readyForRetryAt,
         completedAt,
       },
     },
@@ -224,7 +289,7 @@ export function markRecoveryLessonVisited(progress: UserProgress, visitedLessonI
 
       changed = true;
       const revisitedLessonIds = [...assignment.revisitedLessonIds, visitedLessonId];
-      const completed =
+      const readyForRetry =
         assignment.targetLessonIds.length > 0 &&
         assignment.targetLessonIds.every((targetLessonId) => revisitedLessonIds.includes(targetLessonId));
 
@@ -233,8 +298,8 @@ export function markRecoveryLessonVisited(progress: UserProgress, visitedLessonI
         {
           ...assignment,
           revisitedLessonIds,
-          status: completed ? 'completed' : assignment.status,
-          completedAt: completed ? visitedAt : assignment.completedAt,
+          status: readyForRetry ? 'awaiting-retry' : assignment.status,
+          readyForRetryAt: readyForRetry ? visitedAt : assignment.readyForRetryAt,
         },
       ];
     }),

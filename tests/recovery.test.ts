@@ -4,8 +4,10 @@ import { DEFAULT_PROGRESS, getLessonById } from '../src/lib/learning.ts';
 import {
   assignRecoveryForLesson,
   buildRecoveryAssignment,
+  buildRecoveryOverview,
   getActiveRecoveryAssignment,
   getNextRecoveryLessonId,
+  getRecoveryAssignmentReason,
   markRecoveryLessonVisited,
   resolveRecoveryForLesson,
 } from '../src/lib/recovery.ts';
@@ -36,7 +38,7 @@ test('buildRecoveryAssignment usa metadados das questões erradas para montar a 
   assert.equal(assignment.status, 'active');
 });
 
-test('markRecoveryLessonVisited conclui a recuperacao quando todas as revisoes foram abertas', () => {
+test('markRecoveryLessonVisited move a recuperacao para reteste quando todas as revisoes foram abertas', () => {
   const progress = assignRecoveryForLesson({
     progress: DEFAULT_PROGRESS,
     lesson: {
@@ -74,11 +76,13 @@ test('markRecoveryLessonVisited conclui a recuperacao quando todas as revisoes f
   assert.equal(getNextRecoveryLessonId(activeAssignment), 'fractions-intro');
 
   const revisited = markRecoveryLessonVisited(progress, 'fractions-intro', '2026-03-31T10:05:00.000Z');
-  const completedAssignment = revisited.recoveryAssignments['fractions-operations'];
+  const pendingAssignment = revisited.recoveryAssignments['fractions-operations'];
 
-  assert.equal(completedAssignment.status, 'completed');
-  assert.deepEqual(completedAssignment.revisitedLessonIds, ['fractions-intro']);
-  assert.equal(getActiveRecoveryAssignment('fractions-operations', revisited), undefined);
+  assert.equal(pendingAssignment.status, 'awaiting-retry');
+  assert.deepEqual(pendingAssignment.revisitedLessonIds, ['fractions-intro']);
+  assert.equal(getNextRecoveryLessonId(pendingAssignment), 'fractions-operations');
+  assert.match(getRecoveryAssignmentReason(pendingAssignment), /Refaça os exercicios desta licao/);
+  assert.equal(getActiveRecoveryAssignment('fractions-operations', revisited)?.status, 'awaiting-retry');
 });
 
 test('resolveRecoveryForLesson encerra pendencia quando a licao finalmente passa', () => {
@@ -88,13 +92,14 @@ test('resolveRecoveryForLesson encerra pendencia quando a licao finalmente passa
       'fractions-operations': {
         lessonId: 'fractions-operations',
         createdAt: '2026-03-31T10:00:00.000Z',
-        status: 'active' as const,
+        status: 'awaiting-retry' as const,
         targetLessonIds: ['fractions-intro'],
         revisitedLessonIds: ['fractions-intro'],
         sourceQuestionIds: ['fractions-operations-question-20'],
         misconceptionTags: ['soma de frações com denominadores diferentes'],
         prerequisiteCanonicalIds: ['NUM.06.12'],
         summary: 'Revise a base.',
+        readyForRetryAt: '2026-03-31T10:05:00.000Z',
       },
     },
   };
@@ -103,4 +108,30 @@ test('resolveRecoveryForLesson encerra pendencia quando a licao finalmente passa
 
   assert.equal(resolved.recoveryAssignments['fractions-operations']?.status, 'completed');
   assert.equal(resolved.recoveryAssignments['fractions-operations']?.completedAt, '2026-03-31T10:20:00.000Z');
+});
+
+test('buildRecoveryOverview resume a proxima acao pendente', () => {
+  const overview = buildRecoveryOverview({
+    ...DEFAULT_PROGRESS,
+    recoveryAssignments: {
+      'fractions-operations': {
+        lessonId: 'fractions-operations',
+        createdAt: '2026-03-31T10:00:00.000Z',
+        status: 'awaiting-retry',
+        targetLessonIds: ['fractions-intro'],
+        revisitedLessonIds: ['fractions-intro'],
+        sourceQuestionIds: ['fractions-operations-question-20'],
+        misconceptionTags: ['soma de frações com denominadores diferentes'],
+        prerequisiteCanonicalIds: ['NUM.06.12'],
+        summary: 'Revise a base.',
+        readyForRetryAt: '2026-03-31T10:05:00.000Z',
+      },
+    },
+  });
+
+  assert.equal(overview.pendingAssignments, 1);
+  assert.equal(overview.reviewAssignments, 0);
+  assert.equal(overview.retryAssignments, 1);
+  assert.equal(overview.nextActionLessonId, 'fractions-operations');
+  assert.equal(overview.nextActionLessonTitle, 'Operações com Frações');
 });

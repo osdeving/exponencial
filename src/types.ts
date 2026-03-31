@@ -219,7 +219,7 @@ export interface ProductAnalyticsSummary {
   recentEvents: ProductAnalyticsEvent[];
 }
 
-export type RecoveryAssignmentStatus = 'active' | 'completed';
+export type RecoveryAssignmentStatus = 'active' | 'awaiting-retry' | 'completed';
 
 export interface RecoveryAssignment {
   lessonId: string;
@@ -231,7 +231,17 @@ export interface RecoveryAssignment {
   misconceptionTags: string[];
   prerequisiteCanonicalIds: string[];
   summary: string;
+  readyForRetryAt?: string;
   completedAt?: string;
+}
+
+export interface RecoveryOverview {
+  pendingAssignments: number;
+  reviewAssignments: number;
+  retryAssignments: number;
+  nextActionLessonId: string | null;
+  nextActionLessonTitle: string | null;
+  nextActionSummary: string | null;
 }
 
 export interface UserProgress {
