@@ -175,7 +175,10 @@ export default function App() {
                 <Dashboard
                   progress={state.progress}
                   profile={state.profile}
+                  sessionLabel={derived.session.actorLabel}
                   onContinue={actions.startRecommendedFlow}
+                  onExportSnapshot={actions.exportStorageSnapshot}
+                  onImportSnapshot={actions.importStorageSnapshot}
                   onOpenProfile={actions.openProfile}
                   onResetProgress={actions.resetProgress}
                 />

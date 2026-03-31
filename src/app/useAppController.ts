@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { getPathById } from '../config';
 import { getLessonById, getLessonsByTopic, getTopicById } from '../lib/learning';
 import { SearchResult } from '../types';
+import { buildStorageSnapshot, createLocalSessionDescriptor, exportSnapshotToBrowser, parseStorageSnapshot } from './storage';
 import { useCatalogState } from './catalog/useCatalogState';
 import { useAppNavigation } from './navigation/useAppNavigation';
 import { useProfileActions } from './profile/useProfileActions';
@@ -41,6 +42,7 @@ export function useAppController() {
       ),
     [navigation.state.selectedTopic, profile],
   );
+  const session = useMemo(() => createLocalSessionDescriptor(profile), [profile]);
 
   const selectSearchResult = (result: SearchResult) => {
     catalog.actions.clearSearch();
@@ -67,6 +69,36 @@ export function useAppController() {
     }
   };
 
+  const exportStorageSnapshot = () => {
+    exportSnapshotToBrowser(
+      buildStorageSnapshot({
+        profile,
+        progress,
+      }),
+    );
+  };
+
+  const importStorageSnapshot = async (file: File) => {
+    const confirmed = window.confirm(
+      'Restaurar este backup vai substituir o perfil e o progresso salvos neste navegador. Deseja continuar?',
+    );
+    if (!confirmed) {
+      return;
+    }
+
+    try {
+      const content = await file.text();
+      const snapshot = parseStorageSnapshot(content);
+      setProfile(snapshot.profile);
+      setProgress(snapshot.progress);
+      navigation.actions.goHome();
+      window.alert('Backup restaurado com sucesso neste navegador.');
+    } catch (error) {
+      const message = error instanceof Error ? error.message : 'Nao foi possivel restaurar o backup selecionado.';
+      window.alert(message);
+    }
+  };
+
   return {
     refs: navigation.refs,
     state: {
@@ -79,6 +111,7 @@ export function useAppController() {
       ...catalog.derived,
       ...learningFlow.derived,
       isSelectedTopicFavorite,
+      session,
       selectedTopicLessons,
     },
     actions: {
@@ -86,6 +119,8 @@ export function useAppController() {
       ...catalog.actions,
       ...profileActions,
       ...learningFlow.actions,
+      exportStorageSnapshot,
+      importStorageSnapshot,
       selectSearchResult,
     },
   };

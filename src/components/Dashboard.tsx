@@ -1,6 +1,6 @@
-import React from 'react';
+import React, { useRef } from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import { BookOpen, Medal, Star, Target, TrendingUp, Trophy, UserRound } from 'lucide-react';
+import { BookOpen, Download, HardDrive, Medal, Star, Target, TrendingUp, Trophy, Upload, UserRound } from 'lucide-react';
 import { TOPICS } from '../content';
 import { BADGES, MOCK_RANKING } from '../config';
 import { resolveLucideIcon } from '../lib/icons';
@@ -10,7 +10,10 @@ import { getTopicProgress } from '../lib/learning';
 interface DashboardProps {
   progress: UserProgress;
   profile: UserProfile | null;
+  sessionLabel: string;
   onContinue: () => void;
+  onExportSnapshot: () => void;
+  onImportSnapshot: (file: File) => void | Promise<void>;
   onOpenProfile: () => void;
   onResetProgress: () => void;
 }
@@ -18,10 +21,14 @@ interface DashboardProps {
 export const Dashboard: React.FC<DashboardProps> = ({
   progress,
   profile,
+  sessionLabel,
   onContinue,
+  onExportSnapshot,
+  onImportSnapshot,
   onOpenProfile,
   onResetProgress,
 }) => {
+  const importInputRef = useRef<HTMLInputElement>(null);
   const chartData = TOPICS.map((topic) => {
     const topicProgress = getTopicProgress(topic.id, progress);
 
@@ -58,6 +65,10 @@ export const Dashboard: React.FC<DashboardProps> = ({
               ? `${profile.name}, sua meta atual é ${profile.weeklyGoal} aulas por semana com foco em ${profile.goal.toLowerCase()}.`
               : 'Configure seu perfil para personalizar trilhas e recomendações.'}
           </p>
+          <div className="mt-4 inline-flex items-center gap-2 bg-white px-3 py-2 brutal-border text-[10px] font-bold uppercase tracking-[0.2em]">
+            <HardDrive size={14} />
+            <span>{sessionLabel}</span>
+          </div>
         </div>
         <div className="flex flex-wrap gap-3">
           <button onClick={onContinue} className="brutal-btn bg-brand">
@@ -69,6 +80,27 @@ export const Dashboard: React.FC<DashboardProps> = ({
           <button onClick={onResetProgress} className="brutal-btn bg-white">
             Zerar progresso
           </button>
+          <button onClick={onExportSnapshot} className="brutal-btn bg-white">
+            <Download size={16} />
+            Exportar backup
+          </button>
+          <button onClick={() => importInputRef.current?.click()} className="brutal-btn bg-white">
+            <Upload size={16} />
+            Restaurar backup
+          </button>
+          <input
+            ref={importInputRef}
+            type="file"
+            accept="application/json,.json"
+            className="hidden"
+            onChange={(event) => {
+              const file = event.target.files?.[0];
+              if (file) {
+                void onImportSnapshot(file);
+              }
+              event.currentTarget.value = '';
+            }}
+          />
         </div>
       </div>
 
