@@ -1,7 +1,7 @@
 import React from 'react';
-import ReactMarkdown from 'react-markdown';
 import { Lesson, Topic } from '../types';
 import { ArrowLeft, BookOpen, Play, Clock3, Target, CheckCircle2 } from 'lucide-react';
+import { MarkdownContent } from './MarkdownContent';
 
 interface LessonViewProps {
   lesson: Lesson;
@@ -57,18 +57,20 @@ export const LessonView: React.FC<LessonViewProps> = ({
             {topic && (
               <div className="flex flex-wrap gap-3 mb-8">
                 <span className="brutal-border bg-brand px-3 py-1 text-[10px] font-bold uppercase">{topic.title}</span>
+                <span className="brutal-border bg-white px-3 py-1 text-[10px] font-bold uppercase">{topic.stage}</span>
                 <span className="brutal-border bg-white px-3 py-1 text-[10px] font-bold uppercase">
                   {lesson.estimatedMinutes} min
                 </span>
                 <span className="brutal-border bg-white px-3 py-1 text-[10px] font-bold uppercase">
                   {questionCount} exercícios
                 </span>
+                <span className="brutal-border bg-white px-3 py-1 text-[10px] font-bold uppercase">
+                  {lesson.status === 'ready' ? 'conteúdo pronto' : 'estrutura pronta'}
+                </span>
               </div>
             )}
             
-            <div className="prose prose-lg max-w-none prose-headings:font-display prose-headings:uppercase prose-strong:text-brand-dark">
-              <ReactMarkdown>{lesson.content}</ReactMarkdown>
-            </div>
+            <MarkdownContent content={lesson.content} />
           </div>
         </div>
 
@@ -105,6 +107,15 @@ export const LessonView: React.FC<LessonViewProps> = ({
                   <div>
                     <p className="font-bold uppercase text-[10px] opacity-50">Objetivos</p>
                     <p className="font-medium">{lesson.goals.join(' · ')}</p>
+                  </div>
+                </div>
+                <div className="flex items-center gap-3">
+                  <div className="p-2 bg-white brutal-border">
+                    <BookOpen size={16} />
+                  </div>
+                  <div>
+                    <p className="font-bold uppercase text-[10px] opacity-50">Resumo</p>
+                    <p className="font-medium">{lesson.summary}</p>
                   </div>
                 </div>
                 <div className="flex items-center gap-3">

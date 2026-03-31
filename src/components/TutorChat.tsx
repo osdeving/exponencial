@@ -1,10 +1,10 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Bot, Lightbulb, MessageSquare, Send, Trash2, User, X } from 'lucide-react';
-import ReactMarkdown from 'react-markdown';
 import { cn } from '../lib/utils';
 import { generateTutorReply, TUTOR_SUGGESTIONS } from '../lib/tutor';
 import { Lesson, Topic } from '../types';
+import { MarkdownContent } from './MarkdownContent';
 
 interface Message {
   role: 'user' | 'assistant';
@@ -142,9 +142,10 @@ export const TutorChat: React.FC<TutorChatProps> = ({ currentTopic, currentLesso
                         message.role === 'user' ? 'bg-brand' : 'bg-white',
                       )}
                     >
-                      <div className="prose prose-sm max-w-none prose-p:leading-relaxed prose-pre:bg-dark prose-pre:text-white">
-                        <ReactMarkdown>{message.text}</ReactMarkdown>
-                      </div>
+                      <MarkdownContent
+                        content={message.text}
+                        className="prose-sm prose-p:leading-relaxed prose-pre:bg-dark prose-pre:text-white"
+                      />
                     </div>
                   </div>
                 </div>

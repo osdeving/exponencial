@@ -29,7 +29,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
       score: topicProgress.averageScore,
       completion: topicProgress.completionPercent,
     };
-  });
+  }).filter((entry, index) => entry.score > 0 || entry.completion > 0 || index < 12);
 
   const totalCompleted = progress.completedLessons.length;
   const avgScore =

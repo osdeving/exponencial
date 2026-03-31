@@ -34,7 +34,7 @@ export const DEFAULT_PROFILE: UserProfile = {
   joinedAt: '',
 };
 
-export const LEVEL_FILTERS: Array<'Todos' | Level> = ['Todos', 'Fundamental', 'Médio', 'Superior'];
+export const LEVEL_FILTERS: Array<'Todos' | Level> = ['Todos', 'Fundamental', 'Médio'];
 
 const SEARCH_LIMIT = 8;
 
@@ -225,17 +225,17 @@ export function buildSearchResults(query: string): SearchResult[] {
   }
 
   const topicResults: SearchResult[] = TOPICS.filter((topic) =>
-    `${topic.title} ${topic.description} ${topic.category}`.toLowerCase().includes(normalized),
+    `${topic.title} ${topic.description} ${topic.category} ${topic.stage} ${topic.tags.join(' ')}`.toLowerCase().includes(normalized),
   ).map((topic) => ({
     type: 'topic',
     id: topic.id,
     title: topic.title,
-    subtitle: `${topic.level} · ${topic.category}`,
+    subtitle: `${topic.level} · ${topic.stage} · ${topic.category}`,
     level: topic.level,
   }));
 
   const lessonResults: SearchResult[] = LESSONS.filter((lesson) =>
-    `${lesson.title} ${lesson.content}`.toLowerCase().includes(normalized),
+    `${lesson.title} ${lesson.summary} ${lesson.content} ${lesson.tags.join(' ')}`.toLowerCase().includes(normalized),
   ).map((lesson) => {
     const topic = getTopicById(lesson.topicId);
 
@@ -243,7 +243,7 @@ export function buildSearchResults(query: string): SearchResult[] {
       type: 'lesson',
       id: lesson.id,
       title: lesson.title,
-      subtitle: topic ? `${topic.title} · ${lesson.difficulty}` : lesson.difficulty,
+      subtitle: topic ? `${topic.title} · ${topic.stage} · ${lesson.difficulty}` : lesson.difficulty,
       level: topic?.level,
     };
   });

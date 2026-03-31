@@ -11,7 +11,7 @@ interface ProfileModalProps {
   onLogout: () => void;
 }
 
-const LEVELS: Level[] = ['Fundamental', 'Médio', 'Superior'];
+const LEVELS: Level[] = ['Fundamental', 'Médio'];
 const GOALS: LearningGoal[] = ['Melhorar notas', 'Revisar base', 'Vestibular', 'Preparar faculdade'];
 
 export const ProfileModal: React.FC<ProfileModalProps> = ({

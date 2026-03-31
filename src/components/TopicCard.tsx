@@ -36,6 +36,9 @@ export const TopicCard: React.FC<TopicCardProps> = ({
           <span className="block text-[10px] font-bold uppercase tracking-widest opacity-50">
             {topic.level}
           </span>
+          <span className="block text-[10px] font-bold uppercase tracking-widest opacity-50">
+            {topic.stage}
+          </span>
           {isFavorite && <span className="block text-[10px] font-bold uppercase tracking-widest">Favorito</span>}
         </div>
       </div>

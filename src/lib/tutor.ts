@@ -2,10 +2,20 @@ import { LESSONS, PATHS, QUESTIONS } from '../data';
 import { Lesson, Topic } from '../types';
 
 const TOPIC_TIPS: Record<string, string[]> = {
+  'natural-numbers': [
+    'Leia da esquerda para a direita e compare primeiro a maior ordem.',
+    'Em expressões numéricas, resolva parênteses e multiplicações antes de somas.',
+    'Divisibilidade ajuda a simplificar contas e reconhecer padrões.',
+  ],
   fractions: [
     'Compare frações olhando primeiro para o denominador: ele mostra o tamanho de cada parte.',
     'Antes de operar, veja se dá para simplificar a fração e deixar a conta mais leve.',
     'Para somar denominadores diferentes, use um múltiplo comum antes de juntar os numeradores.',
+  ],
+  'ratio-proportion-percentage': [
+    'Razão compara grandezas; proporção afirma igualdade entre razões.',
+    'Regra de três funciona melhor quando as grandezas e unidades estão bem organizadas.',
+    'Porcentagem é uma razão sobre 100 e conversa bem com frações e decimais.',
   ],
   'linear-equations': [
     'Pense na equação como uma balança: o que sai de um lado precisa sair do outro.',
@@ -27,16 +37,30 @@ const TOPIC_TIPS: Record<string, string[]> = {
     'Ler gráfico é observar tendência, interceptos e crescimento.',
     'Sempre calcule f(0) para entender onde a reta corta o eixo y.',
   ],
-  'calculus-intro': [
-    'Limite fala de aproximação; derivada fala de variação.',
-    'Comece pela intuição antes de se prender à formalização.',
-    'Pergunte: o que a função faz quando x chega perto desse valor?',
+  'function-affine': [
+    'Na função afim, o coeficiente angular mostra a inclinação da reta.',
+    'O valor de b indica onde o gráfico corta o eixo y.',
+    'Se a variação é constante, há boa chance de modelagem afim.',
+  ],
+  'function-quadratic': [
+    'Na parábola, o coeficiente a controla a concavidade.',
+    'Os zeros da função mostram onde o gráfico toca o eixo x.',
+    'O vértice ajuda a encontrar máximo ou mínimo.',
+  ],
+  'math-finance': [
+    'Separe sempre capital, taxa e tempo antes de escolher a fórmula.',
+    'Juros simples crescem linearmente; juros compostos crescem de forma multiplicativa.',
+    'Compare montante final e não apenas o valor da parcela.',
   ],
 };
 
 const TOPIC_EXAMPLES: Record<string, string> = {
+  'natural-numbers':
+    'Exemplo: entre 54.321 e 54.299, o maior é 54.321 porque na casa das dezenas 2 é menor do que 3.',
   fractions:
     'Exemplo: 3/4 de uma pizza significa 3 pedaços de um total de 4. Se você somar 1/4 + 2/4, obtém 3/4.',
+  'ratio-proportion-percentage':
+    'Exemplo: se 20% de um valor é 30, então 100% é 150, porque 30 ÷ 0,2 = 150.',
   'linear-equations':
     'Exemplo: 2x + 3 = 11. Subtraia 3 dos dois lados, ficando 2x = 8. Depois divida por 2: x = 4.',
   'geometry-basics':
@@ -45,8 +69,12 @@ const TOPIC_EXAMPLES: Record<string, string> = {
     'Exemplo: se o cateto oposto vale 6 e a hipotenusa vale 10, então sen(θ) = 6/10 = 3/5.',
   functions:
     'Exemplo: em f(x) = 3x - 2, se x = 4 então f(4) = 12 - 2 = 10.',
-  'calculus-intro':
-    'Exemplo: se f(x) = x + 5, quando x tende a 2 o valor da função se aproxima de 7.',
+  'function-affine':
+    'Exemplo: em y = 2x + 1, quando x aumenta 1 unidade, y aumenta 2.',
+  'function-quadratic':
+    'Exemplo: em y = x^2 - 4, os zeros são x = 2 e x = -2.',
+  'math-finance':
+    'Exemplo: com capital de 1000 a 10% ao ano em juros simples, após 2 anos os juros são 200.',
 };
 
 const normalize = (value: string) =>
@@ -108,8 +136,12 @@ const getFormula = (topic?: Topic | null) => {
       return 'Razões trigonométricas:\n\n- $\\sin = oposto / hipotenusa$\n- $\\cos = adjacente / hipotenusa$\n- $\\tan = oposto / adjacente$';
     case 'functions':
       return 'Funções usam regra de associação. Em funções lineares, uma forma comum é $f(x) = ax + b$.';
-    case 'calculus-intro':
-      return 'No cálculo introdutório, foque mais no significado:\n\n- Limite: aproximação\n- Derivada: taxa de variação';
+    case 'function-affine':
+      return 'Função afim:\n\n- Forma geral: $f(x) = ax + b$\n- $a$ controla inclinação\n- $b$ é o intercepto em $y$.';
+    case 'function-quadratic':
+      return 'Função quadrática:\n\n- Forma geral: $f(x) = ax^2 + bx + c$\n- Delta: $\\Delta = b^2 - 4ac$';
+    case 'math-finance':
+      return 'Fórmulas úteis:\n\n- Juros simples: $J = C \\cdot i \\cdot t$\n- Montante: $M = C + J$';
     default:
       return 'Me diga o tópico e eu separo as fórmulas ou relações mais importantes.';
   }

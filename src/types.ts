@@ -1,14 +1,18 @@
 export type Level = 'Fundamental' | 'Médio' | 'Superior';
 export type Difficulty = 'Fácil' | 'Médio' | 'Difícil';
 export type LearningGoal = 'Revisar base' | 'Melhorar notas' | 'Vestibular' | 'Preparar faculdade';
+export type ContentStatus = 'outline' | 'ready';
 
 export interface Topic {
   id: string;
   title: string;
   description: string;
   level: Level;
+  stage: string;
   category: string;
   icon: string;
+  order: number;
+  tags: string[];
 }
 
 export interface Lesson {
@@ -19,7 +23,11 @@ export interface Lesson {
   difficulty: Difficulty;
   estimatedMinutes: number;
   order: number;
+  summary: string;
   goals: string[];
+  prerequisites: string[];
+  tags: string[];
+  status: ContentStatus;
 }
 
 export interface Question {

@@ -125,8 +125,12 @@ export default function App() {
         const searchableContent = [
           topic.title,
           topic.description,
+          topic.stage,
           topic.category,
-          ...getLessonsByTopic(topic.id).map((lesson) => `${lesson.title} ${lesson.content}`),
+          ...topic.tags,
+          ...getLessonsByTopic(topic.id).map(
+            (lesson) => `${lesson.title} ${lesson.summary} ${lesson.content} ${lesson.status} ${lesson.tags.join(' ')}`,
+          ),
         ]
           .join(' ')
           .toLowerCase();
@@ -135,7 +139,7 @@ export default function App() {
       }).sort((left, right) => {
         const leftFavorite = profile?.favoriteTopics.includes(left.id) ? 1 : 0;
         const rightFavorite = profile?.favoriteTopics.includes(right.id) ? 1 : 0;
-        return rightFavorite - leftFavorite;
+        return rightFavorite - leftFavorite || left.order - right.order;
       }),
     [deferredSearchQuery, levelFilter, profile],
   );
@@ -151,11 +155,15 @@ export default function App() {
       }
 
       if (profile.goal === 'Preparar faculdade') {
-        return path.id === 'calculus-start';
+        return path.id === 'algebra-track';
       }
 
       if (profile.goal === 'Vestibular' || profile.level === 'Médio') {
-        return path.id === 'geometry-deep';
+        return path.id === 'vestibular-essentials';
+      }
+
+      if (profile.goal === 'Revisar base') {
+        return path.id === 'exam-prep';
       }
 
       return path.id === 'exam-prep';
@@ -515,7 +523,7 @@ export default function App() {
                       </div>
                       <p className="font-medium mb-6">
                         {nextRecommendedTopic
-                          ? `${nextRecommendedTopic.title} · ${nextRecommendedLesson?.estimatedMinutes} min`
+                          ? `${nextRecommendedTopic.title} · ${nextRecommendedTopic.stage} · ${nextRecommendedLesson?.estimatedMinutes} min`
                           : 'Ainda sem histórico. Use uma trilha ou explore por tópico.'}
                       </p>
                       <button onClick={startRecommendedFlow} className="brutal-btn bg-dark text-white w-full flex items-center justify-center gap-2">
@@ -588,7 +596,7 @@ export default function App() {
                   <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
                     <div>
                       <h2 className="font-display text-4xl uppercase">Explorar Tópicos</h2>
-                      <p className="font-bold uppercase text-xs opacity-50">Busca real, filtros por nível e acesso direto às aulas</p>
+                      <p className="font-bold uppercase text-xs opacity-50">Busca real, filtros por nível e currículo organizado por etapa</p>
                     </div>
                     <div className="relative w-full lg:w-[420px]">
                       <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2" />
@@ -806,9 +814,11 @@ export default function App() {
               <button onClick={() => setView('home')} className="font-bold uppercase text-sm mb-8 flex items-center gap-2">
                 ← Voltar
               </button>
-              <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between mb-12">
+                <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between mb-12">
                 <div>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-50 mb-2">{selectedTopic.level}</p>
+                  <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-50 mb-2">
+                    {selectedTopic.level} · {selectedTopic.stage}
+                  </p>
                   <h2 className="font-display text-6xl uppercase mb-2">{selectedTopic.title}</h2>
                   <p className="text-xl font-medium max-w-3xl opacity-70">{selectedTopic.description}</p>
                 </div>
@@ -844,10 +854,12 @@ export default function App() {
                     >
                       <div>
                         <h3 className="text-2xl font-bold uppercase">{lesson.title}</h3>
+                        <p className="mt-2 text-sm font-medium opacity-70 max-w-2xl">{lesson.summary}</p>
                         <div className="mt-2 flex flex-wrap gap-2 text-[10px] font-bold uppercase opacity-60">
                           <span>{lesson.difficulty}</span>
                           <span>{lesson.estimatedMinutes} min</span>
                           <span>{QUESTIONS.filter((question) => question.lessonId === lesson.id).length} exercícios</span>
+                          <span>{lesson.status === 'ready' ? 'conteúdo pronto' : 'estrutura pronta'}</span>
                           {typeof bestScore === 'number' && <span>Melhor nota {bestScore}%</span>}
                           {attempt && <span>Última tentativa {attempt.score}/{attempt.total}</span>}
                         </div>

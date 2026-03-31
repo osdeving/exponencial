@@ -18,3 +18,11 @@ View your app in AI Studio: https://ai.studio/apps/49dc8256-12d7-468d-8599-fe974
 2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
 3. Run the app:
    `npm run dev`
+
+## Authoring Content
+
+The course content now lives in Markdown under `src/content/`, with a generated manifest in `src/generated/content-manifest.ts`.
+
+- Generate or validate content manifest: `npm run content:generate`
+- Scaffold the curriculum structure: `npm run content:scaffold`
+- Authoring guide: [docs/content-authoring.md](docs/content-authoring.md)

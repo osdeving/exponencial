@@ -41,3 +41,12 @@
 .prose strong {
   @apply bg-brand px-1;
 }
+
+.prose .katex-display {
+  overflow-x: auto;
+  padding: 0.75rem 0;
+}
+
+.prose code {
+  @apply bg-dark text-white px-1.5 py-0.5;
+}
