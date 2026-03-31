@@ -8,6 +8,7 @@ export function useExerciseSession(questions: Question[]) {
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
   const [isAnswered, setIsAnswered] = useState(false);
   const [score, setScore] = useState(0);
+  const [incorrectQuestionIds, setIncorrectQuestionIds] = useState<string[]>([]);
   const [showResults, setShowResults] = useState(false);
   const [showHint, setShowHint] = useState(false);
   const [showAnswer, setShowAnswer] = useState(false);
@@ -34,6 +35,7 @@ export function useExerciseSession(questions: Question[]) {
     setCurrentIndex(0);
     resetQuestionState();
     setScore(0);
+    setIncorrectQuestionIds([]);
     setShowResults(false);
     setShowAnswerSheet(false);
   };
@@ -49,6 +51,10 @@ export function useExerciseSession(questions: Question[]) {
 
     if (index === currentQuestion.correctAnswer) {
       setScore((previous) => previous + 1);
+    } else {
+      setIncorrectQuestionIds((previous) =>
+        previous.includes(currentQuestion.id) ? previous : [...previous, currentQuestion.id],
+      );
     }
   };
 
@@ -70,6 +76,10 @@ export function useExerciseSession(questions: Question[]) {
 
     if (wasCorrect) {
       setScore((previous) => previous + 1);
+    } else {
+      setIncorrectQuestionIds((previous) =>
+        previous.includes(currentQuestion.id) ? previous : [...previous, currentQuestion.id],
+      );
     }
   };
 
@@ -98,6 +108,7 @@ export function useExerciseSession(questions: Question[]) {
       isAnswered,
       officialAnswer,
       percentage,
+      incorrectQuestionIds,
       score,
       selectedOption,
       showAnswer,

@@ -63,15 +63,17 @@ export function ExerciseResultsView({
             <ArrowRight size={24} />
           </button>
         )}
-        <button
-          onClick={onRestart}
-          className="brutal-btn flex w-full items-center justify-center gap-2 bg-white py-4 text-xl text-dark"
-        >
-          Refazer Exercícios
-          <RotateCcw size={22} />
-        </button>
+        {isPassed ? (
+          <button
+            onClick={onRestart}
+            className="brutal-btn flex w-full items-center justify-center gap-2 bg-white py-4 text-xl text-dark"
+          >
+            Refazer Exercícios
+            <RotateCcw size={22} />
+          </button>
+        ) : null}
         <button onClick={onFinish} className="brutal-btn w-full bg-dark py-4 text-xl text-white">
-          Salvar e Voltar ao Início
+          {isPassed ? 'Salvar e Voltar ao Início' : 'Salvar e Iniciar Recuperação'}
         </button>
       </div>
     </div>

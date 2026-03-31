@@ -13,7 +13,7 @@ interface ExerciseViewProps {
   canContinue: boolean;
   passThreshold: number;
   onBack: () => void;
-  onComplete: (result: { score: number; total: number; continueToNext: boolean }) => void;
+  onComplete: (result: { score: number; total: number; continueToNext: boolean; incorrectQuestionIds: string[] }) => void;
 }
 
 export const ExerciseView: React.FC<ExerciseViewProps> = ({
@@ -72,8 +72,20 @@ export const ExerciseView: React.FC<ExerciseViewProps> = ({
           percentage={state.percentage}
           score={state.score}
           total={questions.length}
-          onContinue={() => onComplete({ score: state.score, total: questions.length, continueToNext: true })}
-          onFinish={() => onComplete({ score: state.score, total: questions.length, continueToNext: false })}
+          onContinue={() =>
+            onComplete({
+              score: state.score,
+              total: questions.length,
+              continueToNext: true,
+              incorrectQuestionIds: state.incorrectQuestionIds,
+            })}
+          onFinish={() =>
+            onComplete({
+              score: state.score,
+              total: questions.length,
+              continueToNext: false,
+              incorrectQuestionIds: state.incorrectQuestionIds,
+            })}
           onOpenAnswerSheet={actions.openAnswerSheet}
           onRestart={actions.resetExercise}
         />

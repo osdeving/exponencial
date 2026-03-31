@@ -51,6 +51,17 @@ Um pedreiro levanta um muro em 12 dias e um outro executa o mesmo serviço em 4 
 ### Enunciado
 Uma torneira enche um reservatório em 4 horas enquanto outra enche o mesmo reservatório em 6 horas. Estando o reservatório vazio e abrindo-se as duas simultaneamente, em quanto tempo elas encherão juntas esse reservatório?
 
+### Lacunas
+- soma de frações com denominadores diferentes
+- taxa de trabalho
+
+### Pré-requisitos
+- NUM.06.12
+- NUM.06.13
+
+### Recuperação
+- fractions-intro
+
 ### Resposta
 2 h 24 min.
 

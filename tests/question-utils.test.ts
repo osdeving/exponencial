@@ -121,6 +121,35 @@ B
   assert.deepEqual(algorithmStep.annotations, ['Multiplique os divisores usados: 2 x 2 x 3.']);
 });
 
+test('parseQuestionFile aceita metadados de lacuna, prerequisito e recuperacao', () => {
+  const source = `## Questão 4
+
+### Enunciado
+Some \\(\\frac{1}{2} + \\frac{1}{3}\\).
+
+### Lacunas
+- soma de frações com denominadores diferentes
+
+### Pré-requisitos
+- NUM.06.12
+- NUM.06.13
+
+### Recuperação
+- fractions-intro
+
+### Resposta
+\\(\\frac{5}{6}\\)
+`;
+
+  const [question] = parseQuestionFile(source, 'memory://recovery.questions.md', {
+    lessonId: 'fractions-operations',
+  });
+
+  assert.deepEqual(question.misconceptionTags, ['soma de frações com denominadores diferentes']);
+  assert.deepEqual(question.prerequisiteCanonicalIds, ['NUM.06.12', 'NUM.06.13']);
+  assert.deepEqual(question.recoveryLessonIds, ['fractions-intro']);
+});
+
 test('parseQuestionFile falha quando a solução estruturada traz layout inválido', () => {
   const source = `## Questão 3
 

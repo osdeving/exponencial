@@ -2,6 +2,7 @@ import { useMemo } from 'react';
 import { getPathById } from '../config';
 import { appendAnalyticsEvent, buildAnalyticsSummary } from '../lib/analytics';
 import { getLessonById, getLessonsByTopic, getTopicById } from '../lib/learning';
+import { markRecoveryLessonVisited } from '../lib/recovery';
 import { ProductAnalyticsEvent, SearchResult } from '../types';
 import { buildStorageSnapshot, createLocalSessionDescriptor, exportSnapshotToBrowser, parseStorageSnapshot } from './storage';
 import { useCatalogState } from './catalog/useCatalogState';
@@ -22,6 +23,7 @@ export function useAppController() {
     setAnalyticsEvents((current) => appendAnalyticsEvent(current, event));
   };
   const openLesson = (lesson: Parameters<typeof navigation.actions.selectLesson>[0]) => {
+    setProgress((current) => markRecoveryLessonVisited(current, lesson.id, new Date().toISOString()));
     trackEvent({
       type: 'lesson-started',
       lessonId: lesson.id,
@@ -41,6 +43,7 @@ export function useAppController() {
     selectedLesson: navigation.state.selectedLesson,
     setProgress,
     selectLesson: openLesson,
+    startExercises: navigation.actions.startExercises,
     trackEvent,
     openHomeSection: navigation.actions.openHomeSection,
     goHome: navigation.actions.goHome,

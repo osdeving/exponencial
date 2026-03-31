@@ -13,6 +13,11 @@ const FIELD_MAP = {
   tipo: 'type',
   secao: 'section',
   fonte: 'source',
+  lacunas: 'misconceptionTags',
+  'pre-requisitos': 'prerequisiteCanonicalIds',
+  prerequisitos: 'prerequisiteCanonicalIds',
+  recuperacao: 'recoveryLessonIds',
+  recuperação: 'recoveryLessonIds',
 };
 
 function normalizeHeadingKey(value) {
@@ -28,7 +33,12 @@ function trimBlock(lines) {
 }
 
 function normalizeStringArray(value) {
-  return Array.isArray(value) ? value.filter((item) => typeof item === 'string').map((item) => item.trim()).filter(Boolean) : [];
+  return Array.isArray(value)
+    ? value
+        .filter((item) => typeof item === 'string')
+        .map((item) => item.trim().replace(/^[-*+]\s+/, ''))
+        .filter(Boolean)
+    : [];
 }
 
 function parseOptions(rawOptions, filePath, number) {
@@ -276,6 +286,9 @@ export function parseQuestionFile(source, filePath, frontmatter) {
       const answer = trimBlock(question.fields.answer ?? []);
       const explanation = trimBlock(question.fields.explanation ?? []);
       const solution = parseSolution(trimBlock(question.fields.solution ?? []), filePath, question.number);
+      const misconceptionTags = normalizeStringArray(question.fields.misconceptionTags ?? []);
+      const prerequisiteCanonicalIds = normalizeStringArray(question.fields.prerequisiteCanonicalIds ?? []);
+      const recoveryLessonIds = normalizeStringArray(question.fields.recoveryLessonIds ?? []);
 
       const baseQuestion = {
         id: `${String(frontmatter.lessonId)}-question-${question.number}`,
@@ -287,6 +300,9 @@ export function parseQuestionFile(source, filePath, frontmatter) {
         number: question.number,
         section: sectionOverride || (frontmatter.defaultSection ? String(frontmatter.defaultSection) : undefined),
         source: sourceOverride || (frontmatter.source ? String(frontmatter.source) : undefined),
+        misconceptionTags: misconceptionTags.length > 0 ? misconceptionTags : undefined,
+        prerequisiteCanonicalIds: prerequisiteCanonicalIds.length > 0 ? prerequisiteCanonicalIds : undefined,
+        recoveryLessonIds: recoveryLessonIds.length > 0 ? recoveryLessonIds : undefined,
         solution,
       };
 

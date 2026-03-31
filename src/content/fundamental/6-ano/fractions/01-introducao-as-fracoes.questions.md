@@ -14,6 +14,17 @@ Dentre as frações $\frac{3}{4}$, $\frac{5}{6}$, $\frac{9}{7}$, $\frac{11}{10}$
   d) a(s) decimal(is);
   e) a(s) ordinária(s).
 
+### Lacunas
+- classificação de frações
+- leitura de numerador e denominador
+
+### Pré-requisitos
+- NUM.06.05
+- NUM.06.06
+
+### Recuperação
+- fractions-intro
+
 ### Resposta
 a) próprias: `3/4` e `5/6`
 b) impróprias: `9/7`, `11/10`, `100/3` e `36/4`

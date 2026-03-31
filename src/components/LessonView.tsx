@@ -13,6 +13,8 @@ interface LessonViewProps {
   latestScore?: number;
   isCompleted: boolean;
   passThreshold: number;
+  recoverySummary?: string;
+  recoveryTargetTitle?: string;
   onBack: () => void;
   onStartExercises: () => void;
   onNextLesson?: () => void;
@@ -26,6 +28,8 @@ export const LessonView: React.FC<LessonViewProps> = ({
   latestScore,
   isCompleted,
   passThreshold,
+  recoverySummary,
+  recoveryTargetTitle,
   onBack,
   onStartExercises,
   onNextLesson,
@@ -96,12 +100,16 @@ export const LessonView: React.FC<LessonViewProps> = ({
           <div className="sticky top-6 flex flex-col gap-6">
             <div className="brutal-border p-6 bg-brand">
               <h3 className="font-display text-2xl uppercase mb-2">Pronto para praticar?</h3>
-              <p className="font-medium mb-6">Teste seus conhecimentos com exercícios interativos.</p>
+              <p className="font-medium mb-6">
+                {recoverySummary
+                  ? `${recoverySummary}${recoveryTargetTitle ? ` Primeiro passo: ${recoveryTargetTitle}.` : ''}`
+                  : 'Teste seus conhecimentos com exercícios interativos.'}
+              </p>
               <button 
                 onClick={onStartExercises}
                 className="brutal-btn bg-dark text-white w-full flex items-center justify-center gap-2"
               >
-                Começar Exercícios
+                {recoverySummary ? 'Iniciar recuperação' : 'Começar Exercícios'}
                 <Play size={18} />
               </button>
             </div>

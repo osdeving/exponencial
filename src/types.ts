@@ -56,6 +56,9 @@ export interface Question {
   number?: number;
   section?: string;
   source?: string;
+  misconceptionTags?: string[];
+  prerequisiteCanonicalIds?: string[];
+  recoveryLessonIds?: string[];
   solution?: QuestionSolution;
 }
 
@@ -216,6 +219,21 @@ export interface ProductAnalyticsSummary {
   recentEvents: ProductAnalyticsEvent[];
 }
 
+export type RecoveryAssignmentStatus = 'active' | 'completed';
+
+export interface RecoveryAssignment {
+  lessonId: string;
+  createdAt: string;
+  status: RecoveryAssignmentStatus;
+  targetLessonIds: string[];
+  revisitedLessonIds: string[];
+  sourceQuestionIds: string[];
+  misconceptionTags: string[];
+  prerequisiteCanonicalIds: string[];
+  summary: string;
+  completedAt?: string;
+}
+
 export interface UserProgress {
   completedLessons: string[];
   lessonScores: Record<string, number>;
@@ -229,6 +247,7 @@ export interface UserProgress {
   lastActiveDate: string | null;
   attempts: Record<string, LessonAttempt>;
   canonicalMastery: Record<string, CanonicalMasteryRecord>;
+  recoveryAssignments: Record<string, RecoveryAssignment>;
 }
 
 export interface SearchResult {

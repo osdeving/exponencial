@@ -1,6 +1,7 @@
 import { LESSONS, TOPICS } from '../content';
 import { BADGES, PATHS, getCanonicalPathId, getPathById } from '../config';
 import { MASTERY_THRESHOLD, buildCanonicalMasteryAfterLessonCompletion, normalizeCanonicalMastery } from './mastery';
+import { getActiveRecoveryAssignment, getNextRecoveryLessonId, normalizeRecoveryAssignments } from './recovery';
 import {
   Badge,
   ContentStatus,
@@ -29,6 +30,7 @@ export const DEFAULT_PROGRESS: UserProgress = {
   lastActiveDate: null,
   attempts: {},
   canonicalMastery: {},
+  recoveryAssignments: {},
 };
 
 export const DEFAULT_PROFILE: UserProfile = {
@@ -106,6 +108,7 @@ export function normalizeProgress(raw: unknown): UserProgress {
     lastActiveDate: typeof value.lastActiveDate === 'string' ? value.lastActiveDate : null,
     attempts: normalizeAttempts(value.attempts),
     canonicalMastery: normalizeCanonicalMastery(value.canonicalMastery),
+    recoveryAssignments: normalizeRecoveryAssignments(value.recoveryAssignments),
   };
 }
 
@@ -213,6 +216,26 @@ export function getLessonGate(lesson: Lesson, progress: UserProgress): LessonGat
       isLocked: true,
       blockingLessonId: previousLesson.id,
       reason: `Passe em ${previousLesson.title} com pelo menos ${LESSON_PASS_THRESHOLD}% para destravar esta etapa.`,
+    };
+  }
+
+  const recoveryAssignment = getActiveRecoveryAssignment(lesson.id, progress);
+  if (recoveryAssignment) {
+    const nextRecoveryLessonId = getNextRecoveryLessonId(recoveryAssignment);
+    const nextRecoveryLesson = nextRecoveryLessonId ? getLessonById(nextRecoveryLessonId) : undefined;
+
+    return {
+      lessonId: lesson.id,
+      status: 'in-review',
+      thresholdPercent: LESSON_PASS_THRESHOLD,
+      bestScore,
+      latestScore,
+      isPassed: false,
+      isLocked: false,
+      blockingLessonId: nextRecoveryLessonId ?? null,
+      reason: nextRecoveryLesson
+        ? `${recoveryAssignment.summary} Proxima revisao: ${nextRecoveryLesson.title}.`
+        : recoveryAssignment.summary,
     };
   }
 
@@ -328,6 +351,15 @@ export function getRecommendedLesson(progress: UserProgress): Lesson | undefined
   if (progress.lastLessonId) {
     const lastLesson = getLessonById(progress.lastLessonId);
     if (lastLesson) {
+      const activeRecovery = getActiveRecoveryAssignment(lastLesson.id, progress);
+      if (activeRecovery) {
+        const recoveryLessonId = getNextRecoveryLessonId(activeRecovery);
+        const recoveryLesson = recoveryLessonId ? getLessonById(recoveryLessonId) : undefined;
+        if (recoveryLesson) {
+          return recoveryLesson;
+        }
+      }
+
       if (!hasPassedLesson(lastLesson.id, progress)) {
         return lastLesson;
       }

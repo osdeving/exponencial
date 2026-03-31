@@ -87,6 +87,17 @@ export const QUESTIONS: Question[] = [
     "number": 20,
     "section": "Operações e problemas",
     "source": "TQM - Frações.pdf",
+    "misconceptionTags": [
+      "soma de frações com denominadores diferentes",
+      "taxa de trabalho"
+    ],
+    "prerequisiteCanonicalIds": [
+      "NUM.06.12",
+      "NUM.06.13"
+    ],
+    "recoveryLessonIds": [
+      "fractions-intro"
+    ],
     "solution": {
       "mode": "step-by-step",
       "summary": "Transforme cada torneira em taxa de enchimento por hora, some as frações usando MMC e depois inverta a taxa conjunta para obter o tempo.",

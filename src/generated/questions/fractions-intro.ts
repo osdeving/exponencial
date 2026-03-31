@@ -15,6 +15,17 @@ export const QUESTIONS: Question[] = [
     "number": 1,
     "section": "Conceito, tipos e leitura",
     "source": "TQM - Frações.pdf",
+    "misconceptionTags": [
+      "classificação de frações",
+      "leitura de numerador e denominador"
+    ],
+    "prerequisiteCanonicalIds": [
+      "NUM.06.05",
+      "NUM.06.06"
+    ],
+    "recoveryLessonIds": [
+      "fractions-intro"
+    ],
     "answer": "a) próprias: `3/4` e `5/6`\nb) impróprias: `9/7`, `11/10`, `100/3` e `36/4`\nc) aparentes: `6/3` e `36/4`\nd) decimais: `11/10` e `3/1000`\ne) ordinárias: `3/4`, `5/6`, `9/7`, `100/3`, `6/3` e `36/4`"
   },
   {

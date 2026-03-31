@@ -14,6 +14,7 @@ import {
   getSuggestedPath,
   getTopicById,
 } from '../../lib/learning';
+import { assignRecoveryForLesson, getActiveRecoveryAssignment, getNextRecoveryLessonId, resolveRecoveryForLesson } from '../../lib/recovery';
 import { HomeSection } from '../types';
 import { Lesson, LearningPath, ProductAnalyticsEvent, UserProfile, UserProgress } from '../../types';
 
@@ -23,6 +24,7 @@ interface UseLearningFlowOptions {
   selectedLesson: Lesson | null;
   setProgress: Dispatch<SetStateAction<UserProgress>>;
   selectLesson: (lesson: Lesson) => void;
+  startExercises: () => void;
   trackEvent: (event: Omit<ProductAnalyticsEvent, 'id' | 'occurredAt'> & { occurredAt?: string }) => void;
   openHomeSection: (section: HomeSection) => void;
   goHome: () => void;
@@ -34,11 +36,24 @@ export function useLearningFlow({
   selectedLesson,
   setProgress,
   selectLesson,
+  startExercises,
   trackEvent,
   openHomeSection,
   goHome,
 }: UseLearningFlowOptions) {
   const selectedLessonQuestions = useLessonQuestions(selectedLesson?.id);
+  const selectedLessonRecoveryAssignment = useMemo(
+    () => (selectedLesson ? getActiveRecoveryAssignment(selectedLesson.id, progress) : undefined),
+    [progress, selectedLesson],
+  );
+  const selectedLessonRecoveryTarget = useMemo(() => {
+    if (!selectedLessonRecoveryAssignment) {
+      return undefined;
+    }
+
+    const nextRecoveryLessonId = getNextRecoveryLessonId(selectedLessonRecoveryAssignment);
+    return nextRecoveryLessonId ? getLessonById(nextRecoveryLessonId) : undefined;
+  }, [selectedLessonRecoveryAssignment]);
   const nextRecommendedLesson = useMemo(() => getRecommendedLesson(progress), [progress]);
   const nextRecommendedTopic = useMemo(
     () => (nextRecommendedLesson ? getTopicById(nextRecommendedLesson.topicId) : undefined),
@@ -111,10 +126,12 @@ export function useLearningFlow({
     score,
     total,
     continueToNext,
+    incorrectQuestionIds,
   }: {
     score: number;
     total: number;
     continueToNext: boolean;
+    incorrectQuestionIds: string[];
   }) => {
     if (!selectedLesson) {
       return;
@@ -126,7 +143,7 @@ export function useLearningFlow({
     const provisionalNextLesson = continueToNext && passedCurrentAttempt
       ? getNextLessonInTopic(selectedLesson.topicId, selectedLesson.id)
       : undefined;
-    const nextProgress = buildProgressAfterLessonCompletion({
+    let nextProgress = buildProgressAfterLessonCompletion({
       progress,
       lesson: selectedLesson,
       score,
@@ -134,6 +151,15 @@ export function useLearningFlow({
       completedAt,
       nextLessonId: provisionalNextLesson?.id,
     });
+    nextProgress = passedCurrentAttempt
+      ? resolveRecoveryForLesson(nextProgress, selectedLesson.id, completedAt)
+      : assignRecoveryForLesson({
+          progress: nextProgress,
+          lesson: selectedLesson,
+          questions: selectedLessonQuestions.questions,
+          incorrectQuestionIds,
+          attemptedAt: completedAt,
+        });
     const nextLesson = continueToNext
       ? getNextUnlockedLessonInTopic(selectedLesson.topicId, selectedLesson.id, nextProgress)
       : undefined;
@@ -187,6 +213,23 @@ export function useLearningFlow({
     setProgress(DEFAULT_PROGRESS);
   };
 
+  const startSelectedLessonExercises = () => {
+    if (!selectedLesson) {
+      return;
+    }
+
+    if (selectedLessonRecoveryTarget && selectedLessonRecoveryTarget.id !== selectedLesson.id) {
+      selectLesson(selectedLessonRecoveryTarget);
+      return;
+    }
+
+    if (selectedLessonRecoveryAssignment && !selectedLessonRecoveryTarget) {
+      return;
+    }
+
+    startExercises();
+  };
+
   return {
     derived: {
       hasNextLesson,
@@ -194,6 +237,8 @@ export function useLearningFlow({
       nextRecommendedLesson,
       nextRecommendedTopic,
       selectedLessonQuestionCount,
+      selectedLessonRecoveryAssignment,
+      selectedLessonRecoveryTarget,
       selectedLessonQuestions: selectedLessonQuestions.questions,
       selectedLessonQuestionsLoading: selectedLessonQuestions.isLoading,
       suggestedPath,
@@ -202,6 +247,7 @@ export function useLearningFlow({
       completeExercise,
       goToNextLesson,
       resetProgress,
+      startSelectedLessonExercises,
       startPath,
       startRecommendedFlow,
       toggleSavedPath,
