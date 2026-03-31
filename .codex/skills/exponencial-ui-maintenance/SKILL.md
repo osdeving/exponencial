@@ -15,9 +15,10 @@ Leia nesta ordem:
 
 Mudanças de UI devem preservar estas fronteiras:
 
-- conteúdo em `src/content/**` ou `src/content/exercises/*.ts`
+- conteúdo em `src/content/**` e `src/content/**/*.questions.md`
 - regras em `src/lib/**`
-- composição e configuração em `src/data.ts`
+- configuração em `src/config/**`
+- composição e shell em `src/app/**`
 - renderização em `src/components/**`
 
 ## Regras
@@ -44,7 +45,8 @@ Extraia de `App.tsx` quando a mudança introduzir:
 
 ## Dívida conhecida
 
-- `src/App.tsx` está maior do que deveria
-- `src/data.ts` ainda mistura camadas
+- `src/app/useAppController.ts` ainda coordena vários hooks
+- algumas views recebem muitas props e devem continuar enxutas
+- `src/components/QuestionSolutionView.tsx` deve concentrar a evolução de soluções animadas, não `ExerciseView.tsx`
 
 Ao tocar nessas áreas, melhore a separação em vez de aprofundar o acoplamento.

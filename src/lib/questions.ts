@@ -26,3 +26,7 @@ export function getOfficialAnswer(question: Question) {
 export function getQuestionMode(question: Question) {
   return isMultipleChoiceQuestion(question) ? 'multiple-choice' : 'self-check';
 }
+
+export function hasStructuredSolution(question: Question) {
+  return Array.isArray(question.solution?.steps) && question.solution.steps.length > 0;
+}

@@ -2,7 +2,8 @@ import React from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import * as Icons from 'lucide-react';
 import { BookOpen, Medal, Star, Target, TrendingUp, Trophy, UserRound } from 'lucide-react';
-import { BADGES, MOCK_RANKING, TOPICS } from '../data';
+import { TOPICS } from '../content';
+import { BADGES, MOCK_RANKING } from '../config';
 import { UserProfile, UserProgress } from '../types';
 import { getTopicProgress } from '../lib/learning';
 

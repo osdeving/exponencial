@@ -1,0 +1,209 @@
+---
+lessonId: "fractions-review"
+source: "TQM - Frações.pdf"
+defaultType: "self-check"
+defaultSection: "Aplicações e questões de prova"
+defaultHint: "Transforme o texto em fração, organize as etapas e só depois faça as contas."
+---
+## Questão 31
+### Enunciado
+(CM) Se $a = \frac{11}{13}$, $b = \frac{5}{7}$ e $c = \frac{2}{3}$, então é correto afirmar qual relação de ordem entre esses valores?
+
+### Resposta
+Alternativa E.
+
+## Questão 32
+### Enunciado
+(CAP-UFRJ) Em uma calculadora a tecla de divisão está quebrada. Se você precisasse dividir um número por 40 usando esta calculadora, deveria então multiplicá-lo por quanto?
+
+### Resposta
+`0,025`
+
+## Questão 33
+### Enunciado
+(CM) Entre os números inteiros 1 e 100, quantas frações irredutíveis existem cujo denominador é 15?
+
+### Resposta
+Alternativa B.
+
+## Questão 34
+### Enunciado
+(ENEM) O Pantanal é a maior área úmida continental do planeta, com aproximadamente 210 mil km², sendo 140 mil km² em território brasileiro. Durante o período chuvoso, as cheias chegam a cobrir até $\frac{2}{3}$ da área pantaneira. A área alagada pode chegar a qual valor aproximado?
+
+### Resposta
+Alternativa C.
+
+## Questão 35
+### Enunciado
+(ENEM) O gráfico do material mostra a distribuição da produção de gás carbônico em 1996. Se a produção dos países desenvolvidos era de 3,2 bilhões de toneladas, estime a produção dos países em desenvolvimento.
+
+### Resposta
+Alternativa B.
+
+## Questão 36
+### Enunciado
+(ENEM) Segundo a OIT, na década de 1990 o trabalho feminino correspondeu a $\frac{2}{3}$ do total de horas trabalhadas no planeta, enquanto o trabalho masculino ficou com $\frac{1}{3}$. Em termos de horas trabalhadas, como comparar o trabalho das mulheres com o dos homens?
+
+### Resposta
+Alternativa D.
+
+## Questão 37
+### Enunciado
+(CM) No concurso de admissão ao CMJF, o edital apresentava 40 vagas para a 5ª série do Ensino Fundamental e 10 vagas para a 1ª série do Ensino Médio. A tabela do material informa os totais de inscritos nos concursos 2003/2004 e 2004/2005. Com base nesses dados, assinale a alternativa correta.
+
+### Resposta
+Alternativa A.
+
+## Questão 38
+### Enunciado
+(ENEM) Em dois jogadores que atuam na mesma posição, o jogador I converteu 45 gols em 60 chutes, enquanto o jogador II converteu 50 gols em 75 chutes. Quem deve ser escolhido para o próximo jogo?
+
+### Resposta
+Alternativa A.
+
+## Questão 39
+### Enunciado
+(ENEM) Um trecho musical de oito compassos, cuja fórmula é $\frac{3}{4}$, poderia ser preenchido com qual combinação de figuras musicais?
+
+### Resposta
+Alternativa D.
+
+## Questão 40
+### Enunciado
+(CM) Num jogo de vôlei entre dois times A e B, o time A fez $x$ bloqueios e marcou pontos em 60% deles, mais 3. O time B também fez $x$ bloqueios e marcou pontos em $\frac{2}{5}$ deles, menos 2. Qual polinômio representa a diferença entre os bloqueios que geraram pontos para o time A e os que geraram pontos para o time B?
+
+### Resposta
+Alternativa D.
+
+## Questão 41
+### Enunciado
+(CN) Um fabricante observou que pode aumentar, mensalmente, sua produção em $\frac{1}{5}$ da produção do mês anterior. Se, em janeiro de 2004, a produção for $P$, em que mês desse mesmo ano ela será, pela primeira vez, maior ou igual a $2P$?
+
+### Resposta
+Alternativa B.
+
+## Questão 42
+### Enunciado
+(CM) Em um determinado dia, foi contabilizado o número de adultos e crianças presentes em um parque de diversões. Sabendo-se que o número de adultos equivalia a $\frac{2}{3}$ do número de crianças e que havia 450 pessoas no local, qual era a quantidade de crianças presentes?
+
+### Resposta
+Alternativa C.
+
+## Questão 43
+### Enunciado
+(CEFET) Kaio, Pedro e Lucas dividiram igualmente uma quantidade $Q$ de bolas de gude. Antes mesmo de começarem a jogar, chegou o amigo Vítor. Resolveram então dividir a quantidade $Q$ igualmente entre os quatro. Sabendo que para isso bastou que cada um dos três desse 25 bolas a Vítor, determine $Q$.
+
+### Resposta
+`300`
+
+## Questão 44
+### Enunciado
+(UFRJ) Uma fita de vídeo foi programada para gravar 6 horas. Quanto tempo já se passou, se o que resta para terminar a fita é $\frac{3}{5}$ do que já passou?
+
+### Resposta
+4 h 30 min.
+
+## Questão 45
+### Enunciado
+(EPCAR) Uma senhora vai à feira e gasta, em frutas, $\frac{2}{7}$ do que tem na bolsa. Gasta depois $\frac{3}{5}$ do resto em verduras e ainda lhe sobram R$ 8,00. Quanto ela levava, em reais, ao sair de casa?
+
+### Resposta
+Alternativa D.
+
+## Questão 46
+### Enunciado
+(EPCAR) Isabela e Ana Beatriz saíram para vender pastéis na praia. Juntas tinham 460 pastéis. No final do dia, Isabela vendeu $\frac{3}{5}$ dos pastéis que levara e Ana Beatriz vendeu $\frac{5}{8}$ dos pastéis que levara. O número de pastéis que restou para Ana Beatriz era a metade do que restou para Isabela. Se Ana Beatriz levou $x$ pastéis para vender, qual é a soma dos algarismos de $x$?
+
+### Resposta
+Alternativa B.
+
+## Questão 47
+### Enunciado
+(EPCAR) No 1º ano do ensino médio de uma escola, $\frac{1}{3}$ dos alunos têm menos de 14 anos, $\frac{1}{4}$ têm de 14 a 17 anos e os 80 alunos restantes têm mais de 18 anos. Com base nisso, assinale a afirmativa correta.
+
+### Resposta
+Alternativa C.
+
+## Questão 48
+### Enunciado
+(EPCAR) Mateus ganhou 100 g de bala de goma e Lucas ganhou 60 g de bala delícia. Cada um come a mesma quantidade de bala por segundo. Mateus terminou em 40 minutos e Lucas em 1 hora. Considerando que eles começaram a comer no mesmo instante, assinale a alternativa falsa.
+
+### Resposta
+Alternativa C.
+
+## Questão 49
+### Enunciado
+(EPCAR) Um caminhão-tanque com capacidade para transportar $V$ litros faz a distribuição de óleo em três fábricas: $a$, $b$ e $c$. Partindo com o tanque cheio, deixou $\frac{3}{20}$ do total em $a$. Se em $b$ deixou $\frac{5}{17}$ do que restou e em $c$ os últimos 12.600 litros, então assinale a alternativa correta.
+
+### Resposta
+Alternativa B.
+
+## Questão 50
+### Enunciado
+(EPCAR) Três blocos de gelo são tais que o volume do primeiro excede de $\frac{1}{8}$ o do segundo, que por sua vez é $\frac{16}{27}$ do volume do terceiro. O volume desse terceiro bloco excede o do primeiro em 1.005 litros. Sabendo-se que o volume da água aumenta de $\frac{1}{9}$ ao congelar-se, determine a quantidade de água necessária para obter os três blocos.
+
+### Resposta
+Alternativa A.
+
+## Questão 51
+### Enunciado
+(CJ) De uma cesta de mangas, o pai retira $\frac{1}{3}$ dessas mangas, a mãe $\frac{1}{5}$ do restante, os três filhos mais velhos $\frac{1}{4}$, $\frac{1}{3}$ e $\frac{1}{2}$ dos restos sucessivos, e o mais jovem tira as mangas que sobraram. Qual o número de mangas existentes na cesta?
+
+### Resposta
+Alternativa D.
+
+## Questão 52
+### Enunciado
+(CEFET) Uma gráfica tem uma encomenda de 2.400 cartões de Natal. No 1º dia foi fabricado $\frac{1}{4}$ do total da encomenda, tendo sido rejeitado pelo controle de qualidade $\frac{1}{3}$ dessa produção. No 2º dia foram fabricados mais $\frac{2}{5}$ do total da encomenda e rejeitados $\frac{5}{12}$ desse lote. Quantos cartões ainda faltavam para completar os 2.400 após o 2º dia?
+
+### Resposta
+`1440`
+
+## Questão 53
+### Enunciado
+(EPCAR) No concurso CPCAR, $\frac{1}{10}$ dos aprovados foi selecionado para entrevista com psicólogos, a ser feita em 2 dias. Sabendo-se que 20 candidatos desistiram e que, se cada psicólogo atendesse 9 candidatos por dia, ainda restariam 34 jovens sem atendimento, enquanto com 10 candidatos por dia a meta seria cumprida, assinale a alternativa correta sobre o número de aprovados no concurso.
+
+### Resposta
+Alternativa A.
+
+## Questão 54
+### Enunciado
+(CM) João Carlos selecionou para gravar alguns videoclipes e, em casa, possui três velocidades de gravação: SP, LP e EP. O primeiro videoclipe foi programado para 1 hora e o segundo para 1 hora e 30 minutos, usando a velocidade SP. Hoje ele quer gravar um terceiro videoclipe na mesma fita e usar a velocidade EP. Quanto tempo de gravação ainda resta?
+
+### Resposta
+Alternativa D.
+
+## Questão 55
+### Enunciado
+(UNICAMP) Uma torneira enche um tanque em 12 minutos, enquanto uma segunda torneira gasta 18 minutos para encher o mesmo tanque. Com o tanque inicialmente vazio, abre-se a primeira durante $x$ minutos; ao fim desse tempo fecha-se essa torneira e abre-se a segunda, que termina de encher o tanque em $x+3$ minutos. Calcule o tempo gasto para encher o tanque.
+
+### Resposta
+15 min.
+
+## Questão 56
+### Enunciado
+(CM) Uma torneira tem capacidade de encher um tanque em 5 horas e outra em 3 horas. No tanque existe um ralo que o esvazia em 2 horas. Estando o tanque vazio, abrem-se as duas torneiras; após meia hora abre-se também o ralo. Quanto tempo o tanque levará para ficar cheio?
+
+### Resposta
+Alternativa D.
+
+## Questão 57
+### Enunciado
+(EsPCEx) Um tanque de combustível dispõe de duas torneiras que o enchem em 5 e 6 horas, respectivamente, e uma torneira de saída que o esvazia em 3 horas. Estando o tanque totalmente vazio, se as três torneiras são abertas simultaneamente, quantas horas são necessárias para encher o tanque?
+
+### Resposta
+`30`
+
+## Questão 58
+### Enunciado
+(CN) Um tanque tem duas torneiras para enchê-lo: a primeira com vazão de 6 litros por minuto e a segunda com vazão de 4 litros por minuto. Se metade do tanque é enchida pela primeira em um tempo $t_1$ e o restante pela segunda em um tempo $t_2$, qual deveria ser a vazão de uma única torneira para encher completamente o tanque no tempo $t_1+t_2$?
+
+### Resposta
+Alternativa B.
+
+## Questão 59
+### Enunciado
+(EPCAR) Um reservatório possui 4 torneiras. A primeira gasta 15 horas para enchê-lo, a segunda 20 horas, a terceira 30 horas e a quarta 60 horas. As 4 são abertas simultaneamente por 5 horas; depois disso, fecham-se a primeira e a segunda. Considerando fluxo constante, assinale a alternativa correta sobre o tempo gasto, em minutos, para que as demais completem o reservatório.
+
+### Resposta
+Alternativa B.

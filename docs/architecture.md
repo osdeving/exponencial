@@ -13,28 +13,36 @@ O estado desejado do projeto é:
 
 ### 1. Fonte de conteúdo
 
-- **Tópicos e lições**: `src/content/**/_topic.md` e `src/content/**/*.md`
-- **Exercícios e gabaritos**: `src/content/exercises/*.ts`
+- **Tópicos**: `src/content/**/_topic.md`
+- **Lições**: `src/content/**/*.md`
+- **Exercícios e gabaritos**: `src/content/**/*.questions.md`
 
-Hoje o sistema é híbrido. A teoria já é Markdown-first. A prática ainda não.
+Hoje o currículo principal já é declarativo de ponta a ponta.
 
 ### 2. Geração
 
 - `scripts/content-utils.mjs`: utilitários de frontmatter e filesystem
-- `scripts/generate-content-manifest.mjs`: lê Markdown e gera `src/generated/content-manifest.ts`
+- `scripts/question-utils.mjs`: parser de exercícios e gabaritos declarativos
+- `scripts/generate-content-manifest.mjs`: lê Markdown e gera:
+  - `src/generated/content-manifest.ts`
+  - `src/generated/question-manifest.ts`
 - `scripts/scaffold-curriculum.mjs`: cria estrutura inicial sem sobrescrever conteúdo existente
 - `scripts/curriculum-seed.mjs`: semente declarativa do scaffold
 
 ### 3. Composição de dados
 
-- `src/data.ts` junta:
-  - `TOPICS` e `LESSONS` gerados
-  - bancos de questões
-  - badges
-  - trilhas
-  - ranking mockado
+- `src/content/index.ts` expõe:
+  - `TOPICS`
+  - `LESSONS`
+  - `QUESTIONS`
+- `src/content/queries.ts` oferece seletores de questões por lição
+- `Question` já aceita `solution` estruturada para resolução passo a passo declarativa
+- `src/config/*` separa:
+  - `badges.ts`
+  - `paths.ts`
+  - `ranking.ts`
 
-Essa camada é um ponto de composição, mas hoje ainda mistura currículo com configuração de produto.
+A composição deixou de depender de um arquivo-bal­de único.
 
 ### 4. Domínio e regras
 
@@ -46,30 +54,39 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
 
 ### 5. Renderer/UI
 
-- `src/App.tsx`: shell da aplicação, navegação e orquestração de estado
+- `src/App.tsx`: shell fino que compõe as telas
+- `src/app/useAppController.ts`: composição de hooks da aplicação
+- `src/app/navigation/*`: navegação e seleção de telas
+- `src/app/catalog/*`: busca e filtros
+- `src/app/profile/*`: ações de perfil
+- `src/app/progress/*`: fluxos de progresso e continuidade
+- `src/app/usePersistentProfile.ts` e `src/app/usePersistentProgress.ts`: persistência local
+- `src/app/views/*`: telas grandes do app
 - `src/components/*`: telas e blocos de interface
 - `src/components/MarkdownContent.tsx`: renderer de Markdown + KaTeX
+- `src/components/QuestionSolutionView.tsx`: renderer de resolução estruturada com passos
 
 ## Avaliação de extensibilidade e manutenção
 
 ### Onde o projeto está bem
 
-- **Teoria em Markdown**: adicionar ou remover lições já é simples e escalável.
-- **Manifesto gerado**: evita duplicação manual entre conteúdo e UI.
+- **Currículo em Markdown**: adicionar ou remover lições e exercícios já é simples e escalável.
+- **Manifestos gerados**: evitam duplicação manual entre conteúdo e UI.
 - **Regras em `lib/`**: progresso, badges e recomendações não estão espalhados por componentes.
 - **Renderer único de Markdown**: facilita manter KaTeX, links e layout da teoria em um só lugar.
 
 ### Onde o projeto ainda não está no ponto ideal
 
-- **Exercícios e gabaritos não são Markdown-first**.
-  - Hoje ainda exigem edição em TypeScript.
-  - Isso quebra a meta de "mexer só em texto".
-- **`src/App.tsx` está grande demais**.
-  - Hoje ele centraliza navegação, persistência, busca e vários handlers.
-  - Em escala, isso dificulta refactor, teste e orientação para IA.
-- **`src/data.ts` mistura coisas demais**.
-  - Questões, trilhas, badges e mocks convivem na mesma composição.
-  - Isso aumenta acoplamento entre currículo e produto.
+- **O app já foi quebrado em hooks, mas ainda há coordenação cruzada**.
+  - `useAppController` já está mais fino.
+  - Mesmo assim, navegação, perfil, catálogo e progresso ainda se encontram nele no ponto de composição.
+- **Parte da configuração de produto ainda é estática**.
+  - Trilhas, badges e ranking mockado vivem em `src/config/*`.
+  - Se isso crescer muito, convém separar contratos, fontes e validação.
+- **A solução passo a passo está preparada, mas não no estágio final de animação rica**.
+  - O schema declarativo já existe.
+  - O renderer já entende passos, rascunho e algoritmo.
+  - O próximo salto seria animar escrita/desenho por tipo de passo.
 - **Há ativos de origem impressa fora do fluxo final**.
   - PDFs e imagens intermediárias não devem fazer parte do ciclo normal de manutenção.
 
@@ -77,9 +94,9 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
 
 ### O projeto atual é extensível e manutenível?
 
-**Parcialmente.**
+**Sim.**
 
-Ele já é bom para escalar **teoria** e estrutura curricular. Ainda não está bom o suficiente para dizer que o site é "apenas um renderer" de ponta a ponta, porque **exercícios, gabaritos e parte da configuração pedagógica ainda estão no código**.
+Ele já está bom para escalar o **conteúdo curricular** porque teoria, exercícios, gabaritos e agora também soluções passo a passo saem de fonte declarativa. A UI está separada em shell, views, hooks e configuração. As dívidas que restam são de evolução, não mais de acoplamento bruto.
 
 ## Meta recomendada para o próximo estágio
 
@@ -87,7 +104,7 @@ Para ficar no modelo que você quer, o alvo técnico deveria ser este:
 
 1. **Tudo curricular fora da UI**
    - teoria em Markdown
-   - exercícios em arquivo declarativo por lição ou por tópico
+   - exercícios em `*.questions.md`
    - gabaritos no mesmo fluxo declarativo
 
 2. **UI só renderiza contratos estáveis**
@@ -105,37 +122,23 @@ Para ficar no modelo que você quer, o alvo técnico deveria ser este:
 
 ### Prioridade 1
 
-Migrar `src/content/exercises/*.ts` para um pipeline declarativo.
-
-Opções válidas:
-
-- Markdown com frontmatter por conjunto de exercícios
-- JSON/YAML por lição
-- Markdown da teoria com seção de questões acoplada e parser dedicado
-
-O importante não é o formato exato. O importante é remover a dependência de editar TypeScript para atualizar prática e gabarito.
-
-### Prioridade 2
-
-Quebrar `src/App.tsx` em camadas menores.
+Evoluir o sistema de soluções estruturadas.
 
 Sugestão mínima:
 
-- `src/app/useAppState.ts`
-- `src/app/usePersistentProfile.ts`
-- `src/app/usePersistentProgress.ts`
-- `src/app/AppShell.tsx`
-- `src/app/views/*`
+- ampliar o schema de `Question.solution`
+- suportar animações por tipo de passo
+- manter fallback para Markdown simples
 
-### Prioridade 3
+### Prioridade 2
 
-Separar configuração de produto de conteúdo acadêmico.
+Evoluir `src/config/*` quando badges, trilhas e ranking deixarem de ser simples.
 
 Exemplos:
 
-- `src/config/paths.ts`
-- `src/config/badges.ts`
-- `src/config/ranking.ts`
+- adicionar validação declarativa
+- separar mocks de dados reais
+- criar contratos por área
 
 ## Mapa de mudança
 
@@ -143,12 +146,14 @@ Se você quer:
 
 - **adicionar ou remover tópico**: edite `src/content/.../_topic.md`
 - **adicionar ou remover lição teórica**: edite `src/content/**/*.md`
+- **adicionar ou remover exercício/gabarito**: edite `src/content/**/*.questions.md`
 - **alterar scaffold base**: edite `scripts/curriculum-seed.mjs`
 - **alterar parser/manifesto**: edite `scripts/generate-content-manifest.mjs`
-- **alterar exercícios/gabaritos hoje**: edite `src/content/exercises/*.ts`
+- **alterar parser de exercícios**: edite `scripts/question-utils.mjs`
+- **alterar solução passo a passo**: edite `src/content/**/*.questions.md` e, se necessário, `src/components/QuestionSolutionView.tsx`
 - **alterar regra de progresso**: edite `src/lib/learning.ts`
 - **alterar renderer de teoria**: edite `src/components/MarkdownContent.tsx`
-- **alterar layout e navegação**: edite `src/App.tsx` e `src/components/*`
+- **alterar layout e navegação**: edite `src/app/*` e `src/components/*`
 
 ## Regras de manutenção
 
@@ -163,8 +168,9 @@ Se você quer:
 
 ## O que uma IA deve concluir rapidamente ao ler este arquivo
 
-- A teoria já é content-driven.
-- Exercícios ainda não são.
-- O renderer existe, mas o modelo alvo ainda não foi concluído.
+- Teoria, exercícios e gabaritos já são content-driven.
+- Soluções passo a passo também já entram por contrato declarativo.
+- O renderer existe e consome contratos gerados.
+- O principal débito agora está na evolução do renderer de solução e da configuração de produto.
 - O melhor lugar para mexer depende do tipo de mudança.
-- `App.tsx` e `src/data.ts` são os principais pontos de atenção em escala.
+- `src/components/QuestionSolutionView.tsx` e `src/config/*` são os principais pontos de atenção em escala.

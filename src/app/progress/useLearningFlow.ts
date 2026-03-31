@@ -1,0 +1,165 @@
+import confetti from 'canvas-confetti';
+import { Dispatch, SetStateAction, useMemo } from 'react';
+import { getQuestionsByLessonId } from '../../content/queries';
+import {
+  DEFAULT_PROGRESS,
+  buildProgressAfterLessonCompletion,
+  getLessonById,
+  getNextLessonForPath,
+  getNextLessonInTopic,
+  getRecommendedLesson,
+  getSuggestedPath,
+  getTopicById,
+} from '../../lib/learning';
+import { HomeSection } from '../types';
+import { Lesson, LearningPath, UserProfile, UserProgress } from '../../types';
+
+interface UseLearningFlowOptions {
+  profile: UserProfile | null;
+  progress: UserProgress;
+  selectedLesson: Lesson | null;
+  setProgress: Dispatch<SetStateAction<UserProgress>>;
+  selectLesson: (lesson: Lesson) => void;
+  openHomeSection: (section: HomeSection) => void;
+  goHome: () => void;
+}
+
+export function useLearningFlow({
+  profile,
+  progress,
+  selectedLesson,
+  setProgress,
+  selectLesson,
+  openHomeSection,
+  goHome,
+}: UseLearningFlowOptions) {
+  const selectedLessonQuestions = useMemo(() => getQuestionsByLessonId(selectedLesson?.id), [selectedLesson]);
+  const nextRecommendedLesson = useMemo(() => getRecommendedLesson(progress), [progress]);
+  const nextRecommendedTopic = useMemo(
+    () => (nextRecommendedLesson ? getTopicById(nextRecommendedLesson.topicId) : undefined),
+    [nextRecommendedLesson],
+  );
+  const suggestedPath = useMemo(() => getSuggestedPath(profile), [profile]);
+  const hasNextLesson = useMemo(
+    () => (selectedLesson ? Boolean(getNextLessonInTopic(selectedLesson.topicId, selectedLesson.id)) : false),
+    [selectedLesson],
+  );
+
+  const goToNextLesson = () => {
+    if (!selectedLesson) {
+      return;
+    }
+
+    const nextLesson = getNextLessonInTopic(selectedLesson.topicId, selectedLesson.id);
+    if (nextLesson) {
+      selectLesson(nextLesson);
+    }
+  };
+
+  const startRecommendedFlow = () => {
+    if (nextRecommendedLesson) {
+      selectLesson(nextRecommendedLesson);
+      return;
+    }
+
+    openHomeSection('topics');
+  };
+
+  const startPath = (path: LearningPath) => {
+    const nextLesson = getNextLessonForPath(path.id, progress) ?? getLessonById(path.featuredLessonId);
+
+    setProgress((current) =>
+      current.savedPaths.includes(path.id)
+        ? current
+        : {
+            ...current,
+            savedPaths: [...current.savedPaths, path.id],
+          },
+    );
+
+    if (nextLesson) {
+      selectLesson(nextLesson);
+    }
+  };
+
+  const toggleSavedPath = (pathId: string) => {
+    setProgress((current) => {
+      const alreadySaved = current.savedPaths.includes(pathId);
+
+      return {
+        ...current,
+        savedPaths: alreadySaved ? current.savedPaths.filter((id) => id !== pathId) : [...current.savedPaths, pathId],
+      };
+    });
+  };
+
+  const completeExercise = ({
+    score,
+    total,
+    continueToNext,
+  }: {
+    score: number;
+    total: number;
+    continueToNext: boolean;
+  }) => {
+    if (!selectedLesson) {
+      return;
+    }
+
+    const completedAt = new Date().toISOString();
+    const nextLesson = continueToNext ? getNextLessonInTopic(selectedLesson.topicId, selectedLesson.id) : undefined;
+    const nextProgress = buildProgressAfterLessonCompletion({
+      progress,
+      lesson: selectedLesson,
+      score,
+      total,
+      completedAt,
+      nextLessonId: nextLesson?.id,
+    });
+    const hasNewBadge = nextProgress.badges.length > progress.badges.length;
+
+    setProgress(nextProgress);
+
+    if (score === total || hasNewBadge) {
+      confetti({
+        particleCount: hasNewBadge ? 180 : 120,
+        spread: 75,
+        origin: { y: 0.6 },
+        colors: ['#00FF00', '#000000', '#FFFFFF'],
+      });
+    }
+
+    if (continueToNext && nextLesson) {
+      selectLesson(nextLesson);
+      return;
+    }
+
+    goHome();
+  };
+
+  const resetProgress = () => {
+    if (!window.confirm('Isso vai apagar o progresso salvo neste navegador. Deseja continuar?')) {
+      return;
+    }
+
+    setProgress(DEFAULT_PROGRESS);
+  };
+
+  return {
+    derived: {
+      hasNextLesson,
+      nextRecommendedLesson,
+      nextRecommendedTopic,
+      selectedLessonQuestions,
+      suggestedPath,
+    },
+    actions: {
+      completeExercise,
+      goToNextLesson,
+      resetProgress,
+      startPath,
+      startRecommendedFlow,
+      toggleSavedPath,
+    },
+  };
+}

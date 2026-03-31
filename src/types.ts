@@ -43,6 +43,46 @@ export interface Question {
   number?: number;
   section?: string;
   source?: string;
+  solution?: QuestionSolution;
+}
+
+export type QuestionSolutionMode = 'static' | 'step-by-step';
+export type QuestionSolutionStepType = 'markdown' | 'equation' | 'scratchpad' | 'algorithm';
+export type QuestionSolutionAlgorithmLayout = 'mmc' | 'long-division' | 'continued-division' | 'custom';
+
+interface QuestionSolutionStepBase {
+  id?: string;
+  title?: string;
+  revealMs?: number;
+}
+
+export interface QuestionMarkdownSolutionStep extends QuestionSolutionStepBase {
+  type: 'markdown' | 'equation';
+  content: string;
+}
+
+export interface QuestionScratchpadSolutionStep extends QuestionSolutionStepBase {
+  type: 'scratchpad';
+  lines: string[];
+}
+
+export interface QuestionAlgorithmSolutionStep extends QuestionSolutionStepBase {
+  type: 'algorithm';
+  layout: QuestionSolutionAlgorithmLayout;
+  lines: string[];
+  result?: string;
+  annotations?: string[];
+}
+
+export type QuestionSolutionStep =
+  | QuestionMarkdownSolutionStep
+  | QuestionScratchpadSolutionStep
+  | QuestionAlgorithmSolutionStep;
+
+export interface QuestionSolution {
+  mode: QuestionSolutionMode;
+  summary?: string;
+  steps: QuestionSolutionStep[];
 }
 
 export interface Badge {

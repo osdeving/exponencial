@@ -1,4 +1,6 @@
-import { LESSONS, PATHS, QUESTIONS } from '../data';
+import { LESSONS } from '../content';
+import { getQuestionsByLessonId } from '../content/queries';
+import { PATHS } from '../config';
 import { getOfficialAnswer } from './questions';
 import { Lesson, Topic } from '../types';
 
@@ -98,9 +100,6 @@ const stripMarkdown = (value: string) =>
     .replace(/\n{2,}/g, '\n')
     .trim();
 
-const getLessonQuestions = (lessonId?: string | null) =>
-  lessonId ? QUESTIONS.filter((question) => question.lessonId === lessonId) : [];
-
 const getSummary = (lesson?: Lesson | null, topic?: Topic | null) => {
   if (lesson) {
     const content = stripMarkdown(lesson.content).split('\n').filter(Boolean).slice(0, 6).join('\n');
@@ -120,7 +119,7 @@ const getSummary = (lesson?: Lesson | null, topic?: Topic | null) => {
 };
 
 const getPractice = (lesson?: Lesson | null, topic?: Topic | null) => {
-  const question = getLessonQuestions(lesson?.id)[0];
+  const question = getQuestionsByLessonId(lesson?.id)[0];
   if (question) {
     return `Treino rápido:\n\n**${question.text}**\n\nDica: ${question.hint ?? 'quebre o problema em passos pequenos.'}\n\nSe quiser, eu também posso corrigir sua resposta.`;
   }
@@ -215,7 +214,7 @@ export function generateTutorReply(input: string, currentTopic?: Topic | null, c
   }
 
   if (normalizedInput.includes('dica') || normalizedInput.includes('trav')) {
-    const question = getLessonQuestions(currentLesson?.id)[0];
+    const question = getQuestionsByLessonId(currentLesson?.id)[0];
 
     if (question?.hint) {
       return `Dica para a lição **${currentLesson?.title}**:\n\n${question.hint}`;
@@ -233,7 +232,7 @@ export function generateTutorReply(input: string, currentTopic?: Topic | null, c
   }
 
   if (normalizedInput.includes('corrige') || normalizedInput.includes('corrigir')) {
-    const question = getLessonQuestions(currentLesson?.id)[0];
+    const question = getQuestionsByLessonId(currentLesson?.id)[0];
 
     if (question) {
       return `Resposta esperada para praticar correção:\n\n**${question.text}**\n\nGabarito oficial: **${getOfficialAnswer(question)}**\n\nExplicação: ${question.explanation}`;

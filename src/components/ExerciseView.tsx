@@ -2,8 +2,9 @@ import React, { useMemo, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Question } from '../types';
 import { cn } from '../lib/utils';
-import { getOfficialAnswer, getQuestionMode, isMultipleChoiceQuestion } from '../lib/questions';
+import { getOfficialAnswer, getQuestionMode, hasStructuredSolution, isMultipleChoiceQuestion } from '../lib/questions';
 import { MarkdownContent } from './MarkdownContent';
+import { QuestionSolutionView } from './QuestionSolutionView';
 import { ArrowLeft, ArrowRight, Check, ClipboardList, Lightbulb, RotateCcw, X } from 'lucide-react';
 import confetti from 'canvas-confetti';
 
@@ -169,6 +170,12 @@ export const ExerciseView: React.FC<ExerciseViewProps> = ({
                             content={question.explanation}
                             className="mt-3 prose-sm prose-p:my-2 prose-ul:my-2 prose-ol:my-2"
                           />
+                        )}
+                        {hasStructuredSolution(question) && (
+                          <div className="mt-4 border-t-4 border-dark/10 pt-4">
+                            <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] opacity-60">Resolução</p>
+                            <QuestionSolutionView solution={question.solution} />
+                          </div>
                         )}
                       </div>
                     </div>
@@ -392,6 +399,12 @@ export const ExerciseView: React.FC<ExerciseViewProps> = ({
                     content={currentQuestion.explanation}
                     className="mt-3 prose-sm prose-p:my-2 prose-ul:my-2 prose-ol:my-2"
                   />
+                )}
+                {hasStructuredSolution(currentQuestion) && (
+                  <div className="mt-5 border-t-4 border-dark/10 pt-5">
+                    <p className="mb-3 text-[10px] font-bold uppercase tracking-[0.2em] opacity-60">Resolução passo a passo</p>
+                    <QuestionSolutionView solution={currentQuestion.solution} interactive />
+                  </div>
                 )}
 
                 {currentMode === 'self-check' && !isAnswered && (

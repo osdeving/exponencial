@@ -1,9 +1,19 @@
 import fs from 'node:fs/promises';
 import path from 'node:path';
-import { contentRoot, ensureDirectory, generatedRoot, getMarkdownFiles, parseFrontmatter } from './content-utils.mjs';
+import {
+  contentRoot,
+  ensureDirectory,
+  generatedRoot,
+  getMarkdownFiles,
+  isQuestionMarkdownFile,
+  isTopicMarkdownFile,
+  parseFrontmatter,
+} from './content-utils.mjs';
+import { parseQuestionFile } from './question-utils.mjs';
 
 const topicFiles = [];
 const lessonFiles = [];
+const questionFiles = [];
 
 try {
   await fs.access(contentRoot);
@@ -12,7 +22,9 @@ try {
 }
 
 for (const filePath of await getMarkdownFiles(contentRoot)) {
-  if (path.basename(filePath) === '_topic.md') {
+  if (isQuestionMarkdownFile(filePath)) {
+    questionFiles.push(filePath);
+  } else if (isTopicMarkdownFile(filePath)) {
     topicFiles.push(filePath);
   } else {
     lessonFiles.push(filePath);
@@ -57,6 +69,7 @@ for (const topic of topics) {
 
 const lessons = [];
 const lessonIds = new Set();
+const lessonOrderIndex = new Map();
 
 for (const filePath of lessonFiles) {
   const source = await fs.readFile(filePath, 'utf8');
@@ -104,6 +117,39 @@ lessons.sort(
     left.title.localeCompare(right.title, 'pt-BR'),
 );
 
+for (const [index, lesson] of lessons.entries()) {
+  lessonOrderIndex.set(lesson.id, index);
+}
+
+const questions = [];
+const questionIds = new Set();
+
+for (const filePath of questionFiles) {
+  const source = await fs.readFile(filePath, 'utf8');
+  const { data, content } = parseFrontmatter(source, filePath);
+  const lessonId = String(data.lessonId);
+
+  if (!lessonIds.has(lessonId)) {
+    throw new Error(`Arquivo de questões aponta para lessonId inexistente (${lessonId}) em ${filePath}.`);
+  }
+
+  for (const question of parseQuestionFile(content, filePath, data)) {
+    if (questionIds.has(question.id)) {
+      throw new Error(`Question id duplicado: ${question.id}`);
+    }
+    questionIds.add(question.id);
+    questions.push(question);
+  }
+}
+
+questions.sort(
+  (left, right) =>
+    (lessonOrderIndex.get(left.lessonId) ?? Number.MAX_SAFE_INTEGER) -
+      (lessonOrderIndex.get(right.lessonId) ?? Number.MAX_SAFE_INTEGER) ||
+    (left.number ?? 0) - (right.number ?? 0) ||
+    left.id.localeCompare(right.id, 'pt-BR'),
+);
+
 const output = `/* eslint-disable */
 // Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
 // Edite os arquivos em src/content/**/*.md.
@@ -115,7 +161,17 @@ export const TOPICS: Topic[] = ${JSON.stringify(topics, null, 2)};
 export const LESSONS: Lesson[] = ${JSON.stringify(lessons, null, 2)};
 `;
 
+const questionsOutput = `/* eslint-disable */
+// Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
+// Edite os arquivos em src/content/**/*.questions.md.
+
+import { Question } from '../types';
+
+export const QUESTIONS: Question[] = ${JSON.stringify(questions, null, 2)};
+`;
+
 await ensureDirectory(generatedRoot);
 await fs.writeFile(path.join(generatedRoot, 'content-manifest.ts'), output, 'utf8');
+await fs.writeFile(path.join(generatedRoot, 'question-manifest.ts'), questionsOutput, 'utf8');
 
-console.log(`Manifesto gerado: ${topics.length} tópicos e ${lessons.length} lições.`);
+console.log(`Manifestos gerados: ${topics.length} tópicos, ${lessons.length} lições e ${questions.length} questões.`);

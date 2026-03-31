@@ -19,8 +19,15 @@ O site deve ser tratado como renderer. Se a mudança puder ser resolvida na font
 
 - tópico: `src/content/**/_topic.md`
 - lição teórica: `src/content/**/*.md`
+- exercícios e gabaritos: `src/content/**/*.questions.md`
 - scaffold curricular: `scripts/curriculum-seed.mjs`
-- exercícios e gabaritos no estado atual: `src/content/exercises/*.ts`
+- parser de questões: `scripts/question-utils.mjs`
+
+Se a questão precisar de resolução passo a passo:
+
+- use `### Solução`
+- prefira o schema estruturado em JSON dentro do Markdown
+- use tipos como `markdown`, `equation`, `scratchpad` e `algorithm`
 
 ## Nunca faça
 
@@ -38,9 +45,6 @@ O site deve ser tratado como renderer. Se a mudança puder ser resolvida na font
 
 ## Observação importante
 
-O projeto ainda está híbrido:
+O projeto já usa um pipeline declarativo para currículo, teoria, exercícios e gabaritos.
 
-- teoria já está em Markdown
-- exercícios ainda estão em TypeScript
-
-Não invente um pipeline novo no meio de uma tarefa pequena. Se a solicitação for editorial, siga o modelo atual do repositório.
+Se a solicitação for editorial, siga o modelo atual do repositório e altere conteúdo antes de pensar em UI.

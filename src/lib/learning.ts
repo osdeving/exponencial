@@ -1,4 +1,5 @@
-import { BADGES, LESSONS, PATHS, TOPICS } from '../data';
+import { LESSONS, TOPICS } from '../content';
+import { BADGES, PATHS, getPathById } from '../config';
 import {
   Badge,
   Lesson,
@@ -185,7 +186,7 @@ export function getNextLessonInTopic(topicId: string, lessonId: string): Lesson 
 }
 
 export function getNextLessonForPath(pathId: string, progress: UserProgress): Lesson | undefined {
-  const path = PATHS.find((item) => item.id === pathId);
+  const path = getPathById(pathId);
   if (!path) {
     return undefined;
   }
@@ -216,6 +217,22 @@ export function getRecommendedLesson(progress: UserProgress): Lesson | undefined
   }
 
   return LESSONS.find((lesson) => !progress.completedLessons.includes(lesson.id)) ?? LESSONS[0];
+}
+
+export function getSuggestedPath(profile: UserProfile | null): LearningPath {
+  if (!profile) {
+    return getPathById('exam-prep') ?? PATHS[0];
+  }
+
+  if (profile.goal === 'Preparar faculdade') {
+    return getPathById('algebra-track') ?? PATHS[0];
+  }
+
+  if (profile.goal === 'Vestibular' || profile.level === 'Médio') {
+    return getPathById('vestibular-essentials') ?? PATHS[0];
+  }
+
+  return getPathById('exam-prep') ?? PATHS[0];
 }
 
 export function buildSearchResults(query: string): SearchResult[] {
@@ -258,6 +275,48 @@ export function buildSearchResults(query: string): SearchResult[] {
   }));
 
   return [...topicResults, ...lessonResults, ...pathResults].slice(0, SEARCH_LIMIT);
+}
+
+export function filterTopicsForCatalog({
+  query,
+  levelFilter,
+  favoriteTopicIds,
+}: {
+  query: string;
+  levelFilter: 'Todos' | Level;
+  favoriteTopicIds: string[];
+}) {
+  const normalizedQuery = query.trim().toLowerCase();
+
+  return TOPICS.filter((topic) => {
+    const passesLevel = levelFilter === 'Todos' || topic.level === levelFilter;
+    if (!passesLevel) {
+      return false;
+    }
+
+    if (!normalizedQuery) {
+      return true;
+    }
+
+    const searchableContent = [
+      topic.title,
+      topic.description,
+      topic.stage,
+      topic.category,
+      ...topic.tags,
+      ...getLessonsByTopic(topic.id).map(
+        (lesson) => `${lesson.title} ${lesson.summary} ${lesson.content} ${lesson.status} ${lesson.tags.join(' ')}`,
+      ),
+    ]
+      .join(' ')
+      .toLowerCase();
+
+    return searchableContent.includes(normalizedQuery);
+  }).sort((left, right) => {
+    const leftFavorite = favoriteTopicIds.includes(left.id) ? 1 : 0;
+    const rightFavorite = favoriteTopicIds.includes(right.id) ? 1 : 0;
+    return rightFavorite - leftFavorite || left.order - right.order;
+  });
 }
 
 export function getCompletedPaths(progress: UserProgress): string[] {
@@ -314,6 +373,60 @@ export function getNewStreak(lastActiveDate: string | null, nextDate: string, cu
   }
 
   return 1;
+}
+
+export function buildProgressAfterLessonCompletion({
+  progress,
+  lesson,
+  score,
+  total,
+  completedAt,
+  nextLessonId,
+}: {
+  progress: UserProgress;
+  lesson: Lesson;
+  score: number;
+  total: number;
+  completedAt: string;
+  nextLessonId?: string;
+}) {
+  const currentDate = completedAt.slice(0, 10);
+  const percentage = total === 0 ? 0 : Math.round((score / total) * 100);
+  const isFirstCompletion = !progress.completedLessons.includes(lesson.id);
+  const nextLessonScores = {
+    ...progress.lessonScores,
+    [lesson.id]: Math.max(progress.lessonScores[lesson.id] ?? 0, percentage),
+  };
+  const nextCompletedLessons = Array.from(new Set([...progress.completedLessons, lesson.id]));
+  const nextScores = recomputeTopicScores(nextLessonScores);
+  const nextPoints = progress.points + calculatePoints(score, total, isFirstCompletion);
+
+  const draftProgress: UserProgress = {
+    ...progress,
+    completedLessons: nextCompletedLessons,
+    lessonScores: nextLessonScores,
+    scores: nextScores,
+    points: nextPoints,
+    lastLessonId: nextLessonId ?? lesson.id,
+    streak: getNewStreak(progress.lastActiveDate, currentDate, progress.streak),
+    lastActiveDate: currentDate,
+    attempts: {
+      ...progress.attempts,
+      [lesson.id]: {
+        score,
+        total,
+        completedAt,
+      },
+    },
+  };
+
+  const nextBadges = getEarnedBadges(draftProgress);
+
+  return {
+    ...draftProgress,
+    badges: nextBadges,
+    completedPaths: getCompletedPaths({ ...draftProgress, badges: nextBadges }),
+  };
 }
 
 export function recomputeTopicScores(lessonScores: Record<string, number>) {

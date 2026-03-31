@@ -5,6 +5,14 @@ export const projectRoot = process.cwd();
 export const contentRoot = path.join(projectRoot, 'src', 'content');
 export const generatedRoot = path.join(projectRoot, 'src', 'generated');
 
+export function isTopicMarkdownFile(filePath) {
+  return path.basename(filePath) === '_topic.md';
+}
+
+export function isQuestionMarkdownFile(filePath) {
+  return path.basename(filePath).endsWith('.questions.md');
+}
+
 export function slugify(value) {
   return value
     .normalize('NFD')

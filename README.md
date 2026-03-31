@@ -28,18 +28,28 @@ npm run build
 
 ## Modelo atual de conteúdo
 
-Hoje o projeto já está parcialmente orientado a conteúdo:
+Hoje o projeto já está orientado a conteúdo no fluxo curricular:
 
 - tópicos e lições teóricas vivem em `src/content/**`
-- o manifesto de conteúdo é gerado em `src/generated/content-manifest.ts`
-- exercícios e gabaritos ainda vivem em `src/content/exercises/*.ts`
+- exercícios e gabaritos vivem em arquivos `*.questions.md` ao lado das lições
+- soluções passo a passo também podem viver no próprio `*.questions.md`
+- os manifestos são gerados em `src/generated/content-manifest.ts` e `src/generated/question-manifest.ts`
 
-Ou seja: a teoria já está próxima do modelo final de "editar texto e publicar". A parte de exercícios ainda não.
+Ou seja: teoria, exercícios e gabaritos entram no app por conteúdo declarativo. A UI continua responsável só por renderizar contratos estáveis e comportamentos do produto.
+
+Na aplicação, a divisão atual é:
+
+- `src/content/**` e `src/generated/*`: fonte e manifestos curriculares
+- `src/config/*`: badges, trilhas e ranking
+- `src/app/*`: shell, views e hooks de persistência/navegação
+- `src/components/*`: blocos visuais e renderers
+- `src/lib/*`: regras de domínio
 
 ## Regra prática
 
 Se a mudança for apenas curricular, a preferência é:
 
 1. editar Markdown em `src/content/**`
-2. só tocar em TypeScript quando a fonte atual ainda não tiver migrado, como acontece com exercícios
-3. não editar `src/generated/content-manifest.ts` manualmente
+2. usar `*.questions.md` para prática e gabarito da lição
+3. usar `### Solução` quando a questão precisar de resolução estruturada
+4. não editar `src/generated/*.ts` manualmente
