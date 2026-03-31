@@ -477,14 +477,15 @@ export const LESSONS: Lesson[] = [
     "id": "fractions-intro",
     "topicId": "fractions",
     "title": "Introdução às Frações",
-    "content": "# O que é uma Fração?\n\nUma fração representa uma **parte de um todo**. Se uma pizza foi dividida em 8 pedaços e você comeu 3, então comeu **3/8**.\n\n## Componentes\n\n- **Numerador:** quantas partes você está considerando.\n- **Denominador:** em quantas partes o todo foi dividido.\n\n## Leituras comuns\n\n- $1/2$ = metade\n- $1/4$ = um quarto\n- $3/5$ = três quintos\n\n## Dica prática\n\nSe o denominador aumenta, cada parte fica menor.",
+    "content": "# O que é uma Fração?\n\nUsamos frações quando queremos indicar **quantas partes de um todo estamos considerando**. Se uma pizza foi dividida em 8 pedaços iguais e você comeu 3, a quantidade comida pode ser representada por:\n\n$$\n\\frac{3}{8}\n$$\n\nEm uma fração, o número de cima é o **numerador** e o número de baixo é o **denominador**.\n\n$$\n\\frac{N}{D}\n$$\n\n- **Numerador:** indica quantas partes foram escolhidas.\n- **Denominador:** indica em quantas partes iguais o todo foi dividido.\n\n## Leitura de frações\n\n- $1/2$ lê-se \"um meio\" ou \"metade\".\n- $1/4$ lê-se \"um quarto\".\n- $3/5$ lê-se \"três quintos\".\n- $7/10$ lê-se \"sete décimos\".\n\nUma leitura correta já ajuda bastante a interpretar problemas do cotidiano com receita, dinheiro, tempo e medidas.\n\n## Tipos de frações\n\n### Fração própria\n\nÉ aquela em que o numerador é **menor** do que o denominador.\n\nExemplos:\n\n- $3/5$\n- $2/7$\n\n### Fração imprópria\n\nÉ aquela em que o numerador é **maior ou igual** ao denominador.\n\nExemplos:\n\n- $7/4$\n- $9/9$\n\n### Fração aparente\n\nÉ uma fração imprópria em que o numerador é múltiplo do denominador, então o resultado é um número inteiro.\n\nExemplos:\n\n- $6/3 = 2$\n- $12/4 = 3$\n\n### Fração decimal\n\nTem denominador igual a uma potência de 10.\n\nExemplos:\n\n- $7/10$\n- $45/100$\n- $3/1000$\n\n### Fração ordinária\n\nÉ toda fração que **não** é decimal.\n\nExemplos:\n\n- $4/7$\n- $11/3$\n\n### Fração irredutível\n\nÉ a fração que já está na forma mais simples, isto é, numerador e denominador não têm divisor comum maior que 1.\n\nExemplos:\n\n- $2/3$\n- $5/8$\n\n## Número misto\n\nQuando uma fração imprópria representa \"uma parte inteira mais uma parte fracionária\", podemos escrevê-la como **número misto**.\n\nExemplo:\n\n$$\n\\frac{17}{3} = 5\\frac{2}{3}\n$$\n\nIsso significa \"cinco inteiros e dois terços\".\n\n## Transformando fração imprópria em número misto\n\nDivida o numerador pelo denominador:\n\n$$\n17 \\div 3 = 5 \\text{ com resto } 2\n$$\n\nEntão:\n\n$$\n\\frac{17}{3} = 5\\frac{2}{3}\n$$\n\nO quociente vira a parte inteira e o resto vira o novo numerador.\n\n## Dica de interpretação\n\nSe o denominador aumenta, cada parte fica menor. Por isso:\n\n- $1/3$ é maior do que $1/5$\n- $2/7$ representa menos do que $2/5$\n\nAntes de operar, vale sempre perguntar: **o denominador indica em quantas partes o inteiro foi dividido?**",
     "difficulty": "Fácil",
     "estimatedMinutes": 12,
     "order": 1,
     "summary": "Apresenta a ideia de parte de um todo e a leitura de numerador e denominador.",
     "goals": [
       "Entender numerador e denominador",
-      "Ler frações no cotidiano"
+      "Ler frações no cotidiano",
+      "Reconhecer os tipos mais cobrados"
     ],
     "prerequisites": [],
     "tags": [],
@@ -494,14 +495,15 @@ export const LESSONS: Lesson[] = [
     "id": "fractions-operations",
     "topicId": "fractions",
     "title": "Operações com Frações",
-    "content": "# Somando e Subtraindo Frações\n\n## Mesmo denominador\n\nQuando o denominador é igual, você soma apenas os numeradores:\n\n$\\frac{2}{7} + \\frac{3}{7} = \\frac{5}{7}$\n\n## Denominadores diferentes\n\nEncontre um denominador comum, geralmente pelo **MMC**.\n\nExemplo:\n\n$\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}$\n\n## Multiplicação\n\nMultiplique numerador com numerador e denominador com denominador:\n\n$\\frac{2}{3} \\times \\frac{4}{5} = \\frac{8}{15}$",
+    "content": "# Operações com Frações\n\nOperar frações exige atenção ao papel do denominador. Em algumas contas ele é preservado; em outras, precisamos encontrar um denominador comum ou inverter a segunda fração.\n\n## Adição e subtração\n\n### Mesmo denominador\n\nQuando as frações já têm o mesmo denominador, conservamos o denominador e somamos ou subtraímos os numeradores:\n\n$\\frac{2}{7} + \\frac{3}{7} = \\frac{5}{7}$\n\nOutro exemplo:\n\n$$\n\\frac{9}{10} - \\frac{4}{10} = \\frac{5}{10}\n$$\n\nDepois da conta, simplifique se for possível.\n\n### Denominadores diferentes\n\nQuando os denominadores são diferentes, primeiro reduzimos as frações ao mesmo denominador. O caminho mais seguro é usar o **MMC**.\n\nExemplo:\n\n$$\n\\frac{1}{2} + \\frac{1}{3} = \\frac{3}{6} + \\frac{2}{6} = \\frac{5}{6}\n$$\n\nOutro exemplo:\n\n$$\n\\frac{3}{4} + \\frac{2}{3} - \\frac{4}{5}\n= \\frac{45}{60} + \\frac{40}{60} - \\frac{48}{60}\n= \\frac{37}{60}\n$$\n\n## Multiplicação de frações\n\nMultiplicamos numerador com numerador e denominador com denominador:\n\n$$\n\\frac{2}{3} \\times \\frac{4}{5} = \\frac{8}{15}\n$$\n\nSe for uma fração vezes um número natural, multiplicamos o número pelo numerador:\n\n$$\n\\frac{4}{5} \\times 3 = \\frac{12}{5}\n$$\n\n## Divisão de frações\n\nPara dividir frações, multiplicamos a primeira pelo **inverso da segunda**:\n\n$$\n\\frac{3}{4} \\div \\frac{2}{5} = \\frac{3}{4} \\times \\frac{5}{2} = \\frac{15}{8}\n$$\n\nTambém vale para:\n\n- número dividido por fração\n- fração dividida por número\n\nExemplo:\n\n$$\n2 \\div \\frac{4}{7} = 2 \\times \\frac{7}{4} = \\frac{7}{2}\n$$\n\n## Potenciação e radiciação de frações\n\nQuando elevamos uma fração a uma potência, elevamos numerador e denominador:\n\n$$\n\\left(\\frac{2}{3}\\right)^4 = \\frac{2^4}{3^4} = \\frac{16}{81}\n$$\n\nPara extrair a raiz de uma fração, extraímos a raiz do numerador e do denominador:\n\n$$\n\\sqrt{\\frac{16}{49}} = \\frac{\\sqrt{16}}{\\sqrt{49}} = \\frac{4}{7}\n$$\n\n## Checklist para problemas\n\nAntes de fazer a conta, siga esta ordem:\n\n1. Descubra qual parte do todo o problema descreve.\n2. Veja se você deve somar, subtrair, multiplicar ou dividir.\n3. Se os denominadores forem diferentes, reduza ao mesmo denominador.\n4. Simplifique o resultado final quando for possível.",
     "difficulty": "Médio",
     "estimatedMinutes": 16,
     "order": 2,
     "summary": "Consolida soma, subtração e multiplicação com frações.",
     "goals": [
       "Somar frações com mesmo denominador",
-      "Resolver soma com MMC"
+      "Resolver soma com MMC",
+      "Multiplicar, dividir e interpretar problemas"
     ],
     "prerequisites": [
       "fractions-intro"
@@ -513,7 +515,7 @@ export const LESSONS: Lesson[] = [
     "id": "fractions-equivalence",
     "topicId": "fractions",
     "title": "Equivalência e Comparação de Frações",
-    "content": "# Equivalência e Comparação de Frações\n\n> Estrutura pronta para conteúdo. Substitua este texto pelo tutorial completo em Markdown.\n\n## Resumo da aula\n\nMostrar quando frações representam a mesma quantidade e como comparar valores.\n\n## Objetivos de aprendizagem\n\n- Reconhecer frações equivalentes\n- Comparar frações com segurança\n- Usar simplificação como ferramenta\n\n## Pré-requisitos\n\n- Revise os conceitos anteriores do módulo.\n- Traga exemplos curtos antes de formalizar.\n\n## Desenvolvimento\n\nEscreva aqui a explicação principal, exemplos resolvidos, observações e contraexemplos.\n\n### Exemplo com KaTeX\n\nUse fórmulas inline como $a^2 + b^2 = c^2$ ou blocos:\n\n$$\n\\frac{x+3}{2} = 5\n$$\n\n## Exercícios sugeridos\n\n1. Crie 3 exercícios diretos.\n2. Adicione 2 exercícios contextualizados.\n3. Feche com 1 questão de revisão.",
+    "content": "# Equivalência e Comparação de Frações\n\nFrações diferentes podem representar a **mesma quantidade**. É isso que chamamos de equivalência.\n\n## Frações equivalentes\n\nExemplo:\n\n$$\n\\frac{1}{2} = \\frac{2}{4} = \\frac{3}{6}\n$$\n\nTodas representam metade de um inteiro.\n\nIsso acontece porque multiplicamos ou dividimos numerador e denominador pelo **mesmo número diferente de zero**.\n\n## Fração irredutível\n\nQuando simplificamos uma fração até não ser mais possível reduzir, chegamos à forma irredutível.\n\nExemplo:\n\n$$\n\\frac{12}{18} = \\frac{2}{3}\n$$\n\nNesse caso, $2/3$ é a forma mais simples.\n\n## Redução ao mesmo denominador\n\nPara comparar ou somar frações com denominadores diferentes, muitas vezes precisamos reduzi-las ao mesmo denominador.\n\nExemplo:\n\nReduza $2/4$, $8/3$, $7/5$ e $1/10$ ao mesmo denominador.\n\nO MMC de $4$, $3$, $5$ e $10$ é $60$. Então:\n\n$$\n\\frac{2}{4} = \\frac{30}{60}\n\\qquad\n\\frac{8}{3} = \\frac{160}{60}\n\\qquad\n\\frac{7}{5} = \\frac{84}{60}\n\\qquad\n\\frac{1}{10} = \\frac{6}{60}\n$$\n\n## Como comparar frações\n\n### Mesmo denominador\n\nA maior fração é a que tem o maior numerador.\n\nExemplo:\n\n$$\n\\frac{7}{10} > \\frac{4}{10}\n$$\n\n### Mesmo numerador\n\nA maior fração é a que tem o **menor denominador**, porque o inteiro foi dividido em menos partes.\n\nExemplo:\n\n$$\n\\frac{3}{5} > \\frac{3}{8}\n$$\n\n### Numeradores e denominadores diferentes\n\nReduza ao mesmo denominador e compare.\n\nExemplo:\n\n$$\n\\frac{1}{2} = \\frac{3}{6}\n\\qquad\n\\frac{2}{3} = \\frac{4}{6}\n\\qquad\n\\frac{5}{6} = \\frac{5}{6}\n$$\n\nLogo:\n\n$$\n\\frac{1}{2} < \\frac{2}{3} < \\frac{5}{6}\n$$\n\n## Estratégia prática\n\nQuando bater dúvida:\n\n1. tente simplificar;\n2. veja se os numeradores são iguais;\n3. veja se os denominadores são iguais;\n4. se nada disso acontecer, reduza ao mesmo denominador.\n\nEssa sequência evita erro em comparação e prepara o terreno para as operações.",
     "difficulty": "Médio",
     "estimatedMinutes": 17,
     "order": 3,
@@ -527,7 +529,32 @@ export const LESSONS: Lesson[] = [
       "fractions-intro"
     ],
     "tags": [],
-    "status": "outline"
+    "status": "ready"
+  },
+  {
+    "id": "fractions-review",
+    "topicId": "fractions",
+    "title": "Revisão e Gabarito de Frações",
+    "content": "# Revisão e Gabarito de Frações\n\nEsta lição fecha o capítulo com exercícios aplicados e questões de prova retiradas do material-base usado no projeto.\n\n## O que você vai encontrar aqui\n\n- problemas de interpretação com frações;\n- situações de razão, vazão, tempo e porcentagem;\n- questões objetivas de provas anteriores;\n- gabarito oficial integrado ao site.\n\n## Como usar esta revisão\n\n1. Abra o exercício.\n2. Leia o item diretamente no scan oficial que aparece na tela.\n3. Resolva no caderno ou no campo de resposta.\n4. Só depois revele o gabarito.\n\n## Organização da trilha\n\n- Itens **31 a 38**: comparação, interpretação e questões objetivas iniciais.\n- Itens **39 a 48**: leitura de gráficos, problemas algébricos e modelagem.\n- Itens **49 a 59**: vazão, produção, divisões em partes e raciocínio operacional.\n\n## O que revisar antes de começar\n\n- simplificação de frações;\n- redução ao mesmo denominador;\n- multiplicação por fração;\n- divisão por fração;\n- leitura cuidadosa de problemas com \"parte do restante\".\n\n## Observação importante\n\nO gabarito mostrado na plataforma segue o material oficial. Em frações, a maior parte das respostas aparece de forma direta, então vale a pena comparar não só o resultado final, mas também se a sua conta ficou simplificada.",
+    "difficulty": "Médio",
+    "estimatedMinutes": 24,
+    "order": 4,
+    "summary": "Fecha o capítulo com exercícios aplicados, questões de prova e gabarito oficial.",
+    "goals": [
+      "Revisar tipos, equivalência e operações",
+      "Resolver problemas com frações em contexto",
+      "Conferir respostas com gabarito oficial"
+    ],
+    "prerequisites": [
+      "fractions-intro",
+      "fractions-operations",
+      "fractions-equivalence"
+    ],
+    "tags": [
+      "revisão",
+      "gabarito"
+    ],
+    "status": "ready"
   },
   {
     "id": "decimal-reading",
@@ -991,20 +1018,20 @@ export const LESSONS: Lesson[] = [
   {
     "id": "roots-square",
     "topicId": "powers-roots",
-    "title": "Raiz Quadrada e Cúbica",
-    "content": "# Raiz Quadrada e Cúbica\n\n> Estrutura pronta para conteúdo. Substitua este texto pelo tutorial completo em Markdown.\n\n## Resumo da aula\n\nInterpreta radiciação como operação inversa da potenciação.\n\n## Objetivos de aprendizagem\n\n- Reconhecer quadrados perfeitos\n- Estimar raízes\n- Relacionar potência e raiz\n\n## Pré-requisitos\n\n- Revise os conceitos anteriores do módulo.\n- Traga exemplos curtos antes de formalizar.\n\n## Desenvolvimento\n\nEscreva aqui a explicação principal, exemplos resolvidos, observações e contraexemplos.\n\n### Exemplo com KaTeX\n\nUse fórmulas inline como $a^2 + b^2 = c^2$ ou blocos:\n\n$$\n\\frac{x+3}{2} = 5\n$$\n\n## Exercícios sugeridos\n\n1. Crie 3 exercícios diretos.\n2. Adicione 2 exercícios contextualizados.\n3. Feche com 1 questão de revisão.",
+    "title": "Radiciação, Propriedades e Extração",
+    "content": "# Radiciação, Propriedades e Extração\n\nA radiciação aparece como operação inversa da potenciação, mas no capítulo de radicais ela vai além disso: precisamos interpretar o índice, simplificar, operar e reconhecer quando uma raiz existe no conjunto dos números reais.\n\n## Definição de radical\n\nSe\n\n$$\n\\sqrt[n]{A} = b\n$$\n\nentão\n\n$$\nb^n = A\n$$\n\ncom $n \\in \\mathbb{N}$ e $n \\geq 2$.\n\n## Raiz aritmética\n\nQuando o índice é **par**, trabalhamos com a raiz aritmética, isto é, a raiz **não negativa**.\n\nExemplos:\n\n- $\\sqrt{4} = 2$\n- $\\sqrt{9} = 3$\n- $\\sqrt{16} = 4$\n\nPor isso, no conjunto dos reais:\n\n$$\n\\sqrt{4} \\neq -2\n$$\n\n## Expoente fracionário\n\nTodo expoente fracionário pode ser escrito como radical:\n\n$$\na^{\\frac{m}{n}} = \\sqrt[n]{a^m}\n$$\n\nExemplos:\n\n$$\n5^{\\frac{2}{3}} = \\sqrt[3]{5^2}\n\\qquad\n\\text{e}\n\\qquad\nx^{\\frac{3}{4}} = \\sqrt[4]{x^3}\n$$\n\n## Propriedades básicas\n\n### Raiz de uma potência\n\nPara extrair a raiz de uma potência, dividimos o expoente pelo índice do radical:\n\n$$\n\\sqrt[n]{a^m} = a^{\\frac{m}{n}}\n$$\n\nSe a divisão não for exata, uma parte sai do radical e outra permanece.\n\n### Raiz de produto\n\n$$\n\\sqrt[n]{ab} = \\sqrt[n]{a} \\cdot \\sqrt[n]{b}\n$$\n\n### Raiz de quociente\n\n$$\n\\sqrt[n]{\\frac{a}{b}} = \\frac{\\sqrt[n]{a}}{\\sqrt[n]{b}}\n\\qquad (b \\neq 0)\n$$\n\n### Radicais equivalentes\n\nPodemos multiplicar ou dividir o índice e o expoente do radicando pelo mesmo número sem alterar a raiz:\n\n$$\n\\sqrt[n]{a^m} = \\sqrt[kn]{a^{km}}\n$$\n\nIsso ajuda bastante na redução ao mesmo índice.\n\n## Simplificação e extração de fatores\n\nO objetivo aqui é procurar potências perfeitas dentro do radicando.\n\nExemplo:\n\n$$\n\\sqrt{72} = \\sqrt{36 \\cdot 2} = 6\\sqrt{2}\n$$\n\nOutro exemplo:\n\n$$\n\\sqrt[3]{54} = \\sqrt[3]{27 \\cdot 2} = 3\\sqrt[3]{2}\n$$\n\nSe o expoente do fator for menor do que o índice, ele não sai do radical.\n\n## Operações com radicais\n\n### Radicais semelhantes\n\nSó podemos somar ou subtrair radicais que tenham **mesmo índice** e **mesmo radicando**.\n\nExemplo:\n\n$$\n7\\sqrt{2} + 4\\sqrt{2} = 11\\sqrt{2}\n$$\n\n### Multiplicação e divisão\n\nQuando os índices são iguais, conservamos o índice e operamos os radicandos:\n\n$$\n\\sqrt{3} \\cdot \\sqrt{12} = \\sqrt{36} = 6\n$$\n\nSe os índices forem diferentes, primeiro reduzimos ao mesmo índice.\n\n## Introdução de fator no radical\n\nSe um fator estiver fora do radical, podemos introduzi-lo no radicando elevando-o ao índice:\n\n$$\n3\\sqrt{2} = \\sqrt{3^2 \\cdot 2} = \\sqrt{18}\n$$\n\nEsse movimento ajuda em simplificações e comparações.\n\n## Racionalização de denominadores\n\nNão deixamos radical no denominador quando podemos eliminá-lo.\n\n### Denominador com um único radical quadrado\n\n$$\n\\frac{3}{\\sqrt{2}} = \\frac{3\\sqrt{2}}{2}\n$$\n\n### Denominador com radical de índice diferente de 2\n\nEscolhemos um fator racionalizante que complete a potência necessária.\n\n### Denominador com soma ou diferença de radicais\n\nUsamos o **conjugado**:\n\n$$\n\\frac{1}{\\sqrt{a}+\\sqrt{b}}\n\\cdot\n\\frac{\\sqrt{a}-\\sqrt{b}}{\\sqrt{a}-\\sqrt{b}}\n$$\n\n## Radical duplo\n\nEm alguns casos, expressões como\n\n$$\n\\sqrt{A + \\sqrt{B}}\n$$\n\npodem ser reescritas como soma de radicais mais simples. Isso aparece nas questões de treino e em parte das questões de concurso do capítulo.\n\n## Extração da raiz quadrada por falta\n\nQuando a raiz não é exata, podemos obter uma raiz **por falta** e estudar o resto.\n\nExemplo clássico:\n\nse a raiz quadrada por falta de um número é $N$, o resto máximo possível é:\n\n$$\n2N\n$$\n\nJá na raiz cúbica, o maior resto possível é:\n\n$$\n3N^2 + 3N\n$$\n\n## Erro inferior a um valor dado\n\nPara obter $\\sqrt{N}$ com erro inferior a $1/d$, calculamos:\n\n$$\n\\frac{\\sqrt{N \\cdot d^2}}{d}\n$$\n\nEssa ideia aparece nas questões finais antes do bloco de concursos.\n\n## O que treinar nesta lição\n\nNo site, esta aula reúne os itens **1 a 140** do material-base de radiciação. O bloco cobre:\n\n- simplificação de radicais;\n- operações e potências;\n- racionalização;\n- extração de raízes;\n- restos e erros de aproximação.",
     "difficulty": "Médio",
-    "estimatedMinutes": 17,
+    "estimatedMinutes": 30,
     "order": 2,
-    "summary": "Interpreta radiciação como operação inversa da potenciação.",
+    "summary": "Consolida definição de radical, propriedades, operações e extração de raízes.",
     "goals": [
-      "Reconhecer quadrados perfeitos",
-      "Estimar raízes",
-      "Relacionar potência e raiz"
+      "Relacionar potência e raiz",
+      "Simplificar radicais e operar com segurança",
+      "Extrair raízes e estimar erros"
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline"
+    "status": "ready"
   },
   {
     "id": "scientific-notation",
@@ -1053,6 +1080,30 @@ export const LESSONS: Lesson[] = [
       "revisao",
       "gabarito",
       "lista-completa"
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "roots-chapter-review",
+    "topicId": "powers-roots",
+    "title": "Revisão e Gabarito de Radiciação",
+    "content": "# Revisão e Gabarito de Radiciação\n\nEsta revisão fecha a parte de radicais do tópico com o bloco de concursos do material-base.\n\n## O que entra nesta etapa\n\n- interpretação de expressões com radicais;\n- racionalização em nível de prova;\n- comparação entre formas equivalentes;\n- itens objetivos com alternativas;\n- conferência com gabarito oficial dentro da plataforma.\n\n## Como estudar aqui\n\n1. Leia o item no scan oficial.\n2. Reescreva a expressão com calma.\n3. Simplifique por etapas.\n4. Só depois consulte o gabarito.\n\n## Faixa de exercícios\n\nNesta lição estão os itens **141 a 211** do material de radiciação. Eles concentram a parte de concursos e costumam exigir:\n\n- domínio de propriedades;\n- leitura limpa de sinais e expoentes;\n- cuidado com radicais em denominadores;\n- atenção à alternativa final.\n\n## Estratégia recomendada\n\nSe uma questão parecer grande demais:\n\n- separe o que é potência;\n- depois trate a raiz;\n- só então faça soma, subtração, produto ou quociente;\n- deixe o gabarito como conferência final, não como primeiro passo.\n\n## Observação sobre o gabarito\n\nComo os itens de radiciação têm muitos símbolos e expressões escaneadas, o site mantém cada questão ligada ao recorte oficial do gabarito. Assim, você confere a resposta certa sem perder fidelidade matemática para o scan original.",
+    "difficulty": "Difícil",
+    "estimatedMinutes": 26,
+    "order": 5,
+    "summary": "Consolida a parte de radicais com questões de concurso e gabarito oficial por item.",
+    "goals": [
+      "Revisar simplificação, racionalização e extração",
+      "Resolver questões de concurso com radicais",
+      "Conferir respostas no gabarito oficial integrado"
+    ],
+    "prerequisites": [
+      "roots-square"
+    ],
+    "tags": [
+      "revisão",
+      "gabarito",
+      "concursos"
     ],
     "status": "ready"
   },

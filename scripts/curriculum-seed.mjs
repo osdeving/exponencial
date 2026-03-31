@@ -201,6 +201,7 @@ $\\frac{2}{3} \\times \\frac{4}{5} = \\frac{8}{15}$
         },
       ),
       lesson('fractions-equivalence', 'equivalencia-e-comparacao', 'Equivalência e Comparação de Frações', 'Mostrar quando frações representam a mesma quantidade e como comparar valores.', ['Reconhecer frações equivalentes', 'Comparar frações com segurança', 'Usar simplificação como ferramenta'], { difficulty: 'Médio', estimatedMinutes: 17, order: 3, prerequisites: ['fractions-intro'] }),
+      lesson('fractions-review', 'revisao-e-gabarito-de-fracoes', 'Revisão e Gabarito de Frações', 'Fecha o capítulo com exercícios aplicados, questões de prova e gabarito oficial.', ['Revisar tipos, equivalência e operações', 'Resolver problemas com frações em contexto', 'Conferir respostas com gabarito oficial'], { difficulty: 'Médio', estimatedMinutes: 24, order: 4, prerequisites: ['fractions-intro', 'fractions-operations', 'fractions-equivalence'] }),
     ],
   ),
   topic(
@@ -488,9 +489,10 @@ $x = 7$
     },
     [
       lesson('powers-exponents', 'potencias-e-propriedades', 'Potências e Propriedades', 'Apresenta base, expoente e regras iniciais.', ['Ler potências', 'Aplicar propriedades simples', 'Comparar ordens de grandeza'], { difficulty: 'Médio', estimatedMinutes: 16, order: 1 }),
-      lesson('roots-square', 'raiz-quadrada-e-cubica', 'Raiz Quadrada e Cúbica', 'Interpreta radiciação como operação inversa da potenciação.', ['Reconhecer quadrados perfeitos', 'Estimar raízes', 'Relacionar potência e raiz'], { difficulty: 'Médio', estimatedMinutes: 17, order: 2 }),
+      lesson('roots-square', 'raiz-quadrada-e-cubica', 'Radiciação, Propriedades e Extração', 'Consolida definição de radical, propriedades, operações e extração de raízes.', ['Relacionar potência e raiz', 'Simplificar radicais e operar com segurança', 'Extrair raízes e estimar erros'], { difficulty: 'Médio', estimatedMinutes: 30, order: 2 }),
       lesson('scientific-notation', 'notacao-cientifica', 'Notação Científica', 'Aplica potências de 10 à escrita científica.', ['Escrever em notação científica', 'Comparar ordens de grandeza', 'Ler dados reais'], { difficulty: 'Médio', estimatedMinutes: 18, order: 3 }),
       lesson('powers-chapter-review', 'revisao-e-gabarito-de-potenciacao', 'Revisão e Gabarito de Potenciação', 'Consolida o capítulo com aplicações, questões de prova e gabarito completo.', ['Revisar propriedades de potência', 'Aplicar potências de 10 e ordem de grandeza', 'Conferir respostas com gabarito oficial'], { difficulty: 'Difícil', estimatedMinutes: 28, order: 4, prerequisites: ['powers-exponents', 'scientific-notation'] }),
+      lesson('roots-chapter-review', 'revisao-e-gabarito-de-radiciacao', 'Revisão e Gabarito de Radiciação', 'Consolida a parte de radicais com questões de concurso e gabarito oficial por item.', ['Revisar simplificação, racionalização e extração', 'Resolver questões de concurso com radicais', 'Conferir respostas no gabarito oficial integrado'], { difficulty: 'Difícil', estimatedMinutes: 26, order: 5, prerequisites: ['roots-square'] }),
     ],
   ),
   topic(

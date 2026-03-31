@@ -6,7 +6,7 @@ difficulty: Médio
 estimatedMinutes: 17
 order: 3
 summary: Mostrar quando frações representam a mesma quantidade e como comparar valores.
-status: outline
+status: ready
 goals:
   - Reconhecer frações equivalentes
   - Comparar frações com segurança
@@ -17,37 +17,101 @@ tags:
 ---
 # Equivalência e Comparação de Frações
 
-> Estrutura pronta para conteúdo. Substitua este texto pelo tutorial completo em Markdown.
+Frações diferentes podem representar a **mesma quantidade**. É isso que chamamos de equivalência.
 
-## Resumo da aula
+## Frações equivalentes
 
-Mostrar quando frações representam a mesma quantidade e como comparar valores.
-
-## Objetivos de aprendizagem
-
-- Reconhecer frações equivalentes
-- Comparar frações com segurança
-- Usar simplificação como ferramenta
-
-## Pré-requisitos
-
-- Revise os conceitos anteriores do módulo.
-- Traga exemplos curtos antes de formalizar.
-
-## Desenvolvimento
-
-Escreva aqui a explicação principal, exemplos resolvidos, observações e contraexemplos.
-
-### Exemplo com KaTeX
-
-Use fórmulas inline como $a^2 + b^2 = c^2$ ou blocos:
+Exemplo:
 
 $$
-\frac{x+3}{2} = 5
+\frac{1}{2} = \frac{2}{4} = \frac{3}{6}
 $$
 
-## Exercícios sugeridos
+Todas representam metade de um inteiro.
 
-1. Crie 3 exercícios diretos.
-2. Adicione 2 exercícios contextualizados.
-3. Feche com 1 questão de revisão.
+Isso acontece porque multiplicamos ou dividimos numerador e denominador pelo **mesmo número diferente de zero**.
+
+## Fração irredutível
+
+Quando simplificamos uma fração até não ser mais possível reduzir, chegamos à forma irredutível.
+
+Exemplo:
+
+$$
+\frac{12}{18} = \frac{2}{3}
+$$
+
+Nesse caso, $2/3$ é a forma mais simples.
+
+## Redução ao mesmo denominador
+
+Para comparar ou somar frações com denominadores diferentes, muitas vezes precisamos reduzi-las ao mesmo denominador.
+
+Exemplo:
+
+Reduza $2/4$, $8/3$, $7/5$ e $1/10$ ao mesmo denominador.
+
+O MMC de $4$, $3$, $5$ e $10$ é $60$. Então:
+
+$$
+\frac{2}{4} = \frac{30}{60}
+\qquad
+\frac{8}{3} = \frac{160}{60}
+\qquad
+\frac{7}{5} = \frac{84}{60}
+\qquad
+\frac{1}{10} = \frac{6}{60}
+$$
+
+## Como comparar frações
+
+### Mesmo denominador
+
+A maior fração é a que tem o maior numerador.
+
+Exemplo:
+
+$$
+\frac{7}{10} > \frac{4}{10}
+$$
+
+### Mesmo numerador
+
+A maior fração é a que tem o **menor denominador**, porque o inteiro foi dividido em menos partes.
+
+Exemplo:
+
+$$
+\frac{3}{5} > \frac{3}{8}
+$$
+
+### Numeradores e denominadores diferentes
+
+Reduza ao mesmo denominador e compare.
+
+Exemplo:
+
+$$
+\frac{1}{2} = \frac{3}{6}
+\qquad
+\frac{2}{3} = \frac{4}{6}
+\qquad
+\frac{5}{6} = \frac{5}{6}
+$$
+
+Logo:
+
+$$
+\frac{1}{2} < \frac{2}{3} < \frac{5}{6}
+$$
+
+## Estratégia prática
+
+Quando bater dúvida:
+
+1. tente simplificar;
+2. veja se os numeradores são iguais;
+3. veja se os denominadores são iguais;
+4. se nada disso acontecer, reduza ao mesmo denominador.
+
+Essa sequência evita erro em comparação e prepara o terreno para as operações.

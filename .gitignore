@@ -6,3 +6,7 @@ coverage/
 *.log
 .env*
 !.env.example
+/public/materials/
+/TQM - Frações.pdf
+/TQM - Radiciação Exercícios.pdf
+/TQM - Radiciação Teoria.pdf

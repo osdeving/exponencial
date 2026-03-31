@@ -35,9 +35,53 @@
 }
 
 /* Prose overrides for brutalist look */
-.prose h1, .prose h2, .prose h3 {
+.prose h1,
+.prose h2,
+.prose h3,
+.prose h4 {
   @apply font-display uppercase leading-tight;
 }
+
+.prose h1 {
+  @apply mt-0 mb-8;
+}
+
+.prose h2 {
+  @apply mt-14 mb-5;
+}
+
+.prose h3 {
+  @apply mt-10 mb-4;
+}
+
+.prose h4 {
+  @apply mt-8 mb-3;
+}
+
+.prose p,
+.prose ul,
+.prose ol,
+.prose blockquote {
+  @apply my-5 leading-8;
+}
+
+.prose ul,
+.prose ol {
+  @apply pl-6;
+}
+
+.prose li {
+  @apply my-2;
+}
+
+.prose a {
+  @apply font-bold underline decoration-2 underline-offset-4;
+}
+
+.prose img {
+  @apply brutal-border my-6 w-full bg-white p-2;
+}
+
 .prose strong {
   @apply bg-brand px-1;
 }

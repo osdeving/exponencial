@@ -1,6 +1,8 @@
 # Autoria de Conteúdo
 
-O projeto agora usa **Markdown como fonte única** de tópicos e lições.
+Hoje o projeto usa **Markdown como fonte principal** de tópicos e lições.
+
+Importante: **exercícios e gabaritos ainda não migraram totalmente para Markdown**. Eles continuam em `src/content/exercises/*.ts`. Isso é uma limitação conhecida da arquitetura atual.
 
 ## Estrutura
 
@@ -19,6 +21,7 @@ src/content/
 - `_topic.md` define os metadados do tópico.
 - Cada lição é um `.md` separado.
 - O manifesto consumido pela aplicação é gerado automaticamente em `src/generated/content-manifest.ts`.
+- Bancos de exercícios atuais ficam em `src/content/exercises/`.
 
 ## Comandos
 
@@ -136,8 +139,22 @@ $$
 4. Rode `npm run dev`.
 5. Commit normalmente.
 
+## Exercícios e gabaritos
+
+O fluxo atual ainda é híbrido:
+
+- **teoria**: `src/content/**/*.md`
+- **exercícios/gabaritos**: `src/content/exercises/*.ts`
+
+Enquanto a migração completa não existir, siga esta regra:
+
+- se a mudança for só teoria, **não mexa na UI**
+- se a mudança for exercício/gabarito, mexa apenas no banco correspondente em `src/content/exercises/`
+
 ## Observações
 
 - Para adicionar um novo tópico, crie uma pasta nova com `_topic.md`.
 - Para adicionar uma nova lição, crie um novo `.md` no mesmo diretório do tópico.
 - O app lê as lições pelo `topicId`, então não é necessário editar o código para uma nova lição se o frontmatter estiver correto.
+- Não edite `src/generated/content-manifest.ts` manualmente.
+- Não use PDFs como dependência do runtime final.

@@ -1,28 +1,45 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
+# Exponencial
 
-# Run and deploy your AI Studio app
+Plataforma de estudos de matemática orientada a conteúdo. A meta do projeto é simples: o site deve se comportar como um **renderer** com trilhas, teoria, exercícios, gabaritos e progresso, enquanto o conteúdo curricular vem de arquivos declarativos e não de código espalhado pela UI.
 
-This contains everything you need to run your app locally.
+## Leitura rápida
 
-View your app in AI Studio: https://ai.studio/apps/49dc8256-12d7-468d-8599-fe974e854149
+- Arquitetura e limites do sistema: [docs/architecture.md](docs/architecture.md)
+- Fluxo de autoria de conteúdo: [docs/content-authoring.md](docs/content-authoring.md)
+- Instruções operacionais para IA e agentes: [AGENTS.md](AGENTS.md)
 
-## Run Locally
+## Rodar localmente
 
-**Prerequisites:**  Node.js
+Pré-requisito: Node.js.
 
+```bash
+npm install
+npm run dev
+```
 
-1. Install dependencies:
-   `npm install`
-2. Set the `GEMINI_API_KEY` in [.env.local](.env.local) to your Gemini API key
-3. Run the app:
-   `npm run dev`
+Outros comandos úteis:
 
-## Authoring Content
+```bash
+npm run content:scaffold
+npm run content:generate
+npm run lint
+npm run build
+```
 
-The course content now lives in Markdown under `src/content/`, with a generated manifest in `src/generated/content-manifest.ts`.
+## Modelo atual de conteúdo
 
-- Generate or validate content manifest: `npm run content:generate`
-- Scaffold the curriculum structure: `npm run content:scaffold`
-- Authoring guide: [docs/content-authoring.md](docs/content-authoring.md)
+Hoje o projeto já está parcialmente orientado a conteúdo:
+
+- tópicos e lições teóricas vivem em `src/content/**`
+- o manifesto de conteúdo é gerado em `src/generated/content-manifest.ts`
+- exercícios e gabaritos ainda vivem em `src/content/exercises/*.ts`
+
+Ou seja: a teoria já está próxima do modelo final de "editar texto e publicar". A parte de exercícios ainda não.
+
+## Regra prática
+
+Se a mudança for apenas curricular, a preferência é:
+
+1. editar Markdown em `src/content/**`
+2. só tocar em TypeScript quando a fonte atual ainda não tiver migrado, como acontece com exercícios
+3. não editar `src/generated/content-manifest.ts` manualmente

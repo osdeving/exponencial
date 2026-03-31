@@ -1,5 +1,7 @@
 import { Badge, LearningPath, Question, RankingEntry } from './types';
+import { FRACTION_QUESTIONS } from './content/exercises/fractions';
 import { POTENTIATION_QUESTIONS } from './content/exercises/potentiation';
+import { RADICAL_QUESTIONS } from './content/exercises/radicals';
 export { LESSONS, TOPICS } from './generated/content-manifest';
 
 const BASE_QUESTIONS: Question[] = [
@@ -11,24 +13,6 @@ const BASE_QUESTIONS: Question[] = [
     correctAnswer: 1,
     explanation: 'Comparando as ordens, 12.350 é maior que 12.305.',
     hint: 'Compare os algarismos da esquerda para a direita.',
-  },
-  {
-    id: 'q-fractions-1',
-    lessonId: 'fractions-intro',
-    text: 'Se uma barra tem 12 partes e você come 6, qual fração representa a parte comida em forma simplificada?',
-    options: ['6/12', '1/2', '3/4', '2/3'],
-    correctAnswer: 1,
-    explanation: '6/12 simplifica para 1/2 porque numerador e denominador podem ser divididos por 6.',
-    hint: 'Simplifique a fração dividindo numerador e denominador pelo mesmo número.',
-  },
-  {
-    id: 'q-fractions-2',
-    lessonId: 'fractions-operations',
-    text: 'Quanto vale 1/2 + 1/4?',
-    options: ['2/6', '3/4', '1/6', '2/4'],
-    correctAnswer: 1,
-    explanation: 'Transforme 1/2 em 2/4. Depois some: 2/4 + 1/4 = 3/4.',
-    hint: 'Use denominador comum 4.',
   },
   {
     id: 'q-ratio-1',
@@ -122,7 +106,12 @@ const BASE_QUESTIONS: Question[] = [
   },
 ];
 
-export const QUESTIONS: Question[] = [...BASE_QUESTIONS, ...POTENTIATION_QUESTIONS];
+export const QUESTIONS: Question[] = [
+  ...BASE_QUESTIONS,
+  ...FRACTION_QUESTIONS,
+  ...POTENTIATION_QUESTIONS,
+  ...RADICAL_QUESTIONS,
+];
 
 export const BADGES: Badge[] = [
   {

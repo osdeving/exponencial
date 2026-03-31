@@ -78,6 +78,12 @@ export default function App() {
 
   const deferredSearchQuery = useDeferredValue(searchQuery);
 
+  const scrollViewportToTop = () => {
+    window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+    document.documentElement.scrollTop = 0;
+    document.body.scrollTop = 0;
+  };
+
   useEffect(() => {
     localStorage.setItem(PROGRESS_STORAGE_KEY, JSON.stringify(progress));
   }, [progress]);
@@ -107,6 +113,16 @@ export default function App() {
       setPendingHomeSection(null);
     });
   }, [pendingHomeSection, view]);
+
+  useEffect(() => {
+    if (view === 'home' && pendingHomeSection) {
+      return;
+    }
+
+    requestAnimationFrame(() => {
+      scrollViewportToTop();
+    });
+  }, [pendingHomeSection, selectedLesson?.id, selectedPath?.id, selectedTopic?.id, view]);
 
   const searchResults = useMemo(() => buildSearchResults(deferredSearchQuery), [deferredSearchQuery]);
 
