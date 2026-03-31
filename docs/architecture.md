@@ -157,7 +157,7 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
   - O ledger local por `canonicalId` já existe.
   - O dashboard de dívida matemática também.
   - O corte mínimo local e a trava sequencial por tópico já entraram.
-  - A remediação local inicial também já entrou.
+  - A remediação local já tem ciclo completo de revisão obrigatória e reteste.
   - Ainda faltam enriquecimento de lacunas e repetição espaçada.
 - **A solução passo a passo está preparada, mas não no estágio final de animação rica**.
   - O schema declarativo já existe.
@@ -270,4 +270,4 @@ Se você quer:
 - O mastery local já existe e já atua como gate sequencial básico dentro de cada tópico.
 - O melhor lugar para mexer depende do tipo de mudança.
 - `src/components/QuestionSolutionView.tsx` e `src/config/*` são os principais pontos de atenção em escala.
-- O próximo salto arquitetural relevante é transformar a recuperação local em motor explícito de repetição espaçada e retenção sem quebrar o modelo content-driven.
+- O próximo salto arquitetural relevante é adicionar agenda de revisão e retenção sem quebrar o modelo content-driven.

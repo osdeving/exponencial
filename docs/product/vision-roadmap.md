@@ -157,7 +157,7 @@ Critério de sucesso:
 
 ### Release R2: Recovery Loop
 
-Status atual: `em andamento`
+Status atual: `concluído`
 
 Objetivo: transformar erro em gatilho de recuperação obrigatória.
 
@@ -233,12 +233,12 @@ Critério de sucesso:
 
 ## Onde estamos hoje
 
-Hoje o projeto está no início de R2:
+Hoje o projeto está no fechamento de R2 e pronto para abrir R3:
 
 - arquitetura de conteúdo já está pronta para escala
 - governança de produto e entrega já está formalizada
-- trilhas, storage local-first, gating e telemetria mínima já entraram
-- o próximo salto real é enriquecer a recuperação com mapeamento mais profundo de lacunas e entrar na repetição espaçada
+- trilhas, storage local-first, gating, recuperação obrigatória e telemetria mínima já entraram
+- o próximo salto real é abrir a agenda de revisão e a fila de repetição espaçada
 
 ## O que não vamos fazer agora
 

@@ -221,7 +221,7 @@ Status atual: `concluído`
 
 ### Epic C: Recovery
 
-Status atual: `em andamento`
+Status atual: `concluído`
 
 - [x] erro para lacuna
 - [x] revisão obrigatória
