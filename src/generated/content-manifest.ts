@@ -967,7 +967,7 @@ export const LESSONS: Lesson[] = [
     "id": "powers-exponents",
     "topicId": "powers-roots",
     "title": "Potências e Propriedades",
-    "content": "# Potências e Propriedades\n\n> Estrutura pronta para conteúdo. Substitua este texto pelo tutorial completo em Markdown.\n\n## Resumo da aula\n\nApresenta base, expoente e regras iniciais.\n\n## Objetivos de aprendizagem\n\n- Ler potências\n- Aplicar propriedades simples\n- Comparar ordens de grandeza\n\n## Pré-requisitos\n\n- Revise os conceitos anteriores do módulo.\n- Traga exemplos curtos antes de formalizar.\n\n## Desenvolvimento\n\nEscreva aqui a explicação principal, exemplos resolvidos, observações e contraexemplos.\n\n### Exemplo com KaTeX\n\nUse fórmulas inline como $a^2 + b^2 = c^2$ ou blocos:\n\n$$\n\\frac{x+3}{2} = 5\n$$\n\n## Exercícios sugeridos\n\n1. Crie 3 exercícios diretos.\n2. Adicione 2 exercícios contextualizados.\n3. Feche com 1 questão de revisão.",
+    "content": "# Potências e Propriedades\n\nPotência é uma forma compacta de representar uma multiplicação de fatores iguais. Em $a^n$, o número $a$ é a **base** e o número $n$ é o **expoente**.\n\n$$\na^n = \\underbrace{a \\cdot a \\cdot a \\cdots a}_{n\\ \\text{fatores}}\n$$\n\nExemplos rápidos:\n\n- $2^3 = 2 \\cdot 2 \\cdot 2 = 8$\n- $3^4 = 81$\n- $10^5 = 100000$\n\n## Leitura e interpretação\n\nAo ler uma potência, observe primeiro **quem está sendo elevado**. Os parênteses mudam completamente o resultado:\n\n- $(-2)^4 = 16$\n- $-2^4 = -16$\n\nNo primeiro caso, o sinal faz parte da base. No segundo, apenas o número $2$ está elevado à quarta potência.\n\n## Sinal da potência\n\nQuando a base é negativa, o sinal do resultado depende do expoente:\n\n- expoente **par**: o resultado fica positivo\n- expoente **ímpar**: o resultado fica negativo\n\nExemplos:\n\n- $(-3)^2 = 9$\n- $(-3)^3 = -27$\n- $(+4)^5 = 1024$\n\n## Produto e quociente de potências de mesma base\n\nSe a base é a mesma, operamos os **expoentes**:\n\n$$\na^m \\cdot a^n = a^{m+n}\n$$\n\n$$\n\\frac{a^m}{a^n} = a^{m-n}, \\quad a \\neq 0\n$$\n\nExemplos:\n\n- $2^3 \\cdot 2^5 = 2^8$\n- $3^7 \\div 3^4 = 3^3$\n- $x^6 \\cdot x^{-3} = x^3$\n\n## Potência de potência\n\nQuando uma potência está elevada a outro expoente, multiplicamos os expoentes:\n\n$$\n(a^m)^n = a^{m \\cdot n}\n$$\n\nExemplos:\n\n- $(2^3)^4 = 2^{12}$\n- $\\left(\\frac{4}{5}\\right)^{-3} = \\left(\\frac{5}{4}\\right)^3$\n\n## Potência de produto e potência de quociente\n\nTambém podemos distribuir o expoente:\n\n$$\n(ab)^n = a^n \\cdot b^n\n$$\n\n$$\n\\left(\\frac{a}{b}\\right)^n = \\frac{a^n}{b^n}, \\quad b \\neq 0\n$$\n\nExemplos:\n\n- $(2 \\cdot 5)^3 = 2^3 \\cdot 5^3$\n- $\\left(\\frac{3}{4}\\right)^2 = \\frac{3^2}{4^2}$\n\n## Expoente zero e expoente negativo\n\nDuas propriedades aparecem o tempo todo em simplificações:\n\n$$\na^0 = 1, \\quad a \\neq 0\n$$\n\n$$\na^{-n} = \\frac{1}{a^n}, \\quad a \\neq 0\n$$\n\nExemplos:\n\n- $5^0 = 1$\n- $(-1)^{50} = 1$\n- $3^{-2} = \\frac{1}{3^2} = \\frac{1}{9}$\n- $\\left(\\frac{2}{5}\\right)^{-1} = \\frac{5}{2}$\n\n## Estratégia de resolução\n\nEm exercícios com muitas potências:\n\n1. identifique se há parênteses;\n2. veja se a base se repete;\n3. aplique a propriedade correta;\n4. só então calcule o valor numérico final.\n\nEssa ordem evita erros comuns, principalmente com sinais e expoentes negativos.\n\n## Erros mais comuns\n\n- confundir $-2^2$ com $(-2)^2$;\n- somar bases em vez de somar expoentes;\n- esquecer de inverter a base no expoente negativo;\n- ignorar que $a^0 = 1$ para $a \\neq 0$.\n\n## Prática no site\n\nEsta lição agora tem uma lista extensa de treino com desenvolvimento de potências, propriedades operatórias e simplificações algébricas. Use o gabarito quando quiser conferir o resultado oficial do material-base.",
     "difficulty": "Médio",
     "estimatedMinutes": 16,
     "order": 1,
@@ -977,9 +977,16 @@ export const LESSONS: Lesson[] = [
       "Aplicar propriedades simples",
       "Comparar ordens de grandeza"
     ],
-    "prerequisites": [],
-    "tags": [],
-    "status": "outline"
+    "prerequisites": [
+      "Multiplicação e divisão de números inteiros e racionais",
+      "Leitura de frações e decimais"
+    ],
+    "tags": [
+      "potenciacao",
+      "propriedades",
+      "expoentes"
+    ],
+    "status": "ready"
   },
   {
     "id": "roots-square",
@@ -1003,7 +1010,7 @@ export const LESSONS: Lesson[] = [
     "id": "scientific-notation",
     "topicId": "powers-roots",
     "title": "Notação Científica",
-    "content": "# Notação Científica\n\n> Estrutura pronta para conteúdo. Substitua este texto pelo tutorial completo em Markdown.\n\n## Resumo da aula\n\nAplica potências de 10 à escrita científica.\n\n## Objetivos de aprendizagem\n\n- Escrever em notação científica\n- Comparar ordens de grandeza\n- Ler dados reais\n\n## Pré-requisitos\n\n- Revise os conceitos anteriores do módulo.\n- Traga exemplos curtos antes de formalizar.\n\n## Desenvolvimento\n\nEscreva aqui a explicação principal, exemplos resolvidos, observações e contraexemplos.\n\n### Exemplo com KaTeX\n\nUse fórmulas inline como $a^2 + b^2 = c^2$ ou blocos:\n\n$$\n\\frac{x+3}{2} = 5\n$$\n\n## Exercícios sugeridos\n\n1. Crie 3 exercícios diretos.\n2. Adicione 2 exercícios contextualizados.\n3. Feche com 1 questão de revisão.",
+    "content": "# Notação Científica\n\nNotação científica é uma forma prática de escrever números muito grandes ou muito pequenos usando **potências de 10**.\n\n## Potências de 10\n\nAlguns desenvolvimentos importantes:\n\n- $10^1 = 10$\n- $10^3 = 1000$\n- $10^5 = 100000$\n- $10^{-1} = 0,1$\n- $10^{-3} = 0,001$\n\nQuando o expoente é positivo, o número cresce. Quando o expoente é negativo, obtemos um decimal.\n\n## Como escrever um número com potência de 10\n\n### Caso 1: número maior ou igual a 1\n\nContamos quantas casas a vírgula precisa andar para a esquerda até sobrar apenas um algarismo não nulo antes dela.\n\nExemplos:\n\n- $784000 = 7,84 \\times 10^5$\n- $325000000 = 3,25 \\times 10^8$\n- $38,475 = 3,8475 \\times 10^1$\n\n### Caso 2: número entre 0 e 1\n\nContamos quantas casas a vírgula precisa andar para a direita até o primeiro algarismo significativo.\n\nExemplos:\n\n- $0,00048 = 4,8 \\times 10^{-4}$\n- $0,000006 = 6 \\times 10^{-6}$\n- $0,00000002 = 2 \\times 10^{-8}$\n\n## Forma padrão\n\nUm número está em notação científica quando aparece na forma:\n\n$$\nN = x \\times 10^n\n$$\n\ncom\n\n$$\n1 \\leq x < 10\n$$\n\nEsse intervalo garante que a escrita fique padronizada e fácil de comparar.\n\n## Ordem de grandeza\n\nDepois de escrever o número como $x \\times 10^n$, observamos o valor de $x$:\n\n- se $x < 3,16$, a ordem de grandeza é $10^n$;\n- se $x > 3,16$, a ordem de grandeza é $10^{n+1}$.\n\nO número $3,16$ aparece porque é aproximadamente $\\sqrt{10}$ e funciona como fronteira entre uma potência de 10 e a seguinte.\n\nExemplos:\n\n- $3,12 \\times 10^4$ tem ordem de grandeza $10^4$\n- $6,403 \\times 10^{-7}$ tem ordem de grandeza $10^{-6}$\n- $4,72 \\times 10^5$ tem ordem de grandeza $10^6$\n\n## Prefixos mais usados\n\nO material-base também relaciona potências de 10 com prefixos do Sistema Internacional:\n\n- quilo: $10^3$\n- mega: $10^6$\n- giga: $10^9$\n- tera: $10^{12}$\n\nIsso aparece em unidades como quilômetro, megabyte e gigabit.\n\n## Estratégia para não errar\n\n1. escreva a parte significativa com apenas um algarismo antes da vírgula;\n2. conte quantas casas a vírgula se moveu;\n3. use expoente positivo se o número original era grande;\n4. use expoente negativo se o número original era pequeno;\n5. só depois decida a ordem de grandeza.\n\n## Prática no site\n\nOs exercícios desta lição cobrem reescrita em potências de 10, notação científica e ordem de grandeza. Se quiser conferir sem sair da lista, abra o gabarito oficial dentro do próprio exercício.",
     "difficulty": "Médio",
     "estimatedMinutes": 18,
     "order": 3,
@@ -1013,9 +1020,41 @@ export const LESSONS: Lesson[] = [
       "Comparar ordens de grandeza",
       "Ler dados reais"
     ],
-    "prerequisites": [],
-    "tags": [],
-    "status": "outline"
+    "prerequisites": [
+      "Potências com expoentes inteiros",
+      "Leitura de números decimais"
+    ],
+    "tags": [
+      "notacao-cientifica",
+      "potencias-de-10",
+      "ordem-de-grandeza"
+    ],
+    "status": "ready"
+  },
+  {
+    "id": "powers-chapter-review",
+    "topicId": "powers-roots",
+    "title": "Revisão e Gabarito de Potenciação",
+    "content": "# Revisão e Gabarito de Potenciação\n\nEsta lição reúne a parte final da lista do capítulo: aplicações, expressões mais elaboradas, problemas contextualizados e questões de concursos.\n\n## Como usar esta etapa\n\n1. tente resolver em sequência ou por blocos;\n2. escreva sua resolução no campo da questão;\n3. abra o gabarito oficial quando quiser conferir;\n4. marque se acertou ou errou para registrar seu aproveitamento.\n\n## Organização da lista\n\n- **Aplicação das potências**: expressões algébricas, frações e simplificações mais densas.\n- **Questões de concursos**: itens de provas com alternativas e problemas contextualizados.\n- **Gabarito completo**: disponível dentro da experiência de exercícios.\n\n## O que observar na correção\n\n- Se você escolheu a propriedade certa.\n- Se respeitou os parênteses e os sinais.\n- Se ajustou corretamente o expoente na notação científica.\n- Se sua conta final bate com o resultado oficial do material-base.\n\n## Meta sugerida\n\nFaça primeiro um bloco curto, como 10 ou 15 questões. Depois avance para as questões de concursos, que exigem mais leitura e organização das etapas.",
+    "difficulty": "Difícil",
+    "estimatedMinutes": 28,
+    "order": 4,
+    "summary": "Consolida o capítulo com aplicações, questões de prova e gabarito completo.",
+    "goals": [
+      "Revisar propriedades de potência",
+      "Aplicar potências de 10 e ordem de grandeza",
+      "Conferir respostas com gabarito oficial"
+    ],
+    "prerequisites": [
+      "Potências e Propriedades",
+      "Notação Científica"
+    ],
+    "tags": [
+      "revisao",
+      "gabarito",
+      "lista-completa"
+    ],
+    "status": "ready"
   },
   {
     "id": "stats-tables",

@@ -1,4 +1,5 @@
 import { LESSONS, PATHS, QUESTIONS } from '../data';
+import { getOfficialAnswer } from './questions';
 import { Lesson, Topic } from '../types';
 
 const TOPIC_TIPS: Record<string, string[]> = {
@@ -52,6 +53,11 @@ const TOPIC_TIPS: Record<string, string[]> = {
     'Juros simples crescem linearmente; juros compostos crescem de forma multiplicativa.',
     'Compare montante final e não apenas o valor da parcela.',
   ],
+  'powers-roots': [
+    'Antes de operar, confira se os parênteses fazem o sinal entrar ou não na potência.',
+    'Produto e quociente de potências pedem atenção ao expoente e não apenas ao valor numérico.',
+    'Na notação científica, deixe um único algarismo não nulo antes da vírgula e ajuste a potência de 10.',
+  ],
 };
 
 const TOPIC_EXAMPLES: Record<string, string> = {
@@ -75,6 +81,8 @@ const TOPIC_EXAMPLES: Record<string, string> = {
     'Exemplo: em y = x^2 - 4, os zeros são x = 2 e x = -2.',
   'math-finance':
     'Exemplo: com capital de 1000 a 10% ao ano em juros simples, após 2 anos os juros são 200.',
+  'powers-roots':
+    'Exemplo: $3^4 \\cdot 3^2 = 3^6$ e $734.000 = 7,34 \\times 10^5$.',
 };
 
 const normalize = (value: string) =>
@@ -142,6 +150,8 @@ const getFormula = (topic?: Topic | null) => {
       return 'Função quadrática:\n\n- Forma geral: $f(x) = ax^2 + bx + c$\n- Delta: $\\Delta = b^2 - 4ac$';
     case 'math-finance':
       return 'Fórmulas úteis:\n\n- Juros simples: $J = C \\cdot i \\cdot t$\n- Montante: $M = C + J$';
+    case 'powers-roots':
+      return 'Potenciação e notação científica:\n\n- Produto de mesma base: $a^m \\cdot a^n = a^{m+n}$\n- Quociente de mesma base: $a^m / a^n = a^{m-n}$\n- Potência de potência: $(a^m)^n = a^{mn}$\n- Notação científica: $N = x \\times 10^n$ com $1 \\leq x < 10$.';
     default:
       return 'Me diga o tópico e eu separo as fórmulas ou relações mais importantes.';
   }
@@ -226,7 +236,7 @@ export function generateTutorReply(input: string, currentTopic?: Topic | null, c
     const question = getLessonQuestions(currentLesson?.id)[0];
 
     if (question) {
-      return `Resposta esperada para praticar correção:\n\n**${question.text}**\n\nAlternativa correta: **${question.options[question.correctAnswer]}**\n\nExplicação: ${question.explanation}`;
+      return `Resposta esperada para praticar correção:\n\n**${question.text}**\n\nGabarito oficial: **${getOfficialAnswer(question)}**\n\nExplicação: ${question.explanation}`;
     }
 
     return 'Mande a conta ou o raciocínio que eu corrijo passo a passo.';

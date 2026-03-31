@@ -490,6 +490,7 @@ $x = 7$
       lesson('powers-exponents', 'potencias-e-propriedades', 'Potências e Propriedades', 'Apresenta base, expoente e regras iniciais.', ['Ler potências', 'Aplicar propriedades simples', 'Comparar ordens de grandeza'], { difficulty: 'Médio', estimatedMinutes: 16, order: 1 }),
       lesson('roots-square', 'raiz-quadrada-e-cubica', 'Raiz Quadrada e Cúbica', 'Interpreta radiciação como operação inversa da potenciação.', ['Reconhecer quadrados perfeitos', 'Estimar raízes', 'Relacionar potência e raiz'], { difficulty: 'Médio', estimatedMinutes: 17, order: 2 }),
       lesson('scientific-notation', 'notacao-cientifica', 'Notação Científica', 'Aplica potências de 10 à escrita científica.', ['Escrever em notação científica', 'Comparar ordens de grandeza', 'Ler dados reais'], { difficulty: 'Médio', estimatedMinutes: 18, order: 3 }),
+      lesson('powers-chapter-review', 'revisao-e-gabarito-de-potenciacao', 'Revisão e Gabarito de Potenciação', 'Consolida o capítulo com aplicações, questões de prova e gabarito completo.', ['Revisar propriedades de potência', 'Aplicar potências de 10 e ordem de grandeza', 'Conferir respostas com gabarito oficial'], { difficulty: 'Difícil', estimatedMinutes: 28, order: 4, prerequisites: ['powers-exponents', 'scientific-notation'] }),
     ],
   ),
   topic(

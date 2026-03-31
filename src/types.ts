@@ -34,10 +34,15 @@ export interface Question {
   id: string;
   lessonId: string;
   text: string;
-  options: string[];
-  correctAnswer: number;
+  type?: 'multiple-choice' | 'self-check';
+  options?: string[];
+  correctAnswer?: number;
+  answer?: string;
   explanation: string;
   hint?: string;
+  number?: number;
+  section?: string;
+  source?: string;
 }
 
 export interface Badge {

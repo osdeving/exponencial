@@ -1,7 +1,8 @@
 import { Badge, LearningPath, Question, RankingEntry } from './types';
+import { POTENTIATION_QUESTIONS } from './content/exercises/potentiation';
 export { LESSONS, TOPICS } from './generated/content-manifest';
 
-export const QUESTIONS: Question[] = [
+const BASE_QUESTIONS: Question[] = [
   {
     id: 'q-natural-1',
     lessonId: 'natural-numbers-reading',
@@ -120,6 +121,8 @@ export const QUESTIONS: Question[] = [
     hint: 'É um dos valores clássicos mais cobrados.',
   },
 ];
+
+export const QUESTIONS: Question[] = [...BASE_QUESTIONS, ...POTENTIATION_QUESTIONS];
 
 export const BADGES: Badge[] = [
   {
