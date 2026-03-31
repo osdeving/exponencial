@@ -1,3 +1,7 @@
+loopAction: continue
+lastOutcome: bootstrap
+---
+
 # Status da Automação
 
 ## Missão

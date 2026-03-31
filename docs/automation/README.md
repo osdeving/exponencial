@@ -18,6 +18,11 @@ O objetivo da automação não é inventar produto novo a cada rodada. O objetiv
 - estado operacional: `docs/automation/status.md`
 - regras gerais do repositório: `AGENTS.md`
 
+`docs/automation/status.md` também carrega um frontmatter simples para controle do loop:
+
+- `loopAction: continue|stop`
+- `lastOutcome: changed|noop|blocked|bootstrap`
+
 ## Como o loop decide o próximo passo
 
 Em cada execução, o agente deve ler:
@@ -55,6 +60,11 @@ Se não houver trabalho seguro, a automação deve:
 2. registrar o bloqueio em `docs/automation/status.md`
 3. encerrar com o repositório consistente
 
+Quando realmente não houver mais fatia segura para engatar, o arquivo deve ficar com:
+
+- `loopAction: stop`
+- `lastOutcome: noop` ou `blocked`
+
 ## Validação obrigatória
 
 Toda rodada que fizer mudanças deve rodar:
@@ -73,6 +83,7 @@ Para o loop funcionar de ponta a ponta no GitHub, ainda existe um setup único f
 Observação importante:
 
 - se a `main` estiver protegida contra pushes do `github-actions[bot]`, o workflow vai precisar de uma exceção explícita ou de uma estratégia alternativa de branch/PR automático
+- pushes feitos com `GITHUB_TOKEN` não disparam workflows de `push`; se o loop precisar acionar outro workflow depois de um commit automático, ele deve disparar isso explicitamente
 - isso é governança do repositório, não lógica do app
 
 ## Estado atual recomendado

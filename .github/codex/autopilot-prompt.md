@@ -53,6 +53,16 @@ Se o próximo item exigir decisão humana, credenciais novas, serviço externo, 
 - registre claramente o bloqueio
 - encerre sem tocar em mais nada
 
+## Controle do loop
+
+`docs/automation/status.md` tem frontmatter machine-readable. Em toda execução, atualize:
+
+- `loopAction: continue` quando ainda existir próxima fatia segura e elegível
+- `loopAction: stop` quando não houver trabalho seguro, houver bloqueio real ou o loop precisar pausar
+- `lastOutcome: changed` quando a execução tiver feito progresso real
+- `lastOutcome: noop` quando não houver mudança segura para fazer
+- `lastOutcome: blocked` quando houver impedimento explícito
+
 ## Definição de pronto por execução
 
 Cada execução deve:

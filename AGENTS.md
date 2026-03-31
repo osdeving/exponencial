@@ -96,6 +96,7 @@ Então:
 
 - O loop autônomo deve trabalhar sempre em cima da menor fatia segura do release/epic ativo.
 - Se houver `docs/automation/status.md`, ele é a fonte operacional de curto prazo e deve ser lido antes de decidir a próxima tarefa.
+- Preserve o frontmatter de `docs/automation/status.md` e atualize `loopAction` e `lastOutcome` de forma coerente.
 - Se não houver trabalho seguro, o agente deve fazer `no-op`, registrar o motivo em `docs/automation/status.md` e parar.
 - Não abrir espontaneamente frentes de auth, cloud, Supabase, billing, política comercial ou conteúdo editorial pesado.
 - Cada rodada autônoma deve atualizar `docs/automation/status.md`.
