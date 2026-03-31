@@ -1,0 +1,272 @@
+/* eslint-disable */
+// Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
+// Edite os arquivos em src/content/**/*.questions.md.
+
+import type { Question } from '../../types';
+
+export const QUESTIONS: Question[] = [
+  {
+    "id": "scientific-notation-question-87",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $10.000$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$10^4$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 87,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$10^4$"
+  },
+  {
+    "id": "scientific-notation-question-88",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,0001$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$10^{-4}$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 88,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$10^{-4}$"
+  },
+  {
+    "id": "scientific-notation-question-89",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $5.000$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$5 \\times 10^3$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 89,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$5 \\times 10^3$"
+  },
+  {
+    "id": "scientific-notation-question-90",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $160.000$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$16 \\times 10^4$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 90,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$16 \\times 10^4$"
+  },
+  {
+    "id": "scientific-notation-question-91",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,000012$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$12 \\times 10^{-6}$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 91,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$12 \\times 10^{-6}$"
+  },
+  {
+    "id": "scientific-notation-question-92",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $1.000.000$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$10^6$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 92,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$10^6$"
+  },
+  {
+    "id": "scientific-notation-question-93",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,000001$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$10^{-6}$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 93,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$10^{-6}$"
+  },
+  {
+    "id": "scientific-notation-question-94",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $300.000$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$3 \\times 10^5$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 94,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$3 \\times 10^5$"
+  },
+  {
+    "id": "scientific-notation-question-95",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,0002$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$2 \\times 10^{-4}$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 95,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$2 \\times 10^{-4}$"
+  },
+  {
+    "id": "scientific-notation-question-96",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,00000235$ usando potência de 10.",
+    "type": "self-check",
+    "explanation": "$2,35 \\times 10^{-6}$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 96,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$2,35 \\times 10^{-6}$"
+  },
+  {
+    "id": "scientific-notation-question-97",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $734.000$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$7,34 \\times 10^5$ e O.G. $= 10^6$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 97,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$7,34 \\times 10^5$ e O.G. $= 10^6$"
+  },
+  {
+    "id": "scientific-notation-question-98",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $210.000.000$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$2,1 \\times 10^8$ e O.G. $= 10^8$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 98,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$2,1 \\times 10^8$ e O.G. $= 10^8$"
+  },
+  {
+    "id": "scientific-notation-question-99",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $819$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$8,19 \\times 10^2$ e O.G. $= 10^3$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 99,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$8,19 \\times 10^2$ e O.G. $= 10^3$"
+  },
+  {
+    "id": "scientific-notation-question-100",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,426$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$4,26 \\times 10^{-1}$ e O.G. $= 10^0$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 100,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$4,26 \\times 10^{-1}$ e O.G. $= 10^0$"
+  },
+  {
+    "id": "scientific-notation-question-101",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,000341$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$3,41 \\times 10^{-4}$ e O.G. $= 10^{-4}$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 101,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$3,41 \\times 10^{-4}$ e O.G. $= 10^{-4}$"
+  },
+  {
+    "id": "scientific-notation-question-102",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,00000002$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$2 \\times 10^{-8}$ e O.G. $= 10^{-8}$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 102,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$2 \\times 10^{-8}$ e O.G. $= 10^{-8}$"
+  },
+  {
+    "id": "scientific-notation-question-103",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $38,475$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$3,8475 \\times 10^1$ e O.G. $= 10^2$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 103,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$3,8475 \\times 10^1$ e O.G. $= 10^2$"
+  },
+  {
+    "id": "scientific-notation-question-104",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $4,93714$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$4,93714 \\times 10^0$ e O.G. $= 10^1$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 104,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$4,93714 \\times 10^0$ e O.G. $= 10^1$"
+  },
+  {
+    "id": "scientific-notation-question-105",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $22.900$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$2,29 \\times 10^4$ e O.G. $= 10^4$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 105,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$2,29 \\times 10^4$ e O.G. $= 10^4$"
+  },
+  {
+    "id": "scientific-notation-question-106",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $37.400$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$3,74 \\times 10^4$ e O.G. $= 10^5$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 106,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$3,74 \\times 10^4$ e O.G. $= 10^5$"
+  },
+  {
+    "id": "scientific-notation-question-107",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,01$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$1 \\times 10^{-2}$ e O.G. $= 10^{-2}$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 107,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$1 \\times 10^{-2}$ e O.G. $= 10^{-2}$"
+  },
+  {
+    "id": "scientific-notation-question-108",
+    "lessonId": "scientific-notation",
+    "text": "Escreva $0,00000403$ em notação científica e dê a ordem de grandeza.",
+    "type": "self-check",
+    "explanation": "$4,03 \\times 10^{-6}$ e O.G. $= 10^{-5}$",
+    "hint": "Reescreva o número com um único algarismo não nulo antes da vírgula e ajuste a potência de 10.",
+    "number": 108,
+    "section": "Potências de 10, Notação Científica e Ordem de Grandeza",
+    "source": "Potenciação - Exercícios.pdf",
+    "answer": "$4,03 \\times 10^{-6}$ e O.G. $= 10^{-5}$"
+  }
+];

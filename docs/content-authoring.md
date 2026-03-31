@@ -22,7 +22,8 @@ src/content/
 - Cada arquivo `*.questions.md` descreve a prática de uma lição.
 - Os manifestos consumidos pela aplicação são gerados automaticamente em:
   - `src/generated/content-manifest.ts`
-  - `src/generated/question-manifest.ts`
+  - `src/generated/lesson-content-index.ts`
+  - `src/generated/question-index.ts`
 
 ## Comandos
 
@@ -35,7 +36,7 @@ npm run lint
 ```
 
 - `content:scaffold`: cria a base do currículo sem sobrescrever arquivos já existentes.
-- `content:generate`: lê os `.md`, valida o frontmatter e gera os manifestos TypeScript.
+- `content:generate`: lê os `.md`, valida o frontmatter e gera os manifestos TypeScript e os módulos lazy por lição.
 - `dev`, `build` e `lint` já executam `content:generate` antes.
 
 ## Frontmatter do tópico
@@ -305,5 +306,5 @@ Layouts de `algorithm` aceitos:
 - Para adicionar questões, crie o `*.questions.md` apontando para o `lessonId` da lição.
 - Para adicionar resolução animável no futuro, prefira `### Solução` estruturada em vez de empilhar tudo em `### Explicação`.
 - O app lê as lições pelo `topicId` e as questões pelo `lessonId`, então não é necessário editar o código para novo conteúdo se o frontmatter estiver correto.
-- Não edite `src/generated/content-manifest.ts` nem `src/generated/question-manifest.ts` manualmente.
+- Não edite `src/generated/content-manifest.ts`, `src/generated/lesson-content-index.ts` nem `src/generated/question-index.ts` manualmente.
 - Não use PDFs como dependência do runtime final.

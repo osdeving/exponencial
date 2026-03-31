@@ -1,29 +1,46 @@
+import { lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { Dashboard } from './components/Dashboard';
-import { ExerciseView } from './components/ExerciseView';
-import { LessonView } from './components/LessonView';
-import { ProfileModal } from './components/ProfileModal';
-import { TutorChat } from './components/TutorChat';
 import { getTopicById } from './lib/learning';
 import { AppFooter } from './app/AppFooter';
 import { AppHeader } from './app/AppHeader';
 import { useAppController } from './app/useAppController';
 import { HomeView } from './app/views/HomeView';
-import { PathView } from './app/views/PathView';
-import { TopicView } from './app/views/TopicView';
+
+const Dashboard = lazy(() => import('./components/Dashboard').then((module) => ({ default: module.Dashboard })));
+const ExerciseView = lazy(() => import('./components/ExerciseView').then((module) => ({ default: module.ExerciseView })));
+const LessonView = lazy(() => import('./components/LessonView').then((module) => ({ default: module.LessonView })));
+const ProfileModal = lazy(() => import('./components/ProfileModal').then((module) => ({ default: module.ProfileModal })));
+const TutorChat = lazy(() => import('./components/TutorChat').then((module) => ({ default: module.TutorChat })));
+const PathView = lazy(() => import('./app/views/PathView').then((module) => ({ default: module.PathView })));
+const TopicView = lazy(() => import('./app/views/TopicView').then((module) => ({ default: module.TopicView })));
+
+function AppViewFallback() {
+  return (
+    <div className="mx-auto max-w-4xl px-6">
+      <div className="space-y-4 bg-white p-8 brutal-border">
+        <div className="h-6 w-2/3 bg-dark/10 brutal-border" />
+        <div className="h-4 w-full bg-dark/10 brutal-border" />
+        <div className="h-4 w-11/12 bg-dark/10 brutal-border" />
+        <div className="h-4 w-10/12 bg-dark/10 brutal-border" />
+      </div>
+    </div>
+  );
+}
 
 export default function App() {
   const { refs, state, derived, actions } = useAppController();
 
   return (
     <div className="min-h-screen bg-paper">
-      <ProfileModal
-        isOpen={state.isProfileOpen}
-        profile={state.profile}
-        onClose={actions.closeProfile}
-        onSave={actions.saveProfile}
-        onLogout={actions.logout}
-      />
+      <Suspense fallback={null}>
+        <ProfileModal
+          isOpen={state.isProfileOpen}
+          profile={state.profile}
+          onClose={actions.closeProfile}
+          onSave={actions.saveProfile}
+          onLogout={actions.logout}
+        />
+      </Suspense>
 
       <AppHeader
         isMobileMenuOpen={state.isMobileMenuOpen}
@@ -74,15 +91,17 @@ export default function App() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
             >
-              <PathView
-                path={state.selectedPath}
-                progress={state.progress}
-                onBack={actions.goHome}
-                onLessonSelect={actions.selectLesson}
-                onStartPath={actions.startPath}
-                onToggleSavedPath={actions.toggleSavedPath}
-                onTopicSelect={actions.selectTopic}
-              />
+              <Suspense fallback={<AppViewFallback />}>
+                <PathView
+                  path={state.selectedPath}
+                  progress={state.progress}
+                  onBack={actions.goHome}
+                  onLessonSelect={actions.selectLesson}
+                  onStartPath={actions.startPath}
+                  onToggleSavedPath={actions.toggleSavedPath}
+                  onTopicSelect={actions.selectTopic}
+                />
+              </Suspense>
             </motion.div>
           )}
 
@@ -93,30 +112,34 @@ export default function App() {
               animate={{ opacity: 1, x: 0 }}
               exit={{ opacity: 0, x: -20 }}
             >
-              <TopicView
-                isFavorite={derived.isSelectedTopicFavorite}
-                lessons={derived.selectedTopicLessons}
-                progress={state.progress}
-                topic={state.selectedTopic}
-                onBack={actions.goHome}
-                onLessonSelect={actions.selectLesson}
-                onToggleFavoriteTopic={actions.toggleFavoriteTopic}
-              />
+              <Suspense fallback={<AppViewFallback />}>
+                <TopicView
+                  isFavorite={derived.isSelectedTopicFavorite}
+                  lessons={derived.selectedTopicLessons}
+                  progress={state.progress}
+                  topic={state.selectedTopic}
+                  onBack={actions.goHome}
+                  onLessonSelect={actions.selectLesson}
+                  onToggleFavoriteTopic={actions.toggleFavoriteTopic}
+                />
+              </Suspense>
             </motion.div>
           )}
 
           {state.view === 'lesson' && state.selectedLesson && (
             <motion.div key="lesson" initial={{ opacity: 0 }} animate={{ opacity: 1 }} exit={{ opacity: 0 }}>
-              <LessonView
-                lesson={state.selectedLesson}
-                topic={getTopicById(state.selectedLesson.topicId)}
-                questionCount={derived.selectedLessonQuestions.length}
-                bestScore={state.progress.lessonScores[state.selectedLesson.id]}
-                isCompleted={state.progress.completedLessons.includes(state.selectedLesson.id)}
-                onBack={actions.goBackToTopic}
-                onStartExercises={actions.startExercises}
-                onNextLesson={derived.hasNextLesson ? actions.goToNextLesson : undefined}
-              />
+              <Suspense fallback={<AppViewFallback />}>
+                <LessonView
+                  lesson={state.selectedLesson}
+                  topic={getTopicById(state.selectedLesson.topicId)}
+                  questionCount={derived.selectedLessonQuestionCount}
+                  bestScore={state.progress.lessonScores[state.selectedLesson.id]}
+                  isCompleted={state.progress.completedLessons.includes(state.selectedLesson.id)}
+                  onBack={actions.goBackToTopic}
+                  onStartExercises={actions.startExercises}
+                  onNextLesson={derived.hasNextLesson ? actions.goToNextLesson : undefined}
+                />
+              </Suspense>
             </motion.div>
           )}
 
@@ -127,31 +150,42 @@ export default function App() {
               animate={{ opacity: 1, scale: 1 }}
               exit={{ opacity: 0, scale: 1.05 }}
             >
-              <ExerciseView
-                lessonTitle={state.selectedLesson.title}
-                questions={derived.selectedLessonQuestions}
-                canContinue={derived.hasNextLesson}
-                onBack={actions.goBackToLesson}
-                onComplete={actions.completeExercise}
-              />
+              <Suspense fallback={<AppViewFallback />}>
+                <ExerciseView
+                  lessonTitle={state.selectedLesson.title}
+                  questions={derived.selectedLessonQuestions}
+                  isLoading={derived.selectedLessonQuestionsLoading}
+                  canContinue={derived.hasNextLesson}
+                  onBack={actions.goBackToLesson}
+                  onComplete={actions.completeExercise}
+                />
+              </Suspense>
             </motion.div>
           )}
 
           {state.view === 'dashboard' && (
             <motion.div key="dashboard" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
-              <Dashboard
-                progress={state.progress}
-                profile={state.profile}
-                onContinue={actions.startRecommendedFlow}
-                onOpenProfile={actions.openProfile}
-                onResetProgress={actions.resetProgress}
-              />
+              <Suspense fallback={<AppViewFallback />}>
+                <Dashboard
+                  progress={state.progress}
+                  profile={state.profile}
+                  onContinue={actions.startRecommendedFlow}
+                  onOpenProfile={actions.openProfile}
+                  onResetProgress={actions.resetProgress}
+                />
+              </Suspense>
             </motion.div>
           )}
         </AnimatePresence>
       </main>
 
-      <TutorChat currentTopic={state.selectedTopic} currentLesson={state.selectedLesson} />
+      <Suspense fallback={null}>
+        <TutorChat
+          currentTopic={state.selectedTopic}
+          currentLesson={state.selectedLesson}
+          currentLessonQuestions={derived.selectedLessonQuestions}
+        />
+      </Suspense>
 
       <AppFooter onOpenHomeSection={actions.openHomeSection} onStartRecommendedFlow={actions.startRecommendedFlow} />
     </div>

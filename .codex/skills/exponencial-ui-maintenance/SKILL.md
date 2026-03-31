@@ -48,5 +48,6 @@ Extraia de `App.tsx` quando a mudança introduzir:
 - `src/app/useAppController.ts` ainda coordena vários hooks
 - algumas views recebem muitas props e devem continuar enxutas
 - `src/components/QuestionSolutionView.tsx` deve concentrar a evolução de soluções animadas, não `ExerciseView.tsx`
+- teoria e questões carregam por lição; preserve os loaders em `src/content/*` em vez de reintroduzir import monolítico
 
 Ao tocar nessas áreas, melhore a separação em vez de aprofundar o acoplamento.

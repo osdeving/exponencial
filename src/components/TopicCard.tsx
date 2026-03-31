@@ -1,8 +1,8 @@
 import React from 'react';
 import { motion } from 'motion/react';
 import { Topic } from '../types';
-import { cn } from '../lib/utils';
 import * as Icons from 'lucide-react';
+import { resolveLucideIcon } from '../lib/icons';
 
 interface TopicCardProps {
   topic: Topic;
@@ -19,7 +19,7 @@ export const TopicCard: React.FC<TopicCardProps> = ({
   isFavorite = false,
   onClick,
 }) => {
-  const Icon = (Icons as any)[topic.icon] || Icons.BookOpen;
+  const Icon = resolveLucideIcon(topic.icon, Icons.BookOpen);
 
   return (
     <motion.div

@@ -1,8 +1,7 @@
 import { LESSONS } from '../content';
-import { getQuestionsByLessonId } from '../content/queries';
 import { PATHS } from '../config';
 import { getOfficialAnswer } from './questions';
-import { Lesson, Topic } from '../types';
+import { Lesson, Question, Topic } from '../types';
 
 const TOPIC_TIPS: Record<string, string[]> = {
   'natural-numbers': [
@@ -102,8 +101,9 @@ const stripMarkdown = (value: string) =>
 
 const getSummary = (lesson?: Lesson | null, topic?: Topic | null) => {
   if (lesson) {
-    const content = stripMarkdown(lesson.content).split('\n').filter(Boolean).slice(0, 6).join('\n');
-    return `Resumo da lição **${lesson.title}**:\n\n${content}`;
+    const contentPreview = stripMarkdown(lesson.content).split('\n').filter(Boolean).slice(0, 6).join('\n');
+    const goalPreview = lesson.goals.length > 0 ? `\n\nObjetivos:\n- ${lesson.goals.join('\n- ')}` : '';
+    return `Resumo da lição **${lesson.title}**:\n\n${contentPreview || lesson.summary}${goalPreview}`;
   }
 
   if (topic) {
@@ -118,8 +118,8 @@ const getSummary = (lesson?: Lesson | null, topic?: Topic | null) => {
   return 'Posso resumir qualquer tópico. Escolha uma trilha, um tópico ou uma lição para eu focar melhor.';
 };
 
-const getPractice = (lesson?: Lesson | null, topic?: Topic | null) => {
-  const question = getQuestionsByLessonId(lesson?.id)[0];
+const getPractice = (lesson?: Lesson | null, topic?: Topic | null, currentQuestions: Question[] = []) => {
+  const question = currentQuestions[0];
   if (question) {
     return `Treino rápido:\n\n**${question.text}**\n\nDica: ${question.hint ?? 'quebre o problema em passos pequenos.'}\n\nSe quiser, eu também posso corrigir sua resposta.`;
   }
@@ -180,7 +180,12 @@ const getGeneralHelp = (input: string, topic?: Topic | null, lesson?: Lesson | n
   return `${contextLine}\n\nPergunta recebida: "${input.trim()}".\n\n${relevantTopic ?? 'Se você me disser o tópico, eu consigo responder de forma mais direta.'}\n\n${example ?? 'Se quiser, peça um resumo, uma fórmula, um exemplo ou um exercício.'}`;
 };
 
-export function generateTutorReply(input: string, currentTopic?: Topic | null, currentLesson?: Lesson | null) {
+export function generateTutorReply(
+  input: string,
+  currentTopic?: Topic | null,
+  currentLesson?: Lesson | null,
+  currentQuestions: Question[] = [],
+) {
   const normalizedInput = normalize(input);
 
   if (/^(oi|ola|olá|e ai|e aí|bom dia|boa tarde|boa noite)/.test(normalizedInput)) {
@@ -202,7 +207,7 @@ export function generateTutorReply(input: string, currentTopic?: Topic | null, c
     normalizedInput.includes('questão') ||
     normalizedInput.includes('pratic')
   ) {
-    return getPractice(currentLesson, currentTopic);
+    return getPractice(currentLesson, currentTopic, currentQuestions);
   }
 
   if (normalizedInput.includes('exemplo')) {
@@ -214,7 +219,7 @@ export function generateTutorReply(input: string, currentTopic?: Topic | null, c
   }
 
   if (normalizedInput.includes('dica') || normalizedInput.includes('trav')) {
-    const question = getQuestionsByLessonId(currentLesson?.id)[0];
+    const question = currentQuestions[0];
 
     if (question?.hint) {
       return `Dica para a lição **${currentLesson?.title}**:\n\n${question.hint}`;
@@ -232,7 +237,7 @@ export function generateTutorReply(input: string, currentTopic?: Topic | null, c
   }
 
   if (normalizedInput.includes('corrige') || normalizedInput.includes('corrigir')) {
-    const question = getQuestionsByLessonId(currentLesson?.id)[0];
+    const question = currentQuestions[0];
 
     if (question) {
       return `Resposta esperada para praticar correção:\n\n**${question.text}**\n\nGabarito oficial: **${getOfficialAnswer(question)}**\n\nExplicação: ${question.explanation}`;

@@ -1,4 +1,5 @@
 import React from 'react';
+import { useLessonContent } from '../content/useLessonContent';
 import { Lesson, Topic } from '../types';
 import { ArrowLeft, BookOpen, Play, Clock3, Target, CheckCircle2 } from 'lucide-react';
 import { MarkdownContent } from './MarkdownContent';
@@ -24,6 +25,8 @@ export const LessonView: React.FC<LessonViewProps> = ({
   onStartExercises,
   onNextLesson,
 }) => {
+  const { content, isLoading } = useLessonContent(lesson.id);
+
   return (
     <div className="max-w-4xl mx-auto p-6">
       <div className="flex justify-between items-center mb-8">
@@ -70,7 +73,17 @@ export const LessonView: React.FC<LessonViewProps> = ({
               </div>
             )}
             
-            <MarkdownContent content={lesson.content} />
+            {isLoading ? (
+              <div className="space-y-4">
+                <div className="h-6 w-2/3 bg-dark/10 brutal-border" />
+                <div className="h-4 w-full bg-dark/10 brutal-border" />
+                <div className="h-4 w-11/12 bg-dark/10 brutal-border" />
+                <div className="h-4 w-10/12 bg-dark/10 brutal-border" />
+                <div className="h-4 w-9/12 bg-dark/10 brutal-border" />
+              </div>
+            ) : (
+              <MarkdownContent content={content || lesson.summary} />
+            )}
           </div>
         </div>
 

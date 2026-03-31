@@ -252,7 +252,9 @@ export function buildSearchResults(query: string): SearchResult[] {
   }));
 
   const lessonResults: SearchResult[] = LESSONS.filter((lesson) =>
-    `${lesson.title} ${lesson.summary} ${lesson.content} ${lesson.tags.join(' ')}`.toLowerCase().includes(normalized),
+    `${lesson.title} ${lesson.summary} ${lesson.goals.join(' ')} ${lesson.prerequisites.join(' ')} ${lesson.tags.join(' ')}`
+      .toLowerCase()
+      .includes(normalized),
   ).map((lesson) => {
     const topic = getTopicById(lesson.topicId);
 
@@ -305,7 +307,8 @@ export function filterTopicsForCatalog({
       topic.category,
       ...topic.tags,
       ...getLessonsByTopic(topic.id).map(
-        (lesson) => `${lesson.title} ${lesson.summary} ${lesson.content} ${lesson.status} ${lesson.tags.join(' ')}`,
+        (lesson) =>
+          `${lesson.title} ${lesson.summary} ${lesson.goals.join(' ')} ${lesson.prerequisites.join(' ')} ${lesson.status} ${lesson.tags.join(' ')}`,
       ),
     ]
       .join(' ')

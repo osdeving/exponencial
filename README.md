@@ -33,7 +33,8 @@ Hoje o projeto já está orientado a conteúdo no fluxo curricular:
 - tópicos e lições teóricas vivem em `src/content/**`
 - exercícios e gabaritos vivem em arquivos `*.questions.md` ao lado das lições
 - soluções passo a passo também podem viver no próprio `*.questions.md`
-- os manifestos são gerados em `src/generated/content-manifest.ts` e `src/generated/question-manifest.ts`
+- os manifestos são gerados em `src/generated/content-manifest.ts`, `src/generated/lesson-content-index.ts` e `src/generated/question-index.ts`
+- teoria e questões agora são carregadas por lição, sob demanda
 
 Ou seja: teoria, exercícios e gabaritos entram no app por conteúdo declarativo. A UI continua responsável só por renderizar contratos estáveis e comportamentos do produto.
 

@@ -52,21 +52,21 @@ Então:
 - coordenação de progresso: `src/app/progress/*`
 - coordenação de perfil: `src/app/profile/*`
 - composição de alto nível: `src/app/useAppController.ts`
-- persistência: `src/app/usePersistent*.ts`
+- persistência: `src/app/usePersistent*.ts`, `src/app/usePersistentState.ts`
 - views da aplicação: `src/app/views/*`
 - configuração de produto: `src/config/*`
-- manifestos de conteúdo: `src/content/index.ts`, `src/content/queries.ts`
+- conteúdo lazy: `src/content/index.ts`, `src/content/queries.ts`, `src/content/useLessonContent.ts`, `src/content/useLessonQuestions.ts`
 - renderer markdown: `src/components/MarkdownContent.tsx`
 - renderer de solução de questão: `src/components/QuestionSolutionView.tsx`
 - teoria: `src/components/LessonView.tsx`
-- prática: `src/components/ExerciseView.tsx`
+- prática: `src/components/ExerciseView.tsx`, `src/components/exercise/*`
 - progresso e regras: `src/lib/learning.ts`
 - tutor local: `src/lib/tutor.ts`
 
 ## Regras operacionais
 
 - Nunca editar `src/generated/content-manifest.ts` manualmente.
-- Nunca editar `src/generated/question-manifest.ts` manualmente.
+- Nunca editar `src/generated/lesson-content-index.ts` ou `src/generated/question-index.ts` manualmente.
 - Nunca misturar conteúdo curricular em componentes React se a alteração puder viver em conteúdo/configuração.
 - Não commitar PDFs de origem nem artefatos de OCR.
 - `public/materials/` não faz parte do fluxo final e não deve voltar a ser dependência da app.

@@ -32,6 +32,7 @@ Se a questão precisar de resolução passo a passo:
 ## Nunca faça
 
 - não edite `src/generated/content-manifest.ts`
+- não edite `src/generated/lesson-content-index.ts` nem `src/generated/question-index.ts`
 - não espalhe texto curricular em TSX
 - não dependa de PDF no runtime
 

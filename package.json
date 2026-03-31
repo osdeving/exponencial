@@ -10,7 +10,8 @@
     "build": "npm run content:generate && vite build",
     "preview": "vite preview",
     "clean": "rm -rf dist",
-    "lint": "npm run content:generate && tsc --noEmit"
+    "lint": "npm run content:generate && tsc --noEmit",
+    "test": "npm run content:generate && tsx --test ./tests/*.test.ts"
   },
   "dependencies": {
     "@google/genai": "^1.29.0",

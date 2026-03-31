@@ -14,6 +14,8 @@ import { parseQuestionFile } from './question-utils.mjs';
 const topicFiles = [];
 const lessonFiles = [];
 const questionFiles = [];
+const generatedLessonsRoot = path.join(generatedRoot, 'lessons');
+const generatedQuestionsRoot = path.join(generatedRoot, 'questions');
 
 try {
   await fs.access(contentRoot);
@@ -150,6 +152,18 @@ questions.sort(
     left.id.localeCompare(right.id, 'pt-BR'),
 );
 
+const lessonMetadata = lessons.map((lesson) => ({
+  ...lesson,
+  content: '',
+}));
+
+const questionsByLessonId = questions.reduce((accumulator, question) => {
+  const currentQuestions = accumulator.get(question.lessonId) ?? [];
+  currentQuestions.push(question);
+  accumulator.set(question.lessonId, currentQuestions);
+  return accumulator;
+}, new Map());
+
 const output = `/* eslint-disable */
 // Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
 // Edite os arquivos em src/content/**/*.md.
@@ -158,20 +172,73 @@ import { Lesson, Topic } from '../types';
 
 export const TOPICS: Topic[] = ${JSON.stringify(topics, null, 2)};
 
-export const LESSONS: Lesson[] = ${JSON.stringify(lessons, null, 2)};
+export const LESSONS: Lesson[] = ${JSON.stringify(lessonMetadata, null, 2)};
 `;
 
-const questionsOutput = `/* eslint-disable */
+const lessonContentIndexOutput = `/* eslint-disable */
+// Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
+// Edite os arquivos em src/content/**/*.md.
+
+export const LESSON_CONTENT_IMPORTERS = {
+${lessons.map((lesson) => `  "${lesson.id}": () => import('./lessons/${lesson.id}.ts'),`).join('\n')}
+} as const;
+`;
+
+const questionIndexOutput = `/* eslint-disable */
 // Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
 // Edite os arquivos em src/content/**/*.questions.md.
 
-import { Question } from '../types';
+export const QUESTION_COUNTS_BY_LESSON_ID: Record<string, number> = ${JSON.stringify(
+  Object.fromEntries(
+    lessons.map((lesson) => [lesson.id, questionsByLessonId.get(lesson.id)?.length ?? 0]),
+  ),
+  null,
+  2,
+)};
 
-export const QUESTIONS: Question[] = ${JSON.stringify(questions, null, 2)};
+export const QUESTION_IMPORTERS = {
+${Array.from(questionsByLessonId.keys())
+  .sort((left, right) => (lessonOrderIndex.get(left) ?? 0) - (lessonOrderIndex.get(right) ?? 0))
+  .map((lessonId) => `  "${lessonId}": () => import('./questions/${lessonId}.ts'),`)
+  .join('\n')}
+} as const;
 `;
 
 await ensureDirectory(generatedRoot);
+await fs.rm(generatedLessonsRoot, { recursive: true, force: true });
+await fs.rm(generatedQuestionsRoot, { recursive: true, force: true });
+await ensureDirectory(generatedLessonsRoot);
+await ensureDirectory(generatedQuestionsRoot);
+
+for (const lesson of lessons) {
+  const lessonContentOutput = `/* eslint-disable */
+// Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
+// Edite os arquivos em src/content/**/*.md.
+
+export const CONTENT = ${JSON.stringify(lesson.content, null, 2)};
+`;
+
+  await fs.writeFile(path.join(generatedLessonsRoot, `${lesson.id}.ts`), lessonContentOutput, 'utf8');
+}
+
+for (const lessonId of Array.from(questionsByLessonId.keys()).sort(
+  (left, right) => (lessonOrderIndex.get(left) ?? 0) - (lessonOrderIndex.get(right) ?? 0),
+)) {
+  const questionModuleOutput = `/* eslint-disable */
+// Arquivo gerado automaticamente por scripts/generate-content-manifest.mjs
+// Edite os arquivos em src/content/**/*.questions.md.
+
+import type { Question } from '../../types';
+
+export const QUESTIONS: Question[] = ${JSON.stringify(questionsByLessonId.get(lessonId), null, 2)};
+`;
+
+  await fs.writeFile(path.join(generatedQuestionsRoot, `${lessonId}.ts`), questionModuleOutput, 'utf8');
+}
+
 await fs.writeFile(path.join(generatedRoot, 'content-manifest.ts'), output, 'utf8');
-await fs.writeFile(path.join(generatedRoot, 'question-manifest.ts'), questionsOutput, 'utf8');
+await fs.writeFile(path.join(generatedRoot, 'lesson-content-index.ts'), lessonContentIndexOutput, 'utf8');
+await fs.writeFile(path.join(generatedRoot, 'question-index.ts'), questionIndexOutput, 'utf8');
+await fs.rm(path.join(generatedRoot, 'question-manifest.ts'), { force: true });
 
 console.log(`Manifestos gerados: ${topics.length} tópicos, ${lessons.length} lições e ${questions.length} questões.`);

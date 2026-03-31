@@ -1,9 +1,9 @@
 import React from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
-import * as Icons from 'lucide-react';
 import { BookOpen, Medal, Star, Target, TrendingUp, Trophy, UserRound } from 'lucide-react';
 import { TOPICS } from '../content';
 import { BADGES, MOCK_RANKING } from '../config';
+import { resolveLucideIcon } from '../lib/icons';
 import { UserProfile, UserProgress } from '../types';
 import { getTopicProgress } from '../lib/learning';
 
@@ -142,7 +142,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
             <div className="grid grid-cols-2 md:grid-cols-3 gap-4">
               {BADGES.map((badge) => {
                 const isEarned = progress.badges.includes(badge.id);
-                const Icon = (Icons as any)[badge.icon] || Medal;
+                const Icon = resolveLucideIcon(badge.icon, Medal);
 
                 return (
                   <div

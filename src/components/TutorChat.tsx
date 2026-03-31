@@ -1,63 +1,37 @@
 import React, { useEffect, useRef, useState } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
 import { Bot, Lightbulb, MessageSquare, Send, Trash2, User, X } from 'lucide-react';
+import { usePersistentTutorMessages } from '../app/usePersistentTutorMessages';
 import { cn } from '../lib/utils';
 import { generateTutorReply, TUTOR_SUGGESTIONS } from '../lib/tutor';
-import { Lesson, Topic } from '../types';
+import { RESET_TUTOR_MESSAGES, TutorMessage } from '../lib/tutor-chat';
+import { Lesson, Question, Topic } from '../types';
 import { MarkdownContent } from './MarkdownContent';
-
-interface Message {
-  role: 'user' | 'assistant';
-  text: string;
-}
 
 interface TutorChatProps {
   currentTopic?: Topic | null;
   currentLesson?: Lesson | null;
+  currentLessonQuestions?: Question[];
 }
 
-export const TutorChat: React.FC<TutorChatProps> = ({ currentTopic, currentLesson }) => {
+export const TutorChat: React.FC<TutorChatProps> = ({
+  currentTopic,
+  currentLesson,
+  currentLessonQuestions = [],
+}) => {
   const [isOpen, setIsOpen] = useState(false);
-  const [messages, setMessages] = useState<Message[]>(() => {
-    const saved = localStorage.getItem('tutor-messages');
-
-    if (!saved) {
-      return [
-        {
-          role: 'assistant',
-          text: 'Sou o tutor da Exponencial. Posso resumir a lição, sugerir exercício, explicar fórmula ou montar um plano de estudo.',
-        },
-      ];
-    }
-
-    try {
-      return JSON.parse(saved) as Message[];
-    } catch {
-      return [
-        {
-          role: 'assistant',
-          text: 'Sou o tutor da Exponencial. Posso resumir a lição, sugerir exercício, explicar fórmula ou montar um plano de estudo.',
-        },
-      ];
-    }
-  });
+  const [messages, setMessages] = usePersistentTutorMessages();
   const [input, setInput] = useState('');
   const scrollRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    localStorage.setItem('tutor-messages', JSON.stringify(messages));
     if (scrollRef.current) {
       scrollRef.current.scrollTop = scrollRef.current.scrollHeight;
     }
   }, [messages]);
 
   const clearChat = () => {
-    setMessages([
-      {
-        role: 'assistant',
-        text: 'Conversa reiniciada. Posso retomar com resumo, exemplo, dica ou exercício.',
-      },
-    ]);
+    setMessages(RESET_TUTOR_MESSAGES);
   };
 
   const sendMessage = (value: string) => {
@@ -66,12 +40,8 @@ export const TutorChat: React.FC<TutorChatProps> = ({ currentTopic, currentLesso
       return;
     }
 
-    const reply = generateTutorReply(trimmed, currentTopic, currentLesson);
-    setMessages((previous) => [
-      ...previous,
-      { role: 'user', text: trimmed },
-      { role: 'assistant', text: reply },
-    ]);
+    const reply = generateTutorReply(trimmed, currentTopic, currentLesson, currentLessonQuestions);
+    setMessages((previous: TutorMessage[]) => [...previous, { role: 'user', text: trimmed }, { role: 'assistant', text: reply }]);
     setInput('');
   };
 

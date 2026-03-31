@@ -6,3 +6,19 @@ export function readStoredJson(key: string) {
     return null;
   }
 }
+
+export function writeStoredJson(key: string, value: unknown) {
+  try {
+    localStorage.setItem(key, JSON.stringify(value));
+  } catch {
+    return;
+  }
+}
+
+export function removeStoredValue(key: string) {
+  try {
+    localStorage.removeItem(key);
+  } catch {
+    return;
+  }
+}

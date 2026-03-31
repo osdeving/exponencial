@@ -1,6 +1,7 @@
 import confetti from 'canvas-confetti';
 import { Dispatch, SetStateAction, useMemo } from 'react';
-import { getQuestionsByLessonId } from '../../content/queries';
+import { getQuestionCountByLessonId } from '../../content/queries';
+import { useLessonQuestions } from '../../content/useLessonQuestions';
 import {
   DEFAULT_PROGRESS,
   buildProgressAfterLessonCompletion,
@@ -33,13 +34,17 @@ export function useLearningFlow({
   openHomeSection,
   goHome,
 }: UseLearningFlowOptions) {
-  const selectedLessonQuestions = useMemo(() => getQuestionsByLessonId(selectedLesson?.id), [selectedLesson]);
+  const selectedLessonQuestions = useLessonQuestions(selectedLesson?.id);
   const nextRecommendedLesson = useMemo(() => getRecommendedLesson(progress), [progress]);
   const nextRecommendedTopic = useMemo(
     () => (nextRecommendedLesson ? getTopicById(nextRecommendedLesson.topicId) : undefined),
     [nextRecommendedLesson],
   );
   const suggestedPath = useMemo(() => getSuggestedPath(profile), [profile]);
+  const selectedLessonQuestionCount = useMemo(
+    () => (selectedLesson ? getQuestionCountByLessonId(selectedLesson.id) : 0),
+    [selectedLesson],
+  );
   const hasNextLesson = useMemo(
     () => (selectedLesson ? Boolean(getNextLessonInTopic(selectedLesson.topicId, selectedLesson.id)) : false),
     [selectedLesson],
@@ -150,7 +155,9 @@ export function useLearningFlow({
       hasNextLesson,
       nextRecommendedLesson,
       nextRecommendedTopic,
-      selectedLessonQuestions,
+      selectedLessonQuestionCount,
+      selectedLessonQuestions: selectedLessonQuestions.questions,
+      selectedLessonQuestionsLoading: selectedLessonQuestions.isLoading,
       suggestedPath,
     },
     actions: {
