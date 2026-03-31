@@ -22,7 +22,7 @@ Estabelecer um fluxo profissional de entrega para o Exponencial com `main` como 
 
 Exemplos:
 
-- `feat/supabase-auth-bootstrap`
+- `feat/local-mastery-gating`
 - `fix/path-locking`
 - `docs/r1-mastery-roadmap`
 
@@ -127,7 +127,8 @@ Hoje:
 Próximo estágio sugerido:
 
 - manter produção em Pages no curto prazo
-- introduzir Supabase como camada remota antes de discutir ambiente de staging mais complexo
+- consolidar primeiro o loop local-first e os contratos de storage/session
+- introduzir Supabase como primeira camada remota quando sincronização e contas passarem a ser prioridade real
 
 ## Regras de governança
 

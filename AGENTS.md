@@ -98,7 +98,7 @@ O projeto ainda não chegou no estado ideal. Ao mexer, trate estes pontos como d
 - `src/components/QuestionSolutionView.tsx` já suporta passos estruturados, mas ainda não anima escrita caractere a caractere nem desenhos matemáticos.
 - ranking e trilhas continuam estáticos em `src/config/*`; se crescerem muito, extraia contratos e fontes dedicadas.
 - a cobertura canônica ampla depende de `docs/estrutura/*` e de `canonicalIds` explícitos no frontmatter de tópicos e lições; não reintroduza ponte implícita em script.
-- autenticação, perfis persistidos, domínio auditável e repetição espaçada ainda não saíram do roadmap para implementação.
+- autenticação e sync em nuvem continuam no roadmap, mas não são o próximo passo imediato; primeiro vem o fortalecimento do loop local-first, do domínio e das trilhas.
 
 ## Regra de decisão
 

@@ -91,7 +91,7 @@ Isso existe para validar:
 
 ### 6. Camada operacional
 
-- autenticação e perfis
+- perfil local, contas e sincronização em fases diferentes
 - analytics
 - versionamento e release
 - observabilidade
@@ -100,29 +100,30 @@ Isso existe para validar:
 
 ### Release R0: Foundation Loop
 
-Objetivo: validar o loop básico do produto com persistência inicial e governança de entrega.
+Objetivo: validar o loop básico do produto em modo single-user, com governança de entrega e base local-first sólida.
 
 Escopo:
 
 - documentação de produto, arquitetura e entrega
 - trunk-based com CI, templates e releases
-- autenticação inicial e perfil de aluno em Supabase
-- persistência remota mínima de perfil, progresso e tentativas
-- trilhas default mais coerentes com a taxonomia
-- conteúdo placeholder suficiente para validar os fluxos centrais
+- melhoria das trilhas default a partir da taxonomia
+- contrato explícito de storage e sessão, mantendo adapter local como implementação padrão
+- perfil local e progresso local mais consistentes
+- placeholders suficientes para validar os fluxos centrais
+- telemetria mínima de produto para estudar o loop principal
 
 Artefatos de entrega:
 
 - PRD e roadmap publicados
 - arquitetura-alvo documentada
-- schema inicial de Supabase
+- contrato de storage/session documentado
 - CI obrigatória
 - templates de issue e PR
 - milestones de release
 
 Critério de sucesso:
 
-- um aluno consegue criar conta, entrar, estudar um bloco placeholder e ter o progresso salvo remotamente
+- um aluno consegue estudar em modo local, ser guiado por trilhas melhores e fechar um loop consistente de teoria, prática e progresso no mesmo dispositivo
 
 ### Release R1: Mastery Engine
 
@@ -193,10 +194,12 @@ Critério de sucesso:
 
 ### Release R4: Challenge Economy
 
-Objetivo: transformar domínio em compromisso mensurável e modelo comercial sólido.
+Objetivo: transformar domínio em compromisso mensurável, com persistência confiável e modelo comercial sólido.
 
 Escopo:
 
+- autenticação e sincronização em nuvem
+- persistência remota de progresso, agenda e ledger mínimo
 - gamificação séria baseada em domínio e consistência
 - definição operacional de "zerar" a matemática coberta
 - elegibilidade para eventual política de devolução
@@ -205,6 +208,8 @@ Escopo:
 
 Artefatos de entrega:
 
+- arquitetura de contas e sync documentada
+- schema inicial de Supabase
 - política de elegibilidade
 - ledger de progresso auditável
 - critérios comerciais e jurídicos documentados
@@ -219,18 +224,19 @@ Hoje o projeto está entre a pré-base e o início de R0:
 
 - arquitetura de conteúdo já está pronta para escala
 - governança de produto e entrega está sendo formalizada
-- o próximo salto real é autenticação e persistência remota
+- o próximo salto real é fortalecer o loop single-user com trilhas, domínio local e contrato de storage bem definido
 
 ## O que não vamos fazer agora
 
 - não vamos perseguir conteúdo editorial definitivo como gargalo
 - não vamos tentar lançar toda a matemática com todas as mecânicas de uma vez
-- não vamos introduzir múltiplos backends antes de validar Supabase como storage inicial
+- não vamos introduzir autenticação e multiusuário antes de provar o loop principal em modo local
+- não vamos introduzir múltiplos backends; quando a camada remota fizer sentido, Supabase continua sendo o primeiro candidato
 
 ## Medidas de sucesso por etapa
 
-- R0: cadastro, login, persistência remota e fluxo básico estável
+- R0: loop single-user estável, trilhas coerentes e progresso local consistente
 - R1: taxa de aprovação e bloqueio coerentes
 - R2: taxa de recuperação concluída e redução de reincidência
 - R3: aderência à fila de revisão e retenção de domínio
-- R4: completion rate, consistência e elegibilidade auditável
+- R4: sincronização confiável, ledger auditável, completion rate e elegibilidade auditável

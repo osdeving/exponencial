@@ -105,9 +105,10 @@ O projeto agora também está documentado como produto e não só como código:
 - [docs/product/non-functional-requirements.md](docs/product/non-functional-requirements.md): segurança, performance, observabilidade e operação
 - [docs/delivery/trunk-based-delivery.md](docs/delivery/trunk-based-delivery.md): fluxo GitHub, trunk-based, PRs e releases
 
-O runtime-alvo de persistência inicial é:
+O runtime-alvo de evolução de estado é:
 
 - frontend estático em React/Vite
 - GitHub Pages para entrega inicial
-- Supabase para autenticação, perfis, tentativas, domínio e agenda de revisão
+- persistência local-first no início, com contrato estável para storage e sessão
+- Supabase depois, quando autenticação e sincronização entre dispositivos fizerem sentido
 - GitHub como canal operacional de roadmap, releases e documentação

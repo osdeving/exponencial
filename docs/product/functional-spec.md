@@ -28,16 +28,17 @@ Pessoa que acompanha ambiente, autenticação, storage, incidentes e políticas 
 
 Capacidades:
 
-- cadastro e login
-- perfil básico
+- perfil local básico
 - série alvo, objetivo e ritmo
-- histórico de progresso persistido
+- histórico de progresso persistido no dispositivo
+- contrato explícito de sessão/storage para futura sincronização
+- conta e login em fase posterior
 
 Histórias:
 
-- Como aluno, quero criar uma conta para não perder meu progresso.
-- Como aluno, quero entrar novamente e continuar de onde parei.
-- Como produto, quero associar tentativas e domínio a um aluno autenticado.
+- Como aluno, quero configurar meu perfil sem depender de backend para começar a estudar.
+- Como aluno, quero voltar depois e continuar de onde parei no mesmo dispositivo.
+- Como produto, quero preparar um contrato de storage que permita sincronização futura sem reescrever a UI.
 
 ### 2. Exploração curricular e trilhas
 
@@ -167,29 +168,33 @@ O app deve permitir que teoria, exercícios, gabaritos e soluções sejam public
 
 ### RF-03
 
-O app deve permitir autenticar alunos e associar progresso a uma identidade persistida.
+O app deve persistir perfil e progresso por um contrato explícito de storage, com implementação local-first nas releases iniciais.
 
 ### RF-04
 
-O app deve registrar tentativas, acertos, erros e progresso por habilidade canônica.
+Quando a fase multiusuário entrar, o app deve permitir autenticar alunos e associar progresso a uma identidade persistida.
 
 ### RF-05
 
-O app deve bloquear avanço quando o aluno não atingir o domínio mínimo definido para a etapa atual.
+O app deve registrar tentativas, acertos, erros e progresso por habilidade canônica.
 
 ### RF-06
 
-O app deve gerar revisão obrigatória quando um erro indicar lacuna relevante.
+O app deve bloquear avanço quando o aluno não atingir o domínio mínimo definido para a etapa atual.
 
 ### RF-07
 
-O app deve agendar revisões futuras para evitar esquecimento das habilidades dominadas.
+O app deve gerar revisão obrigatória quando um erro indicar lacuna relevante.
 
 ### RF-08
 
-O app deve expor trilhas default coerentes com os objetivos do aluno e com a taxonomia canônica.
+O app deve agendar revisões futuras para evitar esquecimento das habilidades dominadas.
 
 ### RF-09
+
+O app deve expor trilhas default coerentes com os objetivos do aluno e com a taxonomia canônica.
+
+### RF-10
 
 O app deve fornecer visibilidade clara de status, bloqueios, revisões pendentes e progresso total.
 
@@ -197,9 +202,9 @@ O app deve fornecer visibilidade clara de status, bloqueios, revisões pendentes
 
 ### Epic A: Plataforma Base
 
-- autenticação de aluno
-- perfil persistido
-- storage inicial em Supabase
+- perfil local mais robusto
+- contrato de storage/session
+- trilhas default guiadas pela taxonomia
 - telemetria mínima
 - placeholders para validação do loop
 
@@ -228,6 +233,13 @@ O app deve fornecer visibilidade clara de status, bloqueios, revisões pendentes
 - ranking mais sério
 - critério de conclusão total
 - políticas de elegibilidade comercial
+
+### Epic F: Accounts & Cloud Sync
+
+- autenticação de aluno
+- sincronização entre dispositivos
+- storage remoto inicial em Supabase
+- ledger auditável de progresso
 
 ## Artefatos obrigatórios por feature
 

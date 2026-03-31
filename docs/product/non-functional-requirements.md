@@ -19,7 +19,7 @@ Meta inicial:
 ## NFR-02: Disponibilidade
 
 - frontend estático deve ter alta disponibilidade via GitHub Pages no estágio inicial
-- storage inicial em Supabase deve ser suficiente para perfis e progresso sem exigir backend próprio no início
+- a experiência single-user deve funcionar sem backend obrigatório nas releases iniciais
 - falhas de storage não devem corromper definitivamente o estado do aluno
 
 Meta inicial:
@@ -28,7 +28,8 @@ Meta inicial:
 
 ## NFR-03: Segurança
 
-- autenticação deve usar mecanismo confiável, com Supabase Auth como primeira camada prevista
+- a fase local-first não deve exigir exposição de segredos no cliente
+- quando autenticação entrar, ela deve usar mecanismo confiável, com Supabase Auth como primeira camada prevista
 - segredos não podem ficar expostos no cliente
 - políticas de acesso devem ser definidas com Row Level Security ao introduzir dados de aluno
 - o fluxo de entrega deve proteger `main` e exigir CI
@@ -36,15 +37,15 @@ Meta inicial:
 ## NFR-04: Privacidade e conformidade
 
 - dados pessoais de aluno devem ser mínimos
-- o produto deve prever consentimento e exclusão de conta
-- o roadmap deve considerar LGPD desde a fase de autenticação
+- o produto deve prever consentimento e exclusão de conta quando a fase multiusuário entrar
+- o roadmap deve considerar LGPD antes da introdução de autenticação
 - menores de idade exigem cuidado maior com dados e comunicação
 
 ## NFR-05: Auditabilidade
 
 - a plataforma deve conseguir explicar por que um aluno foi bloqueado, destravado ou considerado apto
 - eventos importantes devem ser rastreáveis
-- o histórico mínimo de tentativas e revisões deve ser persistido quando a fase Supabase entrar
+- o histórico mínimo de tentativas e revisões deve existir primeiro por contrato e depois, na fase cloud, ser persistido remotamente
 
 Isso é crítico para:
 
@@ -60,7 +61,7 @@ Isso é crítico para:
 
 Eventos mínimos previstos:
 
-- cadastro concluído
+- perfil configurado
 - início de lição
 - envio de exercício
 - aprovação
@@ -101,6 +102,7 @@ Eventos mínimos previstos:
 
 ## NFR-12: Custo operacional
 
-- no estágio inicial, preferir GitHub Pages + Supabase em vez de backend próprio
+- no estágio inicial, preferir GitHub Pages + arquitetura local-first em vez de backend próprio
 - evitar serviços adicionais antes de validar o loop principal
+- quando a camada remota passar a ser necessária, preferir Supabase como primeira opção
 - qualquer novo serviço precisa justificar custo, risco e ganho operacional

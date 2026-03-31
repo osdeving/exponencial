@@ -41,8 +41,13 @@ O alvo operacional incremental é:
 
 - **Frontend**: React/Vite mantendo o papel de renderer da experiência de aprendizagem
 - **Conteúdo**: Markdown versionado no Git, scaffoldado pela taxonomia canônica
-- **Storage inicial**: Supabase
-  - autenticação
+- **Fase 1 de estado**: local-first
+  - perfil local
+  - progresso local
+  - sessão/storage por contrato explícito
+  - sem obrigar autenticação antes do loop principal estar provado
+- **Fase 2 de estado**: nuvem
+  - Supabase como primeiro candidato para autenticação e sincronização
   - perfis de aluno
   - tentativas de exercício
   - estado de domínio por habilidade canônica
@@ -51,7 +56,7 @@ O alvo operacional incremental é:
 - **Entrega**: GitHub Actions + GitHub Pages no estágio inicial
 - **Operação**: GitHub como fonte de roadmap, releases, templates, milestones e governança de trunk-based
 
-A regra de arquitetura continua a mesma: o conteúdo deve continuar fora da UI. O que muda no próximo estágio é o lugar onde o progresso do aluno deixa de ser local e passa a ser persistido de forma auditável.
+A regra de arquitetura continua a mesma: o conteúdo deve continuar fora da UI. O próximo estágio imediato não é multiusuário; é consolidar domínio, trilhas e storage local por contratos estáveis para, depois, trocar o adapter sem reescrever o app.
 
 ### 1. Fonte de conteúdo
 
@@ -141,7 +146,7 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
   - Se isso crescer muito, convém separar contratos, fontes e validação.
 - **A persistência do aluno ainda é local**.
   - O estado atual serve para prototipação.
-  - O roadmap do produto já assume migração para Supabase como backend inicial.
+  - O roadmap agora assume consolidar o loop local-first antes da migração para nuvem.
 - **A solução passo a passo está preparada, mas não no estágio final de animação rica**.
   - O schema declarativo já existe.
   - O renderer já entende passos, rascunho e algoritmo.
@@ -183,8 +188,9 @@ Para ficar no modelo que você quer, o alvo técnico deveria ser este:
    - regras ficam em `lib/` ou hooks dedicados
 
 4. **Persistência auditável**
-   - perfil, domínio, desbloqueios e agenda de revisão saem do `localStorage`
-   - Supabase passa a registrar o histórico mínimo do aluno
+   - primeiro, o app passa a ter contratos explícitos de storage e sessão
+   - depois, perfil, domínio, desbloqueios e agenda de revisão podem sair do `localStorage`
+   - Supabase entra apenas quando sincronização e auditabilidade remota fizerem sentido
 
 5. **Fluxo de entrega previsível**
    - PRs pequenos em trunk-based
@@ -251,4 +257,4 @@ Se você quer:
 - O principal débito agora está na evolução do renderer de solução, na configuração de produto e em manter `canonicalIds` explícitos no próprio conteúdo.
 - O melhor lugar para mexer depende do tipo de mudança.
 - `src/components/QuestionSolutionView.tsx` e `src/config/*` são os principais pontos de atenção em escala.
-- O próximo salto arquitetural relevante é sair da persistência local e introduzir Supabase sem quebrar o modelo content-driven.
+- O próximo salto arquitetural relevante é explicitar contratos de storage/session para fortalecer o modo local-first sem quebrar o modelo content-driven.
