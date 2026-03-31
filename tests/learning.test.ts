@@ -1,5 +1,6 @@
 import assert from 'node:assert/strict';
 import test from 'node:test';
+import { getPathById } from '../src/config/index.ts';
 import {
   DEFAULT_PROGRESS,
   buildProgressAfterLessonCompletion,
@@ -23,7 +24,7 @@ test('normalizeProgress saneia payload persistido sem quebrar o contrato', () =>
     },
     points: '300',
     badges: ['fraction-master', null],
-    savedPaths: ['exam-prep', 2],
+    savedPaths: ['exam-prep', 'core-rebuild', 2],
     completedPaths: ['geometry-deep', {}],
     lastLessonId: 7,
     streak: '4',
@@ -47,8 +48,8 @@ test('normalizeProgress saneia payload persistido sem quebrar o contrato', () =>
   assert.deepEqual(normalized.scores, { fractions: 80 });
   assert.equal(normalized.points, 0);
   assert.deepEqual(normalized.badges, ['fraction-master']);
-  assert.deepEqual(normalized.savedPaths, ['exam-prep']);
-  assert.deepEqual(normalized.completedPaths, ['geometry-deep']);
+  assert.deepEqual(normalized.savedPaths, ['core-rebuild']);
+  assert.deepEqual(normalized.completedPaths, ['geometry-visual']);
   assert.equal(normalized.lastLessonId, null);
   assert.equal(normalized.streak, 0);
   assert.equal(normalized.lastActiveDate, null);
@@ -90,7 +91,7 @@ test('normalizeProfile exige nome e aplica defaults consistentes', () => {
 });
 
 test('getSuggestedPath seleciona trilhas coerentes com perfil e objetivo', () => {
-  assert.equal(getSuggestedPath(null).id, 'exam-prep');
+  assert.equal(getSuggestedPath(null).id, 'core-rebuild');
   assert.equal(
     getSuggestedPath({
       name: 'Bia',
@@ -100,7 +101,7 @@ test('getSuggestedPath seleciona trilhas coerentes com perfil e objetivo', () =>
       favoriteTopics: [],
       joinedAt: '2026-03-01T12:00:00.000Z',
     }).id,
-    'algebra-track',
+    'zero-math-journey',
   );
   assert.equal(
     getSuggestedPath({
@@ -111,8 +112,26 @@ test('getSuggestedPath seleciona trilhas coerentes com perfil e objetivo', () =>
       favoriteTopics: [],
       joinedAt: '2026-03-01T12:00:00.000Z',
     }).id,
-    'vestibular-essentials',
+    'algebra-functions-ladder',
   );
+  assert.equal(
+    getSuggestedPath({
+      name: 'Duda',
+      level: 'Médio',
+      goal: 'Vestibular',
+      weeklyGoal: 4,
+      favoriteTopics: [],
+      joinedAt: '2026-03-01T12:00:00.000Z',
+    }).id,
+    'enem-nuclear',
+  );
+});
+
+test('getPathById preserva compatibilidade com ids legados de trilha', () => {
+  assert.equal(getPathById('exam-prep')?.id, 'core-rebuild');
+  assert.equal(getPathById('geometry-deep')?.id, 'geometry-visual');
+  assert.equal(getPathById('algebra-track')?.id, 'algebra-functions-ladder');
+  assert.equal(getPathById('vestibular-essentials')?.id, 'enem-nuclear');
 });
 
 test('buildProgressAfterLessonCompletion atualiza pontuação, tentativa e próxima recomendação', () => {

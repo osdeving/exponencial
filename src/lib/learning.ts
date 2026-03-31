@@ -1,5 +1,5 @@
 import { LESSONS, TOPICS } from '../content';
-import { BADGES, PATHS, getPathById } from '../config';
+import { BADGES, PATHS, getCanonicalPathId, getPathById } from '../config';
 import {
   Badge,
   ContentStatus,
@@ -43,6 +43,9 @@ const SEARCH_LIMIT = 8;
 
 const normalizeStringArray = (value: unknown): string[] =>
   Array.isArray(value) ? value.filter((item): item is string => typeof item === 'string') : [];
+
+const normalizePathIdArray = (value: unknown): string[] =>
+  Array.from(new Set(normalizeStringArray(value).map((pathId) => getCanonicalPathId(pathId))));
 
 const normalizeNumberRecord = (value: unknown): Record<string, number> => {
   if (!value || typeof value !== 'object') {
@@ -92,8 +95,8 @@ export function normalizeProgress(raw: unknown): UserProgress {
     scores: normalizeNumberRecord(value.scores),
     points: typeof value.points === 'number' ? value.points : 0,
     badges: normalizeStringArray(value.badges),
-    savedPaths: normalizeStringArray(value.savedPaths),
-    completedPaths: normalizeStringArray(value.completedPaths),
+    savedPaths: normalizePathIdArray(value.savedPaths),
+    completedPaths: normalizePathIdArray(value.completedPaths),
     lastLessonId: typeof value.lastLessonId === 'string' ? value.lastLessonId : null,
     streak: typeof value.streak === 'number' ? value.streak : 0,
     lastActiveDate: typeof value.lastActiveDate === 'string' ? value.lastActiveDate : null,
@@ -227,18 +230,26 @@ export function getRecommendedLesson(progress: UserProgress): Lesson | undefined
 
 export function getSuggestedPath(profile: UserProfile | null): LearningPath {
   if (!profile) {
-    return getPathById('exam-prep') ?? PATHS[0];
+    return getPathById('core-rebuild') ?? PATHS[0];
+  }
+
+  if (profile.goal === 'Revisar base') {
+    return getPathById('core-rebuild') ?? PATHS[0];
   }
 
   if (profile.goal === 'Preparar faculdade') {
-    return getPathById('algebra-track') ?? PATHS[0];
+    return getPathById('zero-math-journey') ?? PATHS[0];
   }
 
-  if (profile.goal === 'Vestibular' || profile.level === 'Médio') {
-    return getPathById('vestibular-essentials') ?? PATHS[0];
+  if (profile.goal === 'Vestibular') {
+    return getPathById('enem-nuclear') ?? PATHS[0];
   }
 
-  return getPathById('exam-prep') ?? PATHS[0];
+  if (profile.level === 'Médio') {
+    return getPathById('algebra-functions-ladder') ?? PATHS[0];
+  }
+
+  return getPathById('fundamental-complete') ?? PATHS[0];
 }
 
 export function getContentStatusLabel(status: ContentStatus | 'Todos') {

@@ -1,6 +1,5 @@
 import { LearningPath, Lesson, Topic, UserProgress } from '../../types';
-import { TOPICS } from '../../content';
-import { getLessonsByTopic, getPathProgress, getTopicProgress } from '../../lib/learning';
+import { getLessonsByTopic, getPathProgress, getTopicById, getTopicProgress } from '../../lib/learning';
 
 interface PathViewProps {
   path: LearningPath;
@@ -14,6 +13,9 @@ interface PathViewProps {
 
 export function PathView({ path, progress, onBack, onLessonSelect, onStartPath, onToggleSavedPath, onTopicSelect }: PathViewProps) {
   const pathProgress = getPathProgress(path, progress);
+  const pathTopics = path.topicIds
+    .map((topicId) => getTopicById(topicId))
+    .filter((topic): topic is Topic => Boolean(topic));
 
   return (
     <div className="mx-auto max-w-5xl px-6">
@@ -49,7 +51,7 @@ export function PathView({ path, progress, onBack, onLessonSelect, onStartPath, 
       </div>
 
       <div className="grid gap-6">
-        {TOPICS.filter((topic) => path.topicIds.includes(topic.id)).map((topic) => {
+        {pathTopics.map((topic) => {
           const topicProgress = getTopicProgress(topic.id, progress);
           const nextPathLesson = getLessonsByTopic(topic.id).find((lesson) => !progress.completedLessons.includes(lesson.id));
 
