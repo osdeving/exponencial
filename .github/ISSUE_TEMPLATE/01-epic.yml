@@ -1,0 +1,47 @@
+name: Epic
+description: Abrir uma frente grande do roadmap com objetivo, escopo e critérios de sucesso.
+title: '[Epic] '
+labels:
+  - type:epic
+  - area:product
+body:
+  - type: textarea
+    id: context
+    attributes:
+      label: Contexto
+      description: Explique o problema e por que esta frente importa agora.
+    validations:
+      required: true
+  - type: dropdown
+    id: release
+    attributes:
+      label: Release alvo
+      options:
+        - R0 Foundation Loop
+        - R1 Mastery Engine
+        - R2 Recovery Loop
+        - R3 Retention Engine
+        - R4 Challenge Economy
+    validations:
+      required: true
+  - type: textarea
+    id: scope
+    attributes:
+      label: Escopo
+      description: Liste as capacidades que entram neste épico.
+    validations:
+      required: true
+  - type: textarea
+    id: success
+    attributes:
+      label: Critério de sucesso
+      description: Como saberemos que este épico foi entregue com sucesso?
+    validations:
+      required: true
+  - type: textarea
+    id: artifacts
+    attributes:
+      label: Artefatos obrigatórios
+      description: Documentos, workflows, migrações, métricas ou outros entregáveis.
+    validations:
+      required: true

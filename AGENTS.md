@@ -13,9 +13,11 @@ O Exponencial deve evoluir para um modelo em que o site funciona como **renderer
 Leia estes arquivos antes de editar:
 
 1. [docs/architecture.md](docs/architecture.md)
-2. [docs/content-authoring.md](docs/content-authoring.md)
-3. [docs/estrutura/00_README.md](docs/estrutura/00_README.md) se a tarefa for curricular ou de taxonomia
-4. o skill mais adequado em `.codex/skills/`
+2. [docs/product/README.md](docs/product/README.md) se a tarefa tocar roadmap, releases, produto ou operação
+3. [docs/delivery/trunk-based-delivery.md](docs/delivery/trunk-based-delivery.md) se a tarefa tocar GitHub, CI/CD ou fluxo de merge
+4. [docs/content-authoring.md](docs/content-authoring.md)
+5. [docs/estrutura/00_README.md](docs/estrutura/00_README.md) se a tarefa for curricular ou de taxonomia
+6. o skill mais adequado em `.codex/skills/`
 
 ## Onde mexer
 
@@ -66,6 +68,14 @@ Então:
 - progresso e regras: `src/lib/learning.ts`
 - tutor local: `src/lib/tutor.ts`
 
+### Produto, roadmap e entrega
+
+- visão e releases: `docs/product/vision-roadmap.md`
+- escopo funcional: `docs/product/functional-spec.md`
+- requisitos não funcionais: `docs/product/non-functional-requirements.md`
+- fluxo trunk-based e releases: `docs/delivery/trunk-based-delivery.md`
+- GitHub templates e workflows: `.github/*`
+
 ## Regras operacionais
 
 - Nunca editar `src/generated/content-manifest.ts` manualmente.
@@ -88,6 +98,7 @@ O projeto ainda não chegou no estado ideal. Ao mexer, trate estes pontos como d
 - `src/components/QuestionSolutionView.tsx` já suporta passos estruturados, mas ainda não anima escrita caractere a caractere nem desenhos matemáticos.
 - ranking e trilhas continuam estáticos em `src/config/*`; se crescerem muito, extraia contratos e fontes dedicadas.
 - a cobertura canônica ampla depende de `docs/estrutura/*` e de `canonicalIds` explícitos no frontmatter de tópicos e lições; não reintroduza ponte implícita em script.
+- autenticação, perfis persistidos, domínio auditável e repetição espaçada ainda não saíram do roadmap para implementação.
 
 ## Regra de decisão
 
@@ -99,6 +110,7 @@ Se o pedido do usuário for:
 - **"expandir ou reorganizar a grade base"**: mexa em `docs/estrutura/*`, atualize os `canonicalIds` necessários em `src/content/**` e rode `npm run content:scaffold`
 - **"mudar resolução passo a passo"**: mexa primeiro em `src/content/**/*.questions.md`; só depois ajuste `QuestionSolutionView` se o schema não cobrir o caso
 - **"mudar regra de progresso ou busca"**: mexa em `src/lib/learning.ts`
+- **"mudar roadmap, releases, PRD, histórias ou fluxo GitHub"**: mexa primeiro em `docs/product/*`, `docs/delivery/*` e `.github/*`
 - **"mudar visual/comportamento"**: mexa em `src/app/*` e `src/components/*`, extraindo lógica do controller em vez de reinflar o shell
 
 ## Padrão desejado

@@ -1,0 +1,53 @@
+name: Feature
+description: Abrir uma entrega funcional pequena e verificável.
+title: '[Feature] '
+labels:
+  - type:feature
+body:
+  - type: textarea
+    id: user-story
+    attributes:
+      label: História
+      description: Escreva no formato Como <ator>, quero <capacidade>, para <resultado>.
+      placeholder: Como aluno, quero ...
+    validations:
+      required: true
+  - type: dropdown
+    id: area
+    attributes:
+      label: Área
+      options:
+        - area:product
+        - area:platform
+        - area:frontend
+        - area:learning-engine
+        - area:content-platform
+        - area:data
+    validations:
+      required: true
+  - type: dropdown
+    id: release
+    attributes:
+      label: Release alvo
+      options:
+        - R0 Foundation Loop
+        - R1 Mastery Engine
+        - R2 Recovery Loop
+        - R3 Retention Engine
+        - R4 Challenge Economy
+    validations:
+      required: true
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Critérios de aceite
+      description: Descreva os critérios de aceite verificáveis.
+    validations:
+      required: true
+  - type: textarea
+    id: data-impact
+    attributes:
+      label: Impacto em dados e telemetria
+      description: Tabelas, eventos, storage ou ausência de impacto.
+    validations:
+      required: true

@@ -1,0 +1,27 @@
+name: Tech Debt
+description: Registrar dívida técnica ou arquitetural que precisa ser saneada.
+title: '[Tech Debt] '
+labels:
+  - type:tech-debt
+body:
+  - type: textarea
+    id: debt
+    attributes:
+      label: Dívida
+      description: Explique o problema estrutural atual.
+    validations:
+      required: true
+  - type: textarea
+    id: risk
+    attributes:
+      label: Risco
+      description: Qual é o impacto de manter isso em aberto?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Caminho de saneamento
+      description: Descreva a direção recomendada.
+    validations:
+      required: true

@@ -9,7 +9,49 @@ O estado desejado do projeto é:
 - a UI mudar pouco quando o currículo crescer
 - agentes e IAs conseguirem operar lendo poucos arquivos de orientação
 
+Leituras complementares:
+
+- [docs/product/vision-roadmap.md](product/vision-roadmap.md)
+- [docs/product/functional-spec.md](product/functional-spec.md)
+- [docs/product/non-functional-requirements.md](product/non-functional-requirements.md)
+- [docs/delivery/trunk-based-delivery.md](delivery/trunk-based-delivery.md)
+
 ## Como o projeto funciona hoje
+
+### Runtime atual
+
+- frontend estático em React 19 + Vite
+- deploy em GitHub Pages
+- conteúdo curricular empacotado a partir de Markdown gerado em `src/generated/*`
+- persistência local em `localStorage` para perfil, progresso e tutor
+
+Esse runtime é suficiente para validar:
+
+- navegação curricular
+- renderer de teoria
+- fluxo de exercícios
+- contratos de conteúdo
+- partes da gamificação local
+
+Ele ainda não é o runtime final do produto.
+
+### Runtime alvo de produto
+
+O alvo operacional incremental é:
+
+- **Frontend**: React/Vite mantendo o papel de renderer da experiência de aprendizagem
+- **Conteúdo**: Markdown versionado no Git, scaffoldado pela taxonomia canônica
+- **Storage inicial**: Supabase
+  - autenticação
+  - perfis de aluno
+  - tentativas de exercício
+  - estado de domínio por habilidade canônica
+  - agenda de revisão espaçada
+  - eventos operacionais mínimos
+- **Entrega**: GitHub Actions + GitHub Pages no estágio inicial
+- **Operação**: GitHub como fonte de roadmap, releases, templates, milestones e governança de trunk-based
+
+A regra de arquitetura continua a mesma: o conteúdo deve continuar fora da UI. O que muda no próximo estágio é o lugar onde o progresso do aluno deixa de ser local e passa a ser persistido de forma auditável.
 
 ### 1. Fonte de conteúdo
 
@@ -97,6 +139,9 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
 - **Parte da configuração de produto ainda é estática**.
   - Trilhas, badges e ranking mockado vivem em `src/config/*`.
   - Se isso crescer muito, convém separar contratos, fontes e validação.
+- **A persistência do aluno ainda é local**.
+  - O estado atual serve para prototipação.
+  - O roadmap do produto já assume migração para Supabase como backend inicial.
 - **A solução passo a passo está preparada, mas não no estágio final de animação rica**.
   - O schema declarativo já existe.
   - O renderer já entende passos, rascunho e algoritmo.
@@ -136,6 +181,16 @@ Para ficar no modelo que você quer, o alvo técnico deveria ser este:
 3. **Shell enxuto**
    - `App.tsx` vira composição de telas e hooks
    - regras ficam em `lib/` ou hooks dedicados
+
+4. **Persistência auditável**
+   - perfil, domínio, desbloqueios e agenda de revisão saem do `localStorage`
+   - Supabase passa a registrar o histórico mínimo do aluno
+
+5. **Fluxo de entrega previsível**
+   - PRs pequenos em trunk-based
+   - CI obrigatória
+   - releases versionadas
+   - milestones e backlog alinhados ao roadmap
 
 ## Refactors prioritários para atingir esse alvo
 
@@ -196,3 +251,4 @@ Se você quer:
 - O principal débito agora está na evolução do renderer de solução, na configuração de produto e em manter `canonicalIds` explícitos no próprio conteúdo.
 - O melhor lugar para mexer depende do tipo de mudança.
 - `src/components/QuestionSolutionView.tsx` e `src/config/*` são os principais pontos de atenção em escala.
+- O próximo salto arquitetural relevante é sair da persistência local e introduzir Supabase sem quebrar o modelo content-driven.

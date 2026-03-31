@@ -5,6 +5,10 @@ Plataforma de estudos de matemática orientada a conteúdo. A meta do projeto é
 ## Leitura rápida
 
 - Arquitetura e limites do sistema: [docs/architecture.md](docs/architecture.md)
+- Visão de produto e roadmap: [docs/product/vision-roadmap.md](docs/product/vision-roadmap.md)
+- Especificação funcional: [docs/product/functional-spec.md](docs/product/functional-spec.md)
+- Requisitos não funcionais: [docs/product/non-functional-requirements.md](docs/product/non-functional-requirements.md)
+- Fluxo trunk-based e release: [docs/delivery/trunk-based-delivery.md](docs/delivery/trunk-based-delivery.md)
 - Fluxo de autoria de conteúdo: [docs/content-authoring.md](docs/content-authoring.md)
 - Instruções operacionais para IA e agentes: [AGENTS.md](AGENTS.md)
 
@@ -23,7 +27,9 @@ Outros comandos úteis:
 npm run content:scaffold
 npm run content:generate
 npm run lint
+npm run test
 npm run build
+npm run validate
 ```
 
 `npm run content:scaffold` agora combina duas fontes:
@@ -58,6 +64,14 @@ O app assume três estados curriculares:
 
 Isso existe para permitir que a grade inteira apareça no app, com filtros e agrupamentos funcionando, mesmo antes de todo o texto definitivo ser escrito.
 
+Para validação de produto, não é obrigatório ter teoria final desde o início. O fluxo recomendado é:
+
+1. validar a feature com conteúdo placeholder em Markdown
+2. ajustar contrato, UX e regras de domínio
+3. só depois substituir o texto por conteúdo editorial definitivo
+
+Essa regra existe porque a plataforma deve evoluir por incrementos funcionais sólidos, não por carga massiva de conteúdo sem mecanismo de aprendizagem pronto.
+
 Na aplicação, a divisão atual é:
 
 - `src/content/**` e `src/generated/*`: fonte e manifestos curriculares
@@ -80,3 +94,20 @@ Se a mudança for estrutural no currículo:
 1. revisar `docs/estrutura/*` e os `canonicalIds` em `src/content/**`
 2. rodar `npm run content:scaffold`
 3. preencher ou refinar os Markdown em `src/content/**`
+
+## Produto e entrega
+
+O projeto agora também está documentado como produto e não só como código:
+
+- [docs/product/README.md](docs/product/README.md): índice dos artefatos de produto
+- [docs/product/vision-roadmap.md](docs/product/vision-roadmap.md): visão, releases e metas
+- [docs/product/functional-spec.md](docs/product/functional-spec.md): histórias e capacidades
+- [docs/product/non-functional-requirements.md](docs/product/non-functional-requirements.md): segurança, performance, observabilidade e operação
+- [docs/delivery/trunk-based-delivery.md](docs/delivery/trunk-based-delivery.md): fluxo GitHub, trunk-based, PRs e releases
+
+O runtime-alvo de persistência inicial é:
+
+- frontend estático em React/Vite
+- GitHub Pages para entrega inicial
+- Supabase para autenticação, perfis, tentativas, domínio e agenda de revisão
+- GitHub como canal operacional de roadmap, releases e documentação

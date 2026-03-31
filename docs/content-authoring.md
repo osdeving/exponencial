@@ -1,5 +1,19 @@
 # Autoria de Conteúdo
 
+## Regra editorial para a fase atual
+
+O produto ainda está validando loops de aprendizagem e mecânicas de domínio. Por isso:
+
+- conteúdo final não é pré-requisito para desenvolver feature
+- placeholders em Markdown são aceitáveis para validar fluxo
+- o status da lição deve refletir a maturidade real: `outline`, `in-progress` ou `ready`
+
+A ordem recomendada é:
+
+1. validar a funcionalidade com conteúdo simples
+2. estabilizar contrato, renderer e telemetria
+3. substituir o placeholder por material editorial definitivo
+
 Hoje o projeto usa **Markdown como fonte principal** para tópico, teoria, exercícios e gabaritos.
 
 Além disso, o setup inicial do app parte de uma **taxonomia canônica** em `docs/estrutura/*`. O scaffold usa essa taxonomia para garantir que a grade já exista no sistema, mesmo quando parte do conteúdo ainda estiver só como placeholder.

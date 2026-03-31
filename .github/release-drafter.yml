@@ -1,0 +1,48 @@
+name-template: 'v$RESOLVED_VERSION'
+tag-template: 'v$RESOLVED_VERSION'
+template: |
+  ## Mudanças
+
+  $CHANGES
+
+  ## Observações
+
+  - Consulte `docs/product/vision-roadmap.md` para o contexto da release.
+  - Consulte `docs/delivery/trunk-based-delivery.md` para o fluxo de entrega.
+
+categories:
+  - title: 'Features'
+    labels:
+      - 'type:feature'
+      - 'enhancement'
+  - title: 'Correções'
+    labels:
+      - 'type:bug'
+      - 'bug'
+  - title: 'Documentação'
+    labels:
+      - 'type:docs'
+      - 'documentation'
+  - title: 'Plataforma e dívida técnica'
+    labels:
+      - 'type:chore'
+      - 'type:tech-debt'
+
+change-template: '- $TITLE (#$NUMBER) @$AUTHOR'
+change-title-escapes: '\<*_&'
+version-resolver:
+  major:
+    labels:
+      - 'release:major'
+  minor:
+    labels:
+      - 'release:minor'
+  patch:
+    labels:
+      - 'release:patch'
+      - 'type:bug'
+      - 'type:docs'
+      - 'type:chore'
+  default: patch
+exclude-labels:
+  - 'skip-changelog'
