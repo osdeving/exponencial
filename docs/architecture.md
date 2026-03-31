@@ -112,6 +112,7 @@ A composição deixou de depender de um arquivo-bal­de único.
 - `src/lib/analytics.ts`: contrato de eventos locais e resumo operacional
 - `src/lib/mastery.ts`: ledger de domínio canônico e resumo de dívida matemática
 - `src/lib/questions.ts`: interpretação de questões
+- `src/lib/recovery.ts`: contrato e motor local de recuperação obrigatória
 - `src/lib/tutor.ts`: tutor local baseado em regras
 
 Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.tsx`.
@@ -156,7 +157,8 @@ Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.ts
   - O ledger local por `canonicalId` já existe.
   - O dashboard de dívida matemática também.
   - O corte mínimo local e a trava sequencial por tópico já entraram.
-  - Ainda faltam remediação, bloqueios por lacuna e repetição espaçada.
+  - A remediação local inicial também já entrou.
+  - Ainda faltam enriquecimento de lacunas e repetição espaçada.
 - **A solução passo a passo está preparada, mas não no estágio final de animação rica**.
   - O schema declarativo já existe.
   - O renderer já entende passos, rascunho e algoritmo.
@@ -268,4 +270,4 @@ Se você quer:
 - O mastery local já existe e já atua como gate sequencial básico dentro de cada tópico.
 - O melhor lugar para mexer depende do tipo de mudança.
 - `src/components/QuestionSolutionView.tsx` e `src/config/*` são os principais pontos de atenção em escala.
-- O próximo salto arquitetural relevante é transformar a trava local em motor explícito de recuperação e repetição espaçada sem quebrar o modelo content-driven.
+- O próximo salto arquitetural relevante é transformar a recuperação local em motor explícito de repetição espaçada e retenção sem quebrar o modelo content-driven.

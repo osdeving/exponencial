@@ -212,7 +212,7 @@ Status atual: `em andamento`
 
 ### Epic B: Mastery
 
-Status atual: `em andamento`
+Status atual: `concluído`
 
 - [x] mastery ledger
 - [x] travas de avanço
@@ -221,11 +221,11 @@ Status atual: `em andamento`
 
 ### Epic C: Recovery
 
-Status atual: `planejado`
+Status atual: `em andamento`
 
-- erro para lacuna
-- revisão obrigatória
-- reavaliação
+- [x] erro para lacuna
+- [x] revisão obrigatória
+- [x] reavaliação
 
 ### Epic D: Retention
 

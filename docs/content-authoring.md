@@ -222,6 +222,35 @@ Campos:
 - `defaultSection` opcional
 - `defaultHint` opcional
 
+### Metadados de recuperação por questão
+
+Quando quiser guiar o motor local de recuperação, você pode adicionar estes blocos opcionais:
+
+- `### Lacunas`: lista curta de misconceptions ou faltas conceituais
+- `### Pré-requisitos`: `canonicalIds` folha que ajudam a explicar o erro
+- `### Recuperação`: `lessonId`s que o aluno deve revisar antes de reabrir a prática
+
+Exemplo:
+
+```md
+### Lacunas
+- soma de frações com denominadores diferentes
+- taxa de trabalho
+
+### Pré-requisitos
+- NUM.06.12
+- NUM.06.13
+
+### Recuperação
+- fractions-intro
+```
+
+Regra prática:
+
+- se `### Recuperação` existir, ela tem prioridade sobre o fallback automático
+- se só `### Pré-requisitos` existir, o app tenta localizar lições com esses `canonicalIds`
+- se nada existir, o app cai no fallback local, revisando a lição anterior do tópico ou a teoria atual
+
 ### Blocos de questão
 
 Use um bloco por questão:

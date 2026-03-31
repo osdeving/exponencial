@@ -103,7 +103,7 @@ Isso existe para validar:
 
 ### Release R0: Foundation Loop
 
-Status atual: `em andamento`
+Status atual: `concluído`
 
 Objetivo: validar o loop básico do produto em modo single-user, com governança de entrega e base local-first sólida.
 
@@ -132,7 +132,7 @@ Critério de sucesso:
 
 ### Release R1: Mastery Engine
 
-Status atual: `em andamento`
+Status atual: `concluído`
 
 Objetivo: transformar o app em uma plataforma com avanço por domínio.
 
@@ -157,23 +157,23 @@ Critério de sucesso:
 
 ### Release R2: Recovery Loop
 
-Status atual: `planejado`
+Status atual: `em andamento`
 
 Objetivo: transformar erro em gatilho de recuperação obrigatória.
 
 Escopo:
 
-- tags de lacuna e pré-requisito por questão
-- diagnóstico mínimo de erro
-- microtrilhas de revisão obrigatória
-- reaplicação após revisão
-- lógica de desbloqueio por recuperação concluída
+- [x] tags de lacuna e pré-requisito por questão
+- [x] diagnóstico mínimo de erro
+- [x] microtrilhas de revisão obrigatória
+- [x] reaplicação após revisão
+- [x] lógica de desbloqueio por recuperação concluída
 
 Artefatos de entrega:
 
-- mapa de misconceptions inicial
-- contrato de remediação
-- telas de bloqueio e recuperação
+- [x] mapa de misconceptions inicial
+- [x] contrato de remediação
+- [x] telas de bloqueio e recuperação
 
 Critério de sucesso:
 
@@ -233,12 +233,12 @@ Critério de sucesso:
 
 ## Onde estamos hoje
 
-Hoje o projeto está entre o fechamento de R0 e o início de R1:
+Hoje o projeto está no início de R2:
 
 - arquitetura de conteúdo já está pronta para escala
 - governança de produto e entrega já está formalizada
-- trilhas e storage local-first já foram fortalecidos
-- o próximo salto real é transformar a trava local em recuperação obrigatória, remediação e repetição espaçada
+- trilhas, storage local-first, gating e telemetria mínima já entraram
+- o próximo salto real é enriquecer a recuperação com mapeamento mais profundo de lacunas e entrar na repetição espaçada
 
 ## O que não vamos fazer agora
 
