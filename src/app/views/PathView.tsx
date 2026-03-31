@@ -1,5 +1,5 @@
 import { LearningPath, Lesson, Topic, UserProgress } from '../../types';
-import { getLessonsByTopic, getPathProgress, getTopicById, getTopicProgress } from '../../lib/learning';
+import { getFirstActionableLessonInTopic, getLessonsByTopic, getPathProgress, getTopicById, getTopicProgress } from '../../lib/learning';
 
 interface PathViewProps {
   path: LearningPath;
@@ -53,7 +53,8 @@ export function PathView({ path, progress, onBack, onLessonSelect, onStartPath, 
       <div className="grid gap-6">
         {pathTopics.map((topic) => {
           const topicProgress = getTopicProgress(topic.id, progress);
-          const nextPathLesson = getLessonsByTopic(topic.id).find((lesson) => !progress.completedLessons.includes(lesson.id));
+          const nextPathLesson = getFirstActionableLessonInTopic(topic.id, progress);
+          const hasRemainingLessons = getLessonsByTopic(topic.id).some((lesson) => !progress.completedLessons.includes(lesson.id));
 
           return (
             <div key={topic.id} className="bg-white p-6 brutal-border">
@@ -75,7 +76,7 @@ export function PathView({ path, progress, onBack, onLessonSelect, onStartPath, 
                     }}
                     className="brutal-btn bg-brand text-xs"
                   >
-                    {nextPathLesson ? 'Continuar aula' : 'Revisar tópico'}
+                    {hasRemainingLessons ? 'Continuar aula' : 'Revisar tópico'}
                   </button>
                 </div>
               </div>

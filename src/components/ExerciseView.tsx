@@ -11,6 +11,7 @@ interface ExerciseViewProps {
   questions: Question[];
   isLoading?: boolean;
   canContinue: boolean;
+  passThreshold: number;
   onBack: () => void;
   onComplete: (result: { score: number; total: number; continueToNext: boolean }) => void;
 }
@@ -20,6 +21,7 @@ export const ExerciseView: React.FC<ExerciseViewProps> = ({
   questions,
   isLoading = false,
   canContinue,
+  passThreshold,
   onBack,
   onComplete,
 }) => {
@@ -66,6 +68,7 @@ export const ExerciseView: React.FC<ExerciseViewProps> = ({
         <ExerciseResultsView
           canContinue={canContinue}
           lessonTitle={lessonTitle}
+          passThreshold={passThreshold}
           percentage={state.percentage}
           score={state.score}
           total={questions.length}

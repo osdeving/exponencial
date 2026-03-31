@@ -1,10 +1,11 @@
 import { LESSONS, TOPICS } from '../content';
 import { BADGES, PATHS, getCanonicalPathId, getPathById } from '../config';
-import { buildCanonicalMasteryAfterLessonCompletion, normalizeCanonicalMastery } from './mastery';
+import { MASTERY_THRESHOLD, buildCanonicalMasteryAfterLessonCompletion, normalizeCanonicalMastery } from './mastery';
 import {
   Badge,
   ContentStatus,
   Lesson,
+  LessonGate,
   LearningGoal,
   LearningPath,
   Level,
@@ -14,6 +15,7 @@ import {
   UserProgress,
 } from '../types';
 
+export const LESSON_PASS_THRESHOLD = MASTERY_THRESHOLD;
 export const DEFAULT_PROGRESS: UserProgress = {
   completedLessons: [],
   lessonScores: {},
@@ -152,6 +154,109 @@ export function getLessonsByTopic(topicId: string): Lesson[] {
   return LESSONS.filter((lesson) => lesson.topicId === topicId).sort((a, b) => a.order - b.order);
 }
 
+export function calculateLessonPercentage(score: number, total: number) {
+  return total === 0 ? 0 : Math.round((score / total) * 100);
+}
+
+export function hasPassedLessonByPercentage(percentage: number) {
+  return percentage >= LESSON_PASS_THRESHOLD;
+}
+
+export function hasPassedLesson(lessonId: string, progress: UserProgress) {
+  return (progress.lessonScores[lessonId] ?? 0) >= LESSON_PASS_THRESHOLD;
+}
+
+export function getLatestLessonPercentage(lessonId: string, progress: UserProgress) {
+  const attempt = progress.attempts[lessonId];
+  return attempt ? calculateLessonPercentage(attempt.score, attempt.total) : null;
+}
+
+export function getPreviousLessonInTopic(topicId: string, lessonId: string): Lesson | undefined {
+  const topicLessons = getLessonsByTopic(topicId);
+  const currentIndex = topicLessons.findIndex((lesson) => lesson.id === lessonId);
+
+  if (currentIndex <= 0) {
+    return undefined;
+  }
+
+  return topicLessons[currentIndex - 1];
+}
+
+export function getLessonGate(lesson: Lesson, progress: UserProgress): LessonGate {
+  const bestScore = typeof progress.lessonScores[lesson.id] === 'number' ? progress.lessonScores[lesson.id] : null;
+  const latestScore = getLatestLessonPercentage(lesson.id, progress);
+  const previousLesson = getPreviousLessonInTopic(lesson.topicId, lesson.id);
+  const isPassed = hasPassedLesson(lesson.id, progress);
+
+  if (isPassed) {
+    return {
+      lessonId: lesson.id,
+      status: 'passed',
+      thresholdPercent: LESSON_PASS_THRESHOLD,
+      bestScore,
+      latestScore,
+      isPassed: true,
+      isLocked: false,
+      blockingLessonId: null,
+      reason: `Dominio minimo atingido com corte de ${LESSON_PASS_THRESHOLD}%.`,
+    };
+  }
+
+  if (previousLesson && !hasPassedLesson(previousLesson.id, progress)) {
+    return {
+      lessonId: lesson.id,
+      status: 'locked',
+      thresholdPercent: LESSON_PASS_THRESHOLD,
+      bestScore,
+      latestScore,
+      isPassed: false,
+      isLocked: true,
+      blockingLessonId: previousLesson.id,
+      reason: `Passe em ${previousLesson.title} com pelo menos ${LESSON_PASS_THRESHOLD}% para destravar esta etapa.`,
+    };
+  }
+
+  if (typeof bestScore === 'number' || typeof latestScore === 'number') {
+    const referenceScore = bestScore ?? latestScore ?? 0;
+    return {
+      lessonId: lesson.id,
+      status: 'in-review',
+      thresholdPercent: LESSON_PASS_THRESHOLD,
+      bestScore,
+      latestScore,
+      isPassed: false,
+      isLocked: false,
+      blockingLessonId: null,
+      reason: `Sua melhor nota ainda esta em ${referenceScore}%. A meta minima para liberar a proxima etapa e ${LESSON_PASS_THRESHOLD}%.`,
+    };
+  }
+
+  return {
+    lessonId: lesson.id,
+    status: 'ready',
+    thresholdPercent: LESSON_PASS_THRESHOLD,
+    bestScore,
+    latestScore,
+    isPassed: false,
+    isLocked: false,
+    blockingLessonId: null,
+    reason: 'Licao liberada para estudo e pratica.',
+  };
+}
+
+export function getFirstActionableLessonInTopic(topicId: string, progress: UserProgress): Lesson | undefined {
+  const topicLessons = getLessonsByTopic(topicId);
+
+  return (
+    topicLessons.find((lesson) => {
+      const gate = getLessonGate(lesson, progress);
+      return !gate.isLocked && !gate.isPassed;
+    }) ??
+    topicLessons.find((lesson) => !getLessonGate(lesson, progress).isLocked) ??
+    topicLessons[0]
+  );
+}
+
 export function getTopicProgress(topicId: string, progress: UserProgress) {
   const topicLessons = getLessonsByTopic(topicId);
   const completed = topicLessons.filter((lesson) => progress.completedLessons.includes(lesson.id)).length;
@@ -193,6 +298,19 @@ export function getNextLessonInTopic(topicId: string, lessonId: string): Lesson 
   return topicLessons[currentIndex + 1];
 }
 
+export function getNextUnlockedLessonInTopic(topicId: string, lessonId: string, progress: UserProgress): Lesson | undefined {
+  if (!hasPassedLesson(lessonId, progress)) {
+    return undefined;
+  }
+
+  const nextLesson = getNextLessonInTopic(topicId, lessonId);
+  if (!nextLesson) {
+    return undefined;
+  }
+
+  return getLessonGate(nextLesson, progress).isLocked ? undefined : nextLesson;
+}
+
 export function getNextLessonForPath(pathId: string, progress: UserProgress): Lesson | undefined {
   const path = getPathById(pathId);
   if (!path) {
@@ -200,8 +318,8 @@ export function getNextLessonForPath(pathId: string, progress: UserProgress): Le
   }
 
   const candidate = path.topicIds
-    .flatMap((topicId) => getLessonsByTopic(topicId))
-    .find((lesson) => !progress.completedLessons.includes(lesson.id));
+    .map((topicId) => getFirstActionableLessonInTopic(topicId, progress))
+    .find((lesson): lesson is Lesson => Boolean(lesson) && !hasPassedLesson(lesson.id, progress));
 
   return candidate ?? getLessonById(path.featuredLessonId) ?? getLessonsByTopic(path.topicIds[0])[0];
 }
@@ -210,8 +328,12 @@ export function getRecommendedLesson(progress: UserProgress): Lesson | undefined
   if (progress.lastLessonId) {
     const lastLesson = getLessonById(progress.lastLessonId);
     if (lastLesson) {
-      const nextInTopic = getNextLessonInTopic(lastLesson.topicId, lastLesson.id);
-      if (nextInTopic && !progress.completedLessons.includes(nextInTopic.id)) {
+      if (!hasPassedLesson(lastLesson.id, progress)) {
+        return lastLesson;
+      }
+
+      const nextInTopic = getNextUnlockedLessonInTopic(lastLesson.topicId, lastLesson.id, progress);
+      if (nextInTopic && !hasPassedLesson(nextInTopic.id, progress)) {
         return nextInTopic;
       }
     }
@@ -225,8 +347,8 @@ export function getRecommendedLesson(progress: UserProgress): Lesson | undefined
   }
 
   return (
-    LESSONS.find((lesson) => lesson.status !== 'outline' && !progress.completedLessons.includes(lesson.id)) ??
-    LESSONS.find((lesson) => !progress.completedLessons.includes(lesson.id)) ??
+    LESSONS.find((lesson) => lesson.status !== 'outline' && !getLessonGate(lesson, progress).isLocked && !hasPassedLesson(lesson.id, progress)) ??
+    LESSONS.find((lesson) => !getLessonGate(lesson, progress).isLocked && !hasPassedLesson(lesson.id, progress)) ??
     LESSONS[0]
   );
 }
@@ -435,7 +557,7 @@ export function getBadgeById(badgeId: string): Badge | undefined {
 }
 
 export function calculatePoints(score: number, total: number, isFirstCompletion: boolean) {
-  const percentage = total === 0 ? 0 : Math.round((score / total) * 100);
+  const percentage = calculateLessonPercentage(score, total);
   const completionBonus = isFirstCompletion ? 60 : 20;
   const perfectBonus = percentage === 100 ? 80 : 0;
 
@@ -478,13 +600,16 @@ export function buildProgressAfterLessonCompletion({
   nextLessonId?: string;
 }) {
   const currentDate = completedAt.slice(0, 10);
-  const percentage = total === 0 ? 0 : Math.round((score / total) * 100);
-  const isFirstCompletion = !progress.completedLessons.includes(lesson.id);
+  const percentage = calculateLessonPercentage(score, total);
+  const isFirstCompletion = !hasPassedLesson(lesson.id, progress);
   const nextLessonScores = {
     ...progress.lessonScores,
     [lesson.id]: Math.max(progress.lessonScores[lesson.id] ?? 0, percentage),
   };
-  const nextCompletedLessons = Array.from(new Set([...progress.completedLessons, lesson.id]));
+  const lessonPassedAfterAttempt = nextLessonScores[lesson.id] >= LESSON_PASS_THRESHOLD;
+  const nextCompletedLessons = lessonPassedAfterAttempt
+    ? Array.from(new Set([...progress.completedLessons, lesson.id]))
+    : progress.completedLessons;
   const nextScores = recomputeTopicScores(nextLessonScores);
   const nextPoints = progress.points + calculatePoints(score, total, isFirstCompletion);
   const nextCanonicalMastery = buildCanonicalMasteryAfterLessonCompletion({

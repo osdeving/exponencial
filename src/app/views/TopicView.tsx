@@ -1,5 +1,5 @@
 import { getQuestionCountByLessonId } from '../../content/queries';
-import { getContentStatusLabel } from '../../lib/learning';
+import { getContentStatusLabel, getFirstActionableLessonInTopic, getLessonGate } from '../../lib/learning';
 import { Lesson, Topic, UserProgress } from '../../types';
 
 interface TopicViewProps {
@@ -40,8 +40,9 @@ export function TopicView({
           </button>
           <button
             onClick={() => {
-              if (lessons[0]) {
-                onLessonSelect(lessons[0]);
+              const firstActionableLesson = getFirstActionableLessonInTopic(topic.id, progress);
+              if (firstActionableLesson) {
+                onLessonSelect(firstActionableLesson);
               }
             }}
             className="brutal-btn bg-brand text-xs"
@@ -54,15 +55,31 @@ export function TopicView({
 
       <div className="grid gap-6">
         {lessons.map((lesson) => {
-          const bestScore = progress.lessonScores[lesson.id];
+          const gate = getLessonGate(lesson, progress);
+          const bestScore = gate.bestScore ?? undefined;
           const attempt = progress.attempts[lesson.id];
-          const isCompleted = progress.completedLessons.includes(lesson.id);
+          const isCompleted = gate.isPassed;
+          const isLocked = gate.isLocked;
+          const gateLabel =
+            gate.status === 'passed'
+              ? 'Aprovada'
+              : gate.status === 'in-review'
+                ? 'Em revisão'
+                : gate.status === 'locked'
+                  ? 'Bloqueada'
+                  : 'Liberada';
 
           return (
             <div
               key={lesson.id}
-              onClick={() => onLessonSelect(lesson)}
-              className="group flex cursor-pointer flex-col gap-4 bg-white p-6 brutal-border hover:bg-brand md:flex-row md:items-center md:justify-between"
+              onClick={() => {
+                if (!isLocked) {
+                  onLessonSelect(lesson);
+                }
+              }}
+              className={`group flex flex-col gap-4 bg-white p-6 brutal-border md:flex-row md:items-center md:justify-between ${
+                isLocked ? 'cursor-not-allowed opacity-60' : 'cursor-pointer hover:bg-brand'
+              }`}
             >
               <div>
                 <h3 className="text-2xl font-bold uppercase">{lesson.title}</h3>
@@ -72,13 +89,22 @@ export function TopicView({
                   <span>{lesson.estimatedMinutes} min</span>
                   <span>{getQuestionCountByLessonId(lesson.id)} exercícios</span>
                   <span>{getContentStatusLabel(lesson.status)}</span>
+                  <span>{gateLabel}</span>
                   {typeof bestScore === 'number' && <span>Melhor nota {bestScore}%</span>}
                   {attempt && <span>Última tentativa {attempt.score}/{attempt.total}</span>}
                 </div>
+                <p className="mt-3 max-w-2xl text-xs font-bold uppercase opacity-60">{gate.reason}</p>
               </div>
               <div className="flex items-center gap-3">
-                {isCompleted && <div className="bg-dark px-3 py-2 text-xs font-bold uppercase text-white brutal-border">Concluída</div>}
-                <div className="bg-dark p-2 text-white brutal-border group-hover:bg-white group-hover:text-dark">Abrir</div>
+                {isCompleted && <div className="bg-dark px-3 py-2 text-xs font-bold uppercase text-white brutal-border">Aprovada</div>}
+                {isLocked && <div className="bg-white px-3 py-2 text-xs font-bold uppercase brutal-border">Travada</div>}
+                <div
+                  className={`p-2 brutal-border ${
+                    isLocked ? 'bg-white text-dark' : 'bg-dark text-white group-hover:bg-white group-hover:text-dark'
+                  }`}
+                >
+                  {isLocked ? 'Bloqueada' : 'Abrir'}
+                </div>
               </div>
             </div>
           );

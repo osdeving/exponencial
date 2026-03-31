@@ -3,8 +3,12 @@ import test from 'node:test';
 import { getPathById } from '../src/config/index.ts';
 import {
   DEFAULT_PROGRESS,
+  LESSON_PASS_THRESHOLD,
   buildProgressAfterLessonCompletion,
+  getFirstActionableLessonInTopic,
+  getLessonGate,
   getLessonById,
+  getNextUnlockedLessonInTopic,
   getRecommendedLesson,
   getSuggestedPath,
   normalizeProfile,
@@ -210,4 +214,67 @@ test('buildProgressAfterLessonCompletion atualiza pontuação, tentativa e próx
   assert.equal(secondAttempt.canonicalMastery['NUM.06.01']?.bestScore, 80);
   assert.equal(secondAttempt.canonicalMastery['NUM.06.01']?.latestScore, 60);
   assert.equal(secondAttempt.canonicalMastery['NUM.06.01']?.attemptCount, 2);
+});
+
+test('buildProgressAfterLessonCompletion so conclui a licao quando atinge o corte minimo', () => {
+  const lesson = getLessonById('fractions-intro');
+  assert.ok(lesson, 'A lição fractions-intro precisa existir no seed curricular.');
+
+  const failedAttempt = buildProgressAfterLessonCompletion({
+    progress: structuredClone(DEFAULT_PROGRESS),
+    lesson,
+    score: 3,
+    total: 5,
+    completedAt: '2026-03-31T10:00:00.000Z',
+  });
+
+  assert.deepEqual(failedAttempt.completedLessons, []);
+  assert.equal(failedAttempt.lessonScores['fractions-intro'], 60);
+  assert.equal(getLessonGate(lesson, failedAttempt).status, 'in-review');
+  assert.equal(getNextUnlockedLessonInTopic(lesson.topicId, lesson.id, failedAttempt), undefined);
+
+  const passedAttempt = buildProgressAfterLessonCompletion({
+    progress: failedAttempt,
+    lesson,
+    score: 4,
+    total: 5,
+    completedAt: '2026-03-31T11:00:00.000Z',
+  });
+
+  assert.deepEqual(passedAttempt.completedLessons, ['fractions-intro']);
+  assert.equal(passedAttempt.lessonScores['fractions-intro'], LESSON_PASS_THRESHOLD);
+  assert.equal(getLessonGate(lesson, passedAttempt).status, 'passed');
+  assert.equal(getNextUnlockedLessonInTopic(lesson.topicId, lesson.id, passedAttempt)?.id, 'fractions-operations');
+});
+
+test('getLessonGate bloqueia a proxima etapa enquanto a anterior nao passa', () => {
+  const introLesson = getLessonById('fractions-intro');
+  const operationsLesson = getLessonById('fractions-operations');
+  assert.ok(introLesson);
+  assert.ok(operationsLesson);
+
+  const blockedProgress = buildProgressAfterLessonCompletion({
+    progress: structuredClone(DEFAULT_PROGRESS),
+    lesson: introLesson,
+    score: 3,
+    total: 5,
+    completedAt: '2026-03-31T10:00:00.000Z',
+  });
+
+  const blockedGate = getLessonGate(operationsLesson, blockedProgress);
+  assert.equal(blockedGate.status, 'locked');
+  assert.equal(blockedGate.blockingLessonId, 'fractions-intro');
+  assert.match(blockedGate.reason, /Frações/i);
+  assert.equal(getFirstActionableLessonInTopic('fractions', blockedProgress)?.id, 'fractions-intro');
+
+  const unlockedProgress = buildProgressAfterLessonCompletion({
+    progress: blockedProgress,
+    lesson: introLesson,
+    score: 5,
+    total: 5,
+    completedAt: '2026-03-31T11:00:00.000Z',
+  });
+
+  assert.equal(getLessonGate(operationsLesson, unlockedProgress).status, 'ready');
+  assert.equal(getFirstActionableLessonInTopic('fractions', unlockedProgress)?.id, 'fractions-operations');
 });

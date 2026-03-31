@@ -4,10 +4,12 @@ import { getQuestionCountByLessonId } from '../../content/queries';
 import { useLessonQuestions } from '../../content/useLessonQuestions';
 import {
   DEFAULT_PROGRESS,
+  LESSON_PASS_THRESHOLD,
   buildProgressAfterLessonCompletion,
   getLessonById,
   getNextLessonForPath,
   getNextLessonInTopic,
+  getNextUnlockedLessonInTopic,
   getRecommendedLesson,
   getSuggestedPath,
   getTopicById,
@@ -45,9 +47,14 @@ export function useLearningFlow({
     () => (selectedLesson ? getQuestionCountByLessonId(selectedLesson.id) : 0),
     [selectedLesson],
   );
-  const hasNextLesson = useMemo(
+  const hasSequentialNextLesson = useMemo(
     () => (selectedLesson ? Boolean(getNextLessonInTopic(selectedLesson.topicId, selectedLesson.id)) : false),
     [selectedLesson],
+  );
+  const hasNextLesson = useMemo(
+    () =>
+      selectedLesson ? Boolean(getNextUnlockedLessonInTopic(selectedLesson.topicId, selectedLesson.id, progress)) : false,
+    [progress, selectedLesson],
   );
 
   const goToNextLesson = () => {
@@ -55,7 +62,7 @@ export function useLearningFlow({
       return;
     }
 
-    const nextLesson = getNextLessonInTopic(selectedLesson.topicId, selectedLesson.id);
+    const nextLesson = getNextUnlockedLessonInTopic(selectedLesson.topicId, selectedLesson.id, progress);
     if (nextLesson) {
       selectLesson(nextLesson);
     }
@@ -112,15 +119,22 @@ export function useLearningFlow({
     }
 
     const completedAt = new Date().toISOString();
-    const nextLesson = continueToNext ? getNextLessonInTopic(selectedLesson.topicId, selectedLesson.id) : undefined;
+    const currentPercentage = total === 0 ? 0 : Math.round((score / total) * 100);
+    const passedCurrentAttempt = currentPercentage >= LESSON_PASS_THRESHOLD;
+    const provisionalNextLesson = continueToNext && passedCurrentAttempt
+      ? getNextLessonInTopic(selectedLesson.topicId, selectedLesson.id)
+      : undefined;
     const nextProgress = buildProgressAfterLessonCompletion({
       progress,
       lesson: selectedLesson,
       score,
       total,
       completedAt,
-      nextLessonId: nextLesson?.id,
+      nextLessonId: provisionalNextLesson?.id,
     });
+    const nextLesson = continueToNext
+      ? getNextUnlockedLessonInTopic(selectedLesson.topicId, selectedLesson.id, nextProgress)
+      : undefined;
     const hasNewBadge = nextProgress.badges.length > progress.badges.length;
 
     setProgress(nextProgress);
@@ -153,6 +167,7 @@ export function useLearningFlow({
   return {
     derived: {
       hasNextLesson,
+      hasSequentialNextLesson,
       nextRecommendedLesson,
       nextRecommendedTopic,
       selectedLessonQuestionCount,

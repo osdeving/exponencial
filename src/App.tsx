@@ -1,6 +1,6 @@
 import { lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
-import { getTopicById } from './lib/learning';
+import { LESSON_PASS_THRESHOLD, getLatestLessonPercentage, getTopicById } from './lib/learning';
 import { AppFooter } from './app/AppFooter';
 import { AppHeader } from './app/AppHeader';
 import { useAppController } from './app/useAppController';
@@ -140,7 +140,9 @@ export default function App() {
                   topic={getTopicById(state.selectedLesson.topicId)}
                   questionCount={derived.selectedLessonQuestionCount}
                   bestScore={state.progress.lessonScores[state.selectedLesson.id]}
+                  latestScore={getLatestLessonPercentage(state.selectedLesson.id, state.progress) ?? undefined}
                   isCompleted={state.progress.completedLessons.includes(state.selectedLesson.id)}
+                  passThreshold={LESSON_PASS_THRESHOLD}
                   onBack={actions.goBackToTopic}
                   onStartExercises={actions.startExercises}
                   onNextLesson={derived.hasNextLesson ? actions.goToNextLesson : undefined}
@@ -161,7 +163,8 @@ export default function App() {
                   lessonTitle={state.selectedLesson.title}
                   questions={derived.selectedLessonQuestions}
                   isLoading={derived.selectedLessonQuestionsLoading}
-                  canContinue={derived.hasNextLesson}
+                  canContinue={derived.hasSequentialNextLesson}
+                  passThreshold={LESSON_PASS_THRESHOLD}
                   onBack={actions.goBackToLesson}
                   onComplete={actions.completeExercise}
                 />

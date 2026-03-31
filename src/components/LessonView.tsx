@@ -10,7 +10,9 @@ interface LessonViewProps {
   topic?: Topic;
   questionCount: number;
   bestScore?: number;
+  latestScore?: number;
   isCompleted: boolean;
+  passThreshold: number;
   onBack: () => void;
   onStartExercises: () => void;
   onNextLesson?: () => void;
@@ -21,7 +23,9 @@ export const LessonView: React.FC<LessonViewProps> = ({
   topic,
   questionCount,
   bestScore,
+  latestScore,
   isCompleted,
+  passThreshold,
   onBack,
   onStartExercises,
   onNextLesson,
@@ -139,7 +143,11 @@ export const LessonView: React.FC<LessonViewProps> = ({
                   <div>
                     <p className="font-bold uppercase text-[10px] opacity-50">Status</p>
                     <p className="font-medium">
-                      {isCompleted ? 'Exercícios concluídos' : 'Teoria pronta para prática'}
+                      {isCompleted
+                        ? `Aprovada para avanço · corte ${passThreshold}%`
+                        : typeof latestScore === 'number'
+                          ? `Em revisão · última tentativa ${latestScore}%`
+                          : 'Teoria pronta para prática'}
                       {typeof bestScore === 'number' ? ` · Melhor nota ${bestScore}%` : ''}
                     </p>
                   </div>

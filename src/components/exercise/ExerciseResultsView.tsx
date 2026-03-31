@@ -3,6 +3,7 @@ import { ArrowRight, ClipboardList, RotateCcw } from 'lucide-react';
 interface ExerciseResultsViewProps {
   canContinue: boolean;
   lessonTitle: string;
+  passThreshold: number;
   percentage: number;
   score: number;
   total: number;
@@ -15,6 +16,7 @@ interface ExerciseResultsViewProps {
 export function ExerciseResultsView({
   canContinue,
   lessonTitle,
+  passThreshold,
   percentage,
   score,
   total,
@@ -24,6 +26,7 @@ export function ExerciseResultsView({
   onRestart,
 }: ExerciseResultsViewProps) {
   const isPerfect = score === total;
+  const isPassed = percentage >= passThreshold;
 
   return (
     <div className="mx-auto max-w-2xl p-8 text-center">
@@ -35,7 +38,11 @@ export function ExerciseResultsView({
         </p>
         <p className="mt-4 font-bold uppercase">{percentage}% de aproveitamento</p>
         <p className="mt-3 font-medium">
-          {isPerfect ? 'Execução perfeita. Pode avançar.' : 'Você já pode revisar a teoria, conferir o gabarito ou seguir para a próxima etapa.'}
+          {isPerfect
+            ? 'Execução perfeita. Pode avançar.'
+            : isPassed
+              ? `Corte mínimo de ${passThreshold}% atingido. A próxima etapa foi liberada.`
+              : `Você ainda não atingiu o corte mínimo de ${passThreshold}%. Revise a teoria e tente novamente para destravar a próxima etapa.`}
         </p>
       </div>
 
@@ -47,7 +54,7 @@ export function ExerciseResultsView({
           Ver Gabarito Completo
           <ClipboardList size={22} />
         </button>
-        {canContinue && (
+        {canContinue && isPassed && (
           <button
             onClick={onContinue}
             className="brutal-btn flex w-full items-center justify-center gap-2 bg-brand py-4 text-xl text-dark"

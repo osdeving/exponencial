@@ -172,6 +172,20 @@ export interface CanonicalMasteryOverview {
   activeDebtBuckets: CanonicalMasteryBucket[];
 }
 
+export type LessonGateStatus = 'locked' | 'ready' | 'in-review' | 'passed';
+
+export interface LessonGate {
+  lessonId: string;
+  status: LessonGateStatus;
+  thresholdPercent: number;
+  bestScore: number | null;
+  latestScore: number | null;
+  isPassed: boolean;
+  isLocked: boolean;
+  blockingLessonId: string | null;
+  reason: string;
+}
+
 export interface UserProgress {
   completedLessons: string[];
   lessonScores: Record<string, number>;
