@@ -1,12 +1,14 @@
 import { useMemo } from 'react';
 import { getPathById } from '../config';
+import { appendAnalyticsEvent, buildAnalyticsSummary } from '../lib/analytics';
 import { getLessonById, getLessonsByTopic, getTopicById } from '../lib/learning';
-import { SearchResult } from '../types';
+import { ProductAnalyticsEvent, SearchResult } from '../types';
 import { buildStorageSnapshot, createLocalSessionDescriptor, exportSnapshotToBrowser, parseStorageSnapshot } from './storage';
 import { useCatalogState } from './catalog/useCatalogState';
 import { useAppNavigation } from './navigation/useAppNavigation';
 import { useProfileActions } from './profile/useProfileActions';
 import { useLearningFlow } from './progress/useLearningFlow';
+import { usePersistentAnalyticsEvents } from './usePersistentAnalyticsEvents';
 import { usePersistentProfile } from './usePersistentProfile';
 import { usePersistentProgress } from './usePersistentProgress';
 
@@ -14,7 +16,19 @@ export function useAppController() {
   const navigation = useAppNavigation();
   const [profile, setProfile] = usePersistentProfile();
   const [progress, setProgress] = usePersistentProgress();
+  const [analyticsEvents, setAnalyticsEvents] = usePersistentAnalyticsEvents();
   const catalog = useCatalogState(profile?.favoriteTopics ?? []);
+  const trackEvent = (event: Omit<ProductAnalyticsEvent, 'id' | 'occurredAt'> & { occurredAt?: string }) => {
+    setAnalyticsEvents((current) => appendAnalyticsEvent(current, event));
+  };
+  const openLesson = (lesson: Parameters<typeof navigation.actions.selectLesson>[0]) => {
+    trackEvent({
+      type: 'lesson-started',
+      lessonId: lesson.id,
+      topicId: lesson.topicId,
+    });
+    navigation.actions.selectLesson(lesson);
+  };
   const profileActions = useProfileActions({
     profile,
     setProfile,
@@ -26,7 +40,8 @@ export function useAppController() {
     progress,
     selectedLesson: navigation.state.selectedLesson,
     setProgress,
-    selectLesson: navigation.actions.selectLesson,
+    selectLesson: openLesson,
+    trackEvent,
     openHomeSection: navigation.actions.openHomeSection,
     goHome: navigation.actions.goHome,
   });
@@ -43,6 +58,7 @@ export function useAppController() {
     [navigation.state.selectedTopic, profile],
   );
   const session = useMemo(() => createLocalSessionDescriptor(profile), [profile]);
+  const analyticsSummary = useMemo(() => buildAnalyticsSummary(analyticsEvents), [analyticsEvents]);
 
   const selectSearchResult = (result: SearchResult) => {
     catalog.actions.clearSearch();
@@ -58,7 +74,7 @@ export function useAppController() {
     if (result.type === 'lesson') {
       const lesson = getLessonById(result.id);
       if (lesson) {
-        navigation.actions.selectLesson(lesson);
+        openLesson(lesson);
       }
       return;
     }
@@ -110,6 +126,7 @@ export function useAppController() {
     derived: {
       ...catalog.derived,
       ...learningFlow.derived,
+      analyticsSummary,
       isSelectedTopicFavorite,
       session,
       selectedTopicLessons,
@@ -121,7 +138,12 @@ export function useAppController() {
       ...learningFlow.actions,
       exportStorageSnapshot,
       importStorageSnapshot,
+      saveProfile: (nextProfile) => {
+        profileActions.saveProfile(nextProfile);
+        trackEvent({ type: 'profile-configured' });
+      },
       selectSearchResult,
+      selectLesson: openLesson,
     },
   };
 }

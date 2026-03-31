@@ -186,6 +186,36 @@ export interface LessonGate {
   reason: string;
 }
 
+export type ProductAnalyticsEventType =
+  | 'profile-configured'
+  | 'lesson-started'
+  | 'exercise-submitted'
+  | 'lesson-passed'
+  | 'lesson-blocked';
+
+export interface ProductAnalyticsEvent {
+  id: string;
+  type: ProductAnalyticsEventType;
+  occurredAt: string;
+  lessonId?: string;
+  topicId?: string;
+  score?: number;
+  total?: number;
+  percentage?: number;
+}
+
+export interface ProductAnalyticsSummary {
+  totalEvents: number;
+  profileConfiguredCount: number;
+  lessonStartedCount: number;
+  exerciseSubmittedCount: number;
+  lessonPassedCount: number;
+  lessonBlockedCount: number;
+  approvalRate: number;
+  blockRate: number;
+  recentEvents: ProductAnalyticsEvent[];
+}
+
 export interface UserProgress {
   completedLessons: string[];
   lessonScores: Record<string, number>;

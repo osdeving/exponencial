@@ -15,7 +15,7 @@ import {
   getTopicById,
 } from '../../lib/learning';
 import { HomeSection } from '../types';
-import { Lesson, LearningPath, UserProfile, UserProgress } from '../../types';
+import { Lesson, LearningPath, ProductAnalyticsEvent, UserProfile, UserProgress } from '../../types';
 
 interface UseLearningFlowOptions {
   profile: UserProfile | null;
@@ -23,6 +23,7 @@ interface UseLearningFlowOptions {
   selectedLesson: Lesson | null;
   setProgress: Dispatch<SetStateAction<UserProgress>>;
   selectLesson: (lesson: Lesson) => void;
+  trackEvent: (event: Omit<ProductAnalyticsEvent, 'id' | 'occurredAt'> & { occurredAt?: string }) => void;
   openHomeSection: (section: HomeSection) => void;
   goHome: () => void;
 }
@@ -33,6 +34,7 @@ export function useLearningFlow({
   selectedLesson,
   setProgress,
   selectLesson,
+  trackEvent,
   openHomeSection,
   goHome,
 }: UseLearningFlowOptions) {
@@ -136,6 +138,27 @@ export function useLearningFlow({
       ? getNextUnlockedLessonInTopic(selectedLesson.topicId, selectedLesson.id, nextProgress)
       : undefined;
     const hasNewBadge = nextProgress.badges.length > progress.badges.length;
+    const occurredAt = completedAt;
+
+    trackEvent({
+      type: 'exercise-submitted',
+      occurredAt,
+      lessonId: selectedLesson.id,
+      topicId: selectedLesson.topicId,
+      score,
+      total,
+      percentage: currentPercentage,
+    });
+
+    trackEvent({
+      type: passedCurrentAttempt ? 'lesson-passed' : 'lesson-blocked',
+      occurredAt,
+      lessonId: selectedLesson.id,
+      topicId: selectedLesson.topicId,
+      score,
+      total,
+      percentage: currentPercentage,
+    });
 
     setProgress(nextProgress);
 

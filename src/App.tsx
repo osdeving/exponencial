@@ -179,6 +179,7 @@ export default function App() {
                   progress={state.progress}
                   profile={state.profile}
                   sessionLabel={derived.session.actorLabel}
+                  analyticsSummary={derived.analyticsSummary}
                   onContinue={actions.startRecommendedFlow}
                   onExportSnapshot={actions.exportStorageSnapshot}
                   onImportSnapshot={actions.importStorageSnapshot}

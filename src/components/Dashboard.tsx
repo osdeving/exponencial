@@ -1,6 +1,7 @@
 import React, { useMemo, useRef } from 'react';
 import { Bar, BarChart, CartesianGrid, ResponsiveContainer, Tooltip, XAxis, YAxis } from 'recharts';
 import {
+  Activity,
   AlertTriangle,
   BookOpen,
   Download,
@@ -18,13 +19,14 @@ import { TOPICS } from '../content';
 import { BADGES, MOCK_RANKING } from '../config';
 import { resolveLucideIcon } from '../lib/icons';
 import { buildCanonicalMasteryOverview } from '../lib/mastery';
-import { UserProfile, UserProgress } from '../types';
+import { ProductAnalyticsSummary, UserProfile, UserProgress } from '../types';
 import { getTopicProgress } from '../lib/learning';
 
 interface DashboardProps {
   progress: UserProgress;
   profile: UserProfile | null;
   sessionLabel: string;
+  analyticsSummary: ProductAnalyticsSummary;
   onContinue: () => void;
   onExportSnapshot: () => void;
   onImportSnapshot: (file: File) => void | Promise<void>;
@@ -36,6 +38,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   progress,
   profile,
   sessionLabel,
+  analyticsSummary,
   onContinue,
   onExportSnapshot,
   onImportSnapshot,
@@ -299,41 +302,87 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
 
         <div className="lg:col-span-1">
-          <div className="brutal-border p-8 bg-white sticky top-24">
-            <h3 className="font-display text-2xl uppercase mb-8 flex items-center gap-2">
-              <TrendingUp size={24} />
-              Ranking Semanal
-            </h3>
-
-            <div className="space-y-4">
-              {ranking.slice(0, 5).map((user, index) => (
-                <div key={`${user.name}-${index}`} className="flex items-center gap-4 p-3 brutal-border bg-white">
-                  <div className="font-display text-xl w-6">{index + 1}</div>
-                  {user.avatar ? (
-                    <img src={user.avatar} alt={user.name} className="w-10 h-10 brutal-border object-cover" />
-                  ) : (
-                    <div className="w-10 h-10 brutal-border bg-brand flex items-center justify-center">
-                      <UserRound size={18} />
-                    </div>
-                  )}
-                  <div className="flex-1">
-                    <p className="font-bold text-sm">{user.name}</p>
-                    <p className="text-xs font-medium opacity-50">{user.points} pts</p>
-                  </div>
-                  {index === 0 && <Trophy size={18} className="text-yellow-500" />}
+          <div className="sticky top-24 space-y-8">
+            <div className="brutal-border p-8 bg-white">
+              <h3 className="font-display text-2xl uppercase mb-8 flex items-center gap-2">
+                <Activity size={24} />
+                Telemetria Local
+              </h3>
+              <div className="grid grid-cols-2 gap-3 text-xs font-bold uppercase">
+                <div className="brutal-border bg-brand/10 px-3 py-3">
+                  <span className="block opacity-50 mb-1">Envios</span>
+                  <span>{analyticsSummary.exerciseSubmittedCount}</span>
                 </div>
-              ))}
+                <div className="brutal-border bg-white px-3 py-3">
+                  <span className="block opacity-50 mb-1">Aprovação</span>
+                  <span>{analyticsSummary.approvalRate}%</span>
+                </div>
+                <div className="brutal-border bg-white px-3 py-3">
+                  <span className="block opacity-50 mb-1">Bloqueios</span>
+                  <span>{analyticsSummary.lessonBlockedCount}</span>
+                </div>
+                <div className="brutal-border bg-white px-3 py-3">
+                  <span className="block opacity-50 mb-1">Aulas iniciadas</span>
+                  <span>{analyticsSummary.lessonStartedCount}</span>
+                </div>
+              </div>
 
-              <div className="mt-8 pt-8 border-t-2 border-dark border-dashed">
-                <p className="text-[10px] font-bold uppercase opacity-50 mb-4">Sua posição</p>
-                <div className="flex items-center gap-4 p-3 brutal-border bg-brand">
-                  <div className="font-display text-xl w-6">{userPosition}</div>
-                  <div className="w-10 h-10 brutal-border bg-white flex items-center justify-center font-bold">
-                    {profile?.name?.slice(0, 1).toUpperCase() ?? 'U'}
+              <div className="mt-6 pt-6 border-t-2 border-dark border-dashed">
+                <p className="text-[10px] font-bold uppercase opacity-50 mb-4">Eventos recentes</p>
+                <div className="space-y-3">
+                  {analyticsSummary.recentEvents.length > 0 ? (
+                    analyticsSummary.recentEvents.map((event) => (
+                      <div key={event.id} className="brutal-border bg-stone-50 px-3 py-3">
+                        <p className="text-[10px] font-bold uppercase opacity-50">{event.type}</p>
+                        <p className="mt-1 text-xs font-medium">
+                          {event.percentage != null ? `${event.percentage}%` : 'Sem percentual'}{' '}
+                          {event.lessonId ? `· ${event.lessonId}` : ''}
+                        </p>
+                      </div>
+                    ))
+                  ) : (
+                    <p className="text-sm font-medium">Os eventos locais vão aparecer aqui conforme o aluno usa o app.</p>
+                  )}
+                </div>
+              </div>
+            </div>
+
+            <div className="brutal-border p-8 bg-white">
+              <h3 className="font-display text-2xl uppercase mb-8 flex items-center gap-2">
+                <TrendingUp size={24} />
+                Ranking Semanal
+              </h3>
+
+              <div className="space-y-4">
+                {ranking.slice(0, 5).map((user, index) => (
+                  <div key={`${user.name}-${index}`} className="flex items-center gap-4 p-3 brutal-border bg-white">
+                    <div className="font-display text-xl w-6">{index + 1}</div>
+                    {user.avatar ? (
+                      <img src={user.avatar} alt={user.name} className="w-10 h-10 brutal-border object-cover" />
+                    ) : (
+                      <div className="w-10 h-10 brutal-border bg-brand flex items-center justify-center">
+                        <UserRound size={18} />
+                      </div>
+                    )}
+                    <div className="flex-1">
+                      <p className="font-bold text-sm">{user.name}</p>
+                      <p className="text-xs font-medium opacity-50">{user.points} pts</p>
+                    </div>
+                    {index === 0 && <Trophy size={18} className="text-yellow-500" />}
                   </div>
-                  <div className="flex-1">
-                    <p className="font-bold text-sm">{profile?.name ?? 'Você'}</p>
-                    <p className="text-xs font-medium opacity-50">{progress.points} pts</p>
+                ))}
+
+                <div className="mt-8 pt-8 border-t-2 border-dark border-dashed">
+                  <p className="text-[10px] font-bold uppercase opacity-50 mb-4">Sua posição</p>
+                  <div className="flex items-center gap-4 p-3 brutal-border bg-brand">
+                    <div className="font-display text-xl w-6">{userPosition}</div>
+                    <div className="w-10 h-10 brutal-border bg-white flex items-center justify-center font-bold">
+                      {profile?.name?.slice(0, 1).toUpperCase() ?? 'U'}
+                    </div>
+                    <div className="flex-1">
+                      <p className="font-bold text-sm">{profile?.name ?? 'Você'}</p>
+                      <p className="text-xs font-medium opacity-50">{progress.points} pts</p>
+                    </div>
                   </div>
                 </div>
               </div>
