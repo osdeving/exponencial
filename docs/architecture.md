@@ -1,273 +1,312 @@
-# Arquitetura do Exponencial
+# DAS - Desenho de Arquitetura de Software
 
-## Objetivo de produto
+## Objetivo
 
-O estado desejado do projeto é:
+Definir a arquitetura-alvo do Exponencial para suportar:
 
-- o site ser um **renderer** de conteúdo
-- teoria, exercícios e gabaritos virem de fontes declarativas
-- a UI mudar pouco quando o currículo crescer
-- agentes e IAs conseguirem operar lendo poucos arquivos de orientação
+- produto web multiusuário
+- autenticação e progresso em nuvem
+- conteúdo curricular publicado em Markdown e servido em runtime
+- progressão por domínio, revisão e gamificação
 
-Leituras complementares:
+Este documento é a referência arquitetural oficial do projeto.
 
-- [docs/product/vision-roadmap.md](product/vision-roadmap.md)
-- [docs/product/functional-spec.md](product/functional-spec.md)
-- [docs/product/non-functional-requirements.md](product/non-functional-requirements.md)
-- [docs/delivery/trunk-based-delivery.md](delivery/trunk-based-delivery.md)
+## Escopo
 
-## Como o projeto funciona hoje
+Este DAS cobre:
 
-### Runtime atual
+- visão lógica do sistema
+- fronteiras entre frontend, backend, dados e pipeline editorial
+- integrações com Supabase
+- decisões estruturais para auth, conteúdo, progresso, revisão e ranking
 
-- frontend estático em React 19 + Vite
-- deploy em GitHub Pages
-- conteúdo curricular empacotado a partir de Markdown gerado em `src/generated/*`
-- persistência local em `localStorage` para perfil, progresso, tutor e snapshots
-- ledger local de domínio por `canonicalId`, com corte mínimo por lição e bloqueio sequencial local
+## Estado atual do repositório
 
-Esse runtime é suficiente para validar:
+Hoje o repositório já oferece uma base útil de frontend e domínio local:
 
-- navegação curricular
-- renderer de teoria
-- fluxo de exercícios
-- contratos de conteúdo
-- partes da gamificação local
-- dívida matemática inicial por habilidade canônica
+- app React/Vite
+- conteúdo em Markdown
+- parser e manifesto gerado
+- progresso local
+- lógica local de domínio, gating e recovery
 
-Ele ainda não é o runtime final do produto.
+Essa base deve ser tratada como ponto de partida, não como arquitetura final.
 
-### Runtime alvo de produto
+## Estado-alvo da solução
 
-O alvo operacional incremental é:
+No estado-alvo:
 
-- **Frontend**: React/Vite mantendo o papel de renderer da experiência de aprendizagem
-- **Conteúdo**: Markdown versionado no Git, scaffoldado pela taxonomia canônica
-- **Fase 1 de estado**: local-first
-  - perfil local
-  - progresso local
-  - sessão/storage por contrato explícito
-  - sem obrigar autenticação antes do loop principal estar provado
-- **Fase 2 de estado**: nuvem
-  - Supabase como primeiro candidato para autenticação e sincronização
-  - perfis de aluno
-  - tentativas de exercício
-  - estado de domínio por habilidade canônica
-  - agenda de revisão espaçada
-  - eventos operacionais mínimos
-- **Entrega**: GitHub Actions + GitHub Pages no estágio inicial
-- **Operação**: GitHub como fonte de roadmap, releases, templates, milestones e governança de trunk-based
+- o frontend continua sendo o renderer da experiência
+- o conteúdo é publicado em Markdown, mas consumido em runtime
+- Supabase concentra autenticação, dados, storage e jobs simples
+- progresso, domínio, revisão, override e ranking passam a ser multiusuário
 
-A regra de arquitetura continua a mesma: o conteúdo deve continuar fora da UI. O próximo estágio imediato não é multiusuário; é consolidar domínio, trilhas e storage local por contratos estáveis para, depois, trocar o adapter sem reescrever o app.
+## Drivers arquiteturais
 
-### 1. Fonte de conteúdo
+- conteúdo deve continuar declarativo
+- ajuste editorial não deve exigir redeploy do shell web
+- progresso precisa ser persistido por usuário e dispositivo
+- bloqueio e revisão precisam ser explicáveis e auditáveis
+- o sistema deve crescer sem voltar a acoplar conteúdo à UI
 
-- **Tópicos**: `src/content/**/_topic.md`
-- **Lições**: `src/content/**/*.md`
-- **Exercícios e gabaritos**: `src/content/**/*.questions.md`
+## Contexto da solução
 
-Hoje o currículo principal já é declarativo de ponta a ponta.
+```text
+Autores/Operadores
+  -> Repositório Markdown + Pipeline de publicação
+  -> Supabase Storage + Postgres
 
-O setup inicial agora é guiado por duas camadas:
+Alunos
+  -> Web App React
+  -> Supabase Auth
+  -> APIs / RPC / queries em Postgres
+  -> Storage para teoria e exercícios publicados
+```
 
-- `scripts/curriculum-seed.mjs`: semente editorial dos tópicos mais curados
-- `docs/estrutura/*`: taxonomia canônica ampla, usada para scaffoldar o restante da grade
+## Visão lógica por módulos
 
-### 2. Geração
+### 1. Web App
 
-- `scripts/content-utils.mjs`: utilitários de frontmatter e filesystem
-- `scripts/question-utils.mjs`: parser de exercícios e gabaritos declarativos
-- `scripts/canonical-taxonomy.mjs`: leitura da taxonomia canônica e montagem do scaffold complementar
-- `scripts/generate-content-manifest.mjs`: lê Markdown e gera:
-  - `src/generated/content-manifest.ts`
-  - `src/generated/lesson-content-index.ts`
-  - `src/generated/question-index.ts`
-  - `src/generated/canonical-taxonomy.ts`
-  - `src/generated/topic-taxonomy.ts`
-  - `src/generated/lessons/*`
-  - `src/generated/questions/*`
-- `scripts/scaffold-curriculum.mjs`: cria estrutura inicial sem sobrescrever conteúdo existente
-- `scripts/curriculum-seed.mjs`: semente declarativa do scaffold
+Responsabilidades:
 
-### 3. Composição de dados
+- autenticação do usuário
+- catálogo curricular
+- renderer de teoria e prática
+- dashboard de progresso, revisão e gamificação
+- UX de gating e modo aberto
 
-- `src/content/index.ts` expõe:
-  - `TOPICS`
-  - `LESSONS`
-- `src/generated/canonical-taxonomy.ts` expõe a taxonomia canônica já pronta para filtros e agrupamentos
-- `src/generated/topic-taxonomy.ts` enriquece os tópicos do app com `canonicalIds`, ramo, perfis e faixas
-- `src/content/queries.ts` oferece contagem e loaders lazy de teoria/questões por lição
-- `src/content/useLessonContent.ts` e `src/content/useLessonQuestions.ts` fazem a ponte assíncrona para a UI
-- `Question` já aceita `solution` estruturada para resolução passo a passo declarativa
-- `src/config/*` separa:
-  - `badges.ts`
-  - `paths.ts`
-  - `ranking.ts`
+Responsabilidade explícita que não pertence ao frontend:
 
-A composição deixou de depender de um arquivo-bal­de único.
+- persistir regra de domínio “na mão”
+- decidir publicação editorial
+- materializar ranking sem contrato de backend
 
-### 4. Domínio e regras
+### 2. Identity & Session
 
-- `src/lib/learning.ts`: busca, progresso, badges, recomendação, trilhas
-- `src/lib/analytics.ts`: contrato de eventos locais e resumo operacional
-- `src/lib/mastery.ts`: ledger de domínio canônico e resumo de dívida matemática
-- `src/lib/questions.ts`: interpretação de questões
-- `src/lib/recovery.ts`: contrato e motor local de recuperação obrigatória
-- `src/lib/tutor.ts`: tutor local baseado em regras
+Responsabilidades:
 
-Esses arquivos já seguem uma divisão melhor de responsabilidade do que `App.tsx`.
+- cadastro e login
+- login social
+- recuperação de sessão
+- perfil do aluno
+- isolamento de dados por usuário
 
-### 5. Renderer/UI
+Tecnologia alvo:
 
-- `src/App.tsx`: shell fino que compõe as telas
-- `src/app/useAppController.ts`: composição de hooks da aplicação
-- `src/app/navigation/*`: navegação e seleção de telas
-- `src/app/catalog/*`: busca e filtros
-- `src/app/profile/*`: ações de perfil
-- `src/app/progress/*`: fluxos de progresso e continuidade
-- `src/app/usePersistentState.ts`: base única de persistência local
-- `src/app/usePersistentProfile.ts`, `src/app/usePersistentProgress.ts` e `src/app/usePersistentTutorMessages.ts`: persistência normalizada
-- `src/app/usePersistentAnalyticsEvents.ts`: buffer local de eventos de produto
-- `src/app/views/*`: telas grandes do app
-- `src/components/*`: telas e blocos de interface
-- `src/components/exercise/*`: sessão, modal de gabarito e fluxo de prática
-- `src/components/MarkdownContent.tsx`: renderer de Markdown + KaTeX
-- `src/components/QuestionSolutionView.tsx`: renderer de resolução estruturada com passos
+- Supabase Auth
 
-## Avaliação de extensibilidade e manutenção
+### 3. Content Runtime
 
-### Onde o projeto está bem
+Responsabilidades:
 
-- **Currículo em Markdown**: adicionar ou remover lições e exercícios já é simples e escalável.
-- **Grade ampla desde o início**: o scaffold canônico permite que filtros e agrupamentos existam antes da teoria definitiva.
-- **Manifestos gerados**: evitam duplicação manual entre conteúdo e UI.
-- **Carregamento lazy por lição**: teoria e prática deixaram de inflar o bundle inicial no mesmo nível de antes.
-- **Regras em `lib/`**: progresso, badges e recomendações não estão espalhados por componentes.
-- **Renderer único de Markdown**: facilita manter KaTeX, links e layout da teoria em um só lugar.
+- expor release publicada de conteúdo
+- servir manifesto em runtime
+- servir teoria, exercícios e soluções sob demanda
+- associar tentativa a uma versão publicada
 
-### Onde o projeto ainda não está no ponto ideal
+Princípio:
 
-- **Parte da configuração de produto ainda é estática**.
-  - Trilhas, badges e ranking mockado vivem em `src/config/*`.
-  - Se isso crescer muito, convém separar contratos, fontes e validação.
-- **A persistência do aluno ainda é local**.
-  - O estado atual serve para prototipação.
-  - O roadmap agora assume consolidar o loop local-first antes da migração para nuvem.
-- **O mastery engine ainda está incompleto**.
-  - O ledger local por `canonicalId` já existe.
-  - O dashboard de dívida matemática também.
-  - O corte mínimo local e a trava sequencial por tópico já entraram.
-  - A remediação local já tem ciclo completo de revisão obrigatória e reteste.
-  - Ainda faltam enriquecimento de lacunas e repetição espaçada.
-- **A solução passo a passo está preparada, mas não no estágio final de animação rica**.
-  - O schema declarativo já existe.
-  - O renderer já entende passos, rascunho e algoritmo.
-  - O próximo salto seria animar escrita/desenho por tipo de passo.
-- **Ainda existe espaço para reduzir o shell principal**.
-  - `useAppController` já está mais fino.
-  - Mesmo assim, navegação, perfil, catálogo e progresso ainda se encontram nele no ponto de composição.
-- **Há ativos de origem impressa fora do fluxo final**.
-  - PDFs e imagens intermediárias não devem fazer parte do ciclo normal de manutenção.
+- o app não depende de rebuild do frontend para mudança editorial
 
-## Resposta objetiva
+### 4. Learning Domain
 
-### O projeto atual é extensível e manutenível?
+Responsabilidades:
 
-**Sim.**
+- tentativas
+- progresso
+- domínio por habilidade canônica
+- critérios de passagem
+- sequência padrão
+- explicação de bloqueio
+- estado do modo aberto
 
-Ele já está bom para escalar o **conteúdo curricular** porque teoria, exercícios, gabaritos e agora também soluções passo a passo saem de fonte declarativa. A UI está separada em shell, views, hooks e configuração. As dívidas que restam são de evolução, não mais de acoplamento bruto.
+### 5. Retention Engine
 
-## Meta recomendada para o próximo estágio
+Responsabilidades:
 
-Para ficar no modelo que você quer, o alvo técnico deveria ser este:
+- heurística de esquecimento
+- agenda de revisão
+- fila diária
+- histórico de revisão
+- priorização da recomendação principal
 
-1. **Tudo curricular fora da UI**
-  - teoria em Markdown
-  - exercícios em `*.questions.md`
-  - gabaritos no mesmo fluxo declarativo
-  - taxonomia canônica em `docs/estrutura/*`
-  - placeholders scaffoldados para tudo que ainda estiver em aberto
+### 6. Gamification & Leaderboard
 
-2. **UI só renderiza contratos estáveis**
-   - `Topic[]`
-   - `Lesson[]`
-   - `Question[]` carregadas sob demanda
-   - `LearningPath[]`
-   - `Badge[]`
+Responsabilidades:
 
-3. **Shell enxuto**
-   - `App.tsx` vira composição de telas e hooks
-   - regras ficam em `lib/` ou hooks dedicados
+- pontos
+- streak
+- badges
+- ranking
+- regras mínimas anti-abuso
 
-4. **Persistência auditável**
-   - primeiro, o app passa a ter contratos explícitos de storage e sessão
-   - depois, perfil, domínio, desbloqueios e agenda de revisão podem sair do `localStorage`
-   - Supabase entra apenas quando sincronização e auditabilidade remota fizerem sentido
+### 7. Publish Pipeline
 
-5. **Fluxo de entrega previsível**
-   - PRs pequenos em trunk-based
-   - CI obrigatória
-   - releases versionadas
-   - milestones e backlog alinhados ao roadmap
+Responsabilidades:
 
-## Refactors prioritários para atingir esse alvo
+- validar Markdown
+- montar release de conteúdo
+- publicar manifesto e documentos
+- permitir rollback
 
-### Prioridade 1
+## Fluxos principais
 
-Evoluir o sistema de soluções estruturadas.
+### Fluxo A - Login e início de sessão
 
-Sugestão mínima:
+1. usuário autentica via Supabase Auth
+2. frontend recebe sessão
+3. app carrega perfil, preferências e estado resumido do aluno
+4. tela inicial monta recomendação principal
 
-- ampliar o schema de `Question.solution`
-- suportar animações por tipo de passo
-- manter fallback para Markdown simples
+### Fluxo B - Carregamento de conteúdo em runtime
 
-### Prioridade 2
+1. app busca a release publicada corrente
+2. app lê o manifesto da release
+3. catálogo usa metadados do manifesto
+4. teoria e exercícios são carregados sob demanda ao abrir a lição
 
-Evoluir `src/config/*` quando badges, trilhas e ranking deixarem de ser simples.
+### Fluxo C - Tentativa e persistência
 
-Exemplos:
+1. aluno responde exercícios
+2. frontend envia tentativa e contexto da release
+3. backend persiste tentativa, progresso e domínio
+4. app recebe estado atualizado
 
-- adicionar validação declarativa
-- separar mocks de dados reais
-- criar contratos por área
+### Fluxo D - Gating e modo aberto
 
-## Mapa de mudança
+1. backend calcula se o próximo conteúdo da sequência padrão está liberado
+2. se não estiver, app exibe bloqueio e motivo
+3. o usuário pode habilitar modo aberto por confirmação deliberada
+4. a decisão fica registrada
 
-Se você quer:
+### Fluxo E - Revisão e retenção
 
-- **adicionar ou remover tópico**: edite `src/content/.../_topic.md`
-- **adicionar ou remover lição teórica**: edite `src/content/**/*.md`
-- **adicionar ou remover exercício/gabarito**: edite `src/content/**/*.questions.md`
-- **expandir a grade canônica inicial**: revise `docs/estrutura/*` e rode `npm run content:scaffold`
-- **alterar scaffold base**: edite `scripts/curriculum-seed.mjs`
-- **alterar parser/manifesto**: edite `scripts/generate-content-manifest.mjs`
-- **alterar parser de exercícios**: edite `scripts/question-utils.mjs`
-- **alterar solução passo a passo**: edite `src/content/**/*.questions.md` e, se necessário, `src/components/QuestionSolutionView.tsx`
-- **alterar regra de progresso**: edite `src/lib/learning.ts`
-- **alterar renderer de teoria**: edite `src/components/MarkdownContent.tsx`
-- **alterar layout e navegação**: edite `src/app/*` e `src/components/*`
+1. jobs ou funções calculam revisões vencidas
+2. itens entram na fila do usuário
+3. home/dashboard priorizam a revisão quando aplicável
+4. após revisão, o estado de retenção é atualizado
 
-## Regras de manutenção
+## Arquitetura de dados
 
-- Nunca editar `src/generated/content-manifest.ts`, `src/generated/lesson-content-index.ts`, `src/generated/question-index.ts`, `src/generated/canonical-taxonomy.ts` ou `src/generated/topic-taxonomy.ts` manualmente.
-- Mudança curricular não deve entrar em componente React se puder ser resolvida na fonte de conteúdo.
-- Conteúdo novo não deve depender de PDF no runtime.
-- PDFs de origem devem ficar fora do commit normal.
-- Toda alteração de conteúdo deve passar por:
-  - `npm run content:scaffold` quando a mudança mexer na grade base
-  - `npm run content:generate`
-  - `npm run lint`
-  - `npm run build`
+### Blocos de dados principais
 
-## O que uma IA deve concluir rapidamente ao ler este arquivo
+- identidade e perfil
+- release de conteúdo
+- progresso e tentativas
+- domínio por habilidade
+- fila de revisão
+- gamificação e ranking
+- auditoria
 
-- Teoria, exercícios e gabaritos já são content-driven.
-- A taxonomia canônica também participa do setup inicial do app.
-- Soluções passo a passo também já entram por contrato declarativo.
-- O renderer existe e consome contratos gerados, com teoria e prática lazy por lição.
-- O principal débito agora está na evolução do renderer de solução, na configuração de produto e em manter `canonicalIds` explícitos no próprio conteúdo.
-- O mastery local já existe e já atua como gate sequencial básico dentro de cada tópico.
-- O melhor lugar para mexer depende do tipo de mudança.
-- `src/components/QuestionSolutionView.tsx` e `src/config/*` são os principais pontos de atenção em escala.
-- O próximo salto arquitetural relevante é adicionar agenda de revisão e retenção sem quebrar o modelo content-driven.
+### Princípio de versionamento
+
+Toda tentativa relevante deve carregar:
+
+- `user_id`
+- `lesson_id`
+- `content_release_id`
+- score e contexto da execução
+
+Isso permite reconstruir o estado pedagógico e operacional de um aluno.
+
+## Arquitetura de publicação de conteúdo
+
+### Fonte canônica de autoria
+
+- arquivos Markdown no repositório
+
+### Processo-alvo
+
+1. autor edita Markdown
+2. pipeline valida frontmatter, questões e consistência
+3. pipeline gera release publicada
+4. release sobe para Supabase Storage/Postgres
+5. frontend passa a buscar a nova release em runtime
+
+### Consequência arquitetural
+
+O shell web é desacoplado da release editorial.
+
+## Arquitetura de implantação
+
+### Camadas previstas
+
+- frontend web publicado em hosting estático
+- Supabase Auth
+- Supabase Postgres
+- Supabase Storage
+- jobs agendados e funções server-side quando necessário
+
+### Ambientes mínimos
+
+- desenvolvimento
+- homologação opcional quando o custo se justificar
+- produção
+
+## Segurança e isolamento
+
+- autenticação centralizada
+- RLS em dados de usuário
+- leitura pública apenas para conteúdo publicado e metadados autorizados
+- trilhas de auditoria para ações críticas
+
+## Observabilidade
+
+O sistema deve produzir sinais para:
+
+- login e falha de login
+- carregamento de conteúdo
+- tentativa enviada
+- bloqueio
+- modo aberto
+- revisão criada e concluída
+- publicação de conteúdo
+
+## Decisões arquiteturais principais
+
+### DAS-DEC-001
+
+Markdown continua sendo a fonte de autoria de teoria e exercícios.
+
+### DAS-DEC-002
+
+Supabase é o backend preferencial para auth, dados, storage e funções auxiliares.
+
+### DAS-DEC-003
+
+O frontend permanece como renderer e não volta a embutir conteúdo curricular no código.
+
+### DAS-DEC-004
+
+A progressão padrão é bloqueada por domínio, com modo aberto apenas como exceção deliberada.
+
+### DAS-DEC-005
+
+Conteúdo deve ser servido por release publicada em runtime, com rollback explícito.
+
+### DAS-DEC-006
+
+Tentativas e revisões precisam ser auditáveis por usuário e versão de conteúdo.
+
+## Estratégia de transição
+
+### Etapa 1
+
+Manter o frontend atual e introduzir autenticação + persistência cloud.
+
+### Etapa 2
+
+Substituir a dependência do manifesto build-time por release publicada em runtime.
+
+### Etapa 3
+
+Migrar progresso, domínio, revisão e ranking para backend multiusuário.
+
+## Relação com a documentação
+
+Este DAS deve permanecer sincronizado com:
+
+- [docs/product/rms.md](product/rms.md)
+- [docs/product/stories.md](product/stories.md)
+- [docs/product/cdt.md](product/cdt.md)
+- [docs/technical/README.md](technical/README.md)

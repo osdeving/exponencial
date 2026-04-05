@@ -30,9 +30,12 @@ Em cada execução, o agente deve ler:
 1. `AGENTS.md`
 2. `docs/automation/status.md`
 3. `docs/product/vision-roadmap.md`
-4. `docs/product/functional-spec.md`
-5. `docs/architecture.md`
-6. `docs/delivery/trunk-based-delivery.md`
+4. `docs/product/rms.md`
+5. `docs/product/stories.md`
+6. `docs/product/phases-and-estimates.md`
+7. `docs/product/functional-spec.md`
+8. `docs/architecture.md`
+9. `docs/delivery/trunk-based-delivery.md`
 
 Depois disso, ele pega apenas a menor fatia elegível do epic ativo.
 
@@ -88,4 +91,10 @@ Observação importante:
 
 ## Estado atual recomendado
 
-Hoje a automação deve focar no próximo epic ativo do produto e continuar em modo `local-first`, sem abrir frentes de cloud, auth ou conteúdo editorial pesado.
+A automação deve seguir a fase ativa definida em `docs/automation/status.md`.
+
+Ela não deve:
+
+- pular fases
+- abrir frentes fora do roadmap ativo
+- assumir decisões ainda não consolidadas em visão, RMS, histórias e DAS

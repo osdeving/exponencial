@@ -1,32 +1,53 @@
 # Produto
 
-Este diretório concentra o estado desejado do app do ponto de vista funcional, operacional e de entrega.
+Este diretório concentra a base oficial de produto do Exponencial.
 
-Ordem de leitura recomendada:
+O objetivo desta documentação é deixar claro:
+
+- qual problema o produto resolve
+- qual é o estado-alvo do sistema
+- quais requisitos e histórias orientam a implementação
+- como validar se cada capacidade foi realmente entregue
+- em que ordem as fases devem ser atacadas
+
+## Ordem de leitura recomendada
 
 1. [vision-roadmap.md](vision-roadmap.md)
-2. [functional-spec.md](functional-spec.md)
-3. [non-functional-requirements.md](non-functional-requirements.md)
-4. [../automation/README.md](../automation/README.md) se a leitura tocar execução contínua, operação autônoma ou backlog automático
-5. [../delivery/trunk-based-delivery.md](../delivery/trunk-based-delivery.md)
-6. [../architecture.md](../architecture.md)
+2. [rms.md](rms.md)
+3. [stories.md](stories.md)
+4. [functional-spec.md](functional-spec.md)
+5. [non-functional-requirements.md](non-functional-requirements.md)
+6. [phases-and-estimates.md](phases-and-estimates.md)
+7. [cdt.md](cdt.md)
+8. [../architecture.md](../architecture.md)
+9. [../technical/README.md](../technical/README.md)
+10. [../delivery/trunk-based-delivery.md](../delivery/trunk-based-delivery.md)
+11. [../automation/README.md](../automation/README.md), quando a leitura tocar backlog automático ou execução autônoma
 
-## O que estes arquivos respondem
+## Papel de cada documento
 
-- onde o produto está hoje
-- qual problema ele quer resolver
-- quais releases existem no plano
-- quais histórias e capacidades entram em cada etapa
-- quais requisitos não funcionais precisam ser respeitados
-- como o time entrega isso em trunk-based no GitHub
-- como o loop autônomo escolhe a próxima fatia sem inventar produto
+- [vision-roadmap.md](vision-roadmap.md): visão do produto, objetivos, princípios e macrofases.
+- [rms.md](rms.md): Requisito Mestre de Sistema com requisitos rastreáveis.
+- [stories.md](stories.md): épicos, histórias e critérios de aceite.
+- [functional-spec.md](functional-spec.md): comportamento funcional esperado e jornadas principais.
+- [non-functional-requirements.md](non-functional-requirements.md): metas de qualidade, segurança, operação e desempenho.
+- [phases-and-estimates.md](phases-and-estimates.md): plano por fases, dependências e esforço estimado.
+- [cdt.md](cdt.md): Caderno de Testes de aceite.
+- [../architecture.md](../architecture.md): DAS, a arquitetura-alvo do software.
+- [../technical/README.md](../technical/README.md): documentação técnica detalhada.
+
+## Regras de governança
+
+- nenhuma feature entra em desenvolvimento sem fase alvo, história e critério de aceite
+- toda mudança de contrato, dados, autenticação ou publicação de conteúdo deve refletir RMS, DAS e CDT quando aplicável
+- o produto deve continuar perseguindo a ideia central: estudo curricular com progresso orientado por domínio
+- conteúdo continua sendo fonte declarativa; o frontend é o renderer da experiência
 
 ## Regra prática
 
-Enquanto o motor de aprendizagem ainda estiver sendo validado:
+Esta base documental deve permitir duas coisas ao mesmo tempo:
 
-- o conteúdo pode ser placeholder
-- o loop de produto vem antes do texto editorial definitivo
-- cada subida deve representar uma feature funcional do roadmap
+- clareza de produto para priorização
+- clareza de engenharia para implementação sem ambiguidade
 
-O objetivo é evitar que o projeto cresça em conteúdo sem crescer em capacidade real de ensino, domínio e retenção.
+Se um tema não estiver coberto por visão, RMS, histórias, DAS e CDT, ele ainda não está maduro o bastante para virar fatia de execução.

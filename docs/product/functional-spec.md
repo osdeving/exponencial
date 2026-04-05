@@ -2,270 +2,249 @@
 
 ## Escopo
 
-Este documento descreve o comportamento funcional esperado do produto em evolução. Ele não assume que tudo será entregue de uma vez.
+Este documento descreve como o produto deve se comportar do ponto de vista funcional.
+
+Ele responde:
+
+- o que o sistema precisa permitir fazer
+- quais são as jornadas principais do usuário
+- quais regras estruturam a experiência
+- quais domínios funcionais compõem o produto
+
+Os requisitos rastreáveis vivem no [RMS](rms.md). As histórias detalhadas vivem em [stories.md](stories.md).
 
 ## Atores
 
 ### Aluno
 
-Usuário principal da plataforma. Estuda, faz exercícios, recebe bloqueios, revisa e acumula progresso.
-
-### Operador de produto
-
-Pessoa que organiza roadmap, releases, métricas e priorização.
+Usuário principal do sistema. Estuda teoria, resolve exercícios, acompanha progresso, aceita ou não o modo aberto e executa revisões.
 
 ### Autor de conteúdo
 
-Pessoa que mantém tópicos, lições e exercícios em Markdown, sem depender de alterar a UI para cada novo bloco.
+Mantém teoria e exercícios em Markdown, publica conteúdo e corrige material sem precisar alterar o frontend.
+
+### Operador de produto
+
+Planeja fases, define critérios de aceite, acompanha backlog, métricas e releases.
 
 ### Administrador da plataforma
 
-Pessoa que acompanha ambiente, autenticação, storage, incidentes e políticas operacionais.
+Opera autenticação, segurança, dados, rotinas de publicação, auditoria e observabilidade.
+
+## Jornadas principais
+
+### 1. Acesso e onboarding
+
+Fluxo esperado:
+
+1. o aluno se cadastra ou faz login
+2. escolhe objetivo e preferências iniciais
+3. entra na plataforma com trilha recomendada
+4. passa a ter progresso associado à própria conta
+
+### 2. Exploração curricular
+
+Fluxo esperado:
+
+1. o aluno navega pela grade curricular até o ensino médio
+2. filtra por etapa, ramo, objetivo ou status
+3. escolhe tópico, lição ou trilha
+4. enxerga claramente o que já estudou e o que ainda falta
+
+### 3. Estudo de teoria
+
+Fluxo esperado:
+
+1. o app carrega a lição publicada
+2. renderiza a teoria em Markdown com matemática
+3. exibe metadados da lição
+4. oferece entrada natural para a prática
+
+### 4. Prática e avaliação
+
+Fluxo esperado:
+
+1. o aluno responde exercícios
+2. o sistema corrige ou registra autocorreção conforme o tipo
+3. persiste tentativa, score e resultado
+4. apresenta gabarito e solução quando aplicável
+
+### 5. Progressão guiada por domínio
+
+Fluxo esperado:
+
+1. o sistema avalia se o domínio mínimo foi alcançado
+2. se sim, libera a próxima etapa habitual
+3. se não, informa bloqueio e próximos passos
+4. o aluno entende o motivo do bloqueio
+
+### 6. Revisão e retenção
+
+Fluxo esperado:
+
+1. o sistema identifica o que precisa ser revisado
+2. monta uma fila diária priorizada
+3. recomenda revisão antes do próximo conteúdo novo quando fizer sentido
+4. atualiza o estado de domínio após a revisão
+
+### 7. Modo aberto deliberado
+
+Fluxo esperado:
+
+1. o aluno tenta abrir tudo
+2. o sistema explica que isso não representa a proposta pedagógica padrão
+3. só após confirmação explícita o bloqueio é suspenso
+4. a decisão fica auditável e reversível
+
+### 8. Gamificação e ranking
+
+Fluxo esperado:
+
+1. pontos, streaks e badges refletem o estudo realizado
+2. o ranking é derivado de dados persistidos
+3. o aluno vê sinais de progresso individual e social
+
+### 9. Publicação editorial
+
+Fluxo esperado:
+
+1. o autor altera arquivos Markdown
+2. a alteração passa por validação e publicação
+3. uma nova release de conteúdo é disponibilizada
+4. o app busca a versão publicada em runtime, sem exigir redeploy do shell
 
 ## Domínios funcionais
 
-### 1. Identidade e perfil do aluno
+### D1. Identidade e sessão
 
-Capacidades:
+- cadastro por email e senha
+- login
+- logout
+- recuperação de sessão
+- login social inicial
+- perfil de aluno associado à identidade autenticada
 
-- perfil local básico
-- série alvo, objetivo e ritmo
-- histórico de progresso persistido no dispositivo
-- contrato explícito de sessão/storage para futura sincronização
-- conta e login em fase posterior
+### D2. Catálogo curricular
 
-Histórias:
+- grade curricular completa até o ensino médio
+- filtros
+- busca
+- trilhas
+- visão de status por tópico e lição
 
-- Como aluno, quero configurar meu perfil sem depender de backend para começar a estudar.
-- Como aluno, quero voltar depois e continuar de onde parei no mesmo dispositivo.
-- Como produto, quero preparar um contrato de storage que permita sincronização futura sem reescrever a UI.
+### D3. Conteúdo em runtime
 
-### 2. Exploração curricular e trilhas
+- manifesto publicado de conteúdo
+- teoria em Markdown
+- exercícios em Markdown estruturado
+- carregamento sob demanda
+- versionamento de conteúdo
 
-Capacidades:
+### D4. Progresso e persistência
 
-- navegar pela grade completa
-- filtrar por ramo, ano, perfil de prova e status
-- entrar em trilhas default
-- ver tópicos em `outline`, `in-progress` e `ready`
+- progresso em nuvem
+- continuação entre dispositivos
+- histórico de tentativas
+- indicadores por lição, tópico e trilha
 
-Histórias:
+### D5. Domínio e gating
 
-- Como aluno, quero ver toda a grade, mesmo quando parte do conteúdo ainda estiver em construção.
-- Como aluno, quero entrar numa trilha alinhada ao meu objetivo.
-- Como operador, quero gerar trilhas default a partir da taxonomia canônica.
+- limiar mínimo de domínio
+- bloqueio da sequência padrão
+- explicação de bloqueio
+- override deliberado por modo aberto
 
-### 3. Experiência de teoria
+### D6. Retenção e revisão
 
-Capacidades:
+- agendamento de revisão
+- fila diária
+- priorização por risco de esquecimento
+- histórico de revisão
 
-- abrir lição
-- renderizar Markdown com KaTeX
-- mostrar status do conteúdo
-- manter estrutura estável mesmo com texto placeholder
+### D7. Gamificação
 
-Histórias:
-
-- Como autor, quero publicar teoria em Markdown sem tocar na UI.
-- Como aluno, quero estudar uma lição com layout consistente, independentemente da origem do texto.
-
-### 4. Prática e gabarito
-
-Capacidades:
-
-- responder exercícios
-- receber correção
-- ver gabarito
-- abrir solução estruturada
-
-Histórias:
-
-- Como aluno, quero praticar e ver a resolução quando errar.
-- Como produto, quero rastrear tentativas e taxa de acerto por habilidade.
-
-### 5. Avanço por domínio
-
-Capacidades:
-
-- definir critério mínimo de passagem
-- bloquear avanço quando o critério falhar
-- destravar quando o aluno comprovar domínio
-- mostrar dívida matemática acumulada
-
-Histórias:
-
-- Como aluno, quero saber por que estou bloqueado.
-- Como plataforma, quero impedir avanço superficial.
-- Como produto, quero medir dívida por `canonicalId`.
-
-### 6. Recuperação obrigatória
-
-Capacidades:
-
-- detectar lacuna provável a partir do erro
-- abrir microtrilha de revisão
-- exigir revisão antes do desbloqueio
-- reaplicar avaliação
-
-Histórias:
-
-- Como aluno, quero entender qual base está faltando.
-- Como plataforma, quero forçar recomposição antes de liberar o próximo bloco.
-
-### 7. Repetição espaçada
-
-Capacidades:
-
-- agendar revisões
-- priorizar o que está em risco de esquecimento
-- reapresentar habilidade dominada
-- degradar domínio quando houver esquecimento recorrente
-
-Histórias:
-
-- Como aluno, quero receber revisão no momento certo.
-- Como plataforma, quero reduzir o esquecimento e manter domínio vivo.
-
-### 8. Gamificação séria
-
-Capacidades:
-
-- badges
+- pontos
 - streak
-- mapa de progresso
-- campanhas e metas
-- eventual elegibilidade para política de devolução
+- badges
+- ranking
 
-Histórias:
+### D8. Operação editorial e técnica
 
-- Como aluno, quero sentir progresso e desafio real.
-- Como produto, quero premiar consistência e domínio, não só volume de cliques.
-
-### 9. Operação e governança
-
-Capacidades:
-
-- roadmap visível
-- releases versionadas
-- backlog estruturado
-- critérios de aceite claros
-- métricas básicas por feature
-
-Histórias:
-
-- Como operador, quero saber em que release cada feature entra.
-- Como time, queremos entregar em pequenos sucessos sólidos.
+- publicação de conteúdo em Markdown
+- rollback de release de conteúdo
+- telemetria
+- auditoria
+- governança de release
 
 ## Regras funcionais principais
 
 ### RF-01
 
-O app deve permitir representar a grade curricular completa, mesmo quando parte do conteúdo estiver em placeholder.
+O sistema deve representar o currículo escolar de matemática até o ensino médio em uma estrutura navegável por etapa, tópico, lição e trilha.
 
 ### RF-02
 
-O app deve permitir que teoria, exercícios, gabaritos e soluções sejam publicados por conteúdo declarativo.
+O sistema deve buscar teoria e exercícios em runtime a partir de uma release publicada de conteúdo.
 
 ### RF-03
 
-O app deve persistir perfil e progresso por um contrato explícito de storage, com implementação local-first nas releases iniciais.
+Mudanças editoriais em Markdown não devem exigir redeploy do frontend quando o contrato de conteúdo permanecer estável.
 
 ### RF-04
 
-Quando a fase multiusuário entrar, o app deve permitir autenticar alunos e associar progresso a uma identidade persistida.
+O sistema deve autenticar usuários e associar todo progresso a uma identidade persistida.
 
 ### RF-05
 
-O app deve registrar tentativas, acertos, erros e progresso por habilidade canônica.
+O sistema deve persistir progresso, tentativas, domínio e fila de revisão em nuvem.
 
 ### RF-06
 
-O app deve bloquear avanço quando o aluno não atingir o domínio mínimo definido para a etapa atual.
+O sistema deve apresentar sensação de progresso por lição, tópico, trilha e cobertura global.
 
 ### RF-07
 
-O app deve gerar revisão obrigatória quando um erro indicar lacuna relevante.
+O sistema deve bloquear a sequência padrão quando o aluno não comprovar domínio mínimo.
 
 ### RF-08
 
-O app deve agendar revisões futuras para evitar esquecimento das habilidades dominadas.
+O sistema deve explicar o motivo do bloqueio e indicar o próximo passo recomendado.
 
 ### RF-09
 
-O app deve expor trilhas default coerentes com os objetivos do aluno e com a taxonomia canônica.
+O sistema deve permitir um modo aberto, mas só após confirmação deliberada do usuário.
 
 ### RF-10
 
-O app deve fornecer visibilidade clara de status, bloqueios, revisões pendentes e progresso total.
+O sistema deve manter uma heurística de revisão ligada a risco de esquecimento e transformá-la em fila diária de revisão.
 
-## Backlog por épico
+### RF-11
 
-### Epic A: Plataforma Base
+O sistema deve priorizar revisão vencida quando ela for mais importante do que avançar em conteúdo novo.
 
-Status atual: `em andamento`
+### RF-12
 
-- [x] perfil local mais robusto
-- [x] contrato de storage/session
-- [x] trilhas default guiadas pela taxonomia
-- [x] telemetria mínima
-- [x] placeholders para validação do loop
+O sistema deve expor gamificação coerente com estudo real: pontos, streak, badges e ranking.
 
-### Epic B: Mastery
+### RF-13
 
-Status atual: `concluído`
-
-- [x] mastery ledger
-- [x] travas de avanço
-- [x] score por habilidade
-- [x] dashboard de dívida matemática
-
-### Epic C: Recovery
-
-Status atual: `concluído`
-
-- [x] erro para lacuna
-- [x] revisão obrigatória
-- [x] reavaliação
-
-### Epic D: Retention
-
-Status atual: `planejado`
-
-- fila de revisão
-- spaced repetition
-- histórico de recall
-
-### Epic E: Challenge
-
-Status atual: `planejado`
-
-- campanha de conclusão
-- ranking mais sério
-- critério de conclusão total
-- políticas de elegibilidade comercial
-
-### Epic F: Accounts & Cloud Sync
-
-Status atual: `planejado`
-
-- autenticação de aluno
-- sincronização entre dispositivos
-- storage remoto inicial em Supabase
-- ledger auditável de progresso
+O sistema deve registrar eventos suficientes para auditoria de autenticação, progresso, gating, modo aberto, revisão e publicação de conteúdo.
 
 ## Artefatos obrigatórios por feature
 
-Cada feature do roadmap deve ter, no mínimo:
+Cada feature que entrar em desenvolvimento deve ter, no mínimo:
 
-- issue ou epic no GitHub
+- fase alvo
+- história ou conjunto de histórias
 - critério de aceite
-- release alvo
-- impacto em dados e telemetria documentado
-- decisão de rollout
-- atualização dos documentos afetados
+- impacto em dados e integrações
+- impacto em telemetria e auditoria
+- atualização de RMS, DAS e CDT quando necessário
 
 ## Fora de escopo imediato
 
-- CMS próprio para autoria
-- múltiplos papéis administrativos complexos
-- conteúdo editorial definitivo como pré-requisito para implementar o motor do produto
+- CMS visual completo
+- autoria diretamente no app do aluno
+- múltiplos papéis corporativos avançados
+- marketplace de conteúdo
+- editor matemático visual rico como requisito de fase inicial

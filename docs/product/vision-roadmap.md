@@ -1,256 +1,269 @@
 # Visão e Roadmap
 
-## Visão do produto
+## Objetivo do produto
 
-O Exponencial não deve ser apenas um catálogo de aulas e listas. O alvo é uma plataforma de domínio matemático em que o aluno:
+O Exponencial deve ser um software web multiusuário de aprendizagem de matemática que permita:
 
-- sabe exatamente o que já domina e o que ainda deve
-- só avança quando demonstra domínio mínimo
-- é redirecionado para revisão quando o erro indica lacuna
-- revisa no momento certo para não esquecer
-- enxerga progresso real até "zerar" a matemática coberta pela plataforma
+- acessar teoria e exercícios do currículo escolar até o ensino médio
+- seguir uma sensação clara de progresso na ordem habitual dos tópicos
+- avançar por domínio, e não apenas por navegação livre
+- salvar progresso na nuvem e continuar em qualquer dispositivo
+- revisar no tempo certo com base em heurísticas ligadas à curva de esquecimento
+- usar gamificação para reforçar constância, não apenas volume de cliques
 
-## Estado atual
+## Problema que o produto resolve
 
-Hoje a base do produto já permite:
+O aluno geralmente enfrenta quatro problemas ao estudar matemática:
 
-- currículo amplo scaffoldado a partir da taxonomia canônica
-- teoria, exercícios e gabaritos em fontes declarativas
-- renderer web estável para teoria e prática
-- progresso e perfil locais
-- contrato explícito de storage/session com backup local
-- trilhas default geradas a partir da taxonomia
-- ledger local de domínio por `canonicalId`
-- dashboard inicial de dívida matemática
-- corte mínimo local por lição e bloqueio sequencial dentro do tópico
-- gamificação inicial ainda simples
+- o currículo aparece fragmentado e sem noção de sequência
+- o progresso não é claro nem acumulativo
+- o esquecimento acontece sem revisão estruturada
+- a maior parte das plataformas mede consumo de conteúdo, não domínio real
 
-Hoje ainda não existe:
+O Exponencial existe para transformar o estudo em um fluxo contínuo:
 
-- autenticação real de alunos
-- persistência remota de progresso
-- recuperação obrigatória
-- repetição espaçada inteligente
+1. entender a teoria
+2. praticar
+3. comprovar domínio
+4. revisar antes de esquecer
+5. enxergar o avanço total no currículo
+
+## Estado-alvo do produto
+
+No estado-alvo, o sistema deve oferecer:
+
+- autenticação por email e senha
+- ao menos um login social inicial
+- progresso, domínio e fila de revisão persistidos em Supabase
+- experiência multiusuário com ranking e gamificação
+- bloqueio padrão por domínio mínimo
+- modo especial de exploração total, liberado só por escolha deliberada e confirmada
+- conteúdo publicado em Markdown e servido em runtime, sem exigir redeploy do frontend para ajustes editoriais
+
+## Público-alvo principal
+
+### Aluno
+
+Usuário que deseja estudar matemática do currículo escolar com trilha, revisão e sensação de progresso.
+
+### Autor de conteúdo
+
+Pessoa que publica teoria e exercícios alterando arquivos Markdown e passando por um fluxo de validação e publicação.
+
+### Operador de produto
+
+Pessoa que prioriza fases, acompanha métricas, define critérios de aceite e governa releases.
+
+### Administrador da plataforma
+
+Pessoa responsável por autenticação, dados, observabilidade, suporte operacional e políticas de acesso.
 
 ## Princípios de produto
 
-- avanço por domínio, não por tempo
-- currículo completo desde o início, mesmo com placeholders
-- erro como diagnóstico, não só como nota
-- revisão como parte obrigatória do loop
-- roadmap incremental com entregas pequenas e auditáveis
-- conteúdo editorial definitivo pode entrar depois que o mecanismo estiver validado
+- progresso deve ser visível, cumulativo e explicável
+- a progressão padrão deve respeitar pré-requisitos e domínio
+- o usuário pode optar por abrir tudo, mas isso nunca deve ser o default
+- teoria e exercícios precisam continuar vindo de fontes declarativas
+- mudança editorial não deve exigir rebuild completo do app
+- o sistema deve ser auditável: precisa explicar bloqueios, revisões, override e ranking
+- cada fase deve entregar valor verificável e não apenas infraestrutura isolada
 
-## Estratégia de validação
+## Escopo funcional do produto final
 
-Nas primeiras releases, conteúdo final não é o foco principal. É aceitável usar:
+### 1. Catálogo curricular completo
 
-- teoria placeholder em Markdown
-- questões placeholder com estrutura real
-- gabaritos simples
-
-Isso existe para validar:
-
-- onboarding
-- fluxo de teoria e prática
-- gating de avanço
-- remediação
-- repetição espaçada
-- telemetria e persistência
-
-## Macrocapacidades do produto
-
-### 1. Base curricular
-
-- taxonomia canônica cobrindo toda a grade
-- tópicos e lições scaffoldados
-- filtros por ramo, ano, perfil de prova e status
+- cobertura do currículo escolar até o ensino médio
+- trilhas por etapa, ramo e objetivo
+- busca e filtros por série, ramo, status e perfil
 
 ### 2. Runtime de aprendizagem
 
-- teoria
-- exercícios
-- gabaritos
-- soluções passo a passo
-- progresso por lição, tópico e habilidade canônica
+- teoria em Markdown
+- exercícios e gabaritos em Markdown estruturado
+- carregamento de conteúdo em runtime
+- versão publicada de conteúdo rastreável
 
-### 3. Motor de domínio
+### 3. Progressão e domínio
 
-- critérios de aprovação
-- bloqueio e desbloqueio por mastery
-- rastreamento de dívida matemática
+- progresso por lição, tópico, trilha e habilidade canônica
+- critérios mínimos de passagem
+- bloqueio de avanço por falta de domínio
+- explicação clara do motivo do bloqueio
 
-### 4. Motor de recuperação
+### 4. Revisão e retenção
 
-- detecção de lacuna por erro
-- trilhas curtas de revisão
-- reaplicação obrigatória antes do desbloqueio
-
-### 5. Motor de retenção
-
-- repetição espaçada
-- fila de revisão
+- fila diária de revisão
+- heurística de esquecimento
 - rechecagem de habilidades já dominadas
+- histórico de revisões e impacto no domínio
 
-### 6. Camada operacional
+### 5. Gamificação e ranking
 
-- perfil local, contas e sincronização em fases diferentes
-- analytics
-- versionamento e release
-- observabilidade
+- pontos
+- streak
+- badges
+- leaderboard multiusuário
 
-## Roadmap de releases
+### 6. Camada cloud e multiusuário
 
-### Release R0: Foundation Loop
+- login e cadastro
+- login social
+- Supabase Auth
+- progresso em nuvem
+- associação entre identidade, progresso e eventos
 
-Status atual: `concluído`
+## Fora de escopo imediato
 
-Objetivo: validar o loop básico do produto em modo single-user, com governança de entrega e base local-first sólida.
+- CMS WYSIWYG complexo para autoria
+- autoria diretamente no app do aluno
+- múltiplos painéis administrativos avançados
+- política comercial final, refund e regras jurídicas completas
+- múltiplos provedores cloud além do Supabase
 
-Escopo:
+## Roadmap por fases
 
-- [x] documentação de produto, arquitetura e entrega
-- [x] trunk-based com CI, templates e releases
-- [x] melhoria das trilhas default a partir da taxonomia
-- [x] contrato explícito de storage e sessão, mantendo adapter local como implementação padrão
-- [x] perfil local e progresso local mais consistentes
-- [x] placeholders suficientes para validar os fluxos centrais
-- [x] telemetria mínima de produto para estudar o loop principal
+### F0: Baseline documental e alinhamento
 
-Artefatos de entrega:
+Objetivo:
 
-- [x] PRD e roadmap publicados
-- [x] arquitetura-alvo documentada
-- [x] contrato de storage/session documentado
-- [x] CI obrigatória
-- [x] templates de issue e PR
-- [x] milestones de release
+- consolidar visão, RMS, histórias, DAS, documentação técnica, CDT e plano por fases
 
-Critério de sucesso:
+Critério de saída:
 
-- um aluno consegue estudar em modo local, ser guiado por trilhas melhores e fechar um loop consistente de teoria, prática e progresso no mesmo dispositivo
+- o time consegue iniciar desenvolvimento sem ambiguidade de escopo
 
-### Release R1: Mastery Engine
+### F1: Identidade e base cloud
 
-Status atual: `concluído`
+Objetivo:
 
-Objetivo: transformar o app em uma plataforma com avanço por domínio.
+- estabelecer o modo multiusuário do produto
 
 Escopo:
 
-- [x] modelo de mastery por `canonicalId`
-- [x] critérios mínimos de aprovação por lição e tópico
-- [x] bloqueio de avanço quando o aluno não passa
-- [x] dashboard de dívida matemática
-- [x] novas trilhas default guiadas por objetivo
+- cadastro por email e senha
+- login
+- recuperação de sessão
+- pelo menos um provedor social inicial
+- perfil associado ao usuário autenticado
+- baseline de RLS e observabilidade de autenticação
 
-Artefatos de entrega:
+Critério de saída:
 
-- [x] contratos de domínio
-- [x] regras de desbloqueio
-- [x] métricas de aprovação
-- [x] eventos analíticos principais
+- o aluno consegue entrar, sair e recuperar a própria conta com dados isolados por usuário
 
-Critério de sucesso:
+### F2: Runtime de conteúdo remoto em Markdown
 
-- o aluno não consegue avançar sem atingir o patamar definido para o bloco atual
+Objetivo:
 
-### Release R2: Recovery Loop
-
-Status atual: `concluído`
-
-Objetivo: transformar erro em gatilho de recuperação obrigatória.
+- permitir publicação e alteração de conteúdo sem redeploy do frontend
 
 Escopo:
 
-- [x] tags de lacuna e pré-requisito por questão
-- [x] diagnóstico mínimo de erro
-- [x] microtrilhas de revisão obrigatória
-- [x] reaplicação após revisão
-- [x] lógica de desbloqueio por recuperação concluída
+- manifesto publicado em runtime
+- teoria e exercícios armazenados/versionados via Supabase
+- pipeline de validação e publicação de Markdown
+- carregamento sob demanda de lições e questionários
+- rollback para release anterior de conteúdo
 
-Artefatos de entrega:
+Critério de saída:
 
-- [x] mapa de misconceptions inicial
-- [x] contrato de remediação
-- [x] telas de bloqueio e recuperação
+- uma alteração editorial publicada aparece no app sem rebuild do shell web
 
-Critério de sucesso:
+### F3: Progresso cloud, domínio e gating
 
-- um erro relevante gera revisão obrigatória e novo teste antes do desbloqueio
+Objetivo:
 
-### Release R3: Retention Engine
-
-Status atual: `planejado`
-
-Objetivo: reduzir esquecimento por revisão inteligente.
+- transformar o fluxo de estudo em progressão orientada por domínio e persistida na nuvem
 
 Escopo:
 
-- agenda de repetição espaçada
-- fila de revisão diária
-- degradação controlada de domínio
+- progresso em nuvem por usuário
+- tentativas, score e domínio por habilidade
+- bloqueio por domínio mínimo
+- explicação de bloqueio
+- modo aberto deliberado com confirmação explícita
+
+Critério de saída:
+
+- o aluno percebe progresso claro, tem dados persistidos na nuvem e só avança por domínio, salvo quando deliberadamente decide abrir tudo
+
+### F4: Retenção e revisão guiada por esquecimento
+
+Objetivo:
+
+- reduzir esquecimento e manter domínio ao longo do tempo
+
+Escopo:
+
+- fila diária de revisão
+- heurística de agendamento
+- priorização do que está vencido
 - histórico de revisões
-- lembretes iniciais in-app
+- eventos e métricas de retenção
 
-Artefatos de entrega:
+Critério de saída:
 
-- scheduler de revisão
-- schema de agenda e recall
-- métricas de retenção
+- habilidades dominadas retornam para revisão no momento certo e a recomendação principal já considera isso
 
-Critério de sucesso:
+### F5: Gamificação, ranking e compromisso
 
-- habilidades dominadas voltam para revisão no tempo certo e o aluno enxerga a fila de manutenção
+Objetivo:
 
-### Release R4: Challenge Economy
-
-Status atual: `planejado`
-
-Objetivo: transformar domínio em compromisso mensurável, com persistência confiável e modelo comercial sólido.
+- reforçar constância e percepção de avanço com sinais sociais e metas
 
 Escopo:
 
-- autenticação e sincronização em nuvem
-- persistência remota de progresso, agenda e ledger mínimo
-- gamificação séria baseada em domínio e consistência
-- definição operacional de "zerar" a matemática coberta
-- elegibilidade para eventual política de devolução
-- auditoria mínima anti-fraude
-- ranking e provas cumulativas
+- pontos
+- badges
+- streak
+- ranking/leaderboard
+- regras de elegibilidade e anti-abuso mínimas
 
-Artefatos de entrega:
+Critério de saída:
 
-- arquitetura de contas e sync documentada
-- schema inicial de Supabase
-- política de elegibilidade
-- ledger de progresso auditável
-- critérios comerciais e jurídicos documentados
+- o aluno enxerga reconhecimento contínuo e comparação segura com outros usuários
 
-Critério de sucesso:
+### F6: Hardening e readiness de operação
 
-- a plataforma consegue provar, com rastros mínimos, por que um aluno chegou ou não ao estado de conclusão total
+Objetivo:
 
-## Onde estamos hoje
+- preparar o produto para operação estável
 
-Hoje o projeto está no fechamento de R2 e pronto para abrir R3:
+Escopo:
 
-- arquitetura de conteúdo já está pronta para escala
-- governança de produto e entrega já está formalizada
-- trilhas, storage local-first, gating, recuperação obrigatória e telemetria mínima já entraram
-- o próximo salto real é abrir a agenda de revisão e a fila de repetição espaçada
+- observabilidade completa
+- auditoria de eventos críticos
+- performance e acessibilidade
+- segurança, LGPD e rotinas operacionais
+- rollout controlado
 
-## O que não vamos fazer agora
+Critério de saída:
 
-- não vamos perseguir conteúdo editorial definitivo como gargalo
-- não vamos tentar lançar toda a matemática com todas as mecânicas de uma vez
-- não vamos introduzir autenticação e multiusuário antes de provar o loop principal em modo local
-- não vamos introduzir múltiplos backends; quando a camada remota fizer sentido, Supabase continua sendo o primeiro candidato
+- a plataforma está pronta para operar com risco técnico e operacional conhecidos
 
-## Medidas de sucesso por etapa
+## Linha de corte recomendada
 
-- R0: loop single-user estável, trilhas coerentes e progresso local consistente
-- R1: taxa de aprovação e bloqueio coerentes
-- R2: taxa de recuperação concluída e redução de reincidência
-- R3: aderência à fila de revisão e retenção de domínio
-- R4: sincronização confiável, ledger auditável, completion rate e elegibilidade auditável
+### MVP funcional
+
+F1 + F2 + F3 + F4.
+
+Esse corte já entrega:
+
+- multiusuário
+- conteúdo remoto em Markdown
+- progresso em nuvem
+- gating por domínio
+- revisão orientada por esquecimento
+
+### V1 comercialmente mais forte
+
+MVP + F5 + itens essenciais de F6.
+
+## Medidas de sucesso
+
+- taxa de ativação: percentual de usuários que concluem onboarding e iniciam a primeira lição
+- taxa de persistência: percentual de usuários que retornam em outro dia com a mesma conta
+- taxa de progressão: percentual de alunos que avançam em tópicos na ordem proposta
+- taxa de revisão concluída: percentual de revisões vencidas realmente executadas
+- retenção de domínio: percentual de habilidades que se mantêm acima do limiar após revisões
+- engajamento saudável: streak, badges e ranking sem aumento artificial de cliques vazios

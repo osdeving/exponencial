@@ -2,115 +2,171 @@
 
 ## Objetivo
 
-Definir a barra mínima de qualidade operacional do Exponencial enquanto o produto evolui por releases incrementais.
+Definir a barra mínima de qualidade do produto em seu estado-alvo multiusuário e cloud-first.
+
+Este documento complementa o [RMS](rms.md) com foco em metas mensuráveis de operação, segurança, qualidade e manutenção.
 
 ## NFR-01: Performance
 
-- o app deve abrir de forma aceitável em rede móvel comum
-- trocas de rota principais devem parecer imediatas depois do primeiro carregamento
-- submissão e feedback de exercício devem ser rápidos o bastante para não quebrar o loop de estudo
-- o bundle deve continuar sendo monitorado; crescimento por conteúdo não pode voltar a inflar o shell principal
+O produto deve manter boa percepção de fluidez para estudo contínuo.
 
-Meta inicial:
+Metas:
 
-- página inicial interativa em até 2,5 s em cenário mediano
-- navegação entre teoria e prática com latência percebida abaixo de 300 ms quando já carregado
+- shell inicial interativo em até 3 s em cenário móvel mediano
+- carregamento de manifesto publicado em até 1 s p95 com cache quente
+- abertura de teoria ou exercício em até 1 s p95 após seleção da lição
+- submissão de tentativa com persistência em até 2 s p95
+- navegação entre telas principais percebida como imediata após primeiro carregamento
 
 ## NFR-02: Disponibilidade
 
-- frontend estático deve ter alta disponibilidade via GitHub Pages no estágio inicial
-- a experiência single-user deve funcionar sem backend obrigatório nas releases iniciais
-- falhas de storage não devem corromper definitivamente o estado do aluno
+O produto deve ser operável em produção com disponibilidade consistente.
 
-Meta inicial:
+Metas:
 
-- priorizar simplicidade operacional sobre arquitetura distribuída
+- disponibilidade mensal alvo de 99,5% após entrada da fase cloud
+- fallback degradado quando serviços auxiliares falharem, sem perda silenciosa de progresso confirmado
+- releases de conteúdo devem ser reversíveis
 
 ## NFR-03: Segurança
 
-- a fase local-first não deve exigir exposição de segredos no cliente
-- quando autenticação entrar, ela deve usar mecanismo confiável, com Supabase Auth como primeira camada prevista
-- segredos não podem ficar expostos no cliente
-- políticas de acesso devem ser definidas com Row Level Security ao introduzir dados de aluno
-- o fluxo de entrega deve proteger `main` e exigir CI
+O produto deve proteger autenticação, dados e segredos.
+
+Exigências:
+
+- autenticação centralizada em Supabase Auth
+- RLS em todas as tabelas de dados de usuário
+- segredos fora do cliente
+- trilha de auditoria para login, publicação, override e eventos críticos
+- proteção de `main` e CI obrigatória
 
 ## NFR-04: Privacidade e conformidade
 
-- dados pessoais de aluno devem ser mínimos
-- o produto deve prever consentimento e exclusão de conta quando a fase multiusuário entrar
-- o roadmap deve considerar LGPD antes da introdução de autenticação
-- menores de idade exigem cuidado maior com dados e comunicação
+O produto deve operar com mínimo de dados pessoais e respeitar LGPD.
+
+Exigências:
+
+- coletar apenas os dados necessários para operação e suporte
+- prever consentimento, exclusão de conta e revogação de sessão
+- tratar menores de idade com cautela extra de dados e comunicação
+- documentar retenção de dados por categoria
 
 ## NFR-05: Auditabilidade
 
-- a plataforma deve conseguir explicar por que um aluno foi bloqueado, destravado ou considerado apto
-- eventos importantes devem ser rastreáveis
-- o histórico mínimo de tentativas e revisões deve existir primeiro por contrato e depois, na fase cloud, ser persistido remotamente
+O sistema deve conseguir explicar decisões importantes.
 
-Isso é crítico para:
+Exigências:
 
-- confiança pedagógica
-- suporte
-- políticas de devolução no futuro
+- registrar por que um aluno foi bloqueado, liberado ou redirecionado para revisão
+- registrar quando o modo aberto foi habilitado, por quem e quando
+- associar tentativas à versão publicada do conteúdo
+- permitir reconstruir a sequência mínima de eventos de estudo de um usuário
 
 ## NFR-06: Observabilidade
 
-- erros de runtime precisam ser capturáveis
-- o produto deve medir eventos principais por release
-- métricas de funil precisam existir antes de aumentar escopo
+O sistema deve gerar sinais suficientes para operação e evolução do produto.
 
-Eventos mínimos previstos:
+Eventos mínimos:
 
-- perfil configurado
-- início de lição
-- envio de exercício
-- aprovação
-- bloqueio
-- revisão disparada
+- cadastro concluído
+- login concluído
+- lição iniciada
+- exercício enviado
+- lição aprovada
+- lição bloqueada
+- modo aberto habilitado
+- revisão agendada
+- revisão iniciada
 - revisão concluída
+- conteúdo publicado
 
-Implementado hoje em modo local-first:
+Exigências:
 
-- perfil configurado
-- início de lição
-- envio de exercício
-- aprovação
-- bloqueio
+- erros de runtime precisam ser capturáveis
+- métricas de funil precisam existir por fase
+- integrações críticas precisam ter logs operacionais mínimos
 
 ## NFR-07: Testabilidade
 
-- toda mudança de parser, contratos e regras de domínio deve ter testes automatizados
-- a pipeline deve impedir merge com CI quebrada
-- smoke tests de UI podem crescer depois, mas contratos e domínio não podem voltar a depender só de teste manual
+O produto deve poder ser validado por automação e aceite.
+
+Exigências:
+
+- domínio, contratos, auth, publicação e gating precisam ter testes automatizados
+- histórias críticas precisam ter cenários mapeados no CDT
+- CI deve bloquear merge quebrado
+- regressão de conteúdo precisa ser validável por pipeline
 
 ## NFR-08: Manutenibilidade
 
-- conteúdo curricular deve continuar fora da UI
-- contratos de conteúdo e produto devem permanecer documentados
-- IA e novos colaboradores devem conseguir entender a estrutura lendo poucos arquivos
-- arquivos gerados continuam sendo saída, não fonte
+O produto deve continuar evoluindo sem acoplamento excessivo.
+
+Exigências:
+
+- conteúdo curricular permanece fora da UI
+- contratos e versionamento de conteúdo permanecem documentados
+- mudanças editoriais não devem exigir refactor do frontend
+- novos colaboradores devem conseguir navegar pela base lendo poucos documentos
 
 ## NFR-09: Acessibilidade
 
-- fluxos principais de estudo devem ser navegáveis por teclado
-- contraste, foco e estrutura semântica devem permanecer adequados
-- feedback de erro e bloqueio deve ser claro
+O fluxo principal de estudo deve ser acessível.
+
+Exigências:
+
+- navegação por teclado nas jornadas principais
+- contraste, foco visível e semântica adequados
+- mensagens de bloqueio, erro e confirmação claras
+- meta de aderência progressiva a WCAG 2.1 AA nas telas principais
 
 ## NFR-10: Escalabilidade funcional
 
-- a grade curricular deve poder crescer sem exigir refactor frequente da UI
-- novas mecânicas, como solução animada passo a passo, devem entrar por contratos e componentes dedicados
-- a evolução para mastery, recovery e spaced repetition não deve reintroduzir acoplamento entre conteúdo e shell
+O produto deve crescer em currículo, usuários e mecânicas sem reescrever a base.
+
+Exigências:
+
+- crescimento de conteúdo não pode exigir rebuild do frontend
+- novas mecânicas entram por contratos claros
+- ranking, revisão e auditoria devem suportar múltiplos usuários sem quebrar isolamento
 
 ## NFR-11: Governança de release
 
-- toda entrega deve apontar release alvo
-- releases devem ser pequenas, verificáveis e cumulativas
-- o backlog não pode ficar só em conversa; precisa aparecer em docs ou GitHub
+Cada entrega deve ser rastreável e verificável.
+
+Exigências:
+
+- toda entrega aponta fase alvo
+- cada entrega atualiza os documentos afetados
+- releases devem ser pequenas, cumulativas e reversíveis
+- backlog oficial deve estar refletido em docs e/ou GitHub
 
 ## NFR-12: Custo operacional
 
-- no estágio inicial, preferir GitHub Pages + arquitetura local-first em vez de backend próprio
-- evitar serviços adicionais antes de validar o loop principal
-- quando a camada remota passar a ser necessária, preferir Supabase como primeira opção
-- qualquer novo serviço precisa justificar custo, risco e ganho operacional
+O produto deve perseguir simplicidade operacional proporcional ao estágio.
+
+Exigências:
+
+- Supabase é o backend preferencial para auth, dados e storage
+- novos serviços só entram com justificativa clara
+- publicação de conteúdo deve evitar pipelines excessivamente caras
+- ranking e revisão devem preferir processamento assíncrono quando o custo síncrono não se justificar
+
+## NFR-13: Integridade de conteúdo
+
+O produto deve impedir publicação inconsistente de teoria e exercícios.
+
+Exigências:
+
+- toda release de conteúdo passa por validação estrutural
+- manifesto publicado deve ser imutável por versão
+- rollback deve restaurar release íntegra anterior
+
+## NFR-14: Portabilidade editorial
+
+O conteúdo deve continuar sendo editável em formatos simples e versionáveis.
+
+Exigências:
+
+- Markdown permanece como formato canônico de autoria
+- frontmatter e contratos de questões permanecem explícitos
+- o pipeline de publicação não deve aprisionar o conteúdo em editor proprietário

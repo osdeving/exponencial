@@ -1,5 +1,5 @@
-loopAction: continue
-lastOutcome: bootstrap
+loopAction: stop
+lastOutcome: changed
 ---
 
 # Status da Automação
@@ -8,37 +8,30 @@ lastOutcome: bootstrap
 
 Avançar o Exponencial por fatias pequenas, seguras e verificáveis, sem depender de intervenção humana durante cada execução.
 
-## Release ativa
+## Fase documental atual
 
-- release: `R3`
-- epic: `Epic D / Retention`
-- status: `pronto para iniciar`
+- fase: `F0 / Baseline documental`
+- status: `concluída`
 
-## Último marco concluído
+## Próxima fase planejada
 
-- `R2 / Epic C` concluído
-- recuperação obrigatória já cobre:
-  - diagnóstico mínimo por questão
-  - revisão obrigatória
-  - retorno ao reteste original
-  - bloqueio até aprovação
-  - painel local de recuperação
+- fase: `F1 / Identidade e base cloud`
+- status: `aguardando decomposição em fatias pequenas`
 
 ## Próximas fatias elegíveis
 
-- [ ] introduzir contrato local de fila de revisão
-- [ ] agendar revisões vencidas por lição/habilidade já dominada
-- [ ] priorizar revisão vencida na recomendação principal
-- [ ] mostrar fila diária de revisão no dashboard e/ou home
-- [ ] cobrir scheduler e fila com testes automatizados
-- [ ] marcar `R3` como iniciado nas docs quando a primeira fatia entrar
+- [ ] decompor `F1` em issues pequenas e rastreáveis
+- [ ] escolher o provedor social inicial
+- [ ] detalhar schema inicial de perfil e sessão em Supabase
+- [ ] detalhar RLS mínima de identidade e progresso
+- [ ] detalhar o contrato do manifesto publicado em runtime
 
 ## Itens não elegíveis sem direção humana
 
-- auth, Supabase, multiusuário e sync em nuvem
-- pricing, refund, regras comerciais e critérios jurídicos
-- expansão grande de conteúdo editorial real
-- features fora do roadmap ativo
+- atacar múltiplas fases ao mesmo tempo
+- heurística final de revisão sem critério definido
+- política comercial, refund e regras jurídicas
+- expansão editorial pesada fora da fase ativa
 
 ## Regra de no-op
 
@@ -56,7 +49,7 @@ Se a próxima fatia segura não estiver clara, a automação deve:
 
 ## Última atualização
 
-- data: `2026-03-31`
-- origem: `bootstrap manual do loop autônomo`
-- resultado: `workflow, prompt persistente e status operacional criados`
-- próximo passo: `abrir a primeira fatia de R3 com contrato local de fila de revisão`
+- data: `2026-04-05`
+- origem: `formalização de documentação-base de produto e arquitetura`
+- resultado: `visão, RMS, histórias, NFR, DAS, técnico, fases e CDT publicados`
+- próximo passo: `decompor F1 em backlog executável antes de reativar o loop`
