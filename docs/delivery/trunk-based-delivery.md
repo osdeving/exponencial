@@ -89,24 +89,6 @@ O repositório mantém draft de release automaticamente com base em labels de PR
 
 Push em `main` continua gerando deploy do GitHub Pages.
 
-### Loop autônomo
-
-O repositório também pode rodar um loop de implementação contínua via `Codex Roadmap Loop`.
-
-Regras desse loop:
-
-- ele sempre pega a menor fatia segura do epic ativo
-- ele deve atualizar `docs/automation/status.md`
-- ele não deve abrir escopo fora do roadmap
-- ele deve parar em `no-op` quando não houver trabalho seguro
-- ele só commita se `test`, `lint` e `build` passarem
-
-Artefatos:
-
-- workflow: `.github/workflows/codex-roadmap-loop.yml`
-- prompt: `.github/codex/autopilot-prompt.md`
-- estado operacional: `docs/automation/status.md`
-
 ## Versionamento
 
 O projeto deve usar tags `v0.x.y` enquanto o produto ainda estiver amadurecendo.
@@ -156,11 +138,6 @@ Próximo estágio sugerido:
 - CI obrigatória
 - histórico linear
 - branch apagada após merge
-
-Observação operacional:
-
-- se o loop autônomo for configurado para commit direto, a governança do repositório precisa permitir essa escrita de forma explícita
-- se isso não for aceitável, a alternativa é adaptar o loop para branch automática + PR automático
 
 ## Relação com conteúdo
 

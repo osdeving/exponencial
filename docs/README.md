@@ -10,7 +10,6 @@ Este diretório concentra a documentação oficial de produto, arquitetura, oper
 - [Autoria de Conteúdo](content-authoring.md)
 - [Estrutura Curricular Canônica](estrutura/00_README.md)
 - [Entrega e trunk-based delivery](delivery/trunk-based-delivery.md)
-- [Automação do roadmap](automation/README.md)
 
 ## Leitura recomendada para entender o produto
 

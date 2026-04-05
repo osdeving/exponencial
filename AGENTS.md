@@ -14,11 +14,10 @@ Leia estes arquivos antes de editar:
 
 1. [docs/architecture.md](docs/architecture.md)
 2. [docs/product/README.md](docs/product/README.md) se a tarefa tocar roadmap, releases, produto ou operação
-3. [docs/automation/README.md](docs/automation/README.md) e [docs/automation/status.md](docs/automation/status.md) se a tarefa tocar automação, operação contínua ou execução autônoma
-4. [docs/delivery/trunk-based-delivery.md](docs/delivery/trunk-based-delivery.md) se a tarefa tocar GitHub, CI/CD ou fluxo de merge
-5. [docs/content-authoring.md](docs/content-authoring.md)
-6. [docs/estrutura/00_README.md](docs/estrutura/00_README.md) se a tarefa for curricular ou de taxonomia
-7. o skill mais adequado em `.codex/skills/`
+3. [docs/delivery/trunk-based-delivery.md](docs/delivery/trunk-based-delivery.md) se a tarefa tocar GitHub, CI/CD ou fluxo de merge
+4. [docs/content-authoring.md](docs/content-authoring.md)
+5. [docs/estrutura/00_README.md](docs/estrutura/00_README.md) se a tarefa for curricular ou de taxonomia
+6. o skill mais adequado em `.codex/skills/`
 
 ## Onde mexer
 
@@ -74,7 +73,6 @@ Então:
 - visão e releases: `docs/product/vision-roadmap.md`
 - escopo funcional: `docs/product/functional-spec.md`
 - requisitos não funcionais: `docs/product/non-functional-requirements.md`
-- automação do loop: `docs/automation/*`, `.github/codex/*`, `.github/workflows/codex-roadmap-loop.yml`
 - fluxo trunk-based e releases: `docs/delivery/trunk-based-delivery.md`
 - GitHub templates e workflows: `.github/*`
 
@@ -91,17 +89,6 @@ Então:
   - `npm run content:generate`
   - `npm run lint`
   - `npm run build`
-
-## Regras específicas para execução autônoma
-
-- O loop autônomo deve trabalhar sempre em cima da menor fatia segura do release/epic ativo.
-- Se houver `docs/automation/status.md`, ele é a fonte operacional de curto prazo e deve ser lido antes de decidir a próxima tarefa.
-- Preserve o frontmatter de `docs/automation/status.md` e atualize `loopAction` e `lastOutcome` de forma coerente.
-- Se não houver trabalho seguro, o agente deve fazer `no-op`, registrar o motivo em `docs/automation/status.md` e parar.
-- Não abrir espontaneamente frentes de auth, cloud, Supabase, billing, política comercial ou conteúdo editorial pesado.
-- Cada rodada autônoma deve atualizar `docs/automation/status.md`.
-- Só marcar roadmap/spec/architecture como concluídos quando a feature estiver realmente entregue e validada.
-- Para loops automáticos, prefira uma fatia por execução em vez de agrupar várias mudanças.
 
 ## Limites atuais da arquitetura
 
@@ -124,7 +111,6 @@ Se o pedido do usuário for:
 - **"mudar resolução passo a passo"**: mexa primeiro em `src/content/**/*.questions.md`; só depois ajuste `QuestionSolutionView` se o schema não cobrir o caso
 - **"mudar regra de progresso ou busca"**: mexa em `src/lib/learning.ts`
 - **"mudar roadmap, releases, PRD, histórias ou fluxo GitHub"**: mexa primeiro em `docs/product/*`, `docs/delivery/*` e `.github/*`
-- **"configurar loop autônomo ou automação contínua"**: mexa primeiro em `docs/automation/*`, `.github/codex/*`, `.github/workflows/*` e então sincronize `AGENTS.md`
 - **"mudar visual/comportamento"**: mexa em `src/app/*` e `src/components/*`, extraindo lógica do controller em vez de reinflar o shell
 
 ## Padrão desejado

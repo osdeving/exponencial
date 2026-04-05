@@ -22,7 +22,6 @@ O objetivo desta documentação é deixar claro:
 8. [../architecture.md](../architecture.md)
 9. [../technical/README.md](../technical/README.md)
 10. [../delivery/trunk-based-delivery.md](../delivery/trunk-based-delivery.md)
-11. [../automation/README.md](../automation/README.md), quando a leitura tocar backlog automático ou execução autônoma
 
 ## Papel de cada documento
 

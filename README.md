@@ -9,7 +9,6 @@ Plataforma de estudos de matemática orientada a conteúdo. A meta do projeto é
 - Especificação funcional: [docs/product/functional-spec.md](docs/product/functional-spec.md)
 - Requisitos não funcionais: [docs/product/non-functional-requirements.md](docs/product/non-functional-requirements.md)
 - Fluxo trunk-based e release: [docs/delivery/trunk-based-delivery.md](docs/delivery/trunk-based-delivery.md)
-- Loop autônomo e operação contínua: [docs/automation/README.md](docs/automation/README.md)
 - Fluxo de autoria de conteúdo: [docs/content-authoring.md](docs/content-authoring.md)
 - Instruções operacionais para IA e agentes: [AGENTS.md](AGENTS.md)
 
@@ -113,20 +112,3 @@ O runtime-alvo de evolução de estado é:
 - persistência local-first no início, com contrato estável para storage e sessão
 - Supabase depois, quando autenticação e sincronização entre dispositivos fizerem sentido
 - GitHub como canal operacional de roadmap, releases e documentação
-
-## Loop autônomo
-
-O repositório agora tem um kit para execução contínua do roadmap:
-
-- workflow agendado em `.github/workflows/codex-roadmap-loop.yml`
-- prompt persistente em `.github/codex/autopilot-prompt.md`
-- estado operacional em `docs/automation/status.md`
-
-Esse loop existe para avançar **uma fatia segura por vez**. Ele não deve inventar produto fora do roadmap nem abrir frentes que dependam de decisão humana.
-
-Bootstrap único fora do código:
-
-- configurar `OPENAI_API_KEY` nos secrets do repositório
-- garantir que o workflow consiga gravar na branch alvo
-
-Enquanto isso não existir, o kit já fica documentado e versionado, pronto para ativação.
