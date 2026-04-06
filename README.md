@@ -5,7 +5,7 @@ Plataforma de estudos de matemática orientada a conteúdo. A meta do projeto é
 ## Prévia
 
 <p align="center">
-  <a href="docs/product/exponencial.mp4">
+  <a href="docs/product/exponencial-720p.mp4">
     <img src="docs/product/exponencial-poster.jpg" alt="Prévia em vídeo do Exponencial" width="900" />
   </a>
 </p>
