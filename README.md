@@ -2,6 +2,16 @@
 
 Plataforma de estudos de matemática orientada a conteúdo. A meta do projeto é simples: o site deve se comportar como um **renderer** com trilhas, teoria, exercícios, gabaritos e progresso, enquanto o conteúdo curricular vem de arquivos declarativos e não de código espalhado pela UI.
 
+## Prévia
+
+<p align="center">
+  <a href="docs/product/exponencial.mp4">
+    <img src="docs/product/exponencial-poster.jpg" alt="Prévia em vídeo do Exponencial" width="900" />
+  </a>
+</p>
+
+Clique na imagem para abrir o vídeo de demonstração.
+
 ## Leitura rápida
 
 - Arquitetura e limites do sistema: [docs/architecture.md](docs/architecture.md)
@@ -32,12 +42,11 @@ npm run build
 npm run validate
 ```
 
-`npm run content:scaffold` agora combina duas fontes:
-
-- a semente editorial em `scripts/curriculum-seed.mjs`
-- a taxonomia canônica em `docs/estrutura/*`
+`npm run content:scaffold` usa a taxonomia canônica em `docs/estrutura/*` para criar apenas o que ainda não existir em `src/content/**`.
 
 Com isso, o app já nasce com uma grade ampla representada. O que ainda não tiver teoria definitiva entra como placeholder em Markdown com status controlado.
+
+Hoje, esse scaffold continua fazendo sentido como **bootstrap/backfill** da grade local em `src/content/**`. Ele não substitui a edição normal de conteúdo e não significa que o runtime remoto já esteja implantado.
 
 ## Modelo atual de conteúdo
 
@@ -51,6 +60,12 @@ Hoje o projeto já está orientado a conteúdo no fluxo curricular:
 - os manifestos são gerados em `src/generated/content-manifest.ts`, `src/generated/lesson-content-index.ts` e `src/generated/question-index.ts`
 - a geração também produz `src/generated/canonical-taxonomy.ts` e `src/generated/topic-taxonomy.ts`
 - teoria e questões agora são carregadas por lição, sob demanda
+
+Estado atual do repositório:
+
+- o conteúdo canônico ainda vive versionado em `src/content/**`
+- `npm run content:generate` transforma esse conteúdo em manifestos TypeScript consumidos pelo app no build
+- o runtime remoto de conteúdo continua sendo arquitetura-alvo, não a implementação atual
 
 Ou seja: teoria, exercícios e gabaritos entram no app por conteúdo declarativo. A UI continua responsável só por renderizar contratos estáveis e comportamentos do produto.
 
@@ -92,7 +107,7 @@ Se a mudança for apenas curricular, a preferência é:
 Se a mudança for estrutural no currículo:
 
 1. revisar `docs/estrutura/*` e os `canonicalIds` em `src/content/**`
-2. rodar `npm run content:scaffold`
+2. rodar `npm run content:scaffold` para criar só o que estiver faltando
 3. preencher ou refinar os Markdown em `src/content/**`
 
 ## Produto e entrega

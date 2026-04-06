@@ -16,7 +16,13 @@ A ordem recomendada é:
 
 Hoje o projeto usa **Markdown como fonte principal** para tópico, teoria, exercícios e gabaritos.
 
-Além disso, o setup inicial do app parte de uma **taxonomia canônica** em `docs/estrutura/*`. O scaffold usa essa taxonomia para garantir que a grade já exista no sistema, mesmo quando parte do conteúdo ainda estiver só como placeholder.
+Além disso, o setup inicial do app parte de uma **taxonomia canônica** em `docs/estrutura/*`. O scaffold usa essa taxonomia para preencher apenas o que ainda não existir em `src/content/**`, garantindo cobertura ampla sem manter uma fonte paralela de seed editorial.
+
+Importante: o estado atual do repositório ainda é **local + build-time**. Ou seja:
+
+- o conteúdo versionado em `src/content/**` é a fonte efetiva consumida pelo app hoje
+- `npm run content:generate` converte esse conteúdo em manifestos TypeScript em `src/generated/*`
+- o runtime remoto de conteúdo continua como estado-alvo de arquitetura, não como mecanismo já implantado
 
 ## Estrutura
 
@@ -51,7 +57,8 @@ npm run build
 npm run lint
 ```
 
-- `content:scaffold`: combina a semente editorial com `docs/estrutura/*` e cria placeholders para tudo o que ainda não existir em `src/content/`.
+- `content:scaffold`: usa `docs/estrutura/*` para criar placeholders apenas para tópicos e lições canônicos ainda ausentes em `src/content/`.
+- `content:scaffold` é um comando de bootstrap/backfill da grade. No fluxo normal de autoria, prefira editar os Markdown já existentes.
 - `content:generate`: lê os `.md`, valida o frontmatter e gera os manifestos TypeScript e os módulos lazy por lição.
 - `dev`, `build` e `lint` já executam `content:generate` antes.
 

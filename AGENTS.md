@@ -26,7 +26,6 @@ Leia estes arquivos antes de editar:
 - tópicos: `src/content/**/_topic.md`
 - lições: `src/content/**/*.md`
 - exercícios/gabaritos: `src/content/**/*.questions.md`
-- scaffold base: `scripts/curriculum-seed.mjs`
 - taxonomia canônica: `docs/estrutura/*`
 
 ### Geração

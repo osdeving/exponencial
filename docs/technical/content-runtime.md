@@ -4,6 +4,12 @@
 
 Definir como teoria e exercícios devem ser publicados e servidos em runtime sem exigir redeploy do frontend.
 
+## Estado atual versus alvo
+
+Hoje o repositório ainda opera com conteúdo versionado em `src/content/**` e manifesto gerado em build por `npm run content:generate`.
+
+Este documento descreve o **modelo-alvo** de runtime remoto, publicação e rollback, que ainda não substituiu o fluxo local atual.
+
 ## Princípios
 
 - Markdown continua sendo a fonte canônica de autoria

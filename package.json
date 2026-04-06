@@ -1,5 +1,5 @@
 {
-  "name": "react-example",
+  "name": "exponencial",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -15,7 +15,6 @@
     "validate": "npm run content:generate && tsc --noEmit && tsx --test ./tests/*.test.ts && vite build"
   },
   "dependencies": {
-    "@google/genai": "^1.29.0",
     "@tailwindcss/vite": "^4.1.14",
     "@types/canvas-confetti": "^1.9.0",
     "canvas-confetti": "^1.9.4",
