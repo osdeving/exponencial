@@ -3,6 +3,7 @@
 // Edite os arquivos em src/content/**/*.md.
 
 export const LESSON_CONTENT_IMPORTERS = {
+  "sistema-numerico-posicional": () => import('./lessons/sistema-numerico-posicional.ts'),
   "natural-numbers-reading": () => import('./lessons/natural-numbers-reading.ts'),
   "natural-numbers-operations": () => import('./lessons/natural-numbers-operations.ts'),
   "natural-numbers-divisibility": () => import('./lessons/natural-numbers-divisibility.ts'),

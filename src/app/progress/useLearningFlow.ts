@@ -21,7 +21,6 @@ import {
   getRecoveryAssignmentReason,
   resolveRecoveryForLesson,
 } from '../../lib/recovery';
-import { HomeSection } from '../types';
 import { Lesson, LearningPath, ProductAnalyticsEvent, UserProfile, UserProgress } from '../../types';
 
 interface UseLearningFlowOptions {
@@ -32,10 +31,11 @@ interface UseLearningFlowOptions {
   selectLesson: (lesson: Lesson) => void;
   startExercises: () => void;
   trackEvent: (event: Omit<ProductAnalyticsEvent, 'id' | 'occurredAt'> & { occurredAt?: string }) => void;
-  openHomeSection: (section: HomeSection) => void;
+  openCatalog: () => void;
   goHome: () => void;
 }
 
+// Coordena o fluxo pedagogico: recomendacao, pratica, recuperacao, pontos e navegacao pos-exercicio.
 export function useLearningFlow({
   profile,
   progress,
@@ -44,9 +44,10 @@ export function useLearningFlow({
   selectLesson,
   startExercises,
   trackEvent,
-  openHomeSection,
+  openCatalog,
   goHome,
 }: UseLearningFlowOptions) {
+  // Questoes sao carregadas sob demanda para a licao selecionada.
   const selectedLessonQuestions = useLessonQuestions(selectedLesson?.id);
   const selectedLessonRecoveryAssignment = useMemo(
     () => (selectedLesson ? getActiveRecoveryAssignment(selectedLesson.id, progress) : undefined),
@@ -101,7 +102,7 @@ export function useLearningFlow({
       return;
     }
 
-    openHomeSection('topics');
+    openCatalog();
   };
 
   const startPath = (path: LearningPath) => {
@@ -147,6 +148,7 @@ export function useLearningFlow({
       return;
     }
 
+    // Esta e a transacao principal do app local-first: tentativa -> progresso -> recuperacao/recomendacao.
     const completedAt = new Date().toISOString();
     const currentPercentage = total === 0 ? 0 : Math.round((score / total) * 100);
     const passedCurrentAttempt = currentPercentage >= LESSON_PASS_THRESHOLD;
@@ -161,6 +163,7 @@ export function useLearningFlow({
       completedAt,
       nextLessonId: provisionalNextLesson?.id,
     });
+    // Passou: encerra recuperacao. Nao passou: cria roteiro de revisao usando questoes erradas.
     nextProgress = passedCurrentAttempt
       ? resolveRecoveryForLesson(nextProgress, selectedLesson.id, completedAt)
       : assignRecoveryForLesson({
@@ -229,6 +232,7 @@ export function useLearningFlow({
     }
 
     if (selectedLessonRecoveryTarget && selectedLessonRecoveryTarget.id !== selectedLesson.id) {
+      // Antes de refazer, o aluno e enviado para a primeira revisao pendente.
       selectLesson(selectedLessonRecoveryTarget);
       return;
     }

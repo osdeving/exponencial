@@ -8,6 +8,7 @@ import { getContentStatusLabel, getTopicBranchLabel } from '../lib/learning';
 interface TopicCardProps {
   topic: Topic;
   lessonCount: number;
+  exerciseCount: number;
   progressPercent: number;
   isFavorite?: boolean;
   onClick: () => void;
@@ -16,6 +17,7 @@ interface TopicCardProps {
 export const TopicCard: React.FC<TopicCardProps> = ({
   topic,
   lessonCount,
+  exerciseCount,
   progressPercent,
   isFavorite = false,
   onClick,
@@ -55,8 +57,12 @@ export const TopicCard: React.FC<TopicCardProps> = ({
       </div>
 
       <div className="space-y-2">
-        <div className="flex items-center justify-between text-[10px] font-bold uppercase">
+        <div className="grid grid-cols-2 gap-2 text-[10px] font-bold uppercase">
           <span>{lessonCount} lições</span>
+          <span className="text-right">{exerciseCount} exercícios</span>
+        </div>
+        <div className="flex items-center justify-between text-[10px] font-bold uppercase">
+          <span>Progresso</span>
           <span>{progressPercent}% concluído</span>
         </div>
         <div className="h-2 brutal-border overflow-hidden bg-dark/10">

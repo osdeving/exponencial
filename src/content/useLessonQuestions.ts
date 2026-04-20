@@ -2,11 +2,13 @@ import { useEffect, useState } from 'react';
 import { Question } from '../types';
 import { loadQuestionsByLessonId } from './queries';
 
+// Adapta o loader async de questoes ao ciclo de vida React.
 export function useLessonQuestions(lessonId?: string | null) {
   const [questions, setQuestions] = useState<Question[]>([]);
   const [isLoading, setIsLoading] = useState(false);
 
   useEffect(() => {
+    // Evita setState quando o usuario troca de licao antes do import dinamico terminar.
     let isMounted = true;
 
     if (!lessonId) {

@@ -1,72 +1,60 @@
 import React from 'react';
-import { ArrowRight, Layout, Search, Sparkles, Trophy } from 'lucide-react';
-import { MOCK_RANKING, PATHS } from '../../config';
-import { PathCard } from '../../components/PathCard';
-import { TopicCard } from '../../components/TopicCard';
-import { LEVEL_FILTERS, STATUS_FILTERS, getContentStatusLabel, getPathProgress, getTopicProgress } from '../../lib/learning';
-import { cn } from '../../lib/utils';
-import { HomeSection } from '../types';
-import { LearningPath, Lesson, SearchResult, Topic, UserProfile, UserProgress } from '../../types';
+import { ArrowRight, BookOpenCheck, Dumbbell, Layout, Layers3, Sparkles, Trophy } from 'lucide-react';
+import { MOCK_RANKING } from '../../config';
+import { getContentLibraryStats } from '../../lib/contentStats';
+import { LearningPath, Lesson, Topic, UserProfile, UserProgress } from '../../types';
 
 interface HomeViewProps {
-  availableBranchFilters: string[];
-  branchFilter: string;
   communitySectionRef: React.RefObject<HTMLDivElement | null>;
-  filteredTopics: Topic[];
-  groupedTopics: Array<{ branchTitle: string; topics: Topic[] }>;
-  levelFilter: (typeof LEVEL_FILTERS)[number];
   nextRecommendedLesson?: Lesson;
   nextRecommendedTopic?: Topic;
-  pathsSectionRef: React.RefObject<HTMLDivElement | null>;
   profile: UserProfile | null;
   progress: UserProgress;
-  searchQuery: string;
-  searchResults: SearchResult[];
-  statusFilter: (typeof STATUS_FILTERS)[number];
   suggestedPath: LearningPath;
-  topicsSectionRef: React.RefObject<HTMLDivElement | null>;
-  onBranchFilterChange: (value: string) => void;
-  onLevelFilterChange: (filter: (typeof LEVEL_FILTERS)[number]) => void;
+  onOpenCatalog: () => void;
   onOpenDashboard: () => void;
-  onOpenHomeSection: (section: HomeSection) => void;
+  onOpenPaths: () => void;
+  onOpenRoadmap: () => void;
   onPathSelect: (path: LearningPath) => void;
-  onSearchQueryChange: (value: string) => void;
-  onSearchSelection: (result: SearchResult) => void;
-  onStartPath: (path: LearningPath) => void;
   onStartRecommendedFlow: () => void;
-  onStatusFilterChange: (filter: (typeof STATUS_FILTERS)[number]) => void;
-  onTopicSelect: (topic: Topic) => void;
 }
 
 export function HomeView({
-  availableBranchFilters,
-  branchFilter,
   communitySectionRef,
-  filteredTopics,
-  groupedTopics,
-  levelFilter,
   nextRecommendedLesson,
   nextRecommendedTopic,
-  pathsSectionRef,
   profile,
   progress,
-  searchQuery,
-  searchResults,
-  statusFilter,
   suggestedPath,
-  topicsSectionRef,
-  onBranchFilterChange,
-  onLevelFilterChange,
+  onOpenCatalog,
   onOpenDashboard,
-  onOpenHomeSection,
+  onOpenPaths,
+  onOpenRoadmap,
   onPathSelect,
-  onSearchQueryChange,
-  onSearchSelection,
-  onStartPath,
   onStartRecommendedFlow,
-  onStatusFilterChange,
-  onTopicSelect,
 }: HomeViewProps) {
+  const libraryStats = getContentLibraryStats();
+  const proofCards = [
+    {
+      label: 'Tópicos mapeados',
+      value: libraryStats.topicCount,
+      description: 'Da base do Fundamental ao Médio, organizados por nível, ramo e etapa escolar.',
+      icon: Layers3,
+    },
+    {
+      label: 'Aulas no catálogo',
+      value: libraryStats.lessonCount,
+      description: 'Conteúdo em Markdown, com teoria, exemplos resolvidos, tabelas e fórmulas renderizadas.',
+      icon: BookOpenCheck,
+    },
+    {
+      label: 'Exercícios cadastrados',
+      value: libraryStats.exerciseCount,
+      description: 'Prática guiada com correção, gabarito, recuperação e rastreio de progresso local.',
+      icon: Dumbbell,
+    },
+  ];
+
   return (
     <div className="mx-auto max-w-7xl px-6">
       <div className="mb-20 grid grid-cols-1 items-center gap-12 lg:grid-cols-[1.1fr_0.9fr]">
@@ -80,14 +68,18 @@ export function HomeView({
             <span className="text-brand">Matemática</span>
           </h1>
           <p className="mb-8 max-w-xl text-xl font-medium">
-            Teoria, prática, trilhas salvas, progresso persistido e tutor contextual em uma interface que agora fecha o ciclo inteiro.
+            Um catálogo vivo com {libraryStats.topicCount} tópicos, {libraryStats.lessonCount} aulas e {libraryStats.exerciseCount}{' '}
+            exercícios para estudar teoria, praticar, revisar lacunas e acompanhar seu progresso em um só lugar.
           </p>
           <div className="flex flex-wrap gap-4">
             <button onClick={onStartRecommendedFlow} className="brutal-btn bg-brand px-8 py-4 text-xl">
               Começar Agora
             </button>
-            <button onClick={() => onOpenHomeSection('paths')} className="brutal-btn bg-white px-8 py-4 text-xl">
-              Ver Planos
+            <button onClick={onOpenPaths} className="brutal-btn bg-white px-8 py-4 text-xl">
+              Ver Trilhas
+            </button>
+            <button onClick={onOpenRoadmap} className="brutal-btn bg-white px-8 py-4 text-xl">
+              Ver Roadmap
             </button>
           </div>
         </div>
@@ -139,6 +131,39 @@ export function HomeView({
         </div>
       </div>
 
+      <section className="mb-20">
+        <div className="mb-6 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
+          <div>
+            <p className="mb-3 w-fit bg-brand px-3 py-1 text-[10px] font-bold uppercase tracking-widest brutal-border">
+              Por que o Exponencial vale seu tempo
+            </p>
+            <h2 className="font-display text-4xl uppercase leading-none">Teoria forte, prática visível</h2>
+          </div>
+          <p className="max-w-xl text-sm font-bold uppercase leading-6 opacity-60">
+            {libraryStats.readyLessonCount} aulas já estão prontas para estudo completo, e a grade segue crescendo sem prender conteúdo dentro da UI.
+          </p>
+        </div>
+
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {proofCards.map((card) => {
+            const Icon = card.icon;
+
+            return (
+              <article key={card.label} className="flex min-h-[220px] flex-col bg-white p-6 brutal-border">
+                <div className="mb-5 flex items-start justify-between gap-4">
+                  <div className="bg-brand p-3 brutal-border">
+                    <Icon size={24} />
+                  </div>
+                  <p className="font-display text-5xl uppercase leading-none">{card.value}</p>
+                </div>
+                <h3 className="mb-3 text-lg font-bold uppercase">{card.label}</h3>
+                <p className="text-sm font-medium leading-7 opacity-70">{card.description}</p>
+              </article>
+            );
+          })}
+        </div>
+      </section>
+
       <div className="mb-20 flex flex-col justify-between gap-6 bg-dark p-6 text-white brutal-border md:flex-row md:items-center md:p-8">
         <div>
           <p className="mb-2 text-[10px] font-bold uppercase tracking-[0.3em] opacity-50">Recomendação</p>
@@ -149,152 +174,13 @@ export function HomeView({
           <button onClick={() => onPathSelect(suggestedPath)} className="brutal-btn bg-white text-dark">
             Abrir trilha
           </button>
+          <button onClick={onOpenCatalog} className="brutal-btn bg-white text-dark">
+            Explorar catálogo
+          </button>
           <button onClick={onStartRecommendedFlow} className="brutal-btn bg-brand text-dark">
             Ir para próxima aula
           </button>
         </div>
-      </div>
-
-      <div ref={pathsSectionRef} className="mb-20 scroll-mt-28">
-        <div className="mb-8 flex flex-col gap-3 md:flex-row md:items-end md:justify-between">
-          <div>
-            <h2 className="font-display text-4xl uppercase">Trilhas de Aprendizado</h2>
-            <p className="text-xs font-bold uppercase opacity-50">Caminhos salvos, progresso visível e retomada rápida</p>
-          </div>
-          <button onClick={() => onStartPath(suggestedPath)} className="brutal-btn bg-white text-xs">
-            Retomar trilha sugerida
-          </button>
-        </div>
-        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
-          {PATHS.map((path) => (
-            <PathCard
-              key={path.id}
-              path={path}
-              progressPercent={getPathProgress(path, progress).completionPercent}
-              onClick={() => onPathSelect(path)}
-            />
-          ))}
-        </div>
-      </div>
-
-      <div ref={topicsSectionRef} className="scroll-mt-28">
-        <div className="mb-12 flex flex-col gap-6">
-          <div className="flex flex-col gap-4 lg:flex-row lg:items-end lg:justify-between">
-            <div>
-              <h2 className="font-display text-4xl uppercase">Explorar Tópicos</h2>
-              <p className="text-xs font-bold uppercase opacity-50">Busca real, filtros por nível e currículo organizado por etapa</p>
-            </div>
-            <div className="relative w-full lg:w-[420px]">
-              <Search size={18} className="absolute left-4 top-1/2 -translate-y-1/2" />
-              <input
-                value={searchQuery}
-                onChange={(event) => onSearchQueryChange(event.target.value)}
-                placeholder="Buscar por tópico, aula ou trilha"
-                className="w-full bg-white py-3 pl-12 pr-4 brutal-border focus:bg-brand/10 focus:outline-none"
-              />
-            </div>
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {LEVEL_FILTERS.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => onLevelFilterChange(filter)}
-                className={cn(
-                  'px-4 py-2 text-xs font-bold uppercase brutal-border',
-                  levelFilter === filter ? 'bg-dark text-white' : 'bg-white',
-                )}
-              >
-                {filter}
-              </button>
-            ))}
-          </div>
-
-          <div className="flex flex-wrap gap-2">
-            {STATUS_FILTERS.map((filter) => (
-              <button
-                key={filter}
-                onClick={() => onStatusFilterChange(filter)}
-                className={cn(
-                  'px-4 py-2 text-xs font-bold uppercase brutal-border',
-                  statusFilter === filter ? 'bg-brand text-dark' : 'bg-white',
-                )}
-              >
-                {getContentStatusLabel(filter)}
-              </button>
-            ))}
-          </div>
-
-          <div className="w-full lg:w-[420px]">
-            <label className="mb-2 block text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">Ramo canônico</label>
-            <select
-              value={branchFilter}
-              onChange={(event) => onBranchFilterChange(event.target.value)}
-              className="w-full bg-white px-4 py-3 brutal-border focus:bg-brand/10 focus:outline-none"
-            >
-              {availableBranchFilters.map((filter) => (
-                <option key={filter} value={filter}>
-                  {filter}
-                </option>
-              ))}
-            </select>
-          </div>
-
-          {searchResults.length > 0 && searchQuery.trim() && (
-            <div className="grid gap-3">
-              {searchResults.map((result) => (
-                <button
-                  key={`${result.type}-${result.id}`}
-                  onClick={() => onSearchSelection(result)}
-                  className="flex items-center justify-between bg-white px-5 py-4 text-left brutal-border hover:bg-brand"
-                >
-                  <div>
-                    <p className="text-sm font-bold uppercase">
-                      {result.title} <span className="opacity-40">· {result.type}</span>
-                    </p>
-                    <p className="text-sm font-medium opacity-70">{result.subtitle}</p>
-                  </div>
-                  <ArrowRight size={18} />
-                </button>
-              ))}
-            </div>
-          )}
-        </div>
-
-        <div className="space-y-10">
-          {groupedTopics.map((group) => (
-            <section key={group.branchTitle}>
-              <div className="mb-4 flex items-center justify-between gap-4">
-                <div>
-                  <h3 className="font-display text-3xl uppercase">{group.branchTitle}</h3>
-                  <p className="text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">{group.topics.length} tópicos</p>
-                </div>
-              </div>
-              <div className="grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3">
-                {group.topics.map((topic) => {
-                  const topicProgress = getTopicProgress(topic.id, progress);
-
-                  return (
-                    <TopicCard
-                      key={topic.id}
-                      topic={topic}
-                      lessonCount={topicProgress.totalLessons}
-                      progressPercent={topicProgress.completionPercent}
-                      isFavorite={Boolean(profile?.favoriteTopics.includes(topic.id))}
-                      onClick={() => onTopicSelect(topic)}
-                    />
-                  );
-                })}
-              </div>
-            </section>
-          ))}
-        </div>
-
-        {filteredTopics.length === 0 && (
-          <div className="mt-6 bg-dark/5 p-12 text-center brutal-border">
-            <p className="font-bold uppercase">Nenhum tópico encontrado para esse filtro.</p>
-          </div>
-        )}
       </div>
 
       <div ref={communitySectionRef} className="mt-20 scroll-mt-28">

@@ -1,11 +1,16 @@
 import { lazy, Suspense } from 'react';
 import { AnimatePresence, motion } from 'motion/react';
+import { isLessonUnlockBypassEnabled } from './config/featureFlags';
 import { LESSON_PASS_THRESHOLD, getLatestLessonPercentage, getTopicById } from './lib/learning';
 import { AppFooter } from './app/AppFooter';
 import { AppHeader } from './app/AppHeader';
 import { useAppController } from './app/useAppController';
+import { CatalogView } from './app/views/CatalogView';
 import { HomeView } from './app/views/HomeView';
+import { PathsView } from './app/views/PathsView';
+import { TopicRoadmapSection } from './app/views/TopicRoadmapSection';
 
+// Telas pesadas ficam em chunks separados e so carregam quando a view pede.
 const Dashboard = lazy(() => import('./components/Dashboard').then((module) => ({ default: module.Dashboard })));
 const ExerciseView = lazy(() => import('./components/ExerciseView').then((module) => ({ default: module.ExerciseView })));
 const LessonView = lazy(() => import('./components/LessonView').then((module) => ({ default: module.LessonView })));
@@ -28,7 +33,9 @@ function AppViewFallback() {
 }
 
 export default function App() {
+  // Controller central: junta estado, dados derivados, refs e acoes para o shell renderizar.
   const { refs, state, derived, actions } = useAppController();
+  const lessonUnlockBypassEnabled = isLessonUnlockBypassEnabled();
 
   return (
     <div className="min-h-screen bg-paper">
@@ -44,48 +51,87 @@ export default function App() {
 
       <AppHeader
         isMobileMenuOpen={state.isMobileMenuOpen}
+        isLessonUnlockBypassEnabled={lessonUnlockBypassEnabled}
         points={state.progress.points}
         profileName={state.profile?.name}
         view={state.view}
         onGoHome={actions.goHome}
+        onOpenCatalog={actions.openCatalog}
         onOpenDashboard={actions.openDashboard}
-        onOpenHomeSection={actions.openHomeSection}
+        onOpenPaths={actions.openPaths}
         onOpenProfile={actions.openProfile}
+        onOpenRoadmap={actions.openRoadmap}
         onToggleMobileMenu={actions.toggleMobileMenu}
       />
 
       <main className="py-12">
         <AnimatePresence mode="wait">
+          {/* A view atual funciona como um roteador simples sem react-router. */}
           {state.view === 'home' && (
             <motion.div key="home" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
               <HomeView
+                communitySectionRef={refs.communitySectionRef}
+                nextRecommendedLesson={derived.nextRecommendedLesson}
+                nextRecommendedTopic={derived.nextRecommendedTopic}
+                profile={state.profile}
+                progress={state.progress}
+                suggestedPath={derived.suggestedPath}
+                onOpenCatalog={actions.openCatalog}
+                onOpenDashboard={actions.openDashboard}
+                onOpenPaths={actions.openPaths}
+                onOpenRoadmap={actions.openRoadmap}
+                onPathSelect={actions.selectPath}
+                onStartRecommendedFlow={actions.startRecommendedFlow}
+              />
+            </motion.div>
+          )}
+
+          {state.view === 'catalog' && (
+            <motion.div
+              key="catalog"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <CatalogView
                 availableBranchFilters={derived.availableBranchFilters}
                 branchFilter={state.branchFilter}
-                communitySectionRef={refs.communitySectionRef}
                 filteredTopics={derived.filteredTopics}
                 groupedTopics={derived.groupedTopics}
                 levelFilter={state.levelFilter}
-                nextRecommendedLesson={derived.nextRecommendedLesson}
-                nextRecommendedTopic={derived.nextRecommendedTopic}
-                pathsSectionRef={refs.pathsSectionRef}
                 profile={state.profile}
                 progress={state.progress}
                 searchQuery={state.searchQuery}
                 searchResults={derived.searchResults}
                 statusFilter={state.statusFilter}
-                suggestedPath={derived.suggestedPath}
-                topicsSectionRef={refs.topicsSectionRef}
                 onBranchFilterChange={actions.setBranchFilter}
                 onLevelFilterChange={actions.setLevelFilter}
-                onOpenDashboard={actions.openDashboard}
-                onOpenHomeSection={actions.openHomeSection}
-                onPathSelect={actions.selectPath}
                 onSearchQueryChange={actions.setSearchQuery}
                 onSearchSelection={actions.selectSearchResult}
-                onStartPath={actions.startPath}
-                onStartRecommendedFlow={actions.startRecommendedFlow}
                 onStatusFilterChange={actions.setStatusFilter}
                 onTopicSelect={actions.selectTopic}
+              />
+            </motion.div>
+          )}
+
+          {state.view === 'roadmap' && (
+            <motion.div
+              key="roadmap"
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -20 }}
+            >
+              <TopicRoadmapSection entries={derived.topicRoadmapEntries} onTopicSelect={actions.selectTopic} />
+            </motion.div>
+          )}
+
+          {state.view === 'paths' && (
+            <motion.div key="paths" initial={{ opacity: 0, y: 20 }} animate={{ opacity: 1, y: 0 }} exit={{ opacity: 0, y: -20 }}>
+              <PathsView
+                progress={state.progress}
+                suggestedPath={derived.suggestedPath}
+                onPathSelect={actions.selectPath}
+                onStartPath={actions.startPath}
               />
             </motion.div>
           )}
@@ -101,7 +147,7 @@ export default function App() {
                 <PathView
                   path={state.selectedPath}
                   progress={state.progress}
-                  onBack={actions.goHome}
+                  onBack={actions.openPaths}
                   onLessonSelect={actions.selectLesson}
                   onStartPath={actions.startPath}
                   onToggleSavedPath={actions.toggleSavedPath}
@@ -202,7 +248,12 @@ export default function App() {
         />
       </Suspense>
 
-      <AppFooter onOpenHomeSection={actions.openHomeSection} onStartRecommendedFlow={actions.startRecommendedFlow} />
+      <AppFooter
+        onOpenCatalog={actions.openCatalog}
+        onOpenHomeSection={actions.openHomeSection}
+        onOpenRoadmap={actions.openRoadmap}
+        onStartRecommendedFlow={actions.startRecommendedFlow}
+      />
     </div>
   );
 }

@@ -9,6 +9,7 @@ export function getQuestionCountByLessonId(lessonId: string) {
   return QUESTION_COUNTS_BY_LESSON_ID[lessonId] ?? 0;
 }
 
+// Carrega questoes por import dinamico e mantem cache em memoria durante a sessao.
 export async function loadQuestionsByLessonId(lessonId?: string | null): Promise<Question[]> {
   if (!lessonId) {
     return [];
@@ -30,6 +31,7 @@ export async function loadQuestionsByLessonId(lessonId?: string | null): Promise
   return module.QUESTIONS;
 }
 
+// Carrega o Markdown da licao somente quando a tela de teoria precisa dele.
 export async function loadLessonContentById(lessonId?: string | null): Promise<string> {
   if (!lessonId) {
     return '';

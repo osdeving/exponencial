@@ -16,6 +16,7 @@ interface ExerciseViewProps {
   onComplete: (result: { score: number; total: number; continueToNext: boolean; incorrectQuestionIds: string[] }) => void;
 }
 
+// Tela de pratica: a logica da tentativa fica em useExerciseSession e esta view escolhe o estado visual.
 export const ExerciseView: React.FC<ExerciseViewProps> = ({
   lessonTitle,
   questions,
@@ -27,6 +28,7 @@ export const ExerciseView: React.FC<ExerciseViewProps> = ({
 }) => {
   const { state, actions } = useExerciseSession(questions);
 
+  // Estado de carregamento separado evita mostrar "sem exercicios" durante o import dinamico.
   if (isLoading) {
     return (
       <div className="mx-auto max-w-4xl p-6">

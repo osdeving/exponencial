@@ -3,6 +3,7 @@ import { getTopicById } from '../../lib/learning';
 import { Lesson, LearningPath, Topic } from '../../types';
 import { HomeSection, ViewState } from '../types';
 
+// Mantem compatibilidade entre navegadores ao forcar o topo apos troca de tela.
 function scrollViewportToTop() {
   window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
   document.documentElement.scrollTop = 0;
@@ -10,6 +11,7 @@ function scrollViewportToTop() {
 }
 
 export function useAppNavigation() {
+  // Este hook substitui um roteador: view + selecoes dizem qual tela o App renderiza.
   const [view, setView] = useState<ViewState>('home');
   const [selectedTopic, setSelectedTopic] = useState<Topic | null>(null);
   const [selectedLesson, setSelectedLesson] = useState<Lesson | null>(null);
@@ -18,29 +20,36 @@ export function useAppNavigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [pendingHomeSection, setPendingHomeSection] = useState<HomeSection | null>(null);
 
-  const pathsSectionRef = useRef<HTMLDivElement>(null);
-  const topicsSectionRef = useRef<HTMLDivElement>(null);
   const communitySectionRef = useRef<HTMLDivElement>(null);
+  const didHandleHomeSectionScrollRef = useRef(false);
 
+  // Quando o usuario pede uma secao da Home, espera a Home renderizar e entao rola ate ela.
   useEffect(() => {
     if (view !== 'home' || !pendingHomeSection) {
       return;
     }
 
     const sectionMap = {
-      paths: pathsSectionRef,
-      topics: topicsSectionRef,
       community: communitySectionRef,
     } as const;
 
-    requestAnimationFrame(() => {
+    const animationFrame = requestAnimationFrame(() => {
       sectionMap[pendingHomeSection].current?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      didHandleHomeSectionScrollRef.current = true;
       setPendingHomeSection(null);
     });
+
+    return () => cancelAnimationFrame(animationFrame);
   }, [pendingHomeSection, view]);
 
+  // Trocas entre telas principais devem comecar no topo, exceto scroll intencional da Home.
   useEffect(() => {
     if (view === 'home' && pendingHomeSection) {
+      return;
+    }
+
+    if (didHandleHomeSectionScrollRef.current) {
+      didHandleHomeSectionScrollRef.current = false;
       return;
     }
 
@@ -72,6 +81,27 @@ export function useAppNavigation() {
     closeMobileMenu();
   };
 
+  const openCatalog = () => {
+    resetSelections();
+    setPendingHomeSection(null);
+    setView('catalog');
+    closeMobileMenu();
+  };
+
+  const openPaths = () => {
+    resetSelections();
+    setPendingHomeSection(null);
+    setView('paths');
+    closeMobileMenu();
+  };
+
+  const openRoadmap = () => {
+    resetSelections();
+    setPendingHomeSection(null);
+    setView('roadmap');
+    closeMobileMenu();
+  };
+
   const openProfile = () => {
     setIsProfileOpen(true);
     closeMobileMenu();
@@ -97,6 +127,7 @@ export function useAppNavigation() {
   };
 
   const selectLesson = (lesson: Lesson) => {
+    // Selecionar licao tambem preserva o topico pai para voltar e alimentar o tutor.
     const topic = getTopicById(lesson.topicId);
     if (topic) {
       setSelectedTopic(topic);
@@ -132,8 +163,6 @@ export function useAppNavigation() {
   return {
     refs: {
       communitySectionRef,
-      pathsSectionRef,
-      topicsSectionRef,
     },
     state: {
       isMobileMenuOpen,
@@ -149,9 +178,12 @@ export function useAppNavigation() {
       goBackToLesson,
       goBackToTopic,
       goHome,
+      openCatalog,
       openDashboard,
       openHomeSection,
+      openPaths,
       openProfile,
+      openRoadmap,
       selectLesson,
       selectPath,
       selectTopic,

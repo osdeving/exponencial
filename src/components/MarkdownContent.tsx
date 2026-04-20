@@ -10,6 +10,7 @@ interface MarkdownContentProps {
   className?: string;
 }
 
+// Renderer unico de Markdown usado por teoria, tutor e solucoes.
 export const MarkdownContent: React.FC<MarkdownContentProps> = ({ content, className }) => {
   return (
     <div
@@ -22,6 +23,7 @@ export const MarkdownContent: React.FC<MarkdownContentProps> = ({ content, class
         remarkPlugins={[remarkGfm, remarkMath]}
         rehypePlugins={[rehypeKatex]}
         components={{
+          // Links de conteudo abrem fora do app para nao perder o estado local da sessao.
           a: ({ node: _node, ...props }) => <a {...props} target="_blank" rel="noreferrer" />,
           img: ({ node: _node, alt, src }) => (
             <img alt={alt ?? ''} src={src} loading="lazy" decoding="async" />

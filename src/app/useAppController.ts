@@ -13,15 +13,20 @@ import { usePersistentAnalyticsEvents } from './usePersistentAnalyticsEvents';
 import { usePersistentProfile } from './usePersistentProfile';
 import { usePersistentProgress } from './usePersistentProgress';
 
+// Orquestrador do app: combina hooks pequenos e devolve uma API unica para App.tsx.
 export function useAppController() {
   const navigation = useAppNavigation();
   const [profile, setProfile] = usePersistentProfile();
   const [progress, setProgress] = usePersistentProgress();
   const [analyticsEvents, setAnalyticsEvents] = usePersistentAnalyticsEvents();
   const catalog = useCatalogState(profile?.favoriteTopics ?? []);
+
+  // Eventos de produto ficam locais por enquanto, mas passam pelo mesmo contrato de analytics.
   const trackEvent = (event: Omit<ProductAnalyticsEvent, 'id' | 'occurredAt'> & { occurredAt?: string }) => {
     setAnalyticsEvents((current) => appendAnalyticsEvent(current, event));
   };
+
+  // Abrir uma licao tambem conta como revisitar recuperacao e gera telemetria.
   const openLesson = (lesson: Parameters<typeof navigation.actions.selectLesson>[0]) => {
     setProgress((current) => markRecoveryLessonVisited(current, lesson.id, new Date().toISOString()));
     trackEvent({
@@ -45,7 +50,7 @@ export function useAppController() {
     selectLesson: openLesson,
     startExercises: navigation.actions.startExercises,
     trackEvent,
-    openHomeSection: navigation.actions.openHomeSection,
+    openCatalog: navigation.actions.openCatalog,
     goHome: navigation.actions.goHome,
   });
 
@@ -63,6 +68,7 @@ export function useAppController() {
   const session = useMemo(() => createLocalSessionDescriptor(profile), [profile]);
   const analyticsSummary = useMemo(() => buildAnalyticsSummary(analyticsEvents), [analyticsEvents]);
 
+  // Resultado de busca e polimorfico: pode abrir topico, licao ou trilha.
   const selectSearchResult = (result: SearchResult) => {
     catalog.actions.clearSearch();
 
@@ -119,6 +125,7 @@ export function useAppController() {
   };
 
   return {
+    // O shape state/derived/actions e o contrato que mantem App.tsx declarativo.
     refs: navigation.refs,
     state: {
       ...navigation.state,

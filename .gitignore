@@ -3,6 +3,8 @@ build/
 dist/
 coverage/
 output/
+.playwright-cli/
+/tmp/project-atlas/
 .DS_Store
 *.log
 .env*

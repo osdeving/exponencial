@@ -896,6 +896,40 @@ export const TOPICS: Topic[] = [
 
 export const LESSONS: Lesson[] = [
   {
+    "id": "sistema-numerico-posicional",
+    "topicId": "natural-numbers",
+    "title": "Sistema Numérico Posicional",
+    "content": "",
+    "difficulty": "Fácil",
+    "estimatedMinutes": 35,
+    "order": 0,
+    "summary": "Explica como algarismos, posições, ordens, classes e bases formam números no sistema posicional.",
+    "goals": [
+      "Diferenciar algarismo, dígito e número",
+      "Entender valor absoluto e valor relativo",
+      "Ler ordens e classes no sistema decimal",
+      "Representar números em outras bases"
+    ],
+    "prerequisites": [
+      "Contagem básica",
+      "Leitura dos algarismos de 0 a 9"
+    ],
+    "tags": [
+      "valor-posicional",
+      "sistema-decimal",
+      "bases-numericas"
+    ],
+    "status": "ready",
+    "canonicalIds": [
+      "NUM.01.01",
+      "NUM.01.02",
+      "NUM.01.03",
+      "NUM.01.04",
+      "NUM.01.05",
+      "NUM.01.07"
+    ]
+  },
+  {
     "id": "natural-numbers-reading",
     "topicId": "natural-numbers",
     "title": "Leitura, Ordem e Valor Posicional",
@@ -909,9 +943,12 @@ export const LESSONS: Lesson[] = [
       "Comparar números",
       "Usar valor posicional"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Contagem básica",
+      "Sistema numérico posicional"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.01.01",
       "NUM.01.02",
@@ -936,9 +973,12 @@ export const LESSONS: Lesson[] = [
       "Respeitar prioridade das operações",
       "Justificar etapas"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Leitura e ordem de números naturais",
+      "Valor posicional decimal"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.02.01",
       "NUM.02.02",
@@ -966,9 +1006,12 @@ export const LESSONS: Lesson[] = [
       "Reconhecer números primos",
       "Aplicar critérios de divisibilidade"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Operações fundamentais",
+      "Tabuada"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.03.01",
       "NUM.03.02",
@@ -1098,7 +1141,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Fácil",
     "estimatedMinutes": 14,
     "order": 1,
-    "summary": "Introduz décimos, centésimos e milésimos.",
+    "summary": "Introduz décimos, centésimos, milésimos e comparação de números decimais.",
     "goals": [
       "Ler números decimais",
       "Relacionar casas decimais",
@@ -1106,7 +1149,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.07.01",
       "NUM.07.02",
@@ -1122,7 +1165,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Médio",
     "estimatedMinutes": 16,
     "order": 2,
-    "summary": "Resolver contas com alinhamento das casas e estimativa.",
+    "summary": "Resolve soma, subtração, multiplicação e divisão com decimais usando alinhamento e estimativa.",
     "goals": [
       "Somar e subtrair decimais",
       "Multiplicar e dividir decimais",
@@ -1130,7 +1173,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.07.05",
       "NUM.07.06",
@@ -1145,7 +1188,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Médio",
     "estimatedMinutes": 17,
     "order": 3,
-    "summary": "Converter representações e interpretar percentuais simples.",
+    "summary": "Converte frações em decimais, decimais em frações e prepara a leitura de porcentagens.",
     "goals": [
       "Converter frações em decimais",
       "Ler medidas e preços",
@@ -1155,7 +1198,7 @@ export const LESSONS: Lesson[] = [
       "fractions-intro"
     ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.07.07",
       "NUM.07.09"
@@ -1222,9 +1265,12 @@ export const LESSONS: Lesson[] = [
       "Escolher unidade adequada",
       "Resolver problemas com medidas"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Multiplicação e divisão por 10",
+      "Números decimais básicos"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "GEO.08.01",
       "GEO.08.02",
@@ -1244,7 +1290,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Fácil",
     "estimatedMinutes": 14,
     "order": 1,
-    "summary": "Apresenta os inteiros em situações como temperatura e saldo.",
+    "summary": "Apresenta inteiros positivos, negativos, zero, oposto, módulo e comparação na reta numérica.",
     "goals": [
       "Ler números negativos",
       "Usar reta numérica",
@@ -1252,7 +1298,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.04.01",
       "NUM.04.02",
@@ -1267,7 +1313,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Médio",
     "estimatedMinutes": 17,
     "order": 2,
-    "summary": "Trabalha adição, subtração, multiplicação e divisão com sinais.",
+    "summary": "Trabalha adição, subtração, multiplicação, divisão e potenciação com números inteiros.",
     "goals": [
       "Somar inteiros",
       "Aplicar regra de sinais",
@@ -1275,7 +1321,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.04.04",
       "NUM.04.05",
@@ -1290,7 +1336,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Médio",
     "estimatedMinutes": 18,
     "order": 3,
-    "summary": "Contextualiza os inteiros em saldo, altitude e variação.",
+    "summary": "Modela problemas de temperatura, saldo, altitude e variações positivas ou negativas.",
     "goals": [
       "Modelar problemas",
       "Escolher operação correta",
@@ -1298,7 +1344,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.04.07"
     ]
@@ -1317,9 +1363,13 @@ export const LESSONS: Lesson[] = [
       "Interpretar escalas",
       "Comparar grandezas"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Frações",
+      "Divisão",
+      "Leitura de medidas"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.08.01",
       "NUM.08.02",
@@ -1341,9 +1391,13 @@ export const LESSONS: Lesson[] = [
       "Montar proporções",
       "Conferir unidades"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Razão",
+      "Frações equivalentes",
+      "Multiplicação e divisão"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.08.03",
       "NUM.08.04",
@@ -1368,9 +1422,13 @@ export const LESSONS: Lesson[] = [
       "Calcular percentuais",
       "Interpretar variações"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Frações",
+      "Decimais",
+      "Proporção"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "NUM.09.01",
       "NUM.09.02",
@@ -1387,7 +1445,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Fácil",
     "estimatedMinutes": 14,
     "order": 1,
-    "summary": "Introduz letras como representação de valores e expressões simples.",
+    "summary": "Introduz letras como valores variáveis, expressões algébricas e substituição numérica.",
     "goals": [
       "Ler expressões algébricas",
       "Substituir valores",
@@ -1395,7 +1453,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "ALG.01.01",
       "ALG.01.04",
@@ -1411,7 +1469,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Médio",
     "estimatedMinutes": 17,
     "order": 2,
-    "summary": "Agrupa termos e simplifica expressões com sentido.",
+    "summary": "Identifica coeficiente, parte literal e simplifica expressões juntando termos semelhantes.",
     "goals": [
       "Identificar termos semelhantes",
       "Simplificar expressões",
@@ -1419,7 +1477,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "ALG.01.02",
       "ALG.01.03",
@@ -1434,7 +1492,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Médio",
     "estimatedMinutes": 18,
     "order": 3,
-    "summary": "Liga padrões numéricos à construção de fórmulas.",
+    "summary": "Liga padrões numéricos e figurais à construção de leis de formação.",
     "goals": [
       "Descrever padrões",
       "Criar lei de formação",
@@ -1442,7 +1500,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "ALG.01.08"
     ]
@@ -1455,7 +1513,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Fácil",
     "estimatedMinutes": 14,
     "order": 1,
-    "summary": "Classifica ângulos e usa transferidor conceitualmente.",
+    "summary": "Define ângulo, grau, medida angular e classifica ângulos pela abertura.",
     "goals": [
       "Reconhecer tipos de ângulo",
       "Estimar medidas",
@@ -1463,7 +1521,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "GEO.02.01",
       "GEO.02.02",
@@ -1479,7 +1537,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Médio",
     "estimatedMinutes": 16,
     "order": 2,
-    "summary": "Organiza polígonos por lados, ângulos e regularidade.",
+    "summary": "Organiza polígonos por lados, ângulos, convexidade, diagonais e regularidade.",
     "goals": [
       "Nomear polígonos",
       "Comparar propriedades",
@@ -1487,7 +1545,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "GEO.03.01",
       "GEO.03.02",
@@ -1504,7 +1562,7 @@ export const LESSONS: Lesson[] = [
     "difficulty": "Médio",
     "estimatedMinutes": 17,
     "order": 3,
-    "summary": "Relaciona soma angular e classificação de triângulos.",
+    "summary": "Relaciona soma dos ângulos internos, ângulos externos e classificação de triângulos.",
     "goals": [
       "Aplicar soma dos ângulos internos",
       "Classificar triângulos",
@@ -1512,7 +1570,7 @@ export const LESSONS: Lesson[] = [
     ],
     "prerequisites": [],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "GEO.02.05",
       "GEO.02.06",
@@ -1831,9 +1889,12 @@ export const LESSONS: Lesson[] = [
       "Interpretar gráficos",
       "Comparar categorias"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Leitura de números naturais",
+      "Porcentagem básica"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "DAT.01.01",
       "DAT.01.02",
@@ -1860,9 +1921,13 @@ export const LESSONS: Lesson[] = [
       "Encontrar mediana",
       "Reconhecer moda"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Tabelas e gráficos",
+      "Divisão",
+      "Ordem crescente"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "DAT.02.01",
       "DAT.02.02",
@@ -1888,9 +1953,13 @@ export const LESSONS: Lesson[] = [
       "Calcular probabilidades simples",
       "Interpretar resultados"
     ],
-    "prerequisites": [],
+    "prerequisites": [
+      "Frações",
+      "Porcentagem",
+      "Tabelas"
+    ],
     "tags": [],
-    "status": "outline",
+    "status": "ready",
     "canonicalIds": [
       "DAT.04.01",
       "DAT.04.02",

@@ -1,6 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Anton&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap');
 @import "tailwindcss";
 
+/* Tema Tailwind v4 local: estas variaveis viram classes como bg-brand e font-display. */
 @theme {
   --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
   --font-display: "Anton", sans-serif;
@@ -17,12 +18,14 @@
   }
 }
 
+/* Borda/sombra padrao do visual brutalista usado em cards, botoes e skeletons. */
 @utility brutal-border {
   border-width: 2px;
   border-color: var(--color-dark);
   box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
 }
 
+/* Botao padrao: combina brutal-border com movimento curto em hover/active. */
 @utility brutal-btn {
   @apply brutal-border px-4 py-2 font-bold uppercase transition-all;
   &:hover {
@@ -80,6 +83,29 @@
 
 .prose img {
   @apply brutal-border my-6 w-full bg-white p-2;
+}
+
+.prose table {
+  @apply my-8 w-full border-collapse border-2 border-dark bg-paper text-left text-base;
+  box-shadow: 4px 4px 0px 0px rgba(0,0,0,1);
+}
+
+.prose thead {
+  @apply bg-brand;
+}
+
+.prose th,
+.prose td {
+  @apply border-2 border-dark px-4 py-3 text-left align-top;
+  text-align: left !important;
+}
+
+.prose th {
+  @apply font-bold;
+}
+
+.prose tbody tr:nth-child(even) {
+  background-color: rgba(0, 255, 0, 0.08);
 }
 
 .prose strong {

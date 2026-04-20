@@ -1,0 +1,25 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 360" role="img" aria-labelledby="title desc">
+  <title id="title">Espaco amostral de dois lancamentos de moeda</title>
+  <desc id="desc">Tabela com quatro resultados possiveis para dois lancamentos de moeda: cara cara, cara coroa, coroa cara e coroa coroa.</desc>
+  <rect width="960" height="360" fill="#ffffff"/>
+  <rect x="22" y="22" width="916" height="316" fill="#ffffff" stroke="#000000" stroke-width="4"/>
+  <text x="56" y="70" font-family="Inter, Arial, sans-serif" font-size="26" font-weight="800">Dois lancamentos de moeda</text>
+  <text x="56" y="103" font-family="Inter, Arial, sans-serif" font-size="18" fill="#333333">Espaco amostral: todos os resultados que podem acontecer.</text>
+  <g transform="translate(120 138)" font-family="Inter, Arial, sans-serif">
+    <rect x="0" y="0" width="720" height="150" fill="#ffffff" stroke="#000000" stroke-width="4"/>
+    <rect x="0" y="0" width="720" height="48" fill="#00ff00" stroke="#000000" stroke-width="4"/>
+    <line x1="180" y1="0" x2="180" y2="150" stroke="#000000" stroke-width="3"/>
+    <line x1="360" y1="0" x2="360" y2="150" stroke="#000000" stroke-width="3"/>
+    <line x1="540" y1="0" x2="540" y2="150" stroke="#000000" stroke-width="3"/>
+    <text x="90" y="31" text-anchor="middle" font-size="20" font-weight="900">CC</text>
+    <text x="270" y="31" text-anchor="middle" font-size="20" font-weight="900">CK</text>
+    <text x="450" y="31" text-anchor="middle" font-size="20" font-weight="900">KC</text>
+    <text x="630" y="31" text-anchor="middle" font-size="20" font-weight="900">KK</text>
+    <text x="90" y="92" text-anchor="middle" font-size="18">cara, cara</text>
+    <text x="270" y="92" text-anchor="middle" font-size="18">cara, coroa</text>
+    <text x="450" y="92" text-anchor="middle" font-size="18">coroa, cara</text>
+    <text x="630" y="92" text-anchor="middle" font-size="18">coroa, coroa</text>
+    <text x="360" y="132" text-anchor="middle" font-size="18" font-weight="800">4 resultados igualmente provaveis</text>
+  </g>
+  <text x="120" y="324" font-family="Inter, Arial, sans-serif" font-size="20" font-weight="700">Chance de sair duas caras: 1 resultado favoravel em 4.</text>
+</svg>

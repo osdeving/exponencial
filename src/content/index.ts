@@ -5,6 +5,7 @@ import { ContentStatus, Lesson, Topic } from '../types';
 
 export const LESSONS: Lesson[] = LESSONS_RAW;
 
+// O status do topico e derivado das licoes para evitar manter duas fontes manuais.
 function deriveTopicStatus(topicId: string): ContentStatus {
   const topicLessons = LESSONS.filter((lesson) => lesson.topicId === topicId);
 
@@ -23,6 +24,7 @@ function deriveTopicStatus(topicId: string): ContentStatus {
   return 'outline';
 }
 
+// TOPICS junta metadados autorais, taxonomia canonica e status calculado.
 export const TOPICS: Topic[] = TOPICS_RAW.map((topic) => ({
   ...topic,
   ...(TOPIC_TAXONOMY_BY_TOPIC_ID[topic.id] ?? {}),

@@ -1,5 +1,6 @@
 import { LESSONS, TOPICS } from '../content';
 import { BADGES, PATHS, getCanonicalPathId, getPathById } from '../config';
+import { isLessonUnlockBypassEnabled } from '../config/featureFlags';
 import { MASTERY_THRESHOLD, buildCanonicalMasteryAfterLessonCompletion, normalizeCanonicalMastery } from './mastery';
 import {
   getActiveRecoveryAssignment,
@@ -48,6 +49,7 @@ export const DEFAULT_PROFILE: UserProfile = {
   joinedAt: '',
 };
 
+// Filtros expostos na Home; a logica concreta fica nas funcoes puras abaixo.
 export const LEVEL_FILTERS: Array<'Todos' | Level> = ['Todos', 'Fundamental', 'Médio'];
 export const STATUS_FILTERS: Array<'Todos' | ContentStatus> = ['Todos', 'outline', 'in-progress', 'ready'];
 
@@ -118,6 +120,7 @@ export function normalizeProgress(raw: unknown): UserProgress {
   };
 }
 
+// Dados vindos de localStorage sao unknown: valide antes de confiar.
 export function normalizeProfile(raw: unknown): UserProfile | null {
   if (!raw || typeof raw !== 'object') {
     return null;
@@ -196,6 +199,7 @@ export function getLessonGate(lesson: Lesson, progress: UserProgress): LessonGat
   const latestScore = getLatestLessonPercentage(lesson.id, progress);
   const previousLesson = getPreviousLessonInTopic(lesson.topicId, lesson.id);
   const isPassed = hasPassedLesson(lesson.id, progress);
+  const unlockBypassEnabled = isLessonUnlockBypassEnabled();
 
   if (isPassed) {
     return {
@@ -211,7 +215,7 @@ export function getLessonGate(lesson: Lesson, progress: UserProgress): LessonGat
     };
   }
 
-  if (previousLesson && !hasPassedLesson(previousLesson.id, progress)) {
+  if (previousLesson && !hasPassedLesson(previousLesson.id, progress) && !unlockBypassEnabled) {
     return {
       lessonId: lesson.id,
       status: 'locked',
@@ -266,7 +270,10 @@ export function getLessonGate(lesson: Lesson, progress: UserProgress): LessonGat
     isPassed: false,
     isLocked: false,
     blockingLessonId: null,
-    reason: 'Licao liberada para estudo e pratica.',
+    reason:
+      previousLesson && !hasPassedLesson(previousLesson.id, progress) && unlockBypassEnabled
+        ? 'Modo teste ativo: leitura liberada sem exigir aprovação na aula anterior.'
+        : 'Licao liberada para estudo e pratica.',
   };
 }
 
@@ -313,6 +320,42 @@ export function getPathProgress(path: LearningPath, progress: UserProgress) {
   };
 }
 
+export interface TopicRoadmapEntry {
+  topic: Topic;
+  previousTopic?: Topic;
+  nextTopic?: Topic;
+  pathTitles: string[];
+  lessonCount: number;
+  readyLessonCount: number;
+}
+
+function getTopicRoadmapBranchKey(topic: Topic) {
+  return topic.branchIds?.[0] ?? topic.branchTitle ?? topic.category;
+}
+
+export function buildTopicRoadmapEntries(topics: Topic[] = TOPICS): TopicRoadmapEntry[] {
+  const orderedTopics = [...topics].sort(
+    (left, right) => left.order - right.order || left.title.localeCompare(right.title, 'pt-BR'),
+  );
+
+  return orderedTopics.map((topic) => {
+    const topicLessons = getLessonsByTopic(topic.id);
+    const branchTopics = orderedTopics.filter(
+      (candidate) => getTopicRoadmapBranchKey(candidate) === getTopicRoadmapBranchKey(topic),
+    );
+    const branchIndex = branchTopics.findIndex((candidate) => candidate.id === topic.id);
+
+    return {
+      topic,
+      previousTopic: branchTopics[branchIndex - 1],
+      nextTopic: branchTopics[branchIndex + 1],
+      pathTitles: PATHS.filter((path) => path.topicIds.includes(topic.id)).map((path) => path.title),
+      lessonCount: topicLessons.length,
+      readyLessonCount: topicLessons.filter((lesson) => lesson.status === 'ready').length,
+    };
+  });
+}
+
 export function getNextLessonInTopic(topicId: string, lessonId: string): Lesson | undefined {
   const topicLessons = getLessonsByTopic(topicId);
   const currentIndex = topicLessons.findIndex((lesson) => lesson.id === lessonId);
@@ -325,12 +368,16 @@ export function getNextLessonInTopic(topicId: string, lessonId: string): Lesson 
 }
 
 export function getNextUnlockedLessonInTopic(topicId: string, lessonId: string, progress: UserProgress): Lesson | undefined {
-  if (!hasPassedLesson(lessonId, progress)) {
+  const nextLesson = getNextLessonInTopic(topicId, lessonId);
+  if (!nextLesson) {
     return undefined;
   }
 
-  const nextLesson = getNextLessonInTopic(topicId, lessonId);
-  if (!nextLesson) {
+  if (isLessonUnlockBypassEnabled()) {
+    return nextLesson;
+  }
+
+  if (!hasPassedLesson(lessonId, progress)) {
     return undefined;
   }
 
@@ -350,6 +397,7 @@ export function getNextLessonForPath(pathId: string, progress: UserProgress): Le
   return candidate ?? getLessonById(path.featuredLessonId) ?? getLessonsByTopic(path.topicIds[0])[0];
 }
 
+// Recomendacao central da Home: recuperacao primeiro, depois continuidade, trilhas salvas e catalogo.
 export function getRecommendedLesson(progress: UserProgress): Lesson | undefined {
   const nextRecoveryAction = getNextRecoveryAction(progress);
   if (nextRecoveryAction) {
@@ -618,6 +666,7 @@ export function getNewStreak(lastActiveDate: string | null, nextDate: string, cu
   return 1;
 }
 
+// Transacao pura de conclusao de licao: calcula pontos, streak, dominio, badges e trilhas.
 export function buildProgressAfterLessonCompletion({
   progress,
   lesson,

@@ -20,6 +20,7 @@ interface LessonViewProps {
   onNextLesson?: () => void;
 }
 
+// Tela de teoria: recebe metadados da licao por props e carrega o corpo Markdown sob demanda.
 export const LessonView: React.FC<LessonViewProps> = ({
   lesson,
   topic,
@@ -35,6 +36,7 @@ export const LessonView: React.FC<LessonViewProps> = ({
   onNextLesson,
 }) => {
   const { content, isLoading } = useLessonContent(lesson.id);
+  // Diferencia "revisar base" de "refazer a propria licao para destravar".
   const isRecoveryRetryStep = Boolean(recoverySummary && recoveryTargetTitle === lesson.title);
 
   return (
@@ -92,6 +94,7 @@ export const LessonView: React.FC<LessonViewProps> = ({
                 <div className="h-4 w-9/12 bg-dark/10 brutal-border" />
               </div>
             ) : (
+              // Fallback para summary garante tela util mesmo se a licao ainda nao tiver corpo gerado.
               <MarkdownContent content={content || lesson.summary} />
             )}
           </div>

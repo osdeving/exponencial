@@ -34,6 +34,7 @@ const CANONICAL_SKILL_MAP = new Map<string, CanonicalSkillMeta>(
   ),
 );
 
+// Permite recuperar a subsecao canonica a partir de IDs folha como NUM.06.01.
 export function getCanonicalSubsectionId(canonicalId: string) {
   return canonicalId.split('.').slice(0, 2).join('.');
 }
@@ -101,6 +102,7 @@ export function normalizeCanonicalMastery(value: unknown): UserProgress['canonic
   );
 }
 
+// Atualiza dominio por habilidade canonica sem depender de componentes React.
 export function buildCanonicalMasteryAfterLessonCompletion({
   currentMastery,
   lesson,
@@ -170,6 +172,7 @@ function buildBucket({
   };
 }
 
+// Agrega dominio e divida por subsecao para o dashboard.
 export function buildCanonicalMasteryOverview(progress: UserProgress): CanonicalMasteryOverview {
   const records = Object.values(progress.canonicalMastery);
   const recordsBySubsection = records.reduce<Record<string, CanonicalMasteryRecord[]>>((accumulator, record) => {

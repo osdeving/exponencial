@@ -3,6 +3,7 @@ import confetti from 'canvas-confetti';
 import { Question } from '../../types';
 import { getOfficialAnswer, getQuestionMode, isMultipleChoiceQuestion } from '../../lib/questions';
 
+// Estado local de uma tentativa de exercicio; o progresso persistente e atualizado fora deste hook.
 export function useExerciseSession(questions: Question[]) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [selectedOption, setSelectedOption] = useState<number | null>(null);
@@ -23,6 +24,7 @@ export function useExerciseSession(questions: Question[]) {
     [questions.length, score],
   );
 
+  // Ao avancar para outra questao, limpa apenas o estado da pergunta atual.
   const resetQuestionState = () => {
     setSelectedOption(null);
     setIsAnswered(false);

@@ -21,6 +21,7 @@ const generatedLessonsRoot = path.join(generatedRoot, 'lessons');
 const generatedQuestionsRoot = path.join(generatedRoot, 'questions');
 const canonicalTaxonomy = await loadCanonicalTaxonomy();
 
+// Evita duas geracoes concorrentes sobrescrevendo src/generated ao mesmo tempo.
 async function acquireGenerationLock() {
   await ensureDirectory(generatedRoot);
   const lockPath = path.join(generatedRoot, '.content-generate.lock');
@@ -70,6 +71,7 @@ const releaseGenerationLock = await acquireGenerationLock();
 try {
 
 for (const filePath of await getMarkdownFiles(contentRoot)) {
+  // A convencao de nome decide se o Markdown e topico, licao ou questoes.
   if (isQuestionMarkdownFile(filePath)) {
     questionFiles.push(filePath);
   } else if (isTopicMarkdownFile(filePath)) {
@@ -178,6 +180,7 @@ for (const filePath of lessonFiles) {
 }
 
 for (const lesson of lessons) {
+  // Licoes apontam para folhas canonicas; topicos apontam para subsecoes canonicas.
   if ((lesson.canonicalIds ?? []).length === 0) {
     throw new Error(`Lição sem canonicalIds: ${lesson.id}`);
   }
@@ -245,6 +248,7 @@ questions.sort(
 
 const lessonMetadata = lessons.map((lesson) => ({
   ...lesson,
+  // O manifesto principal carrega metadados; o corpo Markdown fica em modulo lazy separado.
   content: '',
 }));
 

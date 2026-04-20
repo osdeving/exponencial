@@ -33,6 +33,7 @@ function getLessonsForCanonicalIds(canonicalIds: string[], currentLessonId: stri
     .map((lesson) => lesson.id);
 }
 
+// Sanitiza recuperacoes persistidas para manter compatibilidade entre versoes do app.
 export function normalizeRecoveryAssignments(value: unknown): UserProgress['recoveryAssignments'] {
   if (!value || typeof value !== 'object') {
     return {};
@@ -92,6 +93,7 @@ function buildRecoverySummary(targetLessonIds: string[], misconceptionTags: stri
   return 'Revise a base indicada antes de tentar novamente.';
 }
 
+// Monta a rota de revisao usando metadados das questoes erradas e fallback para a licao anterior.
 export function buildRecoveryAssignment({
   lesson,
   questions,
@@ -274,6 +276,7 @@ export function resolveRecoveryForLesson(progress: UserProgress, lessonId: strin
   };
 }
 
+// Registrar visita a uma licao de revisao pode liberar o reteste da licao original.
 export function markRecoveryLessonVisited(progress: UserProgress, visitedLessonId: string, visitedAt: string): UserProgress {
   let changed = false;
 

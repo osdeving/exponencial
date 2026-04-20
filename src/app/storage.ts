@@ -27,6 +27,7 @@ export interface AppStorageSnapshotV1 {
 
 export const STORAGE_SNAPSHOT_VERSION = 1;
 
+// Driver isolado para facilitar testes e futura troca por storage remoto/sincronizado.
 export const browserStorageDriver: StorageDriver = {
   read(key) {
     try {
@@ -59,6 +60,7 @@ export function createLocalSessionDescriptor(profile: UserProfile | null): AppSe
   };
 }
 
+// Todas as leituras do storage tratam erro como ausencia de dado.
 export function readStoredJson(key: string, driver: StorageDriver = browserStorageDriver) {
   try {
     const value = driver.read(key);
@@ -134,6 +136,7 @@ export function buildStorageSnapshotFilename() {
   return `exponencial-local-backup-${stamp}.json`;
 }
 
+// Exporta backup usando APIs nativas do navegador, sem backend.
 export function exportSnapshotToBrowser(snapshot: AppStorageSnapshotV1) {
   const blob = new Blob([serializeStorageSnapshot(snapshot)], { type: 'application/json' });
   const objectUrl = URL.createObjectURL(blob);

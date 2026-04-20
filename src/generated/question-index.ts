@@ -3,6 +3,7 @@
 // Edite os arquivos em src/content/**/*.questions.md.
 
 export const QUESTION_COUNTS_BY_LESSON_ID: Record<string, number> = {
+  "sistema-numerico-posicional": 0,
   "natural-numbers-reading": 1,
   "natural-numbers-operations": 0,
   "natural-numbers-divisibility": 0,

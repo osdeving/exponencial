@@ -1,4 +1,5 @@
 import { getQuestionCountByLessonId } from '../../content/queries';
+import { getTopicContentStats } from '../../lib/contentStats';
 import { getContentStatusLabel, getFirstActionableLessonInTopic, getLessonGate } from '../../lib/learning';
 import { Lesson, Topic, UserProgress } from '../../types';
 
@@ -21,6 +22,8 @@ export function TopicView({
   onLessonSelect,
   onToggleFavoriteTopic,
 }: TopicViewProps) {
+  const topicContentStats = getTopicContentStats(topic.id);
+
   return (
     <div className="mx-auto max-w-5xl px-6">
       <button onClick={onBack} className="mb-8 flex items-center gap-2 text-sm font-bold uppercase">
@@ -33,6 +36,11 @@ export function TopicView({
           </p>
           <h2 className="mb-2 font-display text-6xl uppercase">{topic.title}</h2>
           <p className="max-w-3xl text-xl font-medium opacity-70">{topic.description}</p>
+          <div className="mt-5 flex flex-wrap gap-3 text-[10px] font-bold uppercase">
+            <span className="bg-white px-3 py-2 brutal-border">{topicContentStats.lessonCount} aulas</span>
+            <span className="bg-white px-3 py-2 brutal-border">{topicContentStats.readyLessonCount} prontas</span>
+            <span className="bg-brand px-3 py-2 brutal-border">{topicContentStats.exerciseCount} exercícios</span>
+          </div>
         </div>
         <div className="flex flex-wrap gap-3">
           <button onClick={() => onToggleFavoriteTopic(topic.id)} className="brutal-btn bg-white text-xs">

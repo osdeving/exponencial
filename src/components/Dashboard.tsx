@@ -36,6 +36,30 @@ interface DashboardProps {
   onResetProgress: () => void;
 }
 
+interface DashboardStatCardProps {
+  className: string;
+  icon: React.ReactNode;
+  iconClassName: string;
+  label: string;
+  value: React.ReactNode;
+}
+
+function DashboardStatCard({ className, icon, iconClassName, label, value }: DashboardStatCardProps) {
+  return (
+    <div className={`brutal-border min-w-0 overflow-hidden p-5 sm:p-6 ${className}`}>
+      <div className="grid h-full min-w-0 grid-cols-[auto_1fr] items-center gap-4 xl:grid-cols-1 xl:items-start">
+        <div className={`flex h-14 w-14 shrink-0 items-center justify-center brutal-border ${iconClassName}`}>{icon}</div>
+        <div className="min-w-0 max-w-full">
+          <p className="max-w-full text-[clamp(0.625rem,0.7vw,0.875rem)] font-bold uppercase leading-tight opacity-70">
+            {label}
+          </p>
+          <p className="mt-1 max-w-full font-display text-[clamp(1.875rem,2.2vw,2.5rem)] leading-none">{value}</p>
+        </div>
+      </div>
+    </div>
+  );
+}
+
 export const Dashboard: React.FC<DashboardProps> = ({
   progress,
   profile,
@@ -77,7 +101,7 @@ export const Dashboard: React.FC<DashboardProps> = ({
   const userPosition = ranking.findIndex((entry) => entry.name === (profile?.name ?? 'Você')) + 1;
 
   return (
-    <div className="max-w-6xl mx-auto p-6">
+    <div className="mx-auto max-w-7xl p-6">
       <div className="flex flex-col gap-4 md:flex-row md:justify-between md:items-end mb-12">
         <div>
           <p className="text-[10px] font-bold uppercase tracking-[0.3em] opacity-50 mb-3">Painel</p>
@@ -126,69 +150,59 @@ export const Dashboard: React.FC<DashboardProps> = ({
         </div>
       </div>
 
-      <div className="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-6 gap-6 mb-12">
-        <div className="brutal-border p-6 bg-brand flex items-center gap-4">
-          <div className="p-3 bg-white brutal-border">
-            <BookOpen size={24} />
-          </div>
-          <div>
-            <p className="text-sm font-bold uppercase opacity-70">Lições</p>
-            <p className="text-4xl font-display">{totalCompleted}</p>
-          </div>
-        </div>
+      <div className="mb-12 grid grid-cols-1 gap-6 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6">
+        <DashboardStatCard
+          className="bg-brand"
+          icon={<BookOpen size={24} />}
+          iconClassName="bg-white"
+          label="Lições"
+          value={totalCompleted}
+        />
 
-        <div className="brutal-border p-6 bg-white flex items-center gap-4">
-          <div className="p-3 bg-brand brutal-border">
-            <Target size={24} />
-          </div>
-          <div>
-            <p className="text-sm font-bold uppercase opacity-70">Média</p>
-            <p className="text-4xl font-display">{avgScore}%</p>
-          </div>
-        </div>
+        <DashboardStatCard
+          className="bg-white"
+          icon={<Target size={24} />}
+          iconClassName="bg-brand"
+          label="Média"
+          value={`${avgScore}%`}
+        />
 
-        <div className="brutal-border p-6 bg-yellow-400 flex items-center gap-4">
-          <div className="p-3 bg-white brutal-border">
-            <Star size={24} />
-          </div>
-          <div>
-            <p className="text-sm font-bold uppercase opacity-70">Pontos</p>
-            <p className="text-4xl font-display">{progress.points}</p>
-          </div>
-        </div>
+        <DashboardStatCard
+          className="bg-yellow-400"
+          icon={<Star size={24} />}
+          iconClassName="bg-white"
+          label="Pontos"
+          value={progress.points}
+        />
 
-        <div className="brutal-border p-6 bg-dark text-white flex items-center gap-4">
-          <div className="p-3 bg-brand text-dark brutal-border">
-            <ShieldCheck size={24} />
-          </div>
-          <div>
-            <p className="text-sm font-bold uppercase opacity-70">Habilidades dominadas</p>
-            <p className="text-4xl font-display">
+        <DashboardStatCard
+          className="bg-dark text-white"
+          icon={<ShieldCheck size={24} />}
+          iconClassName="bg-brand text-dark"
+          label="Habilidades dominadas"
+          value={
+            <>
               {masteryOverview.masteredSkills}
-              <span className="text-lg">/{masteryOverview.totalSkills}</span>
-            </p>
-          </div>
-        </div>
+              <span className="text-[clamp(0.875rem,1.1vw,1.125rem)]">/{masteryOverview.totalSkills}</span>
+            </>
+          }
+        />
 
-        <div className="brutal-border p-6 bg-red-200 flex items-center gap-4">
-          <div className="p-3 bg-white brutal-border">
-            <AlertTriangle size={24} />
-          </div>
-          <div>
-            <p className="text-sm font-bold uppercase opacity-70">Dívida ativa</p>
-            <p className="text-4xl font-display">{masteryOverview.activeDebtSkills}</p>
-          </div>
-        </div>
+        <DashboardStatCard
+          className="bg-red-200"
+          icon={<AlertTriangle size={24} />}
+          iconClassName="bg-white"
+          label="Dívida ativa"
+          value={masteryOverview.activeDebtSkills}
+        />
 
-        <div className="brutal-border p-6 bg-sky-200 flex items-center gap-4">
-          <div className="p-3 bg-white brutal-border">
-            <RefreshCcw size={24} />
-          </div>
-          <div>
-            <p className="text-sm font-bold uppercase opacity-70">Recuperações</p>
-            <p className="text-4xl font-display">{recoveryOverview.pendingAssignments}</p>
-          </div>
-        </div>
+        <DashboardStatCard
+          className="bg-sky-200"
+          icon={<RefreshCcw size={24} />}
+          iconClassName="bg-white"
+          label="Recuperações"
+          value={recoveryOverview.pendingAssignments}
+        />
       </div>
 
       <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">

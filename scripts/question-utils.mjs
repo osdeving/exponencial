@@ -20,6 +20,7 @@ const FIELD_MAP = {
   recuperação: 'recoveryLessonIds',
 };
 
+// Normaliza acentos para aceitar "Pré-requisitos" e "pre-requisitos" no mesmo parser.
 function normalizeHeadingKey(value) {
   return value
     .normalize('NFD')
@@ -197,6 +198,7 @@ function parseSolution(rawValue, filePath, number) {
   };
 }
 
+// Parser do contrato *.questions.md: blocos "## Questao" com campos "###".
 export function parseQuestionFile(source, filePath, frontmatter) {
   if (!frontmatter.lessonId) {
     throw new Error(`Arquivo de questões sem lessonId em ${filePath}.`);

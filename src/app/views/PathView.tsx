@@ -1,4 +1,5 @@
 import { LearningPath, Lesson, Topic, UserProgress } from '../../types';
+import { getTopicContentStats } from '../../lib/contentStats';
 import { getFirstActionableLessonInTopic, getLessonsByTopic, getPathProgress, getTopicById, getTopicProgress } from '../../lib/learning';
 
 interface PathViewProps {
@@ -53,6 +54,7 @@ export function PathView({ path, progress, onBack, onLessonSelect, onStartPath, 
       <div className="grid gap-6">
         {pathTopics.map((topic) => {
           const topicProgress = getTopicProgress(topic.id, progress);
+          const topicContentStats = getTopicContentStats(topic.id);
           const nextPathLesson = getFirstActionableLessonInTopic(topic.id, progress);
           const hasRemainingLessons = getLessonsByTopic(topic.id).some((lesson) => !progress.completedLessons.includes(lesson.id));
 
@@ -62,6 +64,9 @@ export function PathView({ path, progress, onBack, onLessonSelect, onStartPath, 
                 <div>
                   <h3 className="text-3xl font-bold uppercase">{topic.title}</h3>
                   <p className="text-sm font-medium opacity-70">{topic.description}</p>
+                  <p className="mt-2 text-[10px] font-bold uppercase tracking-[0.2em] opacity-50">
+                    {topicContentStats.lessonCount} aulas · {topicContentStats.exerciseCount} exercícios
+                  </p>
                 </div>
                 <div className="flex flex-wrap gap-3">
                   <button onClick={() => onTopicSelect(topic)} className="brutal-btn bg-white text-xs">
